@@ -1,0 +1,2547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app31.us.archive.org';v.server_ms=783;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20100606080449", "www.jsonline.com:80");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<title>Changes keep Milwaukee County health costs down  - JSOnline</title>
+<link href="http://web.archive.org/web/20100606080449im_/http://media.journalinteractive.com/designimages/JSO_favicon2.ico" rel="icon" type="image/x-icon"/>
+<link href="http://web.archive.org/web/20100606080449im_/http://media.journalinteractive.com/designimages/JSO_favicon2.ico" rel="icon" type="image/icon"/>
+<link href="http://web.archive.org/web/20100606080449im_/http://media.journalinteractive.com/designimages/JSO_fa.png2.ico" rel="icon" type="image/png"/>
+<link href="http://web.archive.org/web/20100606080449im_/http://media.journalinteractive.com/designimages/JSO_favicon2.ico" rel="icon" type="image/vnd.microsoft.icon"/>
+<link href="http://web.archive.org/web/20100606080449im_/http://media.journalinteractive.com/designimages/JSO_favicon2.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+<script src="/web/20100606080449js_/http://www.jsonline.com/g/js/prototype.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	//Objects to interact with server
+	var CMSUtil = {
+		interactWithServer: function(form, isAjax, buildObjectFunction, 
+									returnFunction, action, servlet, 
+									extraFields){
+			if(isAjax == true && returnFunction != null){
+            	var queryString = Form.serialize(form);
+				if(queryString != null){
+					if(action != null){
+						queryString += "&action=" + action + "&isAjax=Y";	
+					}else{
+            			queryString += "&isAjax=Y";
+            		}
+            		if(extraFields){
+            			queryString += extraFields;
+            		}
+            		
+            		var handlerFunction = function(originalRequest){
+            			var response = "(" + originalRequest.responseText + ")";
+            			response = eval(response);
+						buildObjectFunction(response);	
+            			returnFunction(response);    
+            		}    
+           
+					var myAjax = new Ajax.Request(servlet,
+    					{method: 'post', postBody: queryString, onComplete: handlerFunction}
+					);
+				}
+            }else{
+ 				this.submitUserFormNoAJAX(form, action, servlet); 
+			}
+		},
+		
+		submitUserFormNoAJAX: function(form, action, servlet){
+			if(servlet == null) return null;
+    	    form.action = servlet;
+
+    	    if(action != null) {
+    	    	var actionField = document.createElement('input');
+    	    	actionField.setAttribute('name', 'action');
+  					actionField.setAttribute('type', 'hidden');
+  					actionField.value = action;
+    	    	form.appendChild(actionField);
+    	    	
+    	    }
+    		form.submit();
+    	}
+    	
+	}
+	
+	var Action = {
+		attachAction: function(form, isAjax, returnFunction){
+			var action = "";
+			if(isAjax){
+				action = "attachActionAJAX";
+			} else {
+				action = "attachAction";
+			}
+			CMSUtil.interactWithServer(form, isAjax, Action.buildAction, returnFunction, action, "/s");
+		},
+		
+		deleteAction: function(form, isAjax, returnFunction){
+        	var action = "";
+        	if(isAjax){
+        		action = "deleteActionAJAX";
+        	} else {
+        		action = "deleteAction";
+        	}
+        	CMSUtil.interactWithServer(form, isAjax, Action.deletedAction, returnFunction, action, "/s");
+        },
+		
+		
+		buildAction: function(response){
+			if(response.success == true){
+				Action.actionID = response.actionID;
+				Action.contentID = response.contentID;
+				Action.commentID = response.commentID;
+				Action.contentTypeID = response.contentTypeID;
+				Action.actionDate = response.actionDate;
+				Action.userID = response.userID;
+				Action.actionType = response.actionType;
+				Action.slugLine = response.slugLine;
+			} else {
+			 	Action.error = response.error;
+			}
+		},
+		
+		deletedAction: function(response){
+			if(response.success == true){
+				Action.actionID = response.actionID;
+			} else {
+				Action.error = response.error;
+			}
+		}
+	}
+	
+	var Ranking = {
+		insertRanking: function(form, isAjax, returnFunction){
+			CMSUtil.interactWithServer(form, isAjax, Ranking.buildRanking, returnFunction, "rankComment", "/p");
+		},
+		
+		buildRanking: function(response){
+			if(response.success == true){
+				Ranking.success = true;
+				Ranking.objectId = response.objectId;
+				Ranking.type = response.type;
+				Ranking.ipAddress = response.ipAddress;
+				Ranking.rankDate = response.rankDate;
+				Ranking.upRanking = response.upRanking;
+				Ranking.downRanking = response.downRanking;
+			} else {
+				Ranking.error = response.error;
+			}
+		}
+			
+	}
+			
+	var Rating = {
+		addRating: function(form, isAjax, returnFunction){
+			var action = "";
+			if(isAjax){
+				action = "addRatingAJAX";
+			} else {
+				action = "addRating";
+			}
+            CMSUtil.interactWithServer(form, isAjax, Rating.buildRating, returnFunction, action, "/s");
+        },
+        
+        insertRating: function(form, isAjax, returnFunction){
+			var extraQueryStr = null;
+			if(isAjax){
+				extraQueryStr = getFieldsForForm();
+			}else{
+				addFieldsToForm(form);
+			}
+			CMSUtil.interactWithServer(form, isAjax, Comment.buildComment, returnFunction, "insertComment", "/c", extraQueryStr);
+		},
+        
+		buildRating: function(response){
+			if(response.success == true){
+				Rating.id = response.id;
+				Rating.rating = response.rating;
+				Rating.upvote = response.upvote;
+				Rating.downvote = response.downvote;
+				Rating.type = response.type;
+				Rating.date = response.date;
+				Rating.ipAddress = response.ipAddress;
+			}else{
+				Rating.error = response.error;
+			}
+		}
+		
+	}
+	
+	var User = {
+		createUser: function(form, isAjax, returnFunction){	
+		    var action = "";
+			if(isAjax){
+				action = "createProfileAJAX";
+			} else {
+				action = "createProfile";
+			}
+            CMSUtil.interactWithServer(form, isAjax, User.buildUser, returnFunction, action, "/s");
+		},
+		
+		loginUser: function(form, isAjax, returnFunction){
+			var action = "";
+			if(isAjax){
+				action = "doLoginProfileAJAX";
+			} else {
+				action = "doLoginProfile";
+			}
+        	CMSUtil.interactWithServer(form, isAjax, User.buildUser, returnFunction, action, "/s");
+		},
+		
+		updateUser: function(form, isAjax, returnFunction){
+			var action = "";
+			if(isAjax){
+				action = "updateProfileAJAX";
+			} else {
+				action = "updateProfile";
+			}
+			CMSUtil.interactWithServer(form, isAjax, User.buildUser, returnFunction, action, "/s");
+		},
+		
+		updateRegistration: function(form, isAjax, returnFunction){
+			var action = "";
+			if(isAjax){
+				action = "updateRegistrationAJAX";
+			} else {
+				action = "updateReg";
+			}
+			CMSUtil.interactWithServer(form, isAjax, User.buildUser, returnFunction, action, "/s");
+		},
+		
+		updateProfilePassword: function(form, isAjax, returnFunction){
+			var action = "";
+			if(isAjax){
+				action = "updateProfilePasswordAJAX";
+			} else {
+				action = "updateProfilePassword";
+			}
+			CMSUtil.interactWithServer(form, isAjax, User.buildUser, returnFunction, action, "/s");
+		},
+		
+		insertProfilePic: function(form, isAjax, returnFunction){
+			var action = "";
+			if(isAjax){
+				//not implemented as of yet
+				return;
+				//action = "updateImageAJAX";
+			} else {
+				action = "updateImage";
+			}
+			CMSUtil.interactWithServer(form, isAjax, User.buildUser, returnFunction, action, "/s");
+		},
+		
+		buildUser: function(response){
+			if(response.success == true){
+				User.username = response.username;
+				User.email = response.email;
+				User.firstName = response.firstName;
+				User.lastName = response.lastName;
+				User.birthDate = response.birthDate;
+				User.createDate = response.createDate;
+				User.title = response.title;
+				User.company = response.company;
+				User.address1 = response.address1;
+				User.address2 = response.address2;
+				User.city = response.city;
+				User.state = response.state;
+				User.zipcode = response.zipcode;
+				User.country = response.country;
+				User.custom1 = response.custom1;
+				User.custom2 = response.custom2;
+				User.custom3 = response.custom3;
+				User.custom4 = response.custom4;
+				User.custom5 = response.custom5;
+				User.custom6 = response.custom6;
+				User.custom7 = response.custom7;
+				User.custom8 = response.custom8;
+				User.custom9 = response.custom9;
+			}else{
+				User.error = response.error;
+				User.errorMsg = response.errorMsg;
+				User.errorCode = response.errorCode;
+			}
+		}
+	}
+	
+	var UserContent = {
+		insertContent: function(form, isAjax, returnFunction){
+			var extraQueryStr = null;
+			
+			if(isAjax){
+				extraQueryStr = getFieldsForForm();
+			}else{
+				addFieldsToForm(form);
+			}
+			UserContent.messages = null;
+			CMSUtil.interactWithServer(form, isAjax, UserContent.buildContent, returnFunction, extraQueryStr, "/d");
+		},
+		
+		editContent: function(form, isAjax, returnFunction){
+			CMSUtil.interactWithServer(form, isAjax, UserContent.buildContent, returnFunction, null, "/d");
+		},
+		
+		buildContent: function(response){
+			if(response.success == true){
+				for (var i=0; i< response.fields.length; i++){
+					var field = response.fields[i];
+					UserContent[field] = response[field];
+				}
+				UserContent.contentID = response.contentID;
+				UserContent.contentType = response.contentType;
+				UserContent.title = response.title;
+				UserContent.status = response.status;
+			} else {
+				UserContent.error = response.error;
+				UserContent.messages = response.messages;
+			}
+		}
+	}
+	
+	var Comment = {
+	
+		insertComment: function(form, isAjax, returnFunction){
+			var extraQueryStr = null;
+			if(isAjax){
+				extraQueryStr = getFieldsForForm();
+			}else{
+				addFieldsToForm(form);
+			}
+			CMSUtil.interactWithServer(form, isAjax, Comment.buildComment, returnFunction, "insertComment", "/c", extraQueryStr);
+		},
+	
+		deleteComment: function(form, isAjax, returnFunction){
+			var extraQueryStr = null;
+			if(isAjax){
+				extraQueryStr = getFieldsForForm();
+			}else{
+				addFieldsToForm(form);
+			}
+			CMSUtil.interactWithServer(form, isAjax, Comment.nullifyComment, returnFunction, "deleteComment", "/c", extraQueryStr);
+		},
+		
+		updateComment: function(form, isAjax, returnFunction){
+			var extraQueryStr = null;
+			if(isAjax){
+				extraQueryStr = getFieldsForForm();
+			} else {
+				addFieldsToForm(form);
+			}
+			CMSUtil.interactWithServer(form, isAjax, Comment.buildComment, returnFunction, "updateComment", "/c", extraQueryStr);
+		},
+		
+		buildComment: function(response){
+						Comment.name = null;
+			Comment.website = null;
+			Comment.title = null;
+			Comment.comment = null;
+			Comment.email = null;
+			Comment.rating = null;
+			Comment.ratingType = null;
+			Comment.commentType = null;
+			Comment.flagged = false;
+			Comment.isAuthor = false;
+			Comment.error = null;
+			Comment.status = null;
+			Comment.level = 0;
+			Comment.parentID = 0;
+			Comment.threadID = 0;
+			Comment.id = 0;
+			Comment.extID = null;		
+		
+			if(response.success == true){
+				Comment.name = response.name;
+				Comment.comment = response.comment;
+				Comment.email = response.email;
+				Comment.website = response.website;
+				Comment.title = response.title;
+				Comment.isAuthor = response.isAuthor;
+				Comment.flagged = response.flagged;
+				Comment.status = response.status;
+				Comment.rating = response.rating;
+				Comment.ratingType = response.ratingType;
+				Comment.commentType = response.commentType;
+				if(Comment.status == "AUTHOR"){
+					Comment.isAuthor = true;
+				} else if(Comment.status != "APPROVED") {
+					Comment.flagged = true;
+				}
+			    Comment.id = response.id;
+			    Comment.threadID = response.threadID;
+			    Comment.parentID = response.parentID;
+			    Comment.level = response.level;
+			    Comment.extID = response.extID;
+			} else {
+				Comment.error = response.error;
+			}
+		},
+		
+		nullifyComment: function(response){
+			if(response.success == true){
+				Comment.comment = null;
+				Comment.email = null;
+				Comment.website = null;
+				Comment.title = null;
+				Comment.isAuthor = null;
+				Comment.flagged = null;
+				Comment.status = null;
+				Comment.id = 0;
+			    Comment.threadID = 0;
+			    Comment.parentID = 0;
+			    Comment.level = 0;
+			    Comment.extID = null;
+			} else {
+				Comment.error = response.error;
+			}
+		}
+	}	
+	
+	var Clickability = Clickability || {};
+	Clickability.SMTK = {
+		kP : 0,
+		aT : 0,
+		myInterval : null,
+		xPos : -1,
+		yPos : -1,
+		firstX : -1,
+		firstY : -1,
+		intervals : 0,
+		cid :  92563519 ,
+		did :  380769 ,
+		d : 0,
+		mT : 0
+	}
+	Clickability.SMTK.myInterval = window.setInterval(timedMousePos,250);
+	document.onkeypress = lK;
+	window.onload = rAT;
+
+		Clickability.Comment = Comment;
+		
+		var p;
+	var kP = 0;
+	var	aT = 0;
+	var myInterval = Clickability.SMTK.myInterval;
+	var xPos = -1;
+	var yPos = -1;
+	var firstX = -1;
+	var firstY = -1;
+	var intervals = 0;
+	var d = 0;
+	var mT = 0;
+	var cid =  92563519 ;
+	var did =  380769 ;	
+	
+	function getMousePos(p) {
+		if(!p)var p = window.event;
+		if (p.pageX || p.pageY) {
+			Clickability.SMTK.xPos = p.pageX;
+			Clickability.SMTK.yPos = p.pageY;
+		} else if (p.clientX || p.clientY) {
+			Clickability.SMTK.xPos = p.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+			Clickability.SMTK.yPos = p.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+		}
+	}
+
+	
+	function lK() {	
+		Clickability.SMTK.kP++;
+	}
+
+	function rAT() {
+		Clickability.SMTK.aT = new Date();
+	}
+		
+	function timedMousePos() {
+		document.onmousemove = getMousePos;
+		if (Clickability.SMTK.xPos >= 0 && Clickability.SMTK.yPos >= 0) {
+			var newX = Clickability.SMTK.xPos;
+			var newY = Clickability.SMTK.yPos;
+			Clickability.SMTK.intervals++;
+		}
+		if (Clickability.SMTK.intervals == 1) {
+			Clickability.SMTK.firstX = Clickability.SMTK.xPos;
+			Clickability.SMTK.firstY = Clickability.SMTK.yPos;
+		} else if (Clickability.SMTK.intervals == 2) {
+			clearInterval(Clickability.SMTK.myInterval);
+			calcDistance(Clickability.SMTK.firstX,Clickability.SMTK.firstY,newX,newY);	
+		}
+	}
+
+
+	function calcDistance(aX,aY,bX,bY){
+		Clickability.SMTK.mT = Math.round(Math.sqrt(Math.pow(aX-bX,2)+Math.pow(aY-bY,2)));
+	}
+	
+	function getFieldsForForm(){
+		var sT = new Date();
+		Clickability.SMTK.d = sT - Clickability.SMTK.aT;
+		var queryString = "&";
+		queryString += "mT=" + Clickability.SMTK.mT;
+     	queryString += "&d=" + Clickability.SMTK.d;
+     	queryString += "&kP=" + Clickability.SMTK.kP;
+     	if(Clickability.SMTK.cid)queryString += "&cid=" + Clickability.SMTK.cid;
+     	if(Clickability.SMTK.did)queryString += "&did=" + Clickability.SMTK.did;
+     	queryString += "&socialMedia=Y";
+	    return queryString;
+	}
+		
+	function addFieldsToForm(formObj, redirect) {
+		var sT = new Date();
+		Clickability.SMTK.d = sT - Clickability.SMTK.aT;
+		var mTField = document.createElement('input');
+		var dField = document.createElement('input');
+		var kPField = document.createElement('input');
+  		var cidField = document.createElement('input');
+  		var didField = document.createElement('input');
+  		var socialMedia = document.createElement('input');
+  	
+  	
+  		socialMedia.setAttribute('name','socialMedia');
+		socialMedia.setAttribute('type', 'hidden');
+		
+  		mTField.setAttribute('name','mT');
+		mTField.setAttribute('type', 'hidden');
+  	  
+		dField.setAttribute('name', 'd');
+		dField.setAttribute('type', 'hidden');
+  	  
+		kPField.setAttribute('name', 'kP');
+		kPField.setAttribute('type', 'hidden');
+  	
+		cidField.setAttribute('name', 'cid');
+		cidField.setAttribute('type', 'hidden');
+  	
+  		didField.setAttribute('name', 'did');
+  		didField.setAttribute('type', 'hidden');	
+  	
+  		if(redirect != null) {
+  			var pathField = document.createElement('input');
+  			pathField.setAttribute('name', 'path');
+  			pathField.setAttribute('type', 'hidden');
+  			pathField.value = redirect;
+  			formObj.appendChild(pathField);
+  		}
+  		mTField.value = Clickability.SMTK.mT;
+		dField.value = Clickability.SMTK.d;
+		kPField.value = Clickability.SMTK.kP;
+		cidField.value = Clickability.SMTK.cid;
+		didField.value = Clickability.SMTK.did;
+		socialMedia.value = "Y";
+
+		formObj.appendChild(dField);
+		formObj.appendChild(kPField);
+		formObj.appendChild(mTField);
+		formObj.appendChild(cidField);
+		formObj.appendChild(didField);
+		formObj.appendChild(socialMedia);
+	}		
+	
+	//helper functions
+	
+	function insertComment(form, isAjax, returnFunction, showError){
+		return submitToServer(Comment.insertComment, "Unable to insert comment", form, isAjax, returnFunction, showError);
+	}
+	
+	function updateComment(form, isAjax, returnFunction, showError){
+		return submitToServer(Comment.updateComment, "Unable to update comment", form, isAjax, returnFunction, showError);
+	}
+	
+	function deleteComment(form, isAjax, returnFunction, showError){
+		return submitToServer(Comment.deleteComment, "Unable to delete comment", form, isAjax, returnFunction, showError);
+	}
+	
+	function createUser(form, isAjax, returnFunction, showError){
+		return submitToServer(User.createUser, "Unable to create user", form, isAjax, returnFunction, showError);
+	}
+	
+	function updateUser(form, isAjax, returnFunction, showError){
+		return submitToServer(User.updateUser, "Unable to update user", form, isAjax, returnFunction, showError);
+	}
+	
+	function loginUser(form, isAjax, returnFunction, showError){
+		return submitToServer(User.loginUser, "Unable to login user", form, isAjax, returnFunction, showError);
+	}
+	
+	function insertUserContent(form, isAjax, returnFunction, showError){
+		return submitToServer(UserContent.insertContent, "Unable to insert content item", form, isAjax, returnFunction, showError);
+	}
+	
+	function editUserContent(form, isAjax, returnFunction, showError){
+		return submitToServer(UserContent.editContent, "Unable to edit content item", form, isAjax, returnFunction, showError);
+	}
+	
+	function insertProfilePic(form, isAjax, returnFunction, showError){
+		return submitToServer(User.insertProfilePic, "Unable to upload profile photo", form, isAjax, returnFunction, showError);
+	}
+	
+	function addRating(form, isAjax, returnFunction, showError){
+		return submitToServer(Rating.addRating, "Unable to add rating", form, isAjax, returnFunction, showError);
+	}
+	
+	function insertRating(form, isAjax, returnFunction, showError){
+		return submitToServer(Rating.insertRating, "Unable to insert rating", form, isAjax, returnFunction, showError);
+	}
+	
+	function attachAction(form, isAjax, returnFunction, showError){
+		return submitToServer(Action.attachAction, "Unable to attach action", form, isAjax, returnFunction, showError);
+	}
+	
+	function deleteAction(form, isAjax, returnFunction, showError){
+		return submitToServer(Action.deleteAction, "Unable to delete action", form, isAjax, returnFunction, showError);
+	}
+	
+	function insertRanking(form, isAjax, returnFunction, showError){
+		return submitToServer(Ranking.insertRanking, "Unable to insert ranking", form, isAjax, returnFunction, showError);
+	}
+	
+	function submitToServer(method, msg, form, isAjax, returnFunction, showError){
+		method(form, isAjax, returnFunction);
+		if(isAjax){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+</script>
+<style type="text/css">.loggedin{display:none !important;}.loggedout{display: none !important;}</style>
+<script language="javascript" src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/JSO_cookies.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+    function loadjscssfile(filename, filetype){
+        if (filetype=="js"){ //if filename is a external JavaScript file
+            var fileref=document.createElement('script')
+            fileref.setAttribute("type","text/javascript")
+            fileref.setAttribute("src", filename)
+        }
+        else if (filetype=="css"){ //if filename is an external CSS file
+            var fileref=document.createElement("link")
+            fileref.setAttribute("rel", "stylesheet")
+            fileref.setAttribute("type", "text/css")
+            fileref.setAttribute("href", filename)
+        }
+
+        if (typeof fileref!="undefined"){
+            document.getElementsByTagName("head")[0].appendChild(fileref)       
+        }
+    }
+
+    function modRule(showClassName){
+        if(!document.styleSheets)
+            return;
+
+        var thecss = (document.styleSheets[0].cssRules) ? document.styleSheets[0].cssRules : document.styleSheets[0].rules;
+
+        for(i=0; i < thecss.length; i++){
+            if(thecss[i].selectorText.toLowerCase()==showClassName)
+                thecss[i].style.cssText="display:block;";
+        }
+    }
+
+        
+    //alert(cookiejar.fetch("fakeuser"))
+    // If there is a UID cookie (means they are logged in), turn the loggedin styles on
+    if(cookiejar.fetch("UID") && cookiejar.fetch("fakeuser") == null){
+        modRule(".loggedin");   
+        // If UID, BUT no curUserInfo login cookie yet, means they've JUST logged in: call setLoginCookies to initialize the login cookies
+        if(cookiejar.fetch("curUserInfo") == null) {
+            loadjscssfile("http://web.archive.org/web/20100606080449/http://www.jsonline.com/templates/JSO_determine_login_status?c=n&ran=" + Math.floor(Math.random()*1000000), "js") 
+        }
+    }
+    
+    // If there is no longer a UID (means they are logged out), turn the loggedout styles on, and make sure the cookies we set upon login get cleared out
+    else if(cookiejar.fetch("UID") == null){
+        modRule(".loggedout");
+        cookiejar.crumble("curUserInfo");
+        cookiejar.crumble("UID");
+        
+            }
+    else{
+        modRule(".loggedout");
+        cookiejar.crumble("UID")
+        cookiejar.crumble("fakeuser")
+        cookiejar.crumble("curUserInfo");
+            }
+    
+    
+
+</script>
+<link href="http://web.archive.org/web/20100606080449cs_/http://www.jsonline.com/templates/JSO_common.css" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20100606080449cs_/http://www.jsonline.com/templates/JSO_layouts.css" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20100606080449cs_/http://www.jsonline.com/templates/JSO_pageparts.css" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20100606080449cs_/http://www.jsonline.com/templates/JSO.PagePart.Navigation.css" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20100606080449cs_/http://www.jsonline.com/templates/JSO.PagePart.ClassifiedSiteMap.css" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20100606080449cs_/http://www.jsonline.com/templates/JSO.PagePart.Footer.css" rel="stylesheet" type="text/css"/>
+<!--[if IE 7]>
+    <link type="text/css" rel="stylesheet" href="http://www.jsonline.com/templates/JSO_ie7.css" />
+    <![endif]-->
+<!--[if lte IE 7]>
+    <link type="text/css" rel="stylesheet" href="http://www.jsonline.com/templates/JSO_ie.css" />
+    <![endif]-->
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/templates/JSO_commonFunctions.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/jquery.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/jquery.omniture_link_tracking.js" type="text/javascript"></script>
+<link href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/rss/?c=y&amp;path=/news/milwaukee" rel="alternate" title="JSOnline Milwaukee News" type="application/rss+xml"/>
+<meta content="Changes keep Milwaukee County health costs down  - JSOnline" name="title"/>
+<meta content="Milwaukee County's employee health care costs have doubled over the past decade to almost $118 million last year, a major contributor to the budget crunch the county now faces. But just under the surface of that grim statistic lies another story - the reversal of a one-year fling with buying health insurance coverage to a self-insured program." name="description"/>
+<meta content="news" name="medium"/>
+<meta content="" name="keywords"/>
+<meta content="Steve Schultze" name="author"/>
+<meta content="JSO Article" name="pagetype"/>
+<meta content="2010-04-30T08:04:00-07:00" name="publishdate"/>
+<meta content="/News/Milwaukee County" name="pagesection"/>
+<script type="text/javascript">
+    //<![CDATA[
+    var siteId = 1;
+    var site = "jsonline.com";
+    var account = "jijsonline";
+    var sectionid = 380769;
+    var pageId = 92563519;
+    var category1 = "News";
+    var category2 = "Regional";
+    var category3 = "Milwaukee";
+    var category4 = "";
+    var btCategory = "News";
+    var section1 = "news";
+    var section2 = "newsmilwaukee";
+    var section3 = "";
+    var specialSection = "";
+    var type1 = "Article";
+    var type2 = "";
+    var pageName = "Changes keep Milwaukee County health costs down";
+    var author = "Steve Schultze of the Journal Sentinel";
+    var source = "Journal Sentinel";
+    var tags = "Region:Uncategorized, Brand:JS Online";
+    var demo = "";
+    var column = "";
+    var path = "/news/milwaukee/92563519.html";
+    var sReferral = "";
+    var system = "Clickability";
+    //]]>
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    yld_mgr = {};
+    yld_mgr.pub_id="21968629472";
+    yld_mgr.site_name="jsonline.com";
+    yld_mgr.request_type="ac";
+    yld_mgr.content_topic_id_list=['20276501'];
+    yld_mgr.site_section_name_list=['Article'];
+    yld_mgr.container_type="js";
+    
+    //yld_mgr.content_lang="";
+    //yld_mgr.ad_input_encoding="";
+    //yld_mgr.ad_output_encoding="";
+    //yld_mgr.audience_targeting="";
+    //yld_mgr.redirect_clk_wrapper="";
+    //yld_mgr.user_zip="";
+    //yld_mgr.user_state="";
+    //yld_mgr.clk_dest="";
+    //yld_mgr.cstm_sctn_list=[];
+    //yld_mgr.user_city="";
+    //yld_mgr.user_gender="";
+    //yld_mgr.user_age="";
+    //yld_mgr.user_dma="";
+    //yld_mgr.user_country="";
+    //yld_mgr.disable_content_send="";
+    //yld_mgr.user_income="";
+    yld_mgr.slots = {};
+    
+    yld_mgr.slots.lb_slot = {};
+    yld_mgr.slots.lb_slot.ad_size_list=["728x90"];
+    yld_mgr.slots.lb_slot.ad_delivery_mode="ipatf";
+    yld_mgr.slots.lb_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.lb_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.lb_bot_slot = {};
+    yld_mgr.slots.lb_bot_slot.ad_size_list=["728x90"];
+    yld_mgr.slots.lb_bot_slot.ad_delivery_mode="ipbtf";
+    yld_mgr.slots.lb_bot_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.lb_bot_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.tb_slot = {};
+    yld_mgr.slots.tb_slot.ad_size_list=["300x100"];
+    yld_mgr.slots.tb_slot.ad_delivery_mode="ipatf";
+    yld_mgr.slots.tb_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.tb_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.ws_slot = {};
+    yld_mgr.slots.ws_slot.ad_size_list=["160x600"];
+    yld_mgr.slots.ws_slot.ad_delivery_mode="ipstf";
+    yld_mgr.slots.ws_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.ws_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.bb_slot = {};
+    yld_mgr.slots.bb_slot.ad_size_list=["300x250"];
+    yld_mgr.slots.bb_slot.ad_delivery_mode="ipatf";
+    yld_mgr.slots.bb_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.bb_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.pencil_slot = {};
+    yld_mgr.slots.pencil_slot.ad_size_list=["1000x30"];
+    yld_mgr.slots.pencil_slot.ad_delivery_mode="ipatf";
+    yld_mgr.slots.pencil_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.pencil_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.peel_slot = {};
+    yld_mgr.slots.peel_slot.ad_size_list=["1x1"];
+    yld_mgr.slots.peel_slot.ad_delivery_mode="ipatf";
+    yld_mgr.slots.peel_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.peel_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.ll1_slot = {};
+    yld_mgr.slots.ll1_slot.ad_size_list=["150x90"];
+    yld_mgr.slots.ll1_slot.ad_delivery_mode="ipstf";
+    yld_mgr.slots.ll1_slot.cstm_content_cat_list=['LogoLinks1'];
+    yld_mgr.slots.ll1_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.ll2_slot = {};
+    yld_mgr.slots.ll2_slot.ad_size_list=["150x90"];
+    yld_mgr.slots.ll2_slot.ad_delivery_mode="ipstf";
+    yld_mgr.slots.ll2_slot.cstm_content_cat_list=['LogoLinks2'];
+    yld_mgr.slots.ll2_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.ll3_slot = {};
+    yld_mgr.slots.ll3_slot.ad_size_list=["150x90"];
+    yld_mgr.slots.ll3_slot.ad_delivery_mode="ipstf";
+    yld_mgr.slots.ll3_slot.cstm_content_cat_list=['LogoLinks3'];
+    yld_mgr.slots.ll3_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.ll4_slot = {};
+    yld_mgr.slots.ll4_slot.ad_size_list=["150x90"];
+    yld_mgr.slots.ll4_slot.ad_delivery_mode="ipstf";
+    yld_mgr.slots.ll4_slot.cstm_content_cat_list=['LogoLinks4'];
+    yld_mgr.slots.ll4_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.ll5_slot = {};
+    yld_mgr.slots.ll5_slot.ad_size_list=["150x90"];
+    yld_mgr.slots.ll5_slot.ad_delivery_mode="ipstf";
+    yld_mgr.slots.ll5_slot.cstm_content_cat_list=['LogoLinks5'];
+    yld_mgr.slots.ll5_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.ll6_slot = {};
+    yld_mgr.slots.ll6_slot.ad_size_list=["150x90"];
+    yld_mgr.slots.ll6_slot.ad_delivery_mode="ipstf";
+    yld_mgr.slots.ll6_slot.cstm_content_cat_list=['LogoLinks6'];
+    yld_mgr.slots.ll6_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.tile125_slot = {};
+    yld_mgr.slots.tile125_slot.ad_size_list=["125x125"];
+    yld_mgr.slots.tile125_slot.ad_delivery_mode="ipbtf";
+    yld_mgr.slots.tile125_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.tile125_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.newswatch_slot = {};
+    yld_mgr.slots.newswatch_slot.ad_size_list=["88x31"];
+    yld_mgr.slots.newswatch_slot.ad_delivery_mode="ipatf";
+    yld_mgr.slots.newswatch_slot.cstm_content_cat_list=['Newswatch_Tile'];
+    yld_mgr.slots.newswatch_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.tb_bot_slot = {};
+    yld_mgr.slots.tb_bot_slot.ad_size_list=["300x100"];
+    yld_mgr.slots.tb_bot_slot.ad_delivery_mode="ipbtf";
+    yld_mgr.slots.tb_bot_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.tb_bot_slot.content_type_list=['fn_news'];
+    
+    yld_mgr.slots.nw_bot_slot = {};
+    yld_mgr.slots.nw_bot_slot.ad_size_list=["250x30"];
+    yld_mgr.slots.nw_bot_slot.ad_delivery_mode="ipatf";
+    yld_mgr.slots.nw_bot_slot.cstm_content_cat_list=['Milwaukee'];
+    yld_mgr.slots.nw_bot_slot.content_type_list=['fn_news'];
+    //]]>
+</script>
+<script src="http://web.archive.org/web/20100606080449js_/http://e.yieldmanager.net/script.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/JI_advertise.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/JI_trafficTracking.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+    var s_code = s.t();
+    if (s_code)
+    document.write(s_code)//-->
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    if (navigator.appVersion.indexOf('MSIE') >= 0)
+    document.write(unescape('%3C') + '\!-' + '-')
+    //]]>
+</script>
+<noscript>
+<a href="http://web.archive.org/web/20100606080449/http://www.omniture.com/" title="Web Analytics"><img alt="" border="0" height="1" src="http://web.archive.org/web/20100606080449im_/http://jijsonline.122.2o7.net/b/ss/jijsonline/1/H.15.1--NS/0" width="1"/></a>
+</noscript> <!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.15.1. -->
+<!-- End Tracking Scripts -->
+</head>
+<body>
+<script type="text/javascript">
+        InsertTrackingPixel("http://web.archive.org/web/20100606080449/http://bh.contextweb.com/bh/set.aspx?action=add&advid=1521&token=JSOL2");
+    </script>
+<script language="Javascript">var js="0.0";</script><script language="Javascript1.0">js="1.0";</script><script language="Javascript1.1">js="1.1";</script><script language="Javascript1.2">js="1.2";</script><script language="Javascript1.3">js="1.3";</script><script language="Javascript1.4">js="1.4";</script><script language="Javascript1.5">js="1.5";</script><script language="Javascript1.6">js="1.6";</script><script language="Javascript1.7">js="1.7";</script><script language="Javascript1.8">js="1.8";</script><script language="Javascript1.9">js="1.9";</script><script language="javascript1.1" type="text/javascript"> 
+<!-- 
+var bb=new Image();var _ti=910;var _q="";var na=(navigator.appName=="Netscape");var ns=(navigator.appName.substring(0,9)=="Microsoft");var _qDate=new Date();var _r=(document.referrer.indexOf(getdomain(location))>-1?"":document.referrer);_q+="&5="+parseInt(_qDate.getTimezoneOffset());_q+="&35="+parseInt(_qDate.toString().indexOf("aylight")>-1?1:0);_q+="&6=92563519";_q+="&7=380769";_q+="&8="+encodeURIComponent(document.location);_q+="&9="+encodeURIComponent(_r);_q+="&10="+encodeURIComponent(document.title);_q+="&11="+encodeURIComponent(navigator.userAgent);_q+="&12="+encodeURIComponent((na?navigator.language:navigator.userLanguage));_q+="&13="+((navigator.javaEnabled()?'1':'0'));_q+="&14="+encodeURIComponent(js);if(document.cookie.indexOf("cc")==-1)document.cookie="cc=t;";_q+="&15="+((document.cookie.indexOf("cc")==-1)?"0":"1");_q+="&16="+encodeURIComponent((screen.width+'x'+screen.height));_q+="&17="+encodeURIComponent(((ns)?screen.colorDepth:screen.pixelDepth));_q+="&18="+encodeURIComponent(Math.random());_q+="&19="+_ti;bb.src="http://web.archive.org/web/20100606080449/http://s.clickability.com/s?"+_q;
+function setonclicks(a,b){var i=0;var retval=true;while(document.links[i]!=a){i++;}if(b.li[i])retval=b.li[i].oldonclick();bye(a);return retval;}
+function newonld(){if(hasonload)oldonld();lnks=new Object();var sze=document.links.length;lnks.li=new Array(sze);for (var i=0; i<sze; i++){if(document.links[i].onclick){lnks.li[i]=document.links[i];lnks.li[i].oldonclick=document.links[i].onclick;}eval("document.links[i].onclick=function(){return setonclicks(this,lnks);}");}}function bye(a){if(a.href.toLowerCase().indexOf('http')!=0)return true;if(getdomain(location)==getdomain(a))return true;if(a.href.toLowerCase().indexOf('http')!=0)return true;var _qc="http://web.archive.org/web/20100606080449/http://s.clickability.com/s?19=912";_qc+="&6=92563519";_qc+="&7=380769";_qc+="&18="+encodeURIComponent(Math.random());_qc+="&100="+a.href;_qc+="&101="+encodeURIComponent(a.text);var cc=new Image();if(na){cc.src=_qc;pc(100);}else cc.src=_qc;return true;}function pc(a){d = new Date(); while (1){m =new Date(); df = m-d;if( df > a ) {break;}}}function getdomain(a){var i=a.host.indexOf(":");return (i>=0)?a.host.substring(0,i):a.host;}if(self['setupalready']){var dosetup = false;alert('There are two $imware.tracker calls on this page. Please alert Client Services');}else{var dosetup = true;var hasonload=false;}if(dosetup && ((window.screen)||((new Array()).toSource)||((new Array()).shift&&ns))&&(navigator.userAgent.indexOf('Mac')<0)){if(window.onload){oldonld=window.onload;hasonload=true;}window.onload=newonld;var setupalready = true;}//-->
+</script><noscript>
+<img height="1" src="http://web.archive.org/web/20100606080449im_/http://s.clickability.com/s?19=990&amp;14=0&amp;6=92563519&amp;7=380769&amp;18=0.3203874312734962" width="1"/>
+</noscript>
+<div id="content_container">
+<!-- tempthing $tempthing -->
+<!-- tempthing.email $tempthing.email -->
+<div id="jsonline-topbar">
+<div class="section" id="jsonline-topbar-extra">
+<ul>
+<li><a class="first loggedout" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html">Login</a>
+<script type="text/javascript">if(subcookiejar.fetch("curUserInfo", "userName") && subcookiejar.fetch("curUserInfo", "userName") != "null") {
+            document.write("<a href=\"http://www.jsonline.com/s?action=editReg&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html\" class=\"first loggedin\">Welcome ");
+            document.write(jsonlineTruncate(subcookiejar.fetch("curUserInfo","userName"),9))
+            document.write("</a>");
+            }
+            </script>
+<span class="loggedin">
+<fb:name linked="true" uid="loggedinuser" useyou="false"></fb:name>
+</span>
+</li>
+<li><a class="loggedout" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=reg&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html">Register</a>
+<span class="loggedin">
+<script type="text/javascript">
+            if(subcookiejar.fetch("curUserInfo", "userName") && subcookiejar.fetch("curUserInfo", "userName") != "null") {
+            document.write("<a href=\"http://www.jsonline.com/s?action=doLogout&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html\" class=\"loggedin\">Logout</a>");
+            }
+            else
+            {
+            document.write("<a href=\"#\" onclick=\"doFacebookLogout()\" class=\"loggedin\">Logout</a>");
+            }
+            
+            function doFacebookLogout()
+            {
+                FB.logout(function(response) {
+                  window.location.reload()
+                });
+
+            }
+            </script>
+</span>
+</li>
+<li><a class="loggedout" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/newsletters.html">e-Newsletters</a><a class="loggedin" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=editReg&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html&amp;newsletterList=y">e-Newsletters</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/contests/">Contests</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemarketplace.com/coupons/">Coupons</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/placeanad/">Place an Ad</a></li>
+<li>
+<div id="jsonline-topbar-subscriber-services">
+<a class="last" href="http://web.archive.org/web/20100606080449/https://www.subscriber-service.com/mjs/">Subscriber Services</a> <img alt="" border="0" height="16" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/topBar_arrow_JSO.gif" title="" width="17"/>
+<ul>
+<li><a class="first" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/services/">Subscribe</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/services/">Manage subscription</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/https://www.subscriber-service.com/mjs/ns/nsSplash.asp?pid=100">Get Packer Plus</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://media.jsonline.com/documents/07-2475celebrationsorder.pdf">Celebrations</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/https://www.subscriber-service.com/mjs/SplashScreen.asp">e-Edition Subscription</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/https://www.subscriber-service.com/mjs/backorder.asp">Order Back Copies</a></li>
+<li><a class="last" href="http://web.archive.org/web/20100606080449/https://www.subscriber-service.com/mjs/ContactUs.asp">Contact Subscriber Services</a></li>
+</ul>
+</div> <!-- end of jsonline-topbar-subscriber-services -->
+</li>
+</ul>
+</div> <!-- end of jsonline-topbar-extra -->
+<div class="section" id="jsonline-topbar-search">
+<form action="http://web.archive.org/web/20100606080449/http://search.jsonline.com/Search.aspx" id="searchForm">
+<fieldset>
+<select name="t" style="margin-right:4px;">
+<option value="site">JSOnline</option>
+<option value="web">Web Search</option>
+<option value="jobs">Jobs</option>
+<option value="realestate">Real Estate</option>
+<option value="pets">Pets</option>
+</select>
+<input name="k" style="margin-right:4px;" type="text"/>
+<input name="h" type="hidden"/>
+<input alt="Search" name="s" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/btn_Search_JSO.gif" type="image"/>
+</fieldset>
+</form>
+<script language="javascript" type="text/javascript">
+            function updateSearchAction(list)
+            {
+                if (typeof(list) != "undefined" && list != null)
+                {
+                    var searchForm = document.getElementById("searchForm");
+                    if(list.value == "site")
+                        searchForm.action = "http://web.archive.org/web/20100606080449/http://search.jsonline.com/Search.aspx";
+                    else
+                        searchForm.action = "http://web.archive.org/web/20100606080449/http://www.jsonline.com/search/";
+                }  
+            }
+        </script>
+</div> <!-- end of jsonline-topbar-search -->
+</div> <!-- end of jsonline-topbar -->
+<script type="text/javascript">
+    //<![CDATA[
+    // search form in jsonline top bar
+    jsonlineTopbarSearch();
+
+    // Subscriber Services Dropdown
+    jsonlineTopbarSubscriberServicesDropdown();
+    //]]>
+</script>
+<!-- start refresh every 5 minutes -->
+<!-- last build: Sun Jun 06 01:04:48 PDT 2010 -->
+<!-- refresh kb placeholder -->
+<!-- refresh kb placeholder -->
+<!-- refresh kb placeholder -->
+<!-- refresh kb placeholder -->
+<!-- end refresh every 5 minutes -->
+<div class="topbar_weatherwatch" id="topbar_weatherwatch">
+<span class="topbar_title float_left">WEATHER WATCH:</span>
+<div class="topbar_current_forecast float_left">
+<span class="topbar_weatherwatch_city float_left"><a href="http://web.archive.org/web/20100606080449/http://weather.todaystmj4.com/forecasts/search/?zip=53201&amp;c=y&amp;h=3.0">Milwaukee, WI</a></span>
+<span class="topbar_current_temp float_left">60°</span>
+<img class="topbar_current_temp_image float_left" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/wea38x38-12.png"/>
+<span class="topbar_high_temp float_left">high <strong>60°</strong></span>
+<span class="topbar_temp_divider float_left">|</span>
+<span class="topbar_low_temp float_left">low <strong>60°</strong></span>
+<span class="topbar_forecast_details float_left"><a href="http://web.archive.org/web/20100606080449/http://weather.todaystmj4.com/forecasts/search/?zip=53201&amp;c=y&amp;h=3.0">Detailed Forecast</a> | <a href="http://web.archive.org/web/20100606080449/http://weather.todaystmj4.com/forecasts/7dayplanner/29814499.html">7 Day</a> | <a href="http://web.archive.org/web/20100606080449/http://weather.todaystmj4.com/maps/dopplerradar/29814019.html">Doppler Radar</a> | <a href="http://web.archive.org/web/20100606080449/http://weather.todaystmj4.com/alerts/alertdetail/?county=all">Alerts</a> | <a href="http://web.archive.org/web/20100606080449/http://weather.todaystmj4.com/blogs/weather/Weather_Wise.html">TMJ4 Weather Blog</a></span>
+<div class="topbar_weatherwatch_sponsor float_left">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/personals/"><img alt="eHarmony" border="0" height="31" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/t-eharmony-88x31.jpg" title="eHarmony" width="88"/></a>
+</div>
+<div class="clear_left"></div>
+</div>
+<div class="clear_left"></div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		//stormteam4 link tracking
+		$("#topbar_weatherwatch a").omniture_link_tracking({
+			linkName:"STORMTEAM4_LINKS"
+		});
+	});
+</script>
+<div class="noindex" id="masthead">
+<div id="jsonline-page-sponsor">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/"><img alt="JSOnline.com - Journal Sentinel" border="0" height="95" id="jsonline-logo" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/logo4_JSO.gif" title="JSOnline.com - Journal Sentinel" width="240"/></a>
+<div class="leaderboardAd" id="topBoxAd_Ext">
+<div class="ad Yahoo id44003987 size728x90">
+<script type="text/javascript">
+<!--
+yld_mgr.place_ad_here("lb_slot");
+// -->
+</script>
+</div>
+</div> <!-- end of topBoxAd_Ext -->
+</div> <!-- end of jsonline-page-sponsor -->
+<div id="navigation">
+<ul class="nav">
+<li class="first current">
+<a class="first" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/">Home</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/30720924.html">Got a Tip?</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/newswatch">NewsWatch</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://weather.todaystmj4.com/">Weather</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/obituaries">Obituaries</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/blogs">Blogs</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/usandworld">AP Wires</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.mobi/">Mobile</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/contact.html">Contact Us</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/rss">RSS</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/corrections.html">Corrections</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.511wi.gov/Web/TravelTimes.aspx">Traffic Times</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/milwaukee/34276114.html">Gas Prices</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://tickets.jsonline.com/">Tickets</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news">News</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/">Main Page</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/milwaukee">Milwaukee</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/waukesha">Waukesha</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/ozwash">Ozaukee/Washington</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/wisconsin">Wisconsin</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/statepolitics">Politics</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/obituaries/">Obituaries</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/education">Education</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/crime">Crime</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/specialreports">Special Reports</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog">Watchdog</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog">Main Page</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/watchdogreports">Watchdog Reports</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/blogs/news/dogged.html">Dogged Blog</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/pi">Public Investigator</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/blogs/news/pi.html">P.I. Blog</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/noquarter">No Quarter</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/dataondemand">Data on Demand</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/citizenwatchdog">Citizen Watchdog</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/opinion">Opinion</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/opinion">Main Page</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/opinion/#editorials">Editorials</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/opinion/#perspectives">Perspectives</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/blogs/news/acrosstheboard.html">Editorial Board Blog</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/opinion/#crossroads">Crossroads</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/james_E_causey.html">Causey</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/patrick_mcIlheran.html">McIlheran</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/mike_nichols.html">Nichols</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/opinion/#letters">Letters</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports">Sports</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports">Main Page</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/packers">Packers</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/brewers">Brewers</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/bucks">Bucks</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/badgers">UW</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/goldeneagles">MU</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/panthers">UWM</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/statecolleges">State</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/preps">Preps</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/golf">Golf</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/autoracing">Auto Racing</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/outdoors">Outdoors</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/hockey">Hockey</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/soccer">Soccer</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/video">Video</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://tickets.jsonline.com/sports.aspx">Tickets</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/business">Business</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/business">Main Page</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://hosted.ap.org/dynamic/external/ibd.morningstar.com/AP/AZList.html?CN=AP707&amp;SITE=WIMIL&amp;SECTION=DJSP_COMPLETE">Stocks Search</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://hosted.ap.org/dynamic/external/ibd.morningstar.com/AP/StockMover2.html?local=WIMIL&amp;CN=AP707&amp;SITE=WIMIL&amp;SECTION=DJSP_COMPLETE">Wisconsin Stocks</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/new_faces_new_places.html">New Faces, New Places</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/john_torinus.html">Torinus</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/tom_saler.html">Saler</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/newsletters">E-mail Newsletter</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a>Food &amp; Dining</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/dining">Dining</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/dining/29813284.html">Dining Map</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/blogs/lifestyle/readerspicks.html">Readers' Picks</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/food">Food and Cooking</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/recipes">Recipes</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/nancy_stohs.html">Stohs</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/sandy_damato.html">D'Amato</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/food">Food Fight</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/you_asked_for_it.html">You Asked For It</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/entertainment">Entertainment</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/entertainment/movies">Movies</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/entertainment/musicandnightlife">Music and Nightlife</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/entertainment/arts">Arts and Books</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/entertainment/tvradio">TV and Radio</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/columns/entertainment_calendar.html">Weekly Calendar</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://tickets.jsonline.com/">Tickets</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/puzzles">Puzzles</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/comics">Comics</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/horoscopes/">Horoscopes</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/lottery/">Lottery</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/contests/">Contests</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li>
+<a>Features</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/health">Health and Fitness</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/homeandgarden">Home and Garden</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/religion">Religion</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/travel">Travel</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/blogs/entertainment/stanmiller.html">Personal Technology</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/weddings">Weddings</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/advice">Advice</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sponsoredarticles/">Sponsored Articles</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li class="last">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/28472744.html">Photo/Video</a>
+<ul>
+<li class="date">Sunday, June 6, 2010</li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/28472744.html">Main Page</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/video">Local Video</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://video.ap.org/?f=WIMIL">National Video</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/sports/video">Sports Video</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/photosoftheweek">Photos of the Week</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/?type=staff">Staff Photo Galleries</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/?type=reader">Reader Photo Galleries</a></li>
+<!--
+				<li class="sitemapAnchor"><a href="#sitemap"><span class="sitemapAnchor">Sitemap</span></a></li>
+				-->
+</ul>
+</li>
+<li class="classNav">
+<a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemarketplace.com/">Marketplace</a>
+<ul>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemarketplace.com/giftcertificates/">Gift Cards</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemarketplace.com/promocodes/">Promo Codes</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/tickets">Tickets</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://print.coupons.com/alink.asp?go=13326mr2210">Coupons</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemarketplace.com/classifiedads/">Classified Ads</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemarketplace.com/specialsections/">Special Sections</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemarketplace.com/newspaperads/">Newspaper Ads</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://marketplace.milwaukeemarketplace.com/search/marketplace">Business Listings</a></li>
+</ul>
+</li>
+<li class="classNav realestate">
+<a href="/web/20100606080449/http://www.jsonline.com/homes">Homes</a>
+<ul>
+<li><a href="http://web.archive.org/web/20100606080449/http://realestate.jsonline.com/properties/ads/productsBanner.php">Place an Ad</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/homes">Featured Articles</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/mortgages">Mortgage Rates</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/rentals">Rentals</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://realestate.jsonline.com/properties/search/results.php?qAction=search&amp;amp;propertyType[]=Commercial/Industrial">Commercial</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://realestate.jsonline.com/properties/search/results.php?qAction=search&amp;amp;qOpenHouse=1">Open Houses</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://realestate.jsonline.com/properties/search/results.php?qAction=search&amp;amp;qKeywords=foreclosure">Foreclosures</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/newcondos">New Condos</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/newhomes">New Homes</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://realestate.jsonline.com/properties/search/results.php?qAction=search">For Sale</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/homes/"><img alt="House &amp; Home" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/house-and-home-small-logo.jpg"/></a></li>
+</ul>
+</li>
+<li class="classNav">
+<a href="/web/20100606080449/http://www.jsonline.com/carsoup">CarSoup</a>
+<ul>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/wheels/reviews/">Auto Reviews</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/about/reqinfo.asp">Interested in becoming a CarSoup dealer?</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/ClassifiedAdDisplay.asp?DisplayFormat=LIST&amp;Publisher=Journal%20Interactive&amp;FilterSet=7">Classified Ads</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/specials/">Specials</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/services/FinanceHome.asp">Financing</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/dealer/">Dealers</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/garage/">My Garage</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/services/">The Shop</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/sell/">Sell</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/used/">Used</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsonline.carsoup.com/new/">New</a></li>
+</ul>
+</li>
+<li class="classNav">
+<a href="http://web.archive.org/web/20100606080449/http://www.jobnoggin.com/">JobNoggin</a>
+<ul>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.jobnoggin.com/foremployers/">For Employers</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://www.scorelogix.com/jss_start.asp?pid=7">Job Security Score</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://career-advice.jobnoggin.monster.com/">Advice</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://my.jobnoggin.monster.com/Career-Management/Landing.aspx">Career Tools</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jobsearch.jobnoggin.monster.com/Browse.aspx">Browse Jobs</a></li>
+</ul>
+</li>
+<li class="classNav">
+<a class="first" href="/web/20100606080449/http://www.jsonline.com/classified">Classified</a>
+<ul>
+<li><a href="/web/20100606080449/http://www.jsonline.com/placeanad">Place an Ad</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/sponsoredarticles">Sponsored Articles</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsmm.p2ionline.com/jsmm/classifieds.aspx?view=class">Classified Ads</a></li>
+<li><a href="http://web.archive.org/web/20100606080449/http://jsmm.p2ionline.com/jsmm/classifieds.aspx?communityid=mycommunity&amp;categoryid=33011">Deals &amp; Steals</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/personals">eHarmony</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/pets/">Pets</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/rummage">Rummage</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/celebrations">Celebrations</a></li>
+<li><a href="/web/20100606080449/http://www.jsonline.com/deathnotices">Death Notices</a></li>
+</ul>
+</li>
+</ul>
+</div> <!-- end #navigation -->
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/JSO_superfish.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/JSO_bgiframe2.1.1.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/JSO_jquery.hoverIntent.js" type="text/javascript"></script>
+<script type="text/javascript">
+	//<![CDATA[
+	// top navigation
+	$(".nav").superfish({
+		pathClass: 'current',
+		delay: 20000,
+		animation: {opacity:'show'}
+	});
+	//]]>
+</script>
+</div> <!-- end of masthead -->
+<div class="contentblock">
+<div align="center" id="peelad">
+</div> <!-- end of peelad -->
+<!--startclickprintinclude-->
+<div class="left_column">
+<div class="page_header">
+<div class="breadcrumb">
+<a href="/web/20100606080449/http://www.jsonline.com/">Home</a>
+                                                                
+
+                     » 
+                    <a href="/web/20100606080449/http://www.jsonline.com/news">News</a>
+
+                                                                
+
+                     » 
+                    <a href="/web/20100606080449/http://www.jsonline.com/news/milwaukee">Milwaukee County</a>
+</div>
+<a href="/web/20100606080449/http://www.jsonline.com/rss?c=y&amp;path=/news/milwaukee"><img border="0" height="16" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/feed-icon-16x16_JSO.gif" width="16"/></a> Milwaukee County 
+    </div>
+<!-- Article Content -->
+<div class="main_article" id="mainContent">
+<span fd-id="default" fd-type="start"></span>
+<!-- Top banner image here when used -->
+<h1 class="headline">Changes keep Milwaukee County health costs down </h1>
+<p class="byline">
+                                
+
+			By <a href="http://web.archive.org/web/20100606080449/mailto:sschultze@journalsentinel.com">Steve Schultze</a> of the Journal Sentinel							
+            </p>
+<div>
+<p class="storyTimestamp"><span class="timestamp">Posted: April 30, 2010</span> |<span class="comments"><a href="#comments">(14) Comments</a></span></p>
+<!--startclickprintexclude-->
+<div class="collateral_article_content">
+<div class="sidebar">
+<div class="side_section_container graphic">
+<div class="side_container_01">
+<div class="side_container_01_content">
+<a href="http://web.archive.org/web/20100606080449/http://media.journalinteractive.com/images/COUNTY01G.jpg"><img alt="" border="0" height="700" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/185*700/COUNTY01G.jpg" title="" width="185"/></a>
+<div class="caption">Click to enlarge</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--endclickprintexclude-->
+<p>Milwaukee County's employee health care costs have doubled over the past decade to almost $118 million last year, a major contributor to the budget crunch the county now faces.</p>
+<p>But just under the surface of that grim statistic lies another story - the reversal of a one-year fling with buying health insurance coverage to a self-insured program. The move has reined in increases that would have had an even more crippling effect on services. Absent those savings, the county would be faced with layoffs of hundreds more workers, said Steven Kreklow, the county budget director.</p>
+<p>Reverting to a self-insured system - coupled with negotiated savings with a new health care administrator, new wellness programs and higher employee costs - has kept cost increases $100 million lower than they otherwise would have risen, county officials said.</p>
+<p>The $100 million figure covers reduced costs for 2006 through 2009.</p>
+<p>The trend has provided some breathing room and political cover in a budget that otherwise has become an ever-tightening straitjacket, as layoffs, furloughs and spending freezes have dominated the news.</p>
+<p>The health insurance changes included an estimated $20 million in lower costs in 2009, for reasons not yet fully understood but nonetheless appreciated.</p>
+<p>"This was a true ray of sunshine for us," said David Arena, the county's employee benefits manager.</p>
+<p>The county had been counting on a health insurance savings of about $8 million or $9 million for 2009. The greater savings allowed County Executive Scott Walker last month to announce a year-end surplus of nearly $9 million, something he's touting in his Republican bid for governor.</p>
+<p>The county's health care dividend has spawned an unusual round of congratulation in an often prickly political environment. Walker and County Board Chairman Lee Holloway each credit the other - in addition to themselves - for seeking changes that have paid off in lower costs.</p>
+<p>Walker and Holloway agreed to appoint a study group of county staffers in mid-2006 after county auditors raised concerns about a health care contract the county had signed less than a year earlier. Holloway also pushed through a bureaucratic change creating a separate Employee Benefits Division, to raise the county's emphasis and expertise on health care costs.</p>
+<p>The 2006 move first shifted the county to outside insurance coverage for its lower-cost HMO plan and its more traditional preferred provider plan. The rationale for the shift was to get the predictability of annual cost boosts set by contract with WPS Health Insurance, but the deal included annual increases that seemed exorbitant, said County Auditor Jerome Heer.</p>
+<p>"We traded off good pricing for predictability," Heer said, which he called "a bad decision."</p>
+<p>With rising concern over the deal, the county brought in a new consultant to review its insurance setup. Stuart Piltch and his firm, Cambridge Advisory Group, played a key role in the study committee and in subsequent negotiations in which the county exited its WPS deal, hired United Health Care and converted back to being self-insured, according to Heer.</p>
+<p>The insurance pact he retooled "was not a well-conceived deal," Piltch said.</p>
+<p>The county has paid Cambridge more than $800,000 for its work on health care, and the firm also has been hired to review 2009 insurance claims to better understand reasons for the unexpectedly large savings. Kreklow said it's not clear yet how much of the savings might be random - caused, for example, by fewer expensive illnesses among workers and retirees.</p>
+<p>Wellness provisions added in 2008 also were credited with helping control costs and with having potential for additional savings. Richard Abelson, executive director of the county's largest union, said the push for that came from the union and was resisted initially by county negotiators.</p>
+<p>Piltch said there's potential for more savings, perhaps through greater use of wellness programs and a more competitive market for a third-party administrator that handles the county's health claims.</p>
+<p>Walker is pushing for union concessions in the form of higher employee health insurance costs that would also lower future costs, said Kreklow.</p>
+</div>
+</div>
+<!-- End Article Content -->
+<span fd-id="default" fd-type="end"></span>
+<!--startclickprintexclude-->
+<div class="noindex" id="comments">
+<div class="header">
+<div class="title">
+<h3><a href="#comments">14 Comments</a></h3>
+<div class="extra">
+<a class="white_button" href="#postComment"><span>Post a Comment</span></a>
+</div> <!-- end of extra -->
+</div> <!-- end of title -->
+<div class="extra">
+<div class="sorting">Sort by: <span><strong>Oldest</strong></span> | <a href="?sort=last+to+first#comments">Newest</a> | <a href="?sort=most+thumbs+up#comments">Most Thumbs Up</a></div> <!-- end of sorting -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+<script type="text/javascript">
+            //<![CDATA[
+            function reportAbuse(commentId)
+            {
+                 window.open("/templates/JSO.Page.AbuseReport?content=92563519&comment=" + commentId,"_blank","width=600, height=500");
+            }
+
+            function setRanking(ranking,commentId)
+            {
+                 var frm = document.getElementById("rankingform");
+                 if (ranking == "up")
+                 {
+                    frm.upranking.value = "true";
+                    frm.downranking.value = "false";
+                 }
+                 else
+                 {
+                    frm.upranking.value = "false";
+                    frm.downranking.value = "true";
+                 }
+                 frm.commentID.value = commentId;
+                 //alert("frm.commentID.value = " + frm.commentID.value + "\nfrm.contentID.value = " + frm.contentID.value + "\nranking = " + ranking + "\nfrm.upranking.value = " + frm.upranking.value + "\nfrm.downranking.value = " + frm.downranking.value);
+                 try
+                 {
+                    return insertRanking(frm);
+                 }
+                 catch (e)
+                 {
+                    alert("setRanking ERROR: " + e);
+                    alert("setRanking ERROR description: " + e.description);
+                    return false;
+                 }
+            }
+                             var subscribedUsername = subcookiejar.fetch("curUserInfo", "userName");
+                        var subscribedOldScreenName = subcookiejar.fetch("curUserInfo", "oldScreenName");
+            if((subscribedUsername == null)||(subscribedUsername == "null")||subscribedUsername == "")
+            {
+                 subscribedUsername = subscribedOldScreenName;
+            }
+            if((typeof username == "undefined")||(username == null)||(username == "null"))
+            {
+                 subscribedUsername = "";
+            }
+            //]]>
+        </script>
+<form id="rankingform" method="post">
+<input name="upranking" type="hidden"/>
+<input name="downranking" type="hidden"/>
+<input name="commentID" type="hidden" value=""/>
+<input name="contentID" type="hidden" value="92563519"/>
+<input name="sAction" type="hidden" value="rankComment"/>
+<input id="rurl" name="rurl" type="hidden" value="/news/milwaukee/92563519.html?a=a"/>
+</form>
+<script type="text/javascript">
+            //<![CDATA[
+            var randomnumber=Math.floor(Math.random()*10001);
+            document.getElementById('rurl').value = document.getElementById('rurl').value + "&refresh=" + randomnumber + "#comments";
+            //]]>
+        </script>
+<ol>
+<li id="comment42347582">
+<div class="header">
+<h4><a href="#comment42347582" title="Permanent link to this comment"><span class="commenter">tazzy1</span> - <span class="timestamp">Apr 30, 2010 10:30 PM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42347582)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42347582" onclick="setRanking('up',42347582);">1</a>
+<a class="rankdown" href="#comment42347582" onclick="setRanking('down',42347582);">1</a>
+<a class="bubble" href="#comment42347582" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">1</span>
+<span class="rankdown">1</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+With this plan workers will be PAYING (WORKING FOR FREE) to work for MILWAUKEE COUNTY.  WALKER  thinks most people are IDIOTS.  How much money does WALKER think workers can keep giving him back for working for MILWAUKEE COUNTY?  This while he makes $137,000 a year!!!  He really thinks these workers don't need any money to support their family.  Almost likes it a SIN that county workers get PAID for working!!
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42355949">
+<div class="header">
+<h4><a href="#comment42355949" title="Permanent link to this comment"><span class="commenter">weezelbert</span> - <span class="timestamp">May 01, 2010 5:29 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42355949)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42355949" onclick="setRanking('up',42355949);">3</a>
+<a class="rankdown" href="#comment42355949" onclick="setRanking('down',42355949);">2</a>
+<a class="bubble" href="#comment42355949" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">3</span>
+<span class="rankdown">2</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+Tazzy, you must be a county employee.  Maybe you should see what type of health insurance coverage the rest of the employees in the private sector pay and you will change your tune.  Time for a reality check about what you and your co-workers SHOULD be paying for health insurance.  Same is true about your pensions.  Quit your whining about paying back the County.  If you don't like it, QUIT!
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42357246">
+<div class="header">
+<h4><a href="#comment42357246" title="Permanent link to this comment"><span class="commenter">The Dog</span> - <span class="timestamp">May 01, 2010 6:34 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42357246)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42357246" onclick="setRanking('up',42357246);">1</a>
+<a class="rankdown" href="#comment42357246" onclick="setRanking('down',42357246);">1</a>
+<a class="bubble" href="#comment42357246" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">1</span>
+<span class="rankdown">1</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+All government workers should be eliminated, and we should all bow and kiss Scott Walker's ring.  How dare any government workers demand something like decent health care.  How about during the dot.com era and real estate boom when private employees were bringing in six figure salaries, and laughing at the government employee idiots just making it.  Suddenly, when times are a little rough the bad government employees are all to blame.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42359241">
+<div class="header">
+<h4><a href="#comment42359241" title="Permanent link to this comment"><span class="commenter">woodsmen</span> - <span class="timestamp">May 01, 2010 7:39 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42359241)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42359241" onclick="setRanking('up',42359241);">0</a>
+<a class="rankdown" href="#comment42359241" onclick="setRanking('down',42359241);">0</a>
+<a class="bubble" href="#comment42359241" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">0</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+as a retired county employee always hearing about the cost of health<br/> insurance, I often wondered why the county don,t start it,s own plan<br/> they have any type of medical staff needed,plus the building, for a decent<br/> fee, all county empolyee,s use their own plan, cost go down for the county,also for the empoyee, non county workers stop hollering,win,win<br/> for every body
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42364199">
+<div class="header">
+<h4><a href="#comment42364199" title="Permanent link to this comment"><span class="commenter">MKE Taxpayer</span> - <span class="timestamp">May 01, 2010 9:41 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42364199)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42364199" onclick="setRanking('up',42364199);">0</a>
+<a class="rankdown" href="#comment42364199" onclick="setRanking('down',42364199);">0</a>
+<a class="bubble" href="#comment42364199" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">0</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+So, the county, a government agency, went to a self-insured plan and saved money.  Isn't that a government take-over of health care?  And it saved money.  And a Republican candidate for governor is taking credit for the budget savings.  Crazy isn't it?
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42364339">
+<div class="header">
+<h4><a href="#comment42364339" title="Permanent link to this comment"><span class="commenter">glurkus</span> - <span class="timestamp">May 01, 2010 9:44 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42364339)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42364339" onclick="setRanking('up',42364339);">2</a>
+<a class="rankdown" href="#comment42364339" onclick="setRanking('down',42364339);">0</a>
+<a class="bubble" href="#comment42364339" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">2</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+The Dog Is right.  Public sector employees throughout the decades were paid lower wages in exchange for better pensions and health care.  Now that corporate greed has squashed the American middle class, the public worker is now the boogieman.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42365632">
+<div class="header">
+<h4><a href="#comment42365632" title="Permanent link to this comment"><span class="commenter">Inspector2211</span> - <span class="timestamp">May 01, 2010 10:14 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42365632)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42365632" onclick="setRanking('up',42365632);">1</a>
+<a class="rankdown" href="#comment42365632" onclick="setRanking('down',42365632);">0</a>
+<a class="bubble" href="#comment42365632" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">1</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+glurkus--  And you will hear these same fools talking about teacher's cadillac benefits, where if you add up bennies for a major company (due to size of employment) you will find the company paying Social Security, 10-12 holidays a year, for people with a fair amount of time at the company 20-25 vacation days, perhaps a couple personal days, health insurance, maybe a 401k plan.  Those benefits add up to quite a bit.  Spreading teacher pay over the full 52 weeks because the off time is unpaid comes to a relatively meager salary for the average teacher with a Master's degree.  Add in a residency rule which tells you where you can't live and it is pathetic.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42366317">
+<div class="header">
+<h4><a href="#comment42366317" title="Permanent link to this comment"><span class="commenter">c4 Redstorm</span> - <span class="timestamp">May 01, 2010 10:31 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42366317)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42366317" onclick="setRanking('up',42366317);">0</a>
+<a class="rankdown" href="#comment42366317" onclick="setRanking('down',42366317);">0</a>
+<a class="bubble" href="#comment42366317" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">0</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+I'm A County employee, I haven't had a raise in 3 years. While the cost of everything (gas, food, etc) keeps going up. Yet ole Scotty boy just wants to keep taking from me, I have nothing left to give. I struggle from pay check to pay check. But ole Scotty boy would have you believe I live like a king. If I was making $137,000 a year, I guess I would be.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42369078">
+<div class="header">
+<h4><a href="#comment42369078" title="Permanent link to this comment"><span class="commenter">tt19602</span> - <span class="timestamp">May 01, 2010 11:42 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42369078)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42369078" onclick="setRanking('up',42369078);">1</a>
+<a class="rankdown" href="#comment42369078" onclick="setRanking('down',42369078);">1</a>
+<a class="bubble" href="#comment42369078" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">1</span>
+<span class="rankdown">1</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+c4 Redstorm, then quit complaining and go get his job if its so easy.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42369542">
+<div class="header">
+<h4><a href="#comment42369542" title="Permanent link to this comment"><span class="commenter">tmthy71</span> - <span class="timestamp">May 01, 2010 11:49 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42369542)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42369542" onclick="setRanking('up',42369542);">2</a>
+<a class="rankdown" href="#comment42369542" onclick="setRanking('down',42369542);">0</a>
+<a class="bubble" href="#comment42369542" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">2</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+Walker makes 129,611 per year, he was giving back $60,000 per year, but has stepped that back to $10,000 per year.  By the end of this term he will have given back $400,000 in salary to the county.  That is a public official that I can get behind!!<br/><br/>reference:<br/>http://www.jsonline.com/news/milwaukee/29505169.html
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42387604">
+<div class="header">
+<h4><a href="#comment42387604" title="Permanent link to this comment"><span class="commenter">sheldon11</span> - <span class="timestamp">May 01, 2010 9:34 PM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42387604)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42387604" onclick="setRanking('up',42387604);">0</a>
+<a class="rankdown" href="#comment42387604" onclick="setRanking('down',42387604);">0</a>
+<a class="bubble" href="#comment42387604" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">0</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+Those of you that are county works, need to quit complaining about how much you make, (or the lack of) if you don't like it then go to your UNION rep and let him know. Tell him or her to start fighting for you! <br/><br/>tmthy71 is right, Walker has given back enough money don't you think? I will bet you if he hadn't...Then more of you county workers wouldn't be able to stand around a whole leaning on a shovel while, one guy or girl is in the whole doing the work.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42387849">
+<div class="header">
+<h4><a href="#comment42387849" title="Permanent link to this comment"><span class="commenter">Jeff K</span> - <span class="timestamp">May 01, 2010 9:45 PM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42387849)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42387849" onclick="setRanking('up',42387849);">0</a>
+<a class="rankdown" href="#comment42387849" onclick="setRanking('down',42387849);">0</a>
+<a class="bubble" href="#comment42387849" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">0</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+Stop whining and quit your county job. Go out into the real world and either get a job in the private sector. Better yet, start your own business and hire employees if you have the courage.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42392657">
+<div class="header">
+<h4><a href="#comment42392657" title="Permanent link to this comment"><span class="commenter">railcon</span> - <span class="timestamp">May 02, 2010 12:31 AM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42392657)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42392657" onclick="setRanking('up',42392657);">0</a>
+<a class="rankdown" href="#comment42392657" onclick="setRanking('down',42392657);">0</a>
+<a class="bubble" href="#comment42392657" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">0</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+Now if the county workers only got paid at the rate they work, the county <br/>would be way over budget and always in the black!  If the county were to fire <br/>all the county workers that don't really work now, the health care costs would <br/>be really cheap, what's it cost to provide healthcare for 5 people?
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+<li id="comment42416819">
+<div class="header">
+<h4><a href="#comment42416819" title="Permanent link to this comment"><span class="commenter">Beezy</span> - <span class="timestamp">May 02, 2010 2:23 PM</span></a></h4>
+<div class="extra">
+<a class="report" href="javascript:reportAbuse(42416819)">» Report abuse</a>
+<div class="rank loggedin">
+<a class="rankup" href="#comment42416819" onclick="setRanking('up',42416819);">0</a>
+<a class="rankdown" href="#comment42416819" onclick="setRanking('down',42416819);">0</a>
+<a class="bubble" href="#comment42416819" style="display: none;">Click thumb to rate</a>
+</div> <!-- end of rank -->
+<div class="rank loggedout">
+<span class="rankup">0</span>
+<span class="rankdown">0</span>
+<a class="bubble" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html" style="display: none;">Please login to rate</a>
+</div> <!-- end of rank -->
+</div> <!-- end of extra -->
+</div> <!-- end of header -->
+<div class="content">
+I find it amazing how opinionated and mean-spirited people can be on <br/>these blogs.  I can't believe how many people think county employees <br/>are worthless, waste time and should all be fired.  Everybody loves to <br/>reference park workers standing around.  If there are so many lazy <br/>workers, how did the park win the national award considering they lose <br/>employees and budget dollars every year?  Besides, there are other <br/>county workers.  The Sheriff's department has more employees than <br/>most of the other areas.  I guess that means they are useless, lazy and <br/>don't deserve anything they get.  What about the airport?  That is a <br/>shining area of the county, but how could that be with all of the lazy <br/>workers they have?<br/><br/>The trouble (at least one of them) with Scott Walker is that he doesn't <br/>care about the employees under him.  Is that leadership?  To Scott, as <br/>well as a lot of people on this blog, the employees are merely an <br/>expense on the income statement.  What they are forgetting is that they <br/>are people with lives and family and expenses (including taxes) like <br/>everyone else.  Why is it so hard to believe they work hard and do <br/>deserve some respect?<br/><br/>I am a fairly new county employee and can't believe how rude and ill-<br/>informed people are with regards to the county.  I am not in a union, <br/>but did not have a choice one way or the other.  If I had a job which <br/>required me to be in the union, I automatically would be considered an <br/>over-paid slug that doesn't work.  People probably think I am anyway, <br/>just because I have a job with the county.<br/><br/>What is with people these days?  Have people gotten so angry and <br/>hateful that they can't even treat other people like human beings?  I like <br/>to believe the best in people, but it gets pretty difficult reading some of <br/>the comments posted here.
+</div> <!-- end of content -->
+<div class="footer"></div> <!-- end of footer -->
+</li>
+</ol>
+</div> <!-- end of content -->
+<div class="footer">
+<div class="sorting">Sort by: <span><strong>Oldest</strong></span> | <a href="?sort=last+to+first#comments">Newest</a> | <a href="?sort=most+thumbs+up#comments">Most Thumbs Up</a></div> <!-- end of sorting -->
+</div> <!-- end of footer -->
+</div> <!-- end of comments -->
+<script type="text/javascript">
+//<![CDATA[
+// show/hide bubble
+$("#comments .rank").bind("mouseenter", function(){
+$(this).find(".bubble").css("display","block");
+});
+$("#comments .rank").bind("mouseleave", function(){
+$(this).find(".bubble").css("display","none");
+});
+//]]>
+</script>
+<div id="comment-form">
+<div class="title"><a name="postComment"></a>Post a comment</div>
+<div class="comment_form_wrap">
+<p>We encourage your comments but will strive to remove discussion that contains personal attacks, racial slurs, profanity or other inappropriate material as outlined in our <a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/general/33453719.html" target="_blank">guidelines</a>. We post-moderate comments on most content, but may choose to pre-moderate some comments so please be patient if you don't see yours appear right way. We also ask for your help by reporting comments you think are inappropriate.</p>
+<div class="log-sign loggedout">
+<p class="pleaseLoginComments">Please <a href="/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html#postComment">login</a> or <a href="/web/20100606080449/http://www.jsonline.com/s?action=reg&amp;version=short&amp;rurl=http://www.jsonline.com/news/milwaukee/92563519.html#postComment">register</a> to post a comment.</p>
+</div>
+<div class="log-sign loggedin">
+<script language="javascript">
+	        var maxLength = 2000;
+	        function countCharLeft(inputField, counterField) {
+	            var inputLength = inputField.value.length;
+	            // if the length of the string in the input field is greater than the max value, trim it
+	            if (inputLength > maxLength) {
+	                inputField.value = inputField.value.substring(0, maxLength);
+	            }
+	            else {
+	                var counterField = getElement("charLeft");
+	                // calculate the remaining characters
+	                if (counterField) {
+	                    if (navigator.appName == "Netscape") {
+	                        counterField.textContent = maxLength - inputLength;
+	                    }
+	                    else {
+	                        counterField.innerText = maxLength - inputLength;
+	                    }
+	                }
+	            }
+	        }
+
+	        function getElement(identifier) {
+	            if (document.getElementById) {
+	                return document.getElementById(identifier);
+	            }
+	            else if (document.layers) {
+	                return eval("document." + identifier);
+	            }
+	            else if (document.all) {
+	                return eval("document.all." + identifier);
+	            }
+	            else {
+	                return eval("document." + identifier);
+	            }
+	        }
+
+	        function validateForm(form){
+	            if(form.elements["field"].value == "") {
+	                alert("Please enter your comment");
+	                return false;
+	            }
+	            else {
+	                try {
+	                    return insertComment(form);
+	                }
+	                catch(e) {
+	                    //alert("error:\n" + e);
+	                    //return false;
+	                }
+	            }
+	        }
+	    </script>
+<form class="form1" id="commentForm" method="POST" name="commentForm">
+<input name="path" type="hidden" value="/news/milwaukee/92563519.html?commentSubmitted=y&amp;refresh=20263#comments"/>
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+<tr>
+<td>Logged in as:</td>
+<td><input align="middle" class="input2ReadOnly" id="Text1" name="name" readonly="readonly" type="text" value=""/></td>
+<td align="right">Characters remaining: <span class="charLeft" id="charLeft">2000</span></td>
+</tr>
+<tr>
+<td><label for="Name">Comment:<br/><span class="smTxt">required</span></label></td>
+<td colspan="2">
+<textarea class="multiline" id="Textarea1" name="field" onkeyup="countCharLeft(this);" style="width:99%" wrap="physical"></textarea>
+</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2">
+<a href="/web/20100606080449/http://www.jsonline.com/discussionguidelines.html" target="_blank">discussion guidelines</a> | <a href="/web/20100606080449/http://www.jsonline.com/termsofuse.html" target="_blank">terms of use</a> | <a href="/web/20100606080449/http://www.jsonline.com/privacy.html" target="_blank">privacy policy</a>
+</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2"><a class="btn" href="#" onclick="return validateForm(document.commentForm);"><span>Post Your Comment</span></a></td>
+</tr>
+</table>
+<script>
+	            var username = subcookiejar.fetch("curUserInfo", "userName");
+	            var oldScreenName = subcookiejar.fetch("curUserInfo", "oldScreenName");
+	            if((username == null)||(username == "null"))
+	            {
+	                username = subcookiejar.fetch("curUserInfo", "oldScreenName");
+	            }
+	            if((username == null)||(username == "null"))
+	            {
+	                username = "";
+	            }
+	            document.commentForm.name.value = username;
+	        </script>
+</form>
+</div>
+</div>
+</div> <!-- end of comment-form -->
+<link href="http://web.archive.org/web/20100606080449cs_/http://www.jsonline.com/includes/nlStyle.css" rel="stylesheet"/>
+<div class="feature" id="nlWrap">
+<div class="nlList">
+<div class="nlLeft"><img alt="NewsWatch Delivered" border="0" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/logo_news.jpg"/> </div>
+<div class="nlRight">
+<h1>E-mail Newsletter</h1>
+<p>The latest local news delivered to your inbox Monday-Friday during the 2 p.m. hour – or whenever there’s big breaking news.</p>
+<div>
+<p id="signupWidget">
+<input class="loggedout" id="signupAddress" onfocus="this.value=''" style="width:175px;" type="text" value="enter your e-mail address"/>
+<span class="loggedout"><input onclick='register("Newsletter_NWD")' type="button" value="Sign Up Now!"/><br/>
+	Enter your e-mail address above and click "Sign Up Now!" to begin receiving your e-mail newsletter</span>
+<span class="loggedin"><a href="#" onclick='register("Newsletter_NWD");return false' style="font-weight:bold">Get the Newsletter!</a> </span>
+</p>
+</div>
+<div class="loggedout">
+<a href="/web/20100606080449/http://www.jsonline.com/s?action=login&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html">Login</a> or <a href="/web/20100606080449/http://www.jsonline.com/s?action=reg&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html">Register</a> to manage all your newsletter preferences. 
+</div>
+<div class="loggedin">
+<a href="/web/20100606080449/http://www.jsonline.com/s?action=editReg&amp;rurl=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html">Manage all your newsletter preferences.</a>
+</div>
+</div>
+</div>
+</div>
+<script src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/includes/Core.NewsletterSignup.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+
+	function isValidEmail(address) {
+        var reg = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,3}|[0-9]{1,3})(\]?)$/;
+        return reg.test(address); 
+    }
+	
+	function register(newsletter)
+	{
+		var address = document.getElementById("signupAddress").value
+		if((address == "") || !isValidEmail(address))
+		{
+			alert("Please enter a valid e-mail address")
+			return;
+		}
+		updateNewsletter(address,newsletter,"signupWidget",true);
+	}
+	
+	function UpdateStatusChange(status)
+	{
+		if(status == "start")
+		{
+			document.getElementById(_container).innerHTML = "<img src='http://web.archive.org/web/20100606080449/http://media.jsonline.com/designimages/waiting_indicator_JSO.gif'>"
+		}
+		else if(status == "false")
+		{
+		    document.getElementById(_container).innerHTML = "<span style='color:red;font-weight:bold;margin-bottom:10px;'>We are unable to registeryou for the newsletter at this time.</span>"
+    	}
+		else
+		{
+			document.getElementById(_container).innerHTML = "<span style='color:red;font-weight:bold;margin-bottom:10px;'>Congratulations, you are registered to receive NewsWatch Delivered!</span>"
+		}
+	}
+	
+	if((subcookiejar.fetch("curUserInfo", "email")  != null) && (subcookiejar.fetch("curUserInfo", "email")  != "" ))
+    {
+    	document.getElementById("signupAddress").value = subcookiejar.fetch("curUserInfo", "email");
+    }
+</script>
+<!--endclickprintexclude-->
+</div>
+<!--startclickprintexclude-->
+<div class="right_column">
+<div class="noindex">
+<!-- Begin Page Tools -->
+<div class="top_right_content contentblock" id="socialMediaTools">
+<div class="tools">
+<div class="title">
+                Tools
+            </div>
+<ul>
+<script language="javascript1.2">var trkcid=92563519;var partnerID=380769; var _hb=1;</script><script language="javascript1.2" src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/g/g/button/button_1.js"></script>
+<li class="tools_print">
+<a class="omniture_link_tracking" href="#" onclick="return(PT());" onmouseout="return(PTMouseOut());" onmouseover="return(PTMouseOver());">print</a>
+</li>
+<li class="tools_email">
+<a class="omniture_link_tracking" href="#" onclick="return(ET());" onmouseout="return(ETMouseOut());" onmouseover="return(ETMouseOver());">e-mail</a>
+</li>
+<li class="tools_save loggedin">
+<a class="omniture_link_tracking" href="#" onclick="return(ST());" onmouseout="return(STMouseOut());" onmouseover="return(STMouseOver());">save</a>
+</li>
+</ul>
+</div>
+<div class="text_size right_float">
+            TEXT SIZE <img src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/text_size_JSO.gif"/><a href="#" onclick="changeFontSize('mainContent','shrink'); return false"><img border="0" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/minus_button_JSO.gif"/></a><a href="#" onclick="changeFontSize('mainContent','grow'); return false"><img border="0" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/plus_button_JSO.gif"/></a>
+</div>
+<div class="blogs right_float">
+<div class="left_float">
+<ul>
+<li class="blogs_misc">
+<script badgetype="text" showbranding="0" src="http://web.archive.org/web/20100606080449js_/http://d.yimg.com/ds/badge.js" type="text/javascript">
+                            milwaukee_jou37:http://www.jsonline.com/news/milwaukee/92563519.html
+                        </script>
+</li>
+<li class="blogs_redit">
+<a class="omniture_link_tracking" href="http://web.archive.org/web/20100606080449/http://reddit.com/submit?url=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html%3Freferrer=reddit&amp;title=Changes+keep+Milwaukee+County+health+costs+down+" target="_blank" title="reddit">reddit</a>
+</li>
+<li class="blogs_delicious">
+<a class="omniture_link_tracking" href="http://web.archive.org/web/20100606080449/http://delicious.com/save?v=5&amp;noui&amp;jump=close&amp;url=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html%3Freferrer=delicious&amp;title=Changes+keep+Milwaukee+County+health+costs+down+" target="_blank" title="Delicious">Delicious</a>
+</li>
+<li class="blogs_facebook">
+<a class="omniture_link_tracking" href="http://web.archive.org/web/20100606080449/http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html%3Freferrer=facebook&amp;t=Changes+keep+Milwaukee+County+health+costs+down+" target="_blank" title="Facebook">facebook</a>
+</li>
+</ul>
+</div>
+<div class="right_float">
+<ul>
+<li class="blogs_newsvine">
+<a class="omniture_link_tracking" href="http://web.archive.org/web/20100606080449/http://www.newsvine.com/_wine/save?popoff=1&amp;u=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html%3Freferrer=newsvine" target="_blank" title="Newsvine">Newsvine</a>
+</li>
+<li class="blogs_digg">
+<a class="omniture_link_tracking" href="http://web.archive.org/web/20100606080449/http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html%3Freferrer=digg&amp;title=Changes+keep+Milwaukee+County+health+costs+down+&amp;bodytext={teaser}" target="_blank" title="Digg">Digg it</a>
+</li>
+<li class="blogs_technorati">
+<a class="omniture_link_tracking" href="http://web.archive.org/web/20100606080449/http://technorati.com/faves?sub=addfavbtn&amp;add=url=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html%3Freferrer=technorati" target="_blank" title="Technorati">Technorati</a>
+</li>
+<li class="blogs_mixx">
+<a class="omniture_link_tracking" href="http://web.archive.org/web/20100606080449/http://www.mixx.com/submit?page_url=http%3A%2F%2Fwww.jsonline.com%2Fnews%2Fmilwaukee%2F92563519.html&amp;page_title=Changes+keep+Milwaukee+County+health+costs+down+" target="_blank" title="Mixx">Mixx</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- End Page Tools -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        //link tracking
+        $("#socialMediaTools .omniture_link_tracking").each(function(){
+                var link = $(this);
+                link.omniture_link_tracking({
+                    linkName:"SocialMediaTools (" + link.html() + ")",
+                    getValue:function(element){
+                        return $(document).attr("title");
+                    }
+                });
+        });
+    });
+</script>
+<!-- Begin NewsWatch Updated: 7/15/2009-->
+<div class="newswatch">
+<div class="newswatch_header">
+<!--<h2><a href="/newswatch/"><span>NewsWatch</span></a></h2>-->
+<div class="newswatch_sponsor">
+<div class="ad Yahoo id57268202 size88x31">
+<script type="text/javascript">
+<!--
+yld_mgr.place_ad_here("newswatch_slot");
+// -->
+</script>
+</div>
+</div> <!-- end of newswatch_sponsor -->
+</div> <!-- end of newswatch_header -->
+<div class="newswatch_content">
+<div class="newswatch_scroller" id="newsWatchScroller">
+<p class="contentblock">
+<span class="timestamp">
+								
+									Yesterday<br/>
+																	Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95693179.html">Police investigate Packers player in alleged sexual assault </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95691979.html">Solid pitching effort, comeback wasted in 11-inning loss</a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95705009.html">Barrett works to keep himself visible in governor's race </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95705019.html">West Bend farmers market tinged with sadness </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95704814.html">New use proposed for old streetcar stops </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95703974.html">A prom to remember </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95696854.html">Fish kills expected up north </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95692774.html">West Bend farmers market opens against backdrop of jewelry store funeral</a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95692354.html">MSO treats audience to focused, expressive Mahler 3 </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95691874.html">Man shot dead in car by pursuing motorcyclists </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95688424.html">Port Washington bear tranquilized, sent packing </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95687329.html">Expect scattered showers or thunderstorm today </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95684384.html">Two men injured in shootings Friday night in Milwaukee </a>
+</p>
+<p class="contentblock">
+<span class="timestamp">
+								
+												Posted: June 5, 2010
+							</span>
+<a href="/web/20100606080449/http://www.jsonline.com/newswatch/95683954.html">Melody and charm merge in She &amp; Him Verge show </a>
+</p>
+</div>
+<script language="javascript" src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/templates/JSO_widget_NewsWatch.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript"> window.setTimeout("getNewsWatch('http://web.archive.org/web/20100606080449/http://www.jsonline.com/templates/JSO_Get_Newswatch_Items?')", 1000);;</script>
+<div class="newswatch_links">
+</div>
+<div class="newswatch_footer">
+<div class="ad Yahoo id91604104 size250x30">
+<script type="text/javascript">
+<!--
+yld_mgr.place_ad_here("nw_bot_slot");
+// -->
+</script>
+</div>
+</div>
+</div>
+</div>
+<!-- End NewsWatch -->
+<div class="mid_right_content contentblock">
+<div class="right_float">
+<div class="ad Yahoo id43463992 size160x600">
+<h4>advertisement</h4>
+<script type="text/javascript">
+<!--
+yld_mgr.place_ad_here("ws_slot");
+// -->
+</script>
+</div>
+</div><!--div class="right_float"-->
+<div class="sidebar_links_01">
+<div class="headline">top stories</div><!--div class="headline"-->
+<ul class="dots_list red">
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/watchdogreports/95704794.html">No gun-selling license? Not a problem </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/health/95703974.html">A prom to remember </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/wisconsin/95693179.html">Police investigate Packers player in alleged sexual assault </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/wisconsin/95703374.html">Milwaukee faces dilemma with proposed water rate hike </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/statepolitics/95705009.html">Barrett works to keep himself visible in governor's race </a>
+</li>
+</ul>
+</div><!--div class="sidebar_links_01"-->
+<div class="sidebar_links_01">
+<div class="headline">More News</div><!--div class="headline"-->
+<ul class="dots_list red">
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/watchdogreports/95704794.html">No gun-selling license? Not a problem </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/wisconsin/95703374.html">Milwaukee faces dilemma with proposed water rate hike </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/wisconsin/95693179.html">Police investigate Packers player in alleged sexual assault </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/health/95703974.html">A prom to remember </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/milwaukee/95705029.html">Monkey for sale isn't part of fish story </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/education/95705319.html">Perky reading textbooks! An MPS culture shift may be afoot </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/milwaukee/95704804.html">Bad acts of few get blamed on many </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/food/95676999.html">Hot spring weather causes strawberries to ripen early</a>
+</li>
+</ul>
+</div><!--div class="sidebar_links_01"-->
+</div><!--div class="mid_right_content contentblock"-->
+<!-- End Events Widget -->
+<div class="feature">
+<div class="title">More Milwaukee County News</div>
+<div class="headlines">
+<div class="stacked_headlines"><ul>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/wisconsin/95703374.html">    
+Milwaukee faces dilemma with proposed water rate hike
+</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/statepolitics/95705009.html">
+<strong>Election 2010: </strong>
+Barrett works to keep himself visible in governor's race
+</a>
+<span class="comments"><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/statepolitics/95705009.html#comments">(14)</a></span>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/health/95703974.html">    
+Children's Hospital gives teen patients a chance for prom
+</a>
+<span class="comments"><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/health/95703974.html#comments">(9)</a></span>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/milwaukee/95704814.html">    
+New use proposed for old streetcar stops
+</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/wisconsin/95704809.html">    
+Deadline nears for flood relief grants
+</a>
+</li>
+</ul></div>
+<div class="feature_content"><a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/news/milwaukee/headlines"><strong>More</strong></a></div>
+</div>
+</div>
+<div class="side_section_container graphic">
+<div class="side_container_01">
+<div class="title">Latest Photo Galleries</div>
+<div class="side_container_01_content" style="overflow:hidden;">
+<div class="side_container_01_intro"><p>Get the news in photos with the latest galleries from JSOnline. <a href="/web/20100606080449/http://www.jsonline.com/photos"><strong>View all galleries</strong></a></p></div>
+<style type="text/css">
+        .gridThumbWrap_43284522 {float: left; width:49%; overflow:hidden;height:auto;}
+        .gridThumb_43284522 {overflow: hidden; width:100%;text-align:center;height:auto;}
+
+        .gridThumbFirst{margin-bottom:1%;margin-right:1%;}
+        .gridThumbLast{margin-bottom:1%;}
+        .gridThumbClear{clear:left;height:0;}
+
+        .gridThumbImg_43284522 {border:none;}
+        .gridThumbsWrap{overflow:hidden;}
+        </style>
+<div class="gridThumbsWrap">
+<div class="gridThumbWrap_43284522 gridThumbFirst">
+<div class="gridThumb_43284522">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/62680607.html"><img class="gridThumbImg_43284522" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/315*220/mjs-highland-nws-kwg-1-high.jpg"/></a>
+</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/62680607.html">Photos of the Week</a>
+</div>
+<div class="gridThumbWrap_43284522 gridThumbLast">
+<div class="gridThumb_43284522">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/95703479.html"><img class="gridThumbImg_43284522" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/prom+thumb.jpg"/></a>
+</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/95703479.html">Prom gallery</a>
+</div>
+<div class="gridThumbClear"></div>
+<div class="gridThumbWrap_43284522 gridThumbFirst">
+<div class="gridThumb_43284522">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/95701359.html"><img class="gridThumbImg_43284522" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/gun+thumb.jpg"/></a>
+</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/95701359.html">Gunrevoke gallery</a>
+</div>
+<div class="gridThumbWrap_43284522 gridThumbLast">
+<div class="gridThumb_43284522">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/95700394.html"><img class="gridThumbImg_43284522" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/driver+thumb.jpg"/></a>
+</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/photos/95700394.html">Donald Driver gallery</a>
+</div>
+<div class="gridThumbClear"></div>
+<div class="gridThumbClear"></div>
+</div>
+<script type="text/javascript">
+
+resizeGridImages("gridThumb_43284522","gridThumbImg_43284522");
+
+</script>
+<div><!--<p>&nbsp;</p>
+<p><a href="http://jsonline.upickem.net/engine/ApprovedSubmissions.aspx?PageType=APPROVED&amp;contestid=7220"><strong><img height="75" width="285" src="http://media.journalinteractive.com/images/snapshot_promo_285.jpg" alt="2009 Snapshot Contest" /></strong></a></p>
+<ul>
+    <li><strong>Contest Photos:</strong> <a href="http://jsonline.upickem.net/engine/Winners.aspx?PageType=WINNER&amp;contestid=7220">Winners</a> | <a href="http://jsonline.upickem.net/engine/ApprovedSubmissions.aspx?PageType=APPROVED&amp;contestid=7220">All entries</a></li>
+    <li><strong>Contest Videos: </strong><a href="http://jsonline.upickem.net/engine/Winners.aspx?PageType=WINNER&amp;contestid=7370">Winners</a> | <a href="http://jsonline.upickem.net/engine/ApprovedSubmissions.aspx?PageType=APPROVED&amp;contestid=7370">All entries</a></li>
+    <li><strong>Video: </strong><a href="http://www.jsonline.com/multimedia/video/?bcpid=13960334001&amp;bctid=31454959001">Winners talk about their work</a></li>
+</ul>--></div>
+</div>
+</div>
+</div>
+<script>
+
+if(typeof walrus == 'undefined'){
+
+document.write('<script src=\"http:\/\/www.jsonline.com\/templates\/BrightCoveWalrus.js\"><\/script>');
+
+}
+</script>
+<div class="side_section_container video_gallery">
+<div class="side_container_01">
+<div class="title">JSOnline video</div>
+<div class="side_container_01_content">
+<div class="side_container_01_intro">
+<p>Browse the latest JSOnline video below and find more on our <a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/video"><strong>video home page</strong></a>.</p>
+</div>
+<div class="BCgridContainer" id="BCgridContainer_50052492">Loading...</div>
+</div>
+</div>
+</div>
+<script>
+
+walrus('BCgridContainer_50052492').grid({
+	bcpid:'13960334001',
+	baseVideoURL:'http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/video/',
+	openPopup:false,
+	pageSize:3,
+	numVideos:15,
+	numColumns:3,
+	showNavigation:true,
+	showTitle:true,
+	query:'command=find_playlist_by_id&playlist_id=14192768001&page_size=25&page_number=0&token=safx3rWLeXydje4VVF8GIRQHp9fbxDLVCXFUNx3J0Ro.&get_item_count=true&callback={callback}'
+});
+
+
+</script>
+<script>
+
+if(typeof walrus == 'undefined'){
+
+document.write('<script src=\"http:\/\/www.jsonline.com\/templates\/BrightCoveWalrus.js\"><\/script>');
+
+}
+</script>
+<div class="side_section_container video_gallery">
+<div class="side_container_01">
+<div class="title">TMJ4 Video</div>
+<div class="side_container_01_content">
+<div class="side_container_01_intro">
+<p>Watch the latest news from <a href="http://web.archive.org/web/20100606080449/http://www.todaystmj4.com/"><strong>TODAY'S TMJ4</strong></a>.</p>
+</div>
+<div class="BCgridContainer" id="BCgridContainer_53706037">Loading...</div>
+</div>
+</div>
+</div>
+<script>
+
+walrus('BCgridContainer_53706037').grid({
+	bcpid:'13960335001',
+	baseVideoURL:'http://web.archive.org/web/20100606080449/http://www.jsonline.com/multimedia/video/',
+	openPopup:false,
+	pageSize:3,
+	numVideos:15,
+	numColumns:3,
+	showNavigation:true,
+	showTitle:true,
+	query:'command=find_playlist_by_id&playlist_id=20025077001&page_size=25&page_number=0&token=ygI57FOivozYXeOTvk9uobDJrpYt_fzYa5h4HwqPISU.&get_item_count=true&callback={callback}'
+});
+
+
+</script>
+<!-- Begin HTML Module -->
+<div class="side_section_container html">
+<div class="side_container_01">
+<div class="title">Communities</div>
+<div class="side_container_01_content">
+<p><img alt="MyCommunityNOW" height="53" src="http://web.archive.org/web/20100606080449im_/http://media.journalinteractive.com/images/MyCommunityNOW-285-gray.jpg" width="285"/></p>
+<p>Local news and opinions, plus your stories and photos</p>
+<p><select id="nowsites" onchange="window.location.href=this.value" style="width: 285px;">
+<option selected="selected" value="">Select a Community...</option>
+<option value=""></option>
+<option value="http://www.mybaysidenow.com/">Bayside</option>
+<option value="http://www.bayviewnow.com/">Bay View</option>
+<option value="http://www.brookfieldnow.com/">Brookfield</option>
+<option value="http://www.mybrowndeernow.com/">Brown Deer</option>
+<option value="http://www.cudahynow.com/">Cudahy</option>
+<option value="http://www.elmgrovenow.com/">Elm Grove</option>
+<option value="http://www.myfoxpointnow.com/">Fox Point</option>
+<option value="http://www.franklinnow.com/">Franklin</option>
+<option value="http://www.germantownnow.com/">Germantown</option>
+<option value="http://www.myglendalenow.com/">Glendale</option>
+<option value="http://www.greendalenow.com/">Greendale</option>
+<option value="http://www.greenfieldnow.com/">Greenfield</option>
+<option value="http://www.myhalescornersnow.com/">Hales Corners</option>
+<option value="http://www.mequonnow.com/">Mequon / Thiensville</option>
+<option value="http://www.menomoneefallsnow.com/">Menomonee Falls</option>
+<option value="http://www.mymuskegonow.com/">Muskego</option>
+<option value="http://www.newberlinnow.com/">New Berlin</option>
+<option value="http://www.oakcreeknow.com/">Oak Creek</option>
+<option value="http://www.myriverhillsnow.com/">River Hills</option>
+<option value="http://www.shorewoodnow.com/">Shorewood</option>
+<option value="http://www.southmilwaukeenow.com/">South Milwaukee</option>
+<option value="http://www.stfrancisnow.com/">St. Francis</option>
+<option value="http://www.waukeshanow.com/">Waukesha</option>
+<option value="http://www.wauwatosanow.com/">Wauwatosa</option>
+<option value="http://www.westallisnow.com/">West Allis / West Milwaukee</option>
+<option value="http://www.whitefishbaynow.com/">Whitefish Bay</option>
+</select></p>
+</div>
+</div>
+</div>
+<!-- End HTML Module -->
+<!-- Begin Most Popular -->
+<div class="side_section_container">
+<div class="headline">
+<h1>Most Popular - News</h1>
+</div>
+<div class="side_container_01">
+<div class="side_container_01_content">
+<div class="side_section_tabs_container contentblock" id="Div6">
+<ul class="side_section_tabs">
+<li onclick="toggleTabs(this,'popularList_List1_section','popularList_List2_section','popularList_List3_section')"><a class="current" href="javascript:nullFunction();" title="most read"><span>most read</span></a></li>
+<li onclick="toggleTabs(this,'popularList_List2_section','popularList_List1_section','popularList_List3_section')"><a href="javascript:nullFunction();" title="commented"><span>commented</span></a></li>
+<li onclick="toggleTabs(this,'popularList_List3_section','popularList_List1_section','popularList_List2_section')"><a href="javascript:nullFunction();" title="emailed"><span>e-mailed</span></a></li>
+</ul>
+</div>
+<ul class="dots_list red" id="popularList_List1_section">
+</ul>
+<ul class="dots_list red" id="popularList_List2_section" style="display:none;">
+</ul>
+<ul class="dots_list red" id="popularList_List3_section" style="display:none;">
+</ul>
+</div>
+<div class="side_container_01_footer">
+<a href="/web/20100606080449/http://www.jsonline.com/popular_content">more most popular content...</a>
+</div>
+</div>
+</div>
+<!-- End Most Popular -->
+<script language="javascript" src="http://web.archive.org/web/20100606080449js_/http://www.jsonline.com/templates/JSO_widget_MostPopular.js" type="text/javascript"></script>
+<!--<h4>advertisement</h4>-->
+<div class="yahoo_ads">
+<script type="text/javascript">
+<!--
+if (window.DisplayTextAds) DisplayTextAds("Contextual");
+// -->
+</script>
+</div>
+</div>
+</div>
+<!--endstartclickprintexclude---->
+<!--endclickprintinclude-->
+</div>
+<div class="full_width_content_container noindex">
+<h3 class="footerTitle">Elsewhere on JSOnline</h3>
+<div class="sectionals contentblock">
+<div class="sectionals_section">
+<div class="title">Readers' Picks</div>
+<a href="/web/20100606080449/http://www.jsonline.com/blogs/lifestyle/readerspicks.html"><img alt="" border="0" height="86" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/132*86/chicago138.jpg" title="" width="132"/></a>
+<a class="sectionals_link" href="/web/20100606080449/http://www.jsonline.com/blogs/lifestyle/readerspicks.html">Your favorite Chicago restaurants</a>
+</div> <!-- end of sectionals_section -->
+<div class="sectionals_section">
+<div class="title">Farmers Markets</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/food/92425519.html"><img alt="" border="0" height="86" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/132*86/farmersmarkets138.jpg" title="" width="132"/></a>
+<a class="sectionals_link" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/features/food/92425519.html">Find a farmers market near you</a>
+</div> <!-- end of sectionals_section -->
+<div class="sectionals_section">
+<div class="title">Summer Fun</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/entertainment/94533754.html"><img alt="" border="0" height="86" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/132*86/greatmilwaukeesummer138.jpg" title="" width="132"/></a>
+<a class="sectionals_link" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/entertainment/94533754.html">Summer festivals, concerts and events</a>
+</div> <!-- end of sectionals_section -->
+<div class="sectionals_section">
+<div class="title">Top Workplaces</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/business/94285359.html"><img alt="" border="0" height="86" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/132*86/top100logo138x90.jpg" title="" width="132"/></a>
+<a class="sectionals_link" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/business/94285359.html">A look at top local employers</a>
+</div> <!-- end of sectionals_section -->
+<div class="sectionals_section">
+<div class="title">Watchdog Report</div>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/watchdogreports/94680554.html"><img alt="" border="0" height="86" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/132*86/prescriptionfortragedy138.jpg" title="" width="132"/></a>
+<a class="sectionals_link" href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/watchdog/watchdogreports/94680554.html">Prescription for Tragedy</a>
+</div> <!-- end of sectionals_section -->
+<div class="sectionals_section last_section">
+<div class="title">Recipe Database</div>
+<a href="/web/20100606080449/http://www.jsonline.com/recipes"><img alt="" border="0" height="86" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/images/132*86/recipedatabase138.jpg" title="" width="132"/></a>
+<a class="sectionals_link" href="/web/20100606080449/http://www.jsonline.com/recipes">Search, print, rate Journal Sentinel recipes</a>
+</div> <!-- end of sectionals_section -->
+</div> <!-- end of sectionals -->
+<div class="full_width_ad">
+<div class="ad Yahoo id44004272 size728x90">
+<script type="text/javascript">
+<!--
+yld_mgr.place_ad_here("lb_bot_slot");
+// -->
+</script>
+</div>
+</div> <!-- end of full_width_ad -->
+</div> <!-- end of full_width_content_container -->
+<div class="noindex">
+<div class="footer">
+<p id="jsonline-partner-sites">
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/">JSOnline</a>
+					 | 			<a href="http://web.archive.org/web/20100606080449/http://www.mycommunitynow.com/">MyCommunityNOW</a>
+					 | 			<a href="http://web.archive.org/web/20100606080449/http://www.livinglakecountry.com/">Living Lake Country</a>
+					 | 			<a href="http://web.archive.org/web/20100606080449/http://www.milwaukeemoms.com/">MilwaukeeMoms</a>
+					 | 			<a href="http://web.archive.org/web/20100606080449/http://www.todaystmj4.com/">Today's TMJ4</a>
+					 | 			<a href="http://web.archive.org/web/20100606080449/http://www.620wtmj.com/">Newsradio 620</a>
+					 | 			<a href="http://web.archive.org/web/20100606080449/http://www.945lakefm.com/">94.5 Lake FM</a>
+</p>
+<p>
+<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/privacy/" target=""><b>PRIVACY POLICY/YOUR CALIFORNIA PRIVACY RIGHTS</b> <br/></a>
+											 | 						<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/termsofuse/" target="">Terms of Use</a>
+											 | 						<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/contact/" target="">Contact Us</a>
+											 | 						<a href="http://web.archive.org/web/20100606080449/http://www.jobsatjournalsentinel.com/" target="">Jobs</a>
+											 | 						<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/services/" target="">Subscription Services</a>
+											 | 						<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/placeanad/" target="">Place an Ad</a>
+											 | 						<a href="http://web.archive.org/web/20100606080449/http://www.jsonline.com/general/31308799.html#trackingTechnology" target="">About Our Ads</a>
+</p>
+<p><a href="/web/20100606080449/http://www.jsonline.com/copyright.html">© 2010</a>, Journal Sentinel Inc. All rights reserved.</p>
+<p></p>
+<p>Powered by <a href="http://web.archive.org/web/20100606080449/http://www.clickability.com/" target="_blank">Clickability.</a></p>
+<p>Produced and Managed by <a href="http://web.archive.org/web/20100606080449/http://www.journalinteractive.com/" target="_blank">Journal Interactive.</a></p>
+<p><a href="http://web.archive.org/web/20100606080449/http://www.journalinteractive.com/" target="_blank"><img alt="Journal Interactive" src="http://web.archive.org/web/20100606080449im_/http://media.jsonline.com/designimages/JournalInteractiveMilwaukee.gif"/></a></p>
+</div>
+</div>
+</div><!--end main content container-->
+</body>
+</html>
+<!--
+     FILE ARCHIVED ON 08:04:49 Jun 06, 2010 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:35:25 Jan 06, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

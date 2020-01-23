@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app23.us.archive.org';v.server_ms=639;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20191112004245", "www.cbo.gov");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta charset="utf-8"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"8e1767b7cc",applicationID:"75648876"};window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","http://web.archive.org/web/20191112004245/https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-23136790-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");</script>
+<meta content="Public Spending on Transportation and Water Infrastructure, 1956 to 2014 | Congressional Budget Office" name="title"/>
+<link href="http://web.archive.org/web/20191112004245/https://www.cbo.gov/publication/49910" rel="canonical"/>
+<meta content="This report provides information on spending by federal, state, and local governments for transportation and water infrastructure, which totaled $416 billion in 2014." name="description"/>
+<meta content="Drupal 8 (https://www.drupal.org)" name="Generator"/>
+<meta content="width" name="MobileOptimized"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/apple-touch-icon.png" rel="shortcut icon" type="image/png"/>
+<link href="https://www.cbo.gov/publication/49910" rel="revision"/>
+<title>Public Spending on Transportation and Water Infrastructure, 1956 to 2014 | Congressional Budget Office</title>
+<link href="/web/20191112004245cs_/https://www.cbo.gov/sites/default/files/css/css_hWvuHmk58sSOrApZrY19I8Daz348Ey675vGCdtO3Mhs.css?q0ksib" media="all" rel="stylesheet"/>
+<link href="/web/20191112004245cs_/https://www.cbo.gov/sites/default/files/css/css_xqKoVjP3tTn-xHYRyLzw_DuNudH-BEoacKnGEHv3qHQ.css?q0ksib" media="all" rel="stylesheet"/>
+<!--[if lte IE 8]>
+<script src="/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+</head>
+<body class="no-sidebars page-node-49910 path-node page-node-type-reports">
+<a class="visually-hidden focusable skip-link" href="#main-content">
+    Skip to main content
+  </a>
+<div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas="">
+<div class="page" role="document">
+<header id="site-header">
+<div class="outer-wrapper">
+<a class="home-link" href="/web/20191112004245/https://www.cbo.gov/" rel="home" title="Congressional Budget Office">
+<picture>
+<source media="(max-width: 900px)" srcset="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/cbo_logo_white.svg" type="image/svg+xml">
+<source srcset="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/cbo_logo_white_desktop.svg" type="image/svg+xml">
+<img alt="Congressional Budget Office logo" class="logo" src="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/cbo_logo_white_desktop.png" title="Congressional Budget Office Home" typeof="foaf:Image"/>
+</source></source></picture>
+</a>
+<div class="main-navigation">
+<a class="menu-link" href="#menu">
+<span class="icon-bar-block">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</span>
+<span class="menu-btn-text">menu</span>
+</a>
+<a class="search-link" href="#search">
+<picture>
+<source srcset="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/search-icon.svg" type="image/svg+xml">
+<img alt="Search" class="" src="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/search-icon.png" title="Search" typeof="foaf:Image"/>
+</source></picture>
+</a>
+<section class="block block-system block-system-branding-block" id="block-cbo-branding">
+</section>
+<nav aria-labelledby="block-mainmenu-menu" class="block block-menu navigation menu--main" id="block-mainmenu" role="navigation">
+<h2 class="visually-hidden" id="block-mainmenu-menu">Main menu</h2>
+<ul class="menu">
+<li class="menu-item menu-item--collapsed">
+<a data-drupal-link-system-path="node/104" href="/web/20191112004245/https://www.cbo.gov/about/overview">About CBO</a>
+</li>
+<li class="menu-item menu-item--collapsed">
+<a data-drupal-link-system-path="topics" href="/web/20191112004245/https://www.cbo.gov/topics" title="">Topics</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="cost-estimates" href="/web/20191112004245/https://www.cbo.gov/cost-estimates">Cost Estimates</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="interactives" href="/web/20191112004245/https://www.cbo.gov/interactives">Interactives</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="node/49835" href="/web/20191112004245/https://www.cbo.gov/faqs">FAQs</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="blog" href="/web/20191112004245/https://www.cbo.gov/blog">Blog</a>
+</li>
+</ul>
+</nav>
+<div class="hidden" data-drupal-messages-fallback=""></div>
+<section class="views-exposed-form bef-exposed-form search-exposed" data-drupal-selector="views-exposed-form-general-solr-page-1" id="block-exposedformgeneral-solrpage-1-2">
+<form accept-charset="UTF-8" action="/web/20191112004245/https://www.cbo.gov/search" id="views-exposed-form-general-solr-page-1" method="get">
+<div class="form--inline clearfix">
+<div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-search-api-fulltext form-item-search-api-fulltext">
+<label for="edit-search-api-fulltext">Enter your keywords</label>
+<input class="form-text" data-drupal-selector="edit-search-api-fulltext" id="edit-search-api-fulltext" maxlength="128" name="search_api_fulltext" size="30" type="text" value=""/>
+</div>
+<fieldset class="fieldgroup form-composite js-form-item form-item js-form-wrapper form-wrapper" data-drupal-selector="edit-sort-by" id="edit-sort-by--wrapper">
+<legend>
+<span class="fieldset-legend">Sort by</span>
+</legend>
+<div class="fieldset-wrapper">
+<div class="form-radios" id="edit-sort-by"><div class="fieldgroup form-composite form-radios" data-drupal-selector="edit-sort-by" id="edit-sort-by--wrapper">
+<div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-sort-by form-item-sort-by">
+<input checked="checked" class="form-radio" data-drupal-selector="edit-sort-by-search-api-relevance" id="edit-sort-by-search-api-relevance" name="sort_by" type="radio" value="search_api_relevance"/>
+<label class="option" for="edit-sort-by-search-api-relevance">Relevancy</label>
+</div>
+<div class="js-form-item form-item js-form-type-radio form-type-radio js-form-item-sort-by form-item-sort-by">
+<input class="form-radio" data-drupal-selector="edit-sort-by-field-display-date" id="edit-sort-by-field-display-date" name="sort_by" type="radio" value="field_display_date"/>
+<label class="option" for="edit-sort-by-field-display-date">Publication Date</label>
+</div>
+</div>
+</div>
+</div>
+</fieldset>
+<input class="button js-form-submit form-submit" data-drupal-selector="edit-submit-general-solr" id="edit-submit-general-solr" type="submit" value="Apply"/>
+</div>
+</form>
+</section>
+</div>
+<main class="outer-wrapper" role="main">
+<a id="main-content" tabindex="-1"></a>
+<section id="content">
+<section class="block block-system block-system-main-block" id="block-cbo-cbo-system-main">
+<article role="article">
+<div>
+<div class="top-section" style="position: relative;">
+<h1 class="title" id="page-title"><span class="field field--name-title field--type-string field--label-hidden">Public Spending on Transportation and Water Infrastructure, 1956 to 2014</span>
+</h1>
+<div class="meta">
+<div class="field field--name-field-display-date field--type-datetime field--label-hidden field__item"><time class="datetime" datetime="2015-03-02T12:00:00Z">March 2, 2015</time>
+</div>
+<div class="content-type">Report</div>
+</div>
+<div class="field field--name-field-homepage-graphic field--type-entity-reference field--label-hidden field__item"><article class="media media--type-image media--view-mode-pub-header">
+<div class="field field--name-field-media-image field--type-image field--label-hidden field__item"> <picture>
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source media="@media screen and (min-width: 61.25em) and (-webkit-min-device-pixel-ratio: 1.25), (min-width: 61.25em) and (min-resolution: 120dpi)" sizes="918px" srcset="/web/20191112004245im_/https://www.cbo.gov/sites/default/files/49910-Home-Cover2.png 400w" type="image/png"/>
+<source media="@media screen and (min-width: 48em) and (min-width: 61.25em)" srcset="/web/20191112004245im_/https://www.cbo.gov/sites/default/files/49910-Home-Cover2.png 1x" type="image/png"/>
+<source media="@media screen and (min-width: 61.25em)" srcset="/web/20191112004245im_/https://www.cbo.gov/sites/default/files/49910-Home-Cover2.png 1x" type="image/png"/>
+<source media="@media screen and (min-width: 28em)" sizes="49vw" srcset="/web/20191112004245im_/https://www.cbo.gov/sites/default/files/styles/240/public/49910-Home-Cover2.png?itok=ATxWMtRk 240w, /web/20191112004245im_/https://www.cbo.gov/sites/default/files/49910-Home-Cover2.png 400w" type="image/png"/>
+<source sizes="95vw" srcset="/web/20191112004245im_/https://www.cbo.gov/sites/default/files/styles/240/public/49910-Home-Cover2.png?itok=ATxWMtRk 240w, /web/20191112004245im_/https://www.cbo.gov/sites/default/files/49910-Home-Cover2.png 400w" type="image/png"/>
+<!--[if IE 9]></video><![endif]-->
+<img src="/web/20191112004245im_/https://www.cbo.gov/sites/default/files/styles/480/public/49910-Home-Cover2.png?itok=BQ0FpGBc"/>
+</picture>
+</div>
+</article>
+</div>
+<div class="summary"><div class="view view-summary view-id-summary view-display-id-meta_summary js-view-dom-id-6c58e60aee1662e4de43a236d23a258475e7a6dae2966b6bc2c159e47451ee6a">
+<div class="view-content">
+<div class="views-row"><p></p><p>This report provides information on spending by federal, state, and local governments for transportation and water infrastructure, which totaled $416 billion in 2014.</p>
+</div>
+</div>
+</div>
+</div>
+<section class="meta--data">
+<div class="left">
+<div id="toc"></div>
+</div>
+<div class="right" style="">
+<div class="documents" style="">
+<div class="view view-view-document view-id-view_document view-display-id-block_1 js-view-dom-id-b70a4affd09e35a4d55e5c913c8bd9a4c9549e1ec3632ef551490b4efe263e19">
+<div class="view-content">
+<div class="views-row"><a href="http://web.archive.org/web/20191112004245/https://www.cbo.gov/sites/default/files/114th-congress-2015-2016/reports/49910-infrastructure.pdf">View Document</a><div class="document-size"></div><div class="document-size">361.64 KB</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div><!-- /.top-section -->
+<div class="main-section">
+<section class="summary">
+<header aria-controls="content-panel" aria-expanded="false" class="head-section" role="button"><h2>Summary</h2></header>
+<div aria-hidden="true" class="content" id="content-panel">
+<article>
+<div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p>Public spending—spending by federal, state, and local governments—on transportation and water infrastructure totaled $416 billion in 2014. Most of that spending came from state and local governments: They provided $320 billion, and the federal government accounted for $96 billion.</p>
+<p>This report provides information on spending for six types of transportation and water infrastructure:</p>
+<ul>
+<li>Highways,</li>
+<li>Mass transit and rail,</li>
+<li>Aviation,</li>
+<li>Water transportation,</li>
+<li>Water resources, and</li>
+<li>Water utilities.</li>
+</ul>
+<p>Such spending can also be divided into two broad categories—spending to purchase physical capital related to infrastructure (as well as the labor and other inputs necessary for improving and rehabilitating structures and equipment already in place) and spending to operate and maintain infrastructure. In 2014, spending for capital accounted for 43 percent of total public spending on transportation and water infrastructure, and spending for operation and maintenance for 57 percent.</p>
+<h4>Prices of Materials and Other Inputs Used for Transportation and Water Infrastructure Began to Rise Rapidly in 2003</h4>
+<p>In 2003, the average price of materials (asphalt, concrete, and cement, for example) and other inputs used to build, operate, and maintain transportation and water infrastructure began to rise rapidly. Nominal public spending on that infrastructure increased by 44 percent between 2003 and 2014, but because prices of materials and other inputs rose more quickly than nominal spending, real (inflation-adjusted) public purchases decreased, falling by 9 percent from their peak in 2003 to their level in 2014 (see figure below).</p>
+<p><img alt="Various Measures of Public Spending on Transportation and Water Infrastructure, 1985 to 2014" src="/web/20191112004245im_/https://www.cbo.gov/sites/default/files/cbofiles/images/pubs-images/49xxx/49910-Land-SumFigure2.png"/></p>
+<p>This report is concerned primarily with real spending as calculated using infrastructure-specific price indexes. Such measurements most comprehensively illustrate changes in real purchases over time, with a decrease in real spending representing fewer lane-miles of highways or fewer airport runways, for example.</p>
+<p>Other measurements provide different perspectives on changes in public spending on transportation and water infrastructure, especially for the 2003–2014 period. Adjusting nominal spending to remove the effects of inflation using the gross domestic product (GDP) price index can be helpful when examining changes in the allocation of real budgetary resources over time. Because prices in the economy as a whole rose at less than half of the rate of prices of infrastructure-related materials from 2003 to 2014, real infrastructure spending adjusted with the GDP price index rose by 15 percent. By contrast, measured as a percentage of GDP, spending on transportation and water infrastructure fell by 5 percent during that period.</p>
+<p>The decline in real public spending (adjusted using infrastructure-specific price indexes) on transportation and water infrastructure between 2003 and 2014 occurred almost exclusively within the category of capital purchases, which fell by 23 percent during those years. The construction and rehabilitation of highways, in particular, declined over the period. By contrast, real public spending for the operation and maintenance of infrastructure continued its historical tendency to grow, rising by about 6 percent over that period, primarily because of increases at the state and local level.</p>
+<p>Although all levels of government have spent less, in real terms, on transportation and water infrastructure in recent years than in the past, the greatest reduction has occurred at the federal level. Adjusted for inflation, federal purchases have fallen by about 19 percent since 2003, while purchases by states and localities have fallen by about 5 percent. The significant difference between those declines reflects the facts that a much larger portion of federal infrastructure spending than of state and local spending is for capital and that capital has become much more expensive to purchase over the period relative to operation and maintenance services.</p>
+<p>The costs of building transportation and water infrastructure in the future will depend on a number of factors, but at least one development—the recent decline in the price of oil—suggests that those costs might soon increase at a slower rate. Not only is petroleum used as fuel in construction vehicles, it also is an important component of the asphalt used to build highways and runways.</p>
+<h4>Public Spending on Transportation and Water Infrastructure Has Been a Fairly Constant Share of Economic Activity for 30 Years</h4>
+<p>As a share of GDP, public spending on transportation and water infrastructure over the past three decades has hovered at about 2.4 percent, which is 0.6 percentage points lower than the peak of 3.0 percent in 1959. That share rose briefly in 2009 and 2010, to 2.7 percent, as a result of the temporary increase in federal outlays brought about by the enacting of the American Recovery and Reinvestment Act of 2009 (ARRA). In nominal terms, total federal outlays under ARRA from 2009 to 2014 were $55 billion, about one-half of which was spent in 2009 and 2010. More recently, the caps on federal funding established in the Budget Control Act of 2011 and subsequently amended may have exerted downward pressure on federal infrastructure spending by limiting the growth of discretionary spending; under current law, those caps will remain in effect through 2021.</p>
+</div>
+</article>
+</div>
+</section>
+<section class="documents">
+<header class="head-section"><a name="data"></a><h2 id="">Data and Supplemental Information</h2></header>
+<div class="content">
+<div class="view view-supplemental-attachments view-id-supplemental_attachments view-display-id-block_1 js-view-dom-id-e57986e707d5dc6a18095dafcd1666d213548ac6a4c6c73d7f20fc10e3ec63f7">
+<div class="view-content">
+<div class="item-list">
+<ul>
+<li><div class="views-field views-field-field-media-file"><div class="field-content"><a href="/web/20191112004245/https://www.cbo.gov/sites/default/files/114th-congress-2015-2016/reports/49910-infrastructuresupplementaldata.xlsx">Supplemental Tables</a></div></div></li>
+<li><div class="views-field views-field-field-media-file"><div class="field-content"><a href="/web/20191112004245/https://www.cbo.gov/sites/default/files/114th-congress-2015-2016/reports/49910-infrastructurefiguredata1.xlsx">Data Underlying Figures</a></div></div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="related-publications">
+<header class="head-section" role="button"><h2 id="">Related Publications</h2></header>
+<div class="content"><div class="view view-related view-id-related view-display-id-publications js-view-dom-id-26eeef1541c21bcc4385582b804176d68dd909bfcd6638dc6ca67da019fc5f79">
+<div class="view-content">
+<div class="item-list">
+<ul>
+<li><div class="views-field views-field-title"><span class="field-content"><a href="/web/20191112004245/https://www.cbo.gov/publication/54539" hreflang="en">Public Spending on Transportation and Water Infrastructure, 1956 to 2017</a></span></div><div class="views-field views-field-field-display-date"><div class="field-content"><time class="datetime" datetime="2018-10-15T12:00:00Z">October 15, 2018</time>
+</div></div></li>
+<li><div class="views-field views-field-title"><span class="field-content"><a href="/web/20191112004245/https://www.cbo.gov/publication/44974" hreflang="und">Federal Investment</a></span></div><div class="views-field views-field-field-display-date"><div class="field-content"><time class="datetime" datetime="2013-12-18T12:00:00Z">December 18, 2013</time>
+</div></div></li>
+<li><div class="views-field views-field-title"><span class="field-content"><a href="/web/20191112004245/https://www.cbo.gov/publication/43967" hreflang="und">Federal Grants to State and Local Governments</a></span></div><div class="views-field views-field-field-display-date"><div class="field-content"><time class="datetime" datetime="2013-03-05T12:00:00Z">March 5, 2013</time>
+</div></div></li>
+<li><div class="views-field views-field-title"><span class="field-content"><a href="/web/20191112004245/https://www.cbo.gov/publication/21902" hreflang="und">Public Spending on Transportation and Water Infrastructure</a></span></div><div class="views-field views-field-field-display-date"><div class="field-content"><time class="datetime" datetime="2010-11-17T12:00:00Z">November 17, 2010</time>
+</div></div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div><!-- /.main-section -->
+</div>
+</article>
+</section>
+<section class="views-element-container block block-views block-views-blockcorrections-block-1" id="block-views-block-corrections-block-1">
+<h2>Corrections and Updates</h2>
+<div class="view view-corrections view-id-corrections view-display-id-block_1 js-view-dom-id-4a7fb4080f7441cdb08da238c2a0120ef3eb9b288de2605c8c7ea85be5c8f578">
+<div class="view-content">
+<div class="views-row"><div class="views-field views-field-field-corrections-and-updates"><div class="field-content"><p>On April 29, 2016, CBO reposted the file providing the data underlying the figures to correct inconsistent dates in the titles of Exhibits 1 and 18 in the corresponding tabs of the spreadsheet; no data were changed, and the report was unaffected. Then on September 5, 2017, CBO reposted that file, the file of supplemental data, and the report to correct various errors.</p>
+</div></div></div>
+</div>
+</div>
+</section>
+</section>
+</main>
+<footer id="site-footer" role="contentinfo">
+<div class="footer-top-wrapper">
+<section class="footer-top">
+<section class="block block-block-content block-block-content121d8e86-2c04-4907-8bda-853870ff58b5" id="block-stayconnected">
+<h2>Stay Connected</h2>
+<div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><form action="http://web.archive.org/web/20191112004245/https://www.feedblitz.com/f/f.fbz?AddNewUserDirect" id="email-updates-signup" method="POST" name="FeedBlitz_06f6221b03f911e29f67003005ce8903">
+<fieldset><legend>Get CBO’s Email Updates</legend></fieldset>
+<ol>
+<li><label class="structural" for="email-updates-signup-input">Email Address</label> <input id="email-updates-signup-input" maxlength="64" name="EMAIL" placeholder="email address" size="25" type="email" value=""/> <input maxlength="64" name="EMAIL_" size="25" type="hidden" value=""/> <input maxlength="64" name="EMAIL_ADDRESS" size="25" type="hidden" value=""/> <input name="SiteScope" type="hidden" value="812526"/> <input name="PUBLISHER" type="hidden" value="25590652"/></li>
+<li class="butt"><button id="email-updates-signup-submit" onclick="FeedBlitz_06f6221b03f911e29f67003005ce8903s(this.form);" type="submit" value="Submit">Submit</button></li>
+</ol>
+</form>
+<script type="text/javascript">function FeedBlitz_06f6221b03f911e29f67003005ce8903i(){var x=document.getElementsByName('FeedBlitz_06f6221b03f911e29f67003005ce8903');for(i=0;i<x.length;i++){x[i].EMAIL.style.display='block';
+x[i].action='http://web.archive.org/web/20191112004245/https://www.feedblitz.com/f/f.fbz?AddNewUserDirect';}}
+function FeedBlitz_06f6221b03f911e29f67003005ce8903s(v){v.submit();}FeedBlitz_06f6221b03f911e29f67003005ce8903i();</script>
+<div class="social-links"><a class="twitter-home" href="http://web.archive.org/web/20191112004245/http://twitter.com/uscbo" rel="noopener" target="_blank"><picture> <source srcset="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/twitter-icon.svg" type="image/svg+xml"/> <img alt="CBO Twitter" class="logo" data-entity-type="" data-entity-uuid="" src="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/twitter-icon.png" title="CBO Twitter" typeof="foaf:Image"/> </picture></a> <a class="twitter-home" href="http://web.archive.org/web/20191112004245/http://www.youtube.com/uscbo" rel="noopener" target="_blank"><picture> <source srcset="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/youtube-icon.svg" type="image/svg+xml"/> <img alt="CBO Youtube" class="logo" data-entity-type="" data-entity-uuid="" src="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/youtube-icon.png" title="CBO Youtube" typeof="foaf:Image"/> </picture></a> <a class="twitter-home" href="http://web.archive.org/web/20191112004245/http://www.slideshare.net/cbo" rel="noopener" target="_blank"><picture> <source srcset="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/slideshare-icon.svg" type="image/svg+xml"/> <img alt="CBO Slideshare" class="logo" data-entity-type="" data-entity-uuid="" src="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/slideshare-icon.png" title="CBO Slideshare" typeof="foaf:Image"/> </picture></a> <a class="rss-home" href="/web/20191112004245/https://www.cbo.gov/publications/all/rss.xml"><picture> <source srcset="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/rss-icon.svg" type="image/svg+xml"/> <img alt="CBO RSS" class="logo" data-entity-type="" data-entity-uuid="" src="/web/20191112004245im_/https://www.cbo.gov/themes/custom/cbo/images/social-icons/rss-icon.png" title="CBO RSS" typeof="foaf:Image"/> </picture></a></div>
+</div>
+</section>
+</section>
+</div>
+<div class="footer-bottom-wrapper">
+<section class="footer-bottom">
+<nav aria-labelledby="block-footermenu-menu" class="block block-menu navigation menu--menu-footer-menu" id="block-footermenu" role="navigation">
+<h2 class="visually-hidden" id="block-footermenu-menu">Footer Menu</h2>
+<ul class="menu">
+<li class="menu-item">
+<a data-drupal-link-system-path="node/104" href="/web/20191112004245/https://www.cbo.gov/about/overview" title="">About</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="topics" href="/web/20191112004245/https://www.cbo.gov/topics" title="">Topics</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="cost-estimates" href="/web/20191112004245/https://www.cbo.gov/cost-estimates">Cost Estimates</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="node/49835" href="/web/20191112004245/https://www.cbo.gov/faqs" title="">FAQs</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="blog" href="/web/20191112004245/https://www.cbo.gov/blog">Blog</a>
+</li>
+</ul>
+</nav>
+<nav aria-labelledby="block-footermenuutility-menu" class="block block-menu navigation menu--menu-footer-menu---utility" id="block-footermenuutility" role="navigation">
+<h2 class="visually-hidden" id="block-footermenuutility-menu">Footer Menu - Utility</h2>
+<ul class="menu">
+<li class="menu-item">
+<a data-drupal-link-system-path="node/367" href="/web/20191112004245/https://www.cbo.gov/about/careers" title="">Work at CBO</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="node/5048" href="/web/20191112004245/https://www.cbo.gov/about/business-opportunities" title="">Business Opportunities</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="node/255" href="/web/20191112004245/https://www.cbo.gov/about/contact" title="">Contact CBO</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="node/51141" href="/web/20191112004245/https://www.cbo.gov/about/press-center" title="">Press Center</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="node/5049" href="/web/20191112004245/https://www.cbo.gov/about/privacy" title="">Privacy, Security, and Copyright Policies</a>
+</li>
+<li class="menu-item">
+<a data-drupal-link-system-path="sitemap" href="/web/20191112004245/https://www.cbo.gov/sitemap">Sitemap</a>
+</li>
+</ul>
+</nav>
+</section>
+</div>
+</footer>
+</div>
+</header></div>
+<script data-drupal-selector="drupal-settings-json" type="application/json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/49910","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","google_analytics":{"trackOutbound":true,"trackMailto":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"ajaxTrustedUrl":{"\/search":true},"user":{"uid":0,"permissionsHash":"5cfe839c248a370b8729c016217dfdd6e1597af457a1083e576b843ee80e4fde"}}</script>
+<script src="/web/20191112004245js_/https://www.cbo.gov/sites/default/files/js/js_Dn6cj5DExgUUPT6cG66mD3_a4PUjwKWmcJPwbcS0oMc.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8e1767b7cc","applicationID":"75648876","transactionName":"ZFQAMBNYDEADWkxaXV0eIwcVUA1dTUlZVFdsUgMHCVw=","queueTime":0,"applicationTime":15,"atts":"SBMDRltCH04=","errorBeacon":"bam.nr-data.net","agent":""}</script></div></body>
+</html><!--
+     FILE ARCHIVED ON 00:42:45 Nov 12, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 18:08:56 Jan 05, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 352.938
+  PetaboxLoader3.datanode: 254.242 (4)
+  esindex: 0.018
+  exclusion.robots: 0.302
+  LoadShardBlock: 303.248 (3)
+  RedisCDXSource: 7.38
+  CDXLines.iter: 26.369 (3)
+  exclusion.robots.policy: 0.279
+  PetaboxLoader3.resolve: 149.747
+  load_resource: 200.808
+-->

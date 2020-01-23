@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" prefix="fb: http://www.facebook.com/2008/fbml og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app57.us.archive.org';v.server_ms=427;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20191231114527", "www.dhs.gov");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"877b02039c",applicationID:"140456413"};window.NREUM||(NREUM={}),__nr_require=function(n,e,t){function r(t){if(!e[t]){var i=e[t]={exports:{}};n[t][0].call(i.exports,function(e){var i=n[t][1][e];return r(i||e)},i,i.exports)}return e[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(n,e,t){function r(){}function i(n,e,t){return function(){return o(n,[u.now()].concat(f(arguments)),e?null:this,t),e?void 0:this}}var o=n("handle"),a=n(4),f=n(5),c=n("ee").get("tracer"),u=n("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(n,e){s[e]=i(d+e,!0,"api")}),s.addPageAction=i(d+"addPageAction",!0),s.setCurrentRouteName=i(d+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(n,e){var t={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),n,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return e.apply(this,arguments)}catch(n){throw c.emit("fn-err",[arguments,this,n],t),n}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(n,e){m[e]=i(l+e)}),newrelic.noticeError=function(n,e){"string"==typeof n&&(n=new Error(n)),o("err",[n,u.now(),!1,e])}},{}],2:[function(n,e,t){function r(n,e){var t=n.getEntries();t.forEach(function(n){"first-paint"===n.name?a("timing",["fp",Math.floor(n.startTime)]):"first-contentful-paint"===n.name&&a("timing",["fcp",Math.floor(n.startTime)])})}function i(n){if(n instanceof c&&!s){var e,t=Math.round(n.timeStamp);e=t>1e12?Date.now()-t:f.now()-t,s=!0,a("timing",["fi",t,{type:n.type,fid:e}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var o,a=n("handle"),f=n("loader"),c=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){o=new PerformanceObserver(r);try{o.observe({entryTypes:["paint"]})}catch(u){}}if("addEventListener"in document){var s=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(n){document.addEventListener(n,i,!1)})}}},{}],3:[function(n,e,t){function r(n,e){if(!i)return!1;if(n!==i)return!1;if(!e)return!0;if(!o)return!1;for(var t=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],4:[function(n,e,t){function r(n,e){var t=[],r="",o=0;for(r in n)i.call(n,r)&&(t[o]=e(r,n[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],5:[function(n,e,t){function r(n,e,t){e||(e=0),"undefined"==typeof t&&(t=n?n.length:0);for(var r=-1,i=t-e||0,o=Array(i<0?0:i);++r<i;)o[r]=n[e+r];return o}e.exports=r},{}],6:[function(n,e,t){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(n,e,t){function r(){}function i(n){function e(n){return n&&n instanceof r?n:n?c(n,f,o):o()}function t(t,r,i,o){if(!d.aborted||o){n&&n(t,r,i);for(var a=e(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(n,e){h[n]=v(n).concat(e)}function m(n,e){var t=h[n];if(t)for(var r=0;r<t.length;r++)t[r]===e&&t.splice(r,1)}function v(n){return h[n]||[]}function g(n){return p[n]=p[n]||i(t)}function w(n,e){u(n,function(n,t){e=e||"feature",y[t]=e,e in s||(s[e]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:e,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var f="nr@context",c=n("gos"),u=n(4),s={},p={},d=e.exports=i();d.backlog=s},{}],gos:[function(n,e,t){function r(n,e,t){if(i.call(n,e))return n[e];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return n[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(n,e,t){function r(n,e,t,r){i.buffer([n],r),i.emit(n,e,t)}var i=n("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(n,e,t){function r(n){var e=typeof n;return!n||"object"!==e&&"function"!==e?-1:n===window?0:a(n,o,function(){return i++})}var i=1,o="nr@id",a=n("gos");e.exports=r},{}],loader:[function(n,e,t){function r(){if(!x++){var n=E.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(n&&n.licenseKey&&n.applicationID&&e))return s.abort();u(y,function(e,t){n[e]||(n[e]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=l.createElement("script");t.src="https://"+n.agent,e.parentNode.insertBefore(t,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=n("handle"),u=n(4),s=n("ee"),p=n(3),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1158.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=e.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};n(1),n(2),l[m]?(l[m]("DOMContentLoaded",o,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",i),d[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=n(6)},{}],"wrap-function":[function(n,e,t){function r(n){return!(n&&n instanceof Function&&n.apply&&!n[a])}var i=n("ee"),o=n(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;e.exports=function(n,e){function t(n,e,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){d([u,"",[r,a,i],f])}s(e+"start",[r,a,i],f);try{return c=n.apply(a,r)}catch(p){throw s(e+"err",[r,a,p],f),p}finally{s(e+"end",[r,a,c],f)}}return r(n)?n:(e||(e=""),nrWrapper[a]=n,p(n,nrWrapper),nrWrapper)}function u(n,e,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<e.length;c++)f=e[c],a=n[f],r(a)||(n[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||e){var o=c;c=!0;try{n.emit(t,r,i,e)}catch(a){d([a,t,r,i])}c=o}}function p(n,e){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(n);return t.forEach(function(t){Object.defineProperty(e,t,{get:function(){return n[t]},set:function(e){return n[t]=e,e}})}),e}catch(r){d([r])}for(var i in n)f.call(n,i)&&(e[i]=n[i]);return e}function d(e){try{n.emit("internal-error",e)}catch(t){}}return n||(n=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<link href="http://web.archive.org/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+<meta content="The 2017 Yearbook of Immigration Statistics is a compendium of tables that provide data on foreign nationals who are granted lawful permanent residence (i.e., immigrants who receive a “green card”), admitted as temporary nonimmigrants, granted asylum or refugee status, or are naturalized. The Yearbook also presents data on immigration enforcement actions, including" name="description"/>
+<meta content="Immigration Statistics, Immigration Statistics Yearbook" name="keywords"/>
+<link href="http://web.archive.org/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table6" rel="canonical"/>
+<meta content="Department of Homeland Security" property="og:site_name"/>
+<meta content="article" property="og:type"/>
+<meta content="Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017" property="og:title"/>
+<meta content="http://web.archive.org/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table6" property="og:url"/>
+<meta content="The 2017 Yearbook of Immigration Statistics is a compendium of tables that provide data on foreign nationals who are granted lawful permanent residence (i.e., immigrants who receive a “green card”), admitted as temporary nonimmigrants, granted asylum or refugee status, or are naturalized. The Yearbook also presents data on immigration enforcement actions, including apprehensions and arrests, removals, and returns." property="og:description"/>
+<meta content="2018-10-02T13:41:45-04:00" property="og:updated_time"/>
+<meta content="http://web.archive.org/web/20191231114527im_/https://www.dhs.gov/xlibrary/assets/18_0524_DHS-Brand-OG.jpg" property="og:image"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="http://web.archive.org/web/20191231114527im_/https://www.dhs.gov/xlibrary/assets/18_0524_DHS-Brand-TW.jpg" name="twitter:image"/>
+<meta content="Seal of the Department of Homeland Security" name="twitter:image:alt"/>
+<meta content="2018-08-14T11:38:50-04:00" property="article:published_time"/>
+<meta content="2018-10-02T13:41:45-04:00" property="article:modified_time"/>
+<title>Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017 | Homeland Security</title>
+<link href="http://web.archive.org/web/20191231114527cs_/https://www.dhs.gov/sites/default/files/css/css_jxjd3y05gJ4znkc8IUPVWEgEf2rbAK_s9sEjW7BOSvU.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20191231114527cs_/https://www.dhs.gov/sites/default/files/css/css_L6rPqUdPNwD8LJUa8ZDiruyG8PPP3gK0XPEsr239Ygg.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20191231114527cs_/https://www.dhs.gov/sites/default/files/css/css_nX2l_kjeYLSsAsnhyDgojzeAYqfLCtTfJ0ijW6YQiKI.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20191231114527cs_/https://www.dhs.gov/sites/default/files/css/css_w8wRE0B6YpbI9d80cKW7bgeCvUeeoAW81Q6McfdGrMk.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20191231114527cs_/https://www.dhs.gov/sites/default/files/css/css_U-Xua7O2xwf-sgP8G0L90JtqSwAv0o2GP4dVXbu2qmE.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20191231114527cs_/https://www.dhs.gov/sites/default/files/css/css_qsygbReLKu21zxXLp1syMOBozHPb2_EiWkyx7rOLcEg.css" media="print" rel="stylesheet" type="text/css"/>
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/css/ie.css?q2sctx" media="all" />
+<![endif]-->
+<!--[if IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/css/ie9.css?q2sctx" media="all" />
+<![endif]-->
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/all/libraries/modernizr/modernizr-custom.js?q2sctx" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_gYWhuqN0Wsid8HOSk0yFzqMg-2NTv-xegwc2ACYMGws.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_THcwq4G882w3Eb1HklHrvzGAKa_-1g_0QbuBqjMhaV4.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/all/libraries/mediaelement/build/mediaelement-and-player.min.js?v=2.1.6" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_bBedazUXU7MnEMyq5OPDS5nq8420-Xq3OHwXTU_Nnpg.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.createElement( "picture" );
+//--><!]]>
+</script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_jwP35jpNVFqrdLEioRIGZuFF4Ot0G0uBwvyzS3u7jqU.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_NwnHpdvH_JXbzuzG2Puof-PskfnK9psJ3WwfVfsAS6o.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.CKEDITOR_BASEPATH = '/sites/all/libraries/ckeditor/'
+//--><!]]>
+</script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_rsGiM5M1ffe6EhN-RnhM5f3pDyJ8ZAPFJNKpfjtepLk.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","http://web.archive.org/web/20191231114527/https://www.dhs.gov/sites/default/files/googleanalytics/analytics.js?q2sctx","ga");ga("create", "UA-32318423-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("set", "dimension1", "(OIS) Office of Immigration Statistics");ga("send", "pageview");
+//--><!]]>
+</script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_4o_F35bH6sE1fx2bmr-mQlCZMA4m68suAfvSWmVT1j8.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_zWZ1dbyg6WuqvSiANMHnRmLjz6BPJKk3sz8KNNylQqM.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"dhs_mobile_theme","theme_token":"ie77x5eY-Jh41StVjHPXkSmw2mFZFo70TZbZSeWuDUE","jquery_version":"1.9","js":{"profiles\/dhs_gov\/modules\/contrib\/picture\/picturefill2\/picturefill.min.js":1,"profiles\/dhs_gov\/modules\/contrib\/picture\/picture.min.js":1,"0":1,"profiles\/dhs_gov\/modules\/contrib\/addthis\/addthis.js":1,"sites\/all\/libraries\/modernizr\/modernizr-custom.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.9\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/libraries\/mediaelement\/build\/mediaelement-and-player.min.js":1,"sites\/all\/libraries\/ableplayer\/build\/ableplayer.min.js":1,"sites\/all\/libraries\/ableplayer\/thirdparty\/js.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/form.js":1,"misc\/states.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1,"1":1,"profiles\/dhs_gov\/modules\/contrib\/fancy_file_delete\/js\/fancyfiledelete.js":1,"profiles\/dhs_wcm\/modules\/contrib\/redirect_page\/js\/external_links.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_load.js":1,"profiles\/dhs_gov\/modules\/features\/dhs_rotator\/js\/jquery.cycle.all.js":1,"profiles\/dhs_gov\/modules\/features\/dhs_rotator\/js\/jquery.jcarousel.min.js":1,"profiles\/dhs_gov\/modules\/features\/dhs_rotator\/js\/jquery.touchwipe.min.js":1,"profiles\/dhs_gov\/modules\/features\/dhs_rotator\/js\/dhs_rotator.js":1,"profiles\/dhs_wcm\/modules\/contrib\/mediaelement\/mediaelement.js":1,"profiles\/dhs_gov\/modules\/custom\/openpublic\/openpublic_accessibility\/openpublic_accessibility.js":1,"sites\/all\/modules\/wcm_survey\/js\/wcm_survey.js":1,"sites\/all\/modules\/wcm_survey\/js\/json3.min.js":1,"sites\/all\/modules\/wcm_survey\/js\/jquery.cookie.js":1,"profiles\/dhs_gov\/modules\/custom\/dhs_core\/js\/dhs_core.js":1,"profiles\/dhs_gov\/modules\/custom\/dhs_core\/js\/accessability.js":1,"sites\/all\/modules\/field_boxes\/jquery.tablednd_0_5.js":1,"sites\/all\/modules\/field_boxes\/field_boxes.js":1,"profiles\/dhs_gov\/modules\/custom\/dhs_custom_search\/dhs_custom_search.js":1,"profiles\/dhs_gov\/modules\/contrib\/responsive_menus\/styles\/responsive_menus_simple\/js\/responsive_menus_simple.js":1,"2":1,"profiles\/dhs_wcm\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"3":1,"profiles\/dhs_gov\/modules\/custom\/dhs_core\/js\/dhs_accordion.js":1,"misc\/progress.js":1,"profiles\/dhs_gov\/modules\/contrib\/hide_submit\/js\/hide_submit.js":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/js\/build\/scripts.js":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/js\/build\/modernizr.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/libraries\/mediaelement\/build\/mediaelementplayer.min.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"profiles\/dhs_gov\/modules\/custom\/custom_archive\/custom_archive.css":1,"profiles\/dhs_gov\/modules\/custom\/custom_foia\/custom_foia.css":1,"profiles\/dhs_wcm\/modules\/contrib\/date\/date_repeat_field\/date_repeat_field.css":1,"sites\/all\/modules\/diamond\/diamond.css":1,"sites\/all\/modules\/diamond\/diamond_medialibrary\/diamond_medialibrary.css":1,"profiles\/dhs_gov\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"profiles\/dhs_gov\/modules\/contrib\/quiz\/quiz.css":1,"sites\/all\/modules\/wcm_survey\/wcm_survey.css":1,"profiles\/dhs_wcm\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"profiles\/dhs_wcm\/modules\/contrib\/ctools\/css\/ctools.css":1,"profiles\/dhs_gov\/modules\/features\/dhs_sidebar\/dhs_sidebar.css":1,"profiles\/dhs_gov\/modules\/custom\/dhs_workflow\/dhs_workflow.css":1,"profiles\/dhs_gov\/modules\/custom\/wcm_node_feedback\/wcm_node_feedback.css":1,"profiles\/dhs_gov\/modules\/contrib\/responsive_menus\/styles\/responsive_menus_simple\/css\/responsive_menus_simple.css":1,"sites\/all\/libraries\/ableplayer\/build\/ableplayer.min.css":1,"profiles\/dhs_gov\/modules\/contrib\/hide_submit\/css\/hide_submit.css":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/css\/default.css":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/css\/layout.css":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/css\/style.css":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/css\/normalize.css":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/css\/print.css":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/css\/ie.css":1,"profiles\/dhs_gov\/themes\/dhs_mobile_theme\/css\/ie9.css":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"diamondMedialibrary":{"path":"medialibrary"},"mediaelementAll":true,"wcmSurvey":{"userPercentage":"40","pageDepth":"4","url":"http:\/\/web.archive.org\/web\/20191231114527\/https:\/\/www.surveymonkey.com\/s\/dhs-survey","force":false,"surveyRetakeTimeout":"90","surveyPopup":"\u003Cdiv id=\u0022wcm-survey-popup\u0022 class=\u0022dhs_mobile_theme\u0022\u003E\n\t\u003Cdiv class=\u0022logo\u0022\u003E\n\t\t\u003Cimg alt=\u0022Department of Homeland Security Agency Seal\u0022 src=\u0022\/profiles\/dhs_gov\/themes\/dhs_mobile_theme\/images\/dhs_surveypopup.png\u0022 \/\u003E\n\t\u003C\/div\u003E\n\t\u003Cdiv class=\u0022message\u0022\u003E\n\t\t\u003Cp\u003EYou have been selected to participate in a brief survey about your experience today with DHS.gov.\u003C\/p\u003E\t\u003C\/div\u003E\n\t\u003Cdiv class=\u0022choices\u0022\u003E\n\t\t\u003Cspan class=\u0022button yes\u0022\u003E\u003Ca title=\u0022Yes, I\u0027ll give feedback\u0022 href=\u0022https:\/\/www.surveymonkey.com\/s\/dhs-survey\u0022 class=\u0022accept\u0022 target=\u0022_blank\u0022 id=\u0022external_link\u0022\u003EYes, I\u0027ll give feedback\u003C\/a\u003E\u003C\/span\u003E\n\t\t\u003Cspan class=\u0022button no\u0022\u003E\u003Ca title=\u0022No Thanks, I do not want to give feedback\u0022 href=\u0022#\u0022 class=\u0022decline\u0022 target=\u0022_blank\u0022\u003ENo, thanks\u003C\/a\u003E\u003C\/span\u003E\n\t\u003C\/div\u003E\n","debugMode":0,"position":"centered","offset":"","height":"50%","width":"60%","maxHeight":"60%","maxWidth":"60%"},"hide_submit":{"hide_submit_status":true,"hide_submit_method":"disable","hide_submit_css":"hide-submit-disable","hide_submit_abtext":"","hide_submit_atext":"","hide_submit_hide_css":"hide-submit-processing","hide_submit_hide_text":"Processing...","hide_submit_indicator_style":"expand-left","hide_submit_spinner_color":"#000","hide_submit_spinner_lines":12,"hide_submit_hide_fx":0,"hide_submit_reset_time":5000},"better_exposed_filters":{"views":{"microsite_wide":{"displays":{"microsite_banner":{"filters":[]}}}}},"responsive_menus":[{"toggler_text":"\u2630 Menu","selectors":[".main-menu",".menu-menu-left-menu",".menu_block-5",".menu_block-6",".menu_block-7",".menu_block-9",".menu_block-10",".menu_block-11",".menu_block-12",".menu_block-13",".menu_block-14",".menu_block-15"],"media_size":"1072","media_unit":"px","absolute":"1","remove_attributes":"1","responsive_menus_style":"responsive_menus_simple"}],"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackColorbox":1},"states":{"#edit-wcm-node-feedback-second-question":{"visible":{":input[name=\u0022wcm_node_feedback_intro_question\u0022]":{"value":"no"}}}},"ajax":{"edit-submit":{"callback":"wcm_node_feedback_response_callback","wrapper":"wcm-node-feedback-form \u003E div","method":"replaceWith","effect":"fade","progress":{"message":""},"event":"mousedown","keypress":true,"prevent":"click","url":"\/system\/ajax","submit":{"_triggering_element_name":"op","_triggering_element_value":"Submit"}}},"urlIsAjaxTrusted":{"\/system\/ajax":true,"\/immigration-statistics\/yearbook\/2017\/table6":true},"redirect_new_window":true,"redirect_page_safe_href_regexp":"(\\.fayze2\\.com|\\.gov|\\.mil|feedburner\\.com|www\\.facebook\\.com\/\\#\\!\/homelandsecurity|twitter\\.com|www\\.youtube\\.com\/ushomelandsec|surveymonkey\\.com|tel:|sms:|www\\.gocoastguard\\.com|JavaScript:void()|tel:|sms:|www\\.gocoastguard\\.com|itunes\\.apple\\.com|pcast:\\\/\\\/www\\.dhs\\.gov|play\\.google\\.com|dvidshub\\.net|join\\.cgaux\\.org)"});
+//--><!]]>
+</script>
+<!-- We participate in the US government's analytics program. See the data at analytics.usa.gov. --><script id="_fed_an_ua_tag" src="/web/20191231114527js_/https://www.dhs.gov/profiles/dhs_wcm/modules/contrib/usfedgov_google_analytics/js/Universal-Federated-Analytics-Min.js" type="text/javascript"></script> <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+</head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-38004 node-type-site-page role-anonymous-user with-subnav page-immigration-statistics-yearbook-2017-table6 section-immigration-statistics mobile-main-menu-hide">
+<div aria-label="Skip to the Main Content" id="skip" role="navigation">
+<a class="element-invisible element-focusable" href="#content">Skip to Main Content</a>
+</div>
+<div class="page with-navigation" id="page">
+<header id="header">
+<div class="container"><div class="inner">
+<div id="user-first-region">
+<div>
+<div>
+<div class="block block-boxes block-boxes-simple boxes-dhs_header_tagline" data-bid="boxes-dhs_header_tagline">
+<div class="boxes-box" id="boxes-box-dhs_header_tagline"><div class="boxes-box-content"><p><img alt="US flag signifying that this is a United States Federal Government website" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/icn-us-flag-21px.png" style="width: 21px; height: 13px;"/>   Official website of the Department of Homeland Security</p>
+</div></div></div> <!-- /block --><div class="block block-menu menu-menu-utility" data-bid="menu-menu-utility">
+<ul class="menu clearfix"><li class="first leaf contact-us mid-623"><a href="/web/20191231114527/https://www.dhs.gov/contact-us" title="Contact Us">Contact Us</a></li>
+<li class="leaf quick-links mid-11505"><a href="/web/20191231114527/https://www.dhs.gov/frequently-requested-pages" title="Quick Links">Quick Links</a></li>
+<li class="leaf site-map mid-11111"><a href="/web/20191231114527/https://www.dhs.gov/sitemap" title="Site Map">Site Map</a></li>
+<li class="last leaf a-z-index mid-2272"><a href="/web/20191231114527/https://www.dhs.gov/dhsgov-z-index" title="A-Z Index">A-Z Index</a></li>
+</ul></div> <!-- /block --> </div>
+</div> </div>
+<div class="clearfix" id="branding">
+<div id="branding-name">
+<a href="/web/20191231114527/https://www.dhs.gov/" rel="home" title="U.S. Department of Homeland Security Seal"><div id="logo"><img alt="U.S. Department of Homeland Security Seal" src="http://web.archive.org/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/logo.png"/><div id="site-name"></div></div></a>
+</div> <!-- /branding name -->
+<div id="branding-region">
+<div>
+<div>
+<div class="block block-boxes block-boxes-simple boxes-social_media_follow" data-bid="boxes-social_media_follow">
+<div class="boxes-box" id="boxes-box-social_media_follow"><div class="boxes-box-content"><ul><li class="mobile"><a class="follow-link" href="/web/20191231114527/https://www.dhs.gov/facebook" target="_blank" title="Follow Homeland Security on Facebook"><img alt="Facebook icon" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/sm_icon_facebook_trans.png" style="width: 25px; height: 25px;"/></a></li>
+<li class="mobile"><a class="follow-link" href="/web/20191231114527/https://www.dhs.gov/twitter" target="_blank" title="Follow Homeland Security on Twitter"><img alt="twitter icon" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/sm_icon_twitter_trans.png" style="width: 25px; height: 25px;"/></a></li>
+<li><a class="follow-link" href="/web/20191231114527/https://www.dhs.gov/instagram" target="_blank" title="Follow Homeland Security on Instagram"><img alt="Instagram icon" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/icon_instagram.png" style="height: 25px; width: 25px;"/></a></li>
+<li><a class="follow-link" href="/web/20191231114527/https://www.dhs.gov/linkedin" target="_blank" title="Follow Homeland Security on LinkedIn"><img alt="LinkedIn icon" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/sm_icon_linkedin_trans.png" style="width: 25px; height: 25px;"/></a></li>
+<li><a class="follow-link" href="/web/20191231114527/https://www.dhs.gov/flickr" target="_blank" title="Follow Homeland Security on Flickr"><img alt="Flickr icon" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/icon_flickr.png" style="width: 25px; height: 25px;"/></a></li>
+<li><a class="follow-link" href="/web/20191231114527/https://www.dhs.gov/youtube" target="_blank" title="Follow Homeland Security on YouTube"><img alt="Youtube icon" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/sm_icon_youtube_trans.png" style="width: 25px; height: 25px;"/></a></li>
+<li class="mobile"><a class="follow-link" href="http://web.archive.org/web/20191231114527/https://public.govdelivery.com/accounts/USDHS/subscriber/new" target="_blank" title="Subscribe to email updates from Homeland Security"><img alt="Govdelivery icon" src="/web/20191231114527im_/https://www.dhs.gov/profiles/dhs_gov/themes/dhs_mobile_theme/images/optimized/sm_icon_govdelivery_trans.png" style="width: 25px; height: 25px;"/></a></li>
+</ul></div></div></div> <!-- /block --> </div>
+</div> </div>
+</div>
+<div class="clearfix" id="header-second">
+<nav aria-label="main menu" class="menu with-primary" id="navigation">
+<div class="container">
+<ul class="main-menu" id="primary"><li class="menu-2618 first"><a href="/web/20191231114527/https://www.dhs.gov/topics">Topics</a></li>
+<li class="menu-2333"><a href="/web/20191231114527/https://www.dhs.gov/news">News</a></li>
+<li class="menu-43646"><a href="/web/20191231114527/https://www.dhs.gov/focus">In Focus</a></li>
+<li class="menu-1211"><a href="/web/20191231114527/https://www.dhs.gov/how-do-i">How Do I?</a></li>
+<li class="menu-2617"><a href="/web/20191231114527/https://www.dhs.gov/get-involved">Get Involved</a></li>
+<li class="menu-2334 last"><a href="/web/20191231114527/https://www.dhs.gov/about-dhs">About DHS</a></li>
+</ul> </div>
+</nav>
+<nav aria-label="left menu" class="menu left-menu" id="left_navigation">
+<div class="container">
+<div class="block block-menu menu-menu-left-menu" data-bid="menu-menu-left-menu">
+<ul class="menu clearfix"><li class="first expanded active-trail yearbook-2017 mid-47023"><a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017">Yearbook 2017</a><ul class="menu clearfix"><li class="first leaf table-1 mid-47025"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table1">Table 1</a></li>
+<li class="leaf table-2 mid-47028"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table2">Table 2</a></li>
+<li class="leaf table-3 mid-47031"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table3">Table 3</a></li>
+<li class="leaf table-4 mid-47033"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table4">Table 4</a></li>
+<li class="leaf table-5 mid-47034"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table5">Table 5</a></li>
+<li class="leaf active-trail table-6 mid-47037"><a class="active-trail active" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table6">Table 6</a></li>
+<li class="leaf table-7 mid-47039"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table7">Table 7</a></li>
+<li class="leaf table-8 mid-47042"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table8">Table 8</a></li>
+<li class="leaf table-9 mid-47045"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table9">Table 9</a></li>
+<li class="leaf table-10 mid-47050"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table10">Table 10</a></li>
+<li class="leaf table-11 mid-47052"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table11">Table 11</a></li>
+<li class="leaf table-12 mid-47054"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table12">Table 12</a></li>
+<li class="leaf table-13 mid-47055"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table13">Table 13</a></li>
+<li class="leaf table-14 mid-47056"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table14">Table 14</a></li>
+<li class="leaf table-15 mid-47057"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table15">Table 15</a></li>
+<li class="leaf table-16 mid-47059"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table16">Table 16</a></li>
+<li class="leaf table-17 mid-47060"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table17">Table 17</a></li>
+<li class="leaf table-18 mid-47062"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table18">Table 18</a></li>
+<li class="leaf table-19 mid-47065"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table19">Table 19</a></li>
+<li class="leaf table-20 mid-47067"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table20">Table 20</a></li>
+<li class="leaf table-21 mid-47070"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table21">Table 21</a></li>
+<li class="leaf table-22 mid-47078"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table22">Table 22</a></li>
+<li class="leaf table-23 mid-47077"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table23">Table 23</a></li>
+<li class="leaf table-24 mid-47074"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table24">Table 24</a></li>
+<li class="leaf table-25 mid-47073"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table25">Table 25</a></li>
+<li class="leaf table-26 mid-47081"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table26">Table 26</a></li>
+<li class="leaf table-27 mid-47082"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table27">Table 27</a></li>
+<li class="leaf table-28 mid-47084"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table28">Table 28</a></li>
+<li class="leaf table-29 mid-47086"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table29">Table 29</a></li>
+<li class="leaf table-30 mid-47087"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table30">Table 30</a></li>
+<li class="leaf table-31 mid-47089"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table31">Table 31</a></li>
+<li class="leaf table-32 mid-47091"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table32">Table 32</a></li>
+<li class="leaf table-33 mid-47092"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table33">Table 33</a></li>
+<li class="leaf table-34 mid-47093"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table34">Table 34</a></li>
+<li class="leaf table-35 mid-47095"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table35">Table 35</a></li>
+<li class="leaf table-36 mid-47097"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table36">Table 36</a></li>
+<li class="leaf table-37 mid-47099"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table37">Table 37</a></li>
+<li class="leaf table-38 mid-47101"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table38">Table 38</a></li>
+<li class="leaf table-39 mid-47102"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table39">Table 39</a></li>
+<li class="leaf table-40 mid-47105"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table40">Table 40</a></li>
+<li class="last leaf table-41 mid-47106"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table41">Table 41</a></li>
+</ul></li>
+</ul></div> <!-- /block --> </div>
+</nav>
+<div id="header-second-region">
+<div>
+<div>
+<div class="block block-dhs-custom-search dhs_custom_search-dhs_custom_search" data-bid="dhs_custom_search-dhs_custom_search">
+<form accept-charset="UTF-8" action="http://web.archive.org/web/20191231114527/https://search.usa.gov/search" id="usasearch-block-form" method="get">
+<input name="utf8" type="hidden" value="✓"/>
+<input id="affiliate" name="affiliate" type="hidden" value="dhs"/>
+<input id="dc" name="dc" type="hidden" value=""/>
+<input id="channel" name="channel" type="hidden" value=""/>
+<label class="element-invisible" for="edit-search-block-form--2">Enter Search Term(s):</label>
+<input autocomplete="off" class="usagov-search-autocomplete" id="edit-search-block-form--2" name="query" placeholder="Enter Search Term" type="text"/>
+<label class="element-invisible" for="search-type">Choose your area of search:</label>
+<select id="search-type" name="search-type">
+<option selected="" value="dhs">On DHS.gov</option>
+<option value="news">News &amp; Updates</option>
+<option value="docs">Publications</option>
+<option value="all">All DHS Websites</option>
+</select>
+<label class="element-invisible" for="usasearch-edit-submit">Submit Search</label>
+<input class="form-submit" id="usasearch-edit-submit" name="commit" title="Search" type="submit" value="Search"/>
+</form>
+</div> <!-- /block --> </div>
+</div> </div>
+</div> </div></div>
+</header>
+<!-- ______________________ PAGE CONTENT _______________________ -->
+<section aria-label="Page content with left menu" id="page-content">
+<div class="container"><div class="inner">
+<!-- ______________________ EMERGENCY _______________________ -->
+<!-- ______________________ PREFACE _______________________ -->
+<div class="clearfix" id="preface">
+<div id="preface-first">
+<div class="container">
+<h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/web/20191231114527/https://www.dhs.gov/">Home</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/news" title="News">News</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/topic/data" title="Data">Data</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics">Immigration Data &amp; Statistics</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook">Yearbook of Immigration Statistics</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017">Yearbook 2017</a> &gt; <span>Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017</span></div> </div>
+</div> <!-- /preface -->
+</div>
+<!-- ______________________ MAIN _______________________ -->
+<div id="main">
+<div class="container">
+<section aria-label="main content" id="content">
+<!-- <div id="content-header"> -->
+<div id="content-area">
+<div>
+<div>
+<div id="main-content"></div>
+<article class="node node-site-page node-odd" data-nid="38004" lang="en">
+<div>
+<div class="sidebar"><div class="block block-menu menu-menu-left-menu" data-bid="menu-menu-left-menu">
+<ul class="menu clearfix"><li class="first expanded active-trail yearbook-2017 mid-47023"><a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017">Yearbook 2017</a><ul class="menu clearfix"><li class="first leaf table-1 mid-47025"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table1">Table 1</a></li>
+<li class="leaf table-2 mid-47028"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table2">Table 2</a></li>
+<li class="leaf table-3 mid-47031"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table3">Table 3</a></li>
+<li class="leaf table-4 mid-47033"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table4">Table 4</a></li>
+<li class="leaf table-5 mid-47034"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table5">Table 5</a></li>
+<li class="leaf active-trail table-6 mid-47037"><a class="active-trail active" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table6">Table 6</a></li>
+<li class="leaf table-7 mid-47039"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table7">Table 7</a></li>
+<li class="leaf table-8 mid-47042"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table8">Table 8</a></li>
+<li class="leaf table-9 mid-47045"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table9">Table 9</a></li>
+<li class="leaf table-10 mid-47050"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table10">Table 10</a></li>
+<li class="leaf table-11 mid-47052"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table11">Table 11</a></li>
+<li class="leaf table-12 mid-47054"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table12">Table 12</a></li>
+<li class="leaf table-13 mid-47055"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table13">Table 13</a></li>
+<li class="leaf table-14 mid-47056"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table14">Table 14</a></li>
+<li class="leaf table-15 mid-47057"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table15">Table 15</a></li>
+<li class="leaf table-16 mid-47059"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table16">Table 16</a></li>
+<li class="leaf table-17 mid-47060"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table17">Table 17</a></li>
+<li class="leaf table-18 mid-47062"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table18">Table 18</a></li>
+<li class="leaf table-19 mid-47065"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table19">Table 19</a></li>
+<li class="leaf table-20 mid-47067"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table20">Table 20</a></li>
+<li class="leaf table-21 mid-47070"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table21">Table 21</a></li>
+<li class="leaf table-22 mid-47078"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table22">Table 22</a></li>
+<li class="leaf table-23 mid-47077"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table23">Table 23</a></li>
+<li class="leaf table-24 mid-47074"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table24">Table 24</a></li>
+<li class="leaf table-25 mid-47073"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table25">Table 25</a></li>
+<li class="leaf table-26 mid-47081"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table26">Table 26</a></li>
+<li class="leaf table-27 mid-47082"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table27">Table 27</a></li>
+<li class="leaf table-28 mid-47084"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table28">Table 28</a></li>
+<li class="leaf table-29 mid-47086"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table29">Table 29</a></li>
+<li class="leaf table-30 mid-47087"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table30">Table 30</a></li>
+<li class="leaf table-31 mid-47089"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table31">Table 31</a></li>
+<li class="leaf table-32 mid-47091"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table32">Table 32</a></li>
+<li class="leaf table-33 mid-47092"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table33">Table 33</a></li>
+<li class="leaf table-34 mid-47093"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table34">Table 34</a></li>
+<li class="leaf table-35 mid-47095"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table35">Table 35</a></li>
+<li class="leaf table-36 mid-47097"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table36">Table 36</a></li>
+<li class="leaf table-37 mid-47099"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table37">Table 37</a></li>
+<li class="leaf table-38 mid-47101"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table38">Table 38</a></li>
+<li class="leaf table-39 mid-47102"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table39">Table 39</a></li>
+<li class="leaf table-40 mid-47105"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table40">Table 40</a></li>
+<li class="last leaf table-41 mid-47106"><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table41">Table 41</a></li>
+</ul></li>
+</ul></div> <!-- /block --></div>
+<header>
+<h1>Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017</h1>
+<span class="rdf-meta element-hidden" content="Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017" property="dc:title"></span> </header>
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded dc:description"><p>The <em><a href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017">2017 Yearbook of Immigration Statistics</a> </em>is a compendium of tables that provide data on foreign nationals who are granted lawful permanent residence (i.e., immigrants who receive a “green card”), admitted as temporary nonimmigrants, granted asylum or refugee status, or are naturalized. The <em>Yearbook </em>also presents data on immigration enforcement actions, including apprehensions and arrests, removals, and returns.</p>
+<p> </p>
+<table align="center" style="width: 80%;" summary="Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017"><caption>Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017</caption>
+<thead><tr><th scope="row">Type and Class of Admission</th>
+<th scope="col">2015</th>
+<th scope="col">2016</th>
+<th scope="col">2017</th>
+</tr></thead><tbody><tr><th scope="row">      Total</th>
+<td>1,051,031</td>
+<td>1,183,505</td>
+<td>1,127,167</td>
+</tr><tr><th scope="row">Immediate relatives of U.S. citizens</th>
+<td>465,068</td>
+<td>566,706</td>
+<td>516,508</td>
+</tr><tr><th scope="row">   Spouses</th>
+<td>265,367</td>
+<td>304,358</td>
+<td>292,909</td>
+</tr><tr><th scope="row">   Children <sup>1</sup></th>
+<td>66,740</td>
+<td>88,494</td>
+<td>74,989</td>
+</tr><tr><th scope="row">   Parents</th>
+<td>132,961</td>
+<td>173,854</td>
+<td>148,610</td>
+</tr><tr><th scope="row">Family-sponsored preferences</th>
+<td>213,910</td>
+<td>238,087</td>
+<td>232,238</td>
+</tr><tr><th scope="row">   First: Unmarried sons/daughters of U.S. citizens and their children</th>
+<td>24,533</td>
+<td>22,072</td>
+<td>26,219</td>
+</tr><tr><th scope="row">   Second: Spouses, children, and unmarried sons/daughters of alien residents</th>
+<td>104,892</td>
+<td>121,267</td>
+<td>113,500</td>
+</tr><tr><th scope="row">   Third: Married sons/daughters of U.S. citizens and their spouses and children</th>
+<td>24,271</td>
+<td>27,392</td>
+<td>23,260</td>
+</tr><tr><th scope="row">   Fourth: Brothers/sisters of U.S. citizens (at least 21 years of age) and their spouses and children</th>
+<td>60,214</td>
+<td>67,356</td>
+<td>69,259</td>
+</tr><tr><th scope="row">Employment-based preferences</th>
+<td>144,047</td>
+<td>137,893</td>
+<td>137,855</td>
+</tr><tr><th scope="row">   First: Priority workers</th>
+<td>41,688</td>
+<td>42,862</td>
+<td>41,060</td>
+</tr><tr><th scope="row">   Second: Professionals with advanced degrees or aliens of exceptional ability</th>
+<td>44,344</td>
+<td>38,858</td>
+<td>39,331</td>
+</tr><tr><th scope="row">   Third: Skilled workers, professionals, and unskilled workers</th>
+<td>37,243</td>
+<td>35,933</td>
+<td>38,083</td>
+</tr><tr><th scope="row">   Fourth: Certain special immigrants</th>
+<td>10,584</td>
+<td>10,377</td>
+<td>9,504</td>
+</tr><tr><th scope="row">   Fifth: Employment creation (investors)</th>
+<td>10,188</td>
+<td>9,863</td>
+<td>9,877</td>
+</tr><tr><th scope="row">Diversity</th>
+<td>47,934</td>
+<td>49,865</td>
+<td>51,592</td>
+</tr><tr><th scope="row">Refugees</th>
+<td>118,431</td>
+<td>120,216</td>
+<td>120,356</td>
+</tr><tr><th scope="row">Asylees</th>
+<td>33,564</td>
+<td>37,209</td>
+<td>25,647</td>
+</tr><tr><th scope="row">Parolees</th>
+<td>23</td>
+<td>15</td>
+<td>26</td>
+</tr><tr><th scope="row">Children born abroad to alien residents</th>
+<td>403</td>
+<td>92</td>
+<td>75</td>
+</tr><tr><th scope="row">Certain Iraqis and Afghans employed by U.S. Government and their spouses and children</th>
+<td>7,048</td>
+<td>12,151</td>
+<td>19,191</td>
+</tr><tr><th scope="row">Cancellation of removal</th>
+<td>4,713</td>
+<td>3,453</td>
+<td>3,539</td>
+</tr><tr><th scope="row">Victims of human trafficking</th>
+<td>970</td>
+<td>1,069</td>
+<td>1,317</td>
+</tr><tr><th scope="row">Victims of crimes and their spouses and children</th>
+<td>14,138</td>
+<td>16,184</td>
+<td>18,065</td>
+</tr><tr><th scope="row">Other</th>
+<td>782</td>
+<td>565</td>
+<td>758</td>
+</tr></tbody></table><p> </p>
+<table align="center" style="width: 80%;" summary="Adjustment of Status"><caption>Adjustment of Status</caption>
+<thead><tr><th scope="row">Type and Class of Admission</th>
+<th scope="col">2015</th>
+<th scope="col">2016</th>
+<th scope="col">2017</th>
+</tr></thead><tbody><tr><th scope="row">      Total</th>
+<td>542,315</td>
+<td>565,427</td>
+<td>549,086</td>
+</tr><tr><th scope="row">Immediate relatives of U.S. citizens</th>
+<td>230,194</td>
+<td>257,302</td>
+<td>252,231</td>
+</tr><tr><th scope="row">   Spouses</th>
+<td>158,768</td>
+<td>171,353</td>
+<td>177,473</td>
+</tr><tr><th scope="row">   Children <sup>1</sup></th>
+<td>16,074</td>
+<td>17,438</td>
+<td>16,749</td>
+</tr><tr><th scope="row">   Parents</th>
+<td>55,352</td>
+<td>68,511</td>
+<td>58,009</td>
+</tr><tr><th scope="row">Family-sponsored preferences</th>
+<td>16,783</td>
+<td>15,116</td>
+<td>13,478</td>
+</tr><tr><th scope="row">   First: Unmarried sons/daughters of U.S. citizens and their children</th>
+<td>2,503</td>
+<td>1,952</td>
+<td>1,929</td>
+</tr><tr><th scope="row">   Second: Spouses, children, and unmarried sons/daughters of alien residents</th>
+<td>6,950</td>
+<td>6,751</td>
+<td>5,846</td>
+</tr><tr><th scope="row">   Third: Married sons/daughters of U.S. citizens and their spouses and children</th>
+<td>2,510</td>
+<td>2,073</td>
+<td>2,093</td>
+</tr><tr><th scope="row">   Fourth: Brothers/sisters of U.S. citizens (at least 21 years of age) and their spouses and children</th>
+<td>4,820</td>
+<td>4,340</td>
+<td>3,610</td>
+</tr><tr><th scope="row">Employment-based preferences</th>
+<td>121,978</td>
+<td>113,640</td>
+<td>113,330</td>
+</tr><tr><th scope="row">   First: Priority workers</th>
+<td>39,924</td>
+<td>40,445</td>
+<td>38,496</td>
+</tr><tr><th scope="row">   Second: Professionals with advanced degrees or aliens of exceptional ability</th>
+<td>42,531</td>
+<td>36,448</td>
+<td>36,217</td>
+</tr><tr><th scope="row">   Third: Skilled workers, professionals, and unskilled workers</th>
+<td>29,648</td>
+<td>26,878</td>
+<td>29,377</td>
+</tr><tr><th scope="row">   Fourth: Certain special immigrants</th>
+<td>8,890</td>
+<td>8,478</td>
+<td>7,610</td>
+</tr><tr><th scope="row">   Fifth: Employment creation (investors)</th>
+<td>985</td>
+<td>1,391</td>
+<td>1,630</td>
+</tr><tr><th scope="row">Diversity</th>
+<td>1,268</td>
+<td>1,048</td>
+<td>918</td>
+</tr><tr><th scope="row">Refugees</th>
+<td>118,431</td>
+<td>120,216</td>
+<td>120,356</td>
+</tr><tr><th scope="row">Asylees</th>
+<td>33,564</td>
+<td>37,209</td>
+<td>25,647</td>
+</tr><tr><th scope="row">Parolees</th>
+<td>23</td>
+<td>15</td>
+<td>26</td>
+</tr><tr><th scope="row">Children born abroad to alien residents</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr><tr><th scope="row">Certain Iraqis and Afghans employed by U.S. Government and their spouses and children</th>
+<td>25</td>
+<td>15</td>
+<td>46</td>
+</tr><tr><th scope="row">Cancellation of removal</th>
+<td>4,713</td>
+<td>3,453</td>
+<td>3,539</td>
+</tr><tr><th scope="row">Victims of human trafficking</th>
+<td>970</td>
+<td>1,069</td>
+<td>1,317</td>
+</tr><tr><th scope="row">Victims of crimes and their spouses and children</th>
+<td>14,112</td>
+<td>16,148</td>
+<td>17,993</td>
+</tr><tr><th scope="row">Other</th>
+<td>254</td>
+<td>196</td>
+<td>205</td>
+</tr></tbody></table><p> </p>
+<table align="center" style="width: 80%;" summary="New Arrivals"><caption>New Arrivals</caption>
+<thead><tr><th scope="row">Type and Class of Admission</th>
+<th scope="col">2015</th>
+<th scope="col">2016</th>
+<th scope="col">2017</th>
+</tr></thead><tbody><tr><th scope="row">      Total</th>
+<td>508,716</td>
+<td>618,078</td>
+<td>578,081</td>
+</tr><tr><th scope="row">Immediate relatives of U.S. citizens</th>
+<td>234,874</td>
+<td>309,404</td>
+<td>264,277</td>
+</tr><tr><th scope="row">   Spouses</th>
+<td>106,599</td>
+<td>133,005</td>
+<td>115,436</td>
+</tr><tr><th scope="row">   Children <sup>1</sup></th>
+<td>50,666</td>
+<td>71,056</td>
+<td>58,240</td>
+</tr><tr><th scope="row">   Parents</th>
+<td>77,609</td>
+<td>105,343</td>
+<td>90,601</td>
+</tr><tr><th scope="row">Family-sponsored preferences</th>
+<td>197,127</td>
+<td>222,971</td>
+<td>218,760</td>
+</tr><tr><th scope="row">   First: Unmarried sons/daughters of U.S. citizens and their children</th>
+<td>22,030</td>
+<td>20,120</td>
+<td>24,290</td>
+</tr><tr><th scope="row">   Second: Spouses, children, and unmarried sons/daughters of alien residents</th>
+<td>97,942</td>
+<td>114,516</td>
+<td>107,654</td>
+</tr><tr><th scope="row">   Third: Married sons/daughters of U.S. citizens and their spouses and children</th>
+<td>21,761</td>
+<td>25,319</td>
+<td>21,167</td>
+</tr><tr><th scope="row">   Fourth: Brothers/sisters of U.S. citizens (at least 21 years of age) and their spouses and children</th>
+<td>55,394</td>
+<td>63,016</td>
+<td>65,649</td>
+</tr><tr><th scope="row">Employment-based preferences</th>
+<td>22,069</td>
+<td>24,253</td>
+<td>24,525</td>
+</tr><tr><th scope="row">   First: Priority workers</th>
+<td>1,764</td>
+<td>2,417</td>
+<td>2,564</td>
+</tr><tr><th scope="row">   Second: Professionals with advanced degrees or aliens of exceptional ability</th>
+<td>1,813</td>
+<td>2,410</td>
+<td>3,114</td>
+</tr><tr><th scope="row">   Third: Skilled workers, professionals, and unskilled workers</th>
+<td>7,595</td>
+<td>9,055</td>
+<td>8,706</td>
+</tr><tr><th scope="row">   Fourth: Certain special immigrants</th>
+<td>1,694</td>
+<td>1,899</td>
+<td>1,894</td>
+</tr><tr><th scope="row">   Fifth: Employment creation (investors)</th>
+<td>9,203</td>
+<td>8,472</td>
+<td>8,247</td>
+</tr><tr><th scope="row">Diversity</th>
+<td>46,666</td>
+<td>48,817</td>
+<td>50,674</td>
+</tr><tr><th scope="row">Refugees</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr><tr><th scope="row">Asylees</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr><tr><th scope="row">Parolees</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr><tr><th scope="row">Children born abroad to alien residents</th>
+<td>403</td>
+<td>92</td>
+<td>75</td>
+</tr><tr><th scope="row">Certain Iraqis and Afghans employed by U.S. Government and their spouses and children</th>
+<td>7,023</td>
+<td>12,136</td>
+<td>19,145</td>
+</tr><tr><th scope="row">Cancellation of removal</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr><tr><th scope="row">Victims of human trafficking</th>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr><tr><th scope="row">Victims of crimes and their spouses and children</th>
+<td>26</td>
+<td>36</td>
+<td>72</td>
+</tr><tr><th scope="row">Other</th>
+<td>528</td>
+<td>369</td>
+<td>553</td>
+</tr></tbody></table><p>NA Not available.<br/>- Represents zero.<br/><sup>1</sup> Includes orphans.</p>
+<p>Source: U.S. Department of Homeland Security. removals, and returns.</p>
+</div></div></div>
+</div>
+<div class="clearfix">
+<nav aria-label="content links" class="links node-links clearfix"></nav>
+</div>
+<!--do not display for microsite blog page-->
+<div class="last-updated">
+<span class="last-updated-field-heading">Last Published Date:</span>
+        October 2, 2018    </div>
+</article>
+<div class="block block-wcm-node-feedback wcm_node_feedback-wcm_node_feedback_form_block" data-bid="wcm_node_feedback-wcm_node_feedback_form_block">
+<form accept-charset="UTF-8" action="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017/table6" id="wcm-node-feedback-form" method="post"><div><fieldset class="form-wrapper" id="edit-wcm-node-feedback-form--2"><div class="fieldset-wrapper"><legend><h3>Was this page helpful?</h3></legend><div class="form-radios" id="edit-wcm-node-feedback-intro-question"><div class="form-item form-type-radio form-item-wcm-node-feedback-intro-question">
+<input class="form-radio" id="edit-wcm-node-feedback-intro-question-yes" name="wcm_node_feedback_intro_question" type="radio" value="yes"/> <label class="option" for="edit-wcm-node-feedback-intro-question-yes">Yes </label>
+</div>
+<div class="form-item form-type-radio form-item-wcm-node-feedback-intro-question">
+<input class="form-radio" id="edit-wcm-node-feedback-intro-question-no" name="wcm_node_feedback_intro_question" type="radio" value="no"/> <label class="option" for="edit-wcm-node-feedback-intro-question-no">No </label>
+</div>
+</div><fieldset class="form-wrapper" id="edit-wcm-node-feedback-second-question"><div class="fieldset-wrapper"><legend>This page was not helpful because the content:</legend><div class="form-radios" id="edit-wcm-node-feedback-second-question-options"><div class="form-item form-type-radio form-item-wcm-node-feedback-second-question-options">
+<input class="form-radio" id="edit-wcm-node-feedback-second-question-options-too-little-info" name="wcm_node_feedback_second_question_options" type="radio" value="Too little info"/> <label class="option" for="edit-wcm-node-feedback-second-question-options-too-little-info">has too little information </label>
+</div>
+<div class="form-item form-type-radio form-item-wcm-node-feedback-second-question-options">
+<input class="form-radio" id="edit-wcm-node-feedback-second-question-options-too-much-info" name="wcm_node_feedback_second_question_options" type="radio" value="Too much info"/> <label class="option" for="edit-wcm-node-feedback-second-question-options-too-much-info">has too much information </label>
+</div>
+<div class="form-item form-type-radio form-item-wcm-node-feedback-second-question-options">
+<input class="form-radio" id="edit-wcm-node-feedback-second-question-options-confusing" name="wcm_node_feedback_second_question_options" type="radio" value="Confusing"/> <label class="option" for="edit-wcm-node-feedback-second-question-options-confusing">is confusing </label>
+</div>
+<div class="form-item form-type-radio form-item-wcm-node-feedback-second-question-options">
+<input class="form-radio" id="edit-wcm-node-feedback-second-question-options-out-of-date" name="wcm_node_feedback_second_question_options" type="radio" value="Out-of-date"/> <label class="option" for="edit-wcm-node-feedback-second-question-options-out-of-date">is out-of-date </label>
+</div>
+</div></div></fieldset>
+<div class="form-messages"></div>
+<input alt="submit button" class="usa-button--gradient form-submit" id="edit-submit" name="op" title="Submit" type="submit" value="Submit"/></div></fieldset>
+<input name="second_question" type="hidden" value="yes"/>
+<input name="node_id" type="hidden" value="38004"/>
+<div id="wcm_node_feedback_form"></div><input name="form_build_id" type="hidden" value="form-MNWI1Ck4by6fXvCZ2PixGs2peC8w_STW5VpiV2XARx4"/>
+<input name="form_id" type="hidden" value="wcm_node_feedback_form"/>
+</div></form></div> <!-- /block --> </div>
+</div> </div>
+</section> <!-- /content-inner /content -->
+<aside id="sidebar-first">
+<h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/web/20191231114527/https://www.dhs.gov/">Home</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/news" title="News">News</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/topic/data" title="Data">Data</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics">Immigration Data &amp; Statistics</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook">Yearbook of Immigration Statistics</a> &gt; <a class="active-trail" href="/web/20191231114527/https://www.dhs.gov/immigration-statistics/yearbook/2017">Yearbook 2017</a> &gt; <span>Table 6. Persons Obtaining Lawful Permanent Resident Status by Type and Major Class of Admission: Fiscal Years 2015 to 2017</span></div> <div>
+<div>
+</div>
+</div> </aside>
+<!-- /sidebar-first -->
+<!-- /sidebar-second -->
+</div>
+</div> <!-- /main -->
+<div class="clearfix" id="postscript">
+</div>
+</div></div>
+</section> <!-- page-content -->
+<footer id="footer">
+<div class="container"><div class="inner">
+<div id="footer-first">
+<div class="container">
+<div>
+<div>
+<div class="block block-menu menu-menu-footer-menu" data-bid="menu-menu-footer-menu">
+<ul class="menu clearfix"><li class="first leaf topics mid-2354"><a href="/web/20191231114527/https://www.dhs.gov/topics" title="Topics">Topics</a></li>
+<li class="leaf get-involved mid-2355"><a href="/web/20191231114527/https://www.dhs.gov/get-involved" title="">Get Involved</a></li>
+<li class="leaf how-do-i- mid-2356"><a href="/web/20191231114527/https://www.dhs.gov/how-do-i">How Do I?</a></li>
+<li class="leaf news mid-2357"><a href="/web/20191231114527/https://www.dhs.gov/news" title="">News</a></li>
+<li class="leaf about-dhs mid-2358"><a href="/web/20191231114527/https://www.dhs.gov/about-dhs" title="About DHS">About DHS</a></li>
+<li class="last leaf site-links mid-2359"><a href="/web/20191231114527/https://www.dhs.gov/site-links" title="Site Links">Site Links</a></li>
+</ul></div> <!-- /block --> </div>
+</div> </div>
+</div> <!-- /footer -->
+<div id="footer-second">
+<div class="container">
+<div>
+<div>
+<div class="block block-menu menu-menu-footer-menu-2" data-bid="menu-menu-footer-menu-2">
+<ul class="menu clearfix"><li class="first leaf site-links mid-16647"><a href="/web/20191231114527/https://www.dhs.gov/site-links" title="">Site Links</a></li>
+<li class="leaf dhs-components mid-16645"><a href="/web/20191231114527/https://www.dhs.gov/dhs-component-websites" title="DHS Components">DHS Components</a></li>
+<li class="leaf accountability mid-19598"><a href="/web/20191231114527/https://www.dhs.gov/performance-financial-reports" title="">Accountability</a></li>
+<li class="leaf privacy mid-16648"><a href="/web/20191231114527/https://www.dhs.gov/privacy-policy" title="">Privacy</a></li>
+<li class="leaf foia mid-16644"><a href="/web/20191231114527/https://www.dhs.gov/freedom-information-act-foia" title="">FOIA</a></li>
+<li class="leaf no-fear-act mid-34900"><a href="/web/20191231114527/https://www.dhs.gov/homeland-security-no-fear-act-reporting">No Fear Act</a></li>
+<li class="leaf accessibility mid-16642"><a href="/web/20191231114527/https://www.dhs.gov/accessibility" title="">Accessibility</a></li>
+<li class="leaf plain-writing mid-23958"><a href="/web/20191231114527/https://www.dhs.gov/plain-writing-dhs" title="">Plain Writing</a></li>
+<li class="leaf plug-ins mid-16646"><a href="/web/20191231114527/https://www.dhs.gov/plug-information" title="">Plug-ins</a></li>
+<li class="leaf inspector-general mid-16641"><a href="http://web.archive.org/web/20191231114527/https://www.oig.dhs.gov/" title="Office of the Inspector General">Inspector General</a></li>
+<li class="leaf the-white-house mid-16643"><a href="http://web.archive.org/web/20191231114527/https://www.whitehouse.gov/" title="The White House">The White House</a></li>
+<li class="last leaf usa-gov mid-16640"><a href="http://web.archive.org/web/20191231114527/https://www.usa.gov/" title="USA.gov">USA.gov</a></li>
+</ul></div> <!-- /block --> </div>
+</div> </div>
+</div> <!-- /footer -->
+</div></div>
+</footer> <!-- /footer -->
+</div> <!-- /page- -->
+<div>
+<div>
+<a class="element-invisible element-focusable" href="#content">Back to Top</a> </div>
+</div><script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_7Ukqb3ierdBEL0eowfOKzTkNu-Le97OPm-UqTS5NENU.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var usasearch_config = { siteHandle:'dhs' };
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = 'http://web.archive.org/web/20191231114527/https://search.dhs.gov/javascripts/remote.loader.js';
+document.getElementsByTagName('head')[0].appendChild(script);
+
+//--><!]]>
+</script>
+<script src="http://web.archive.org/web/20191231114527js_/https://www.dhs.gov/sites/default/files/js/js_nQaoQIkwyQnyq3dCmoLq5qt_IqeYyBR1Qiy1vqVosgU.js" type="text/javascript"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+(function() {
+var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+sz.src = '//web.archive.org/web/20191231114527/https://siteimproveanalytics.com/js/siteanalyze_6025116.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+})();
+/*]]>*/
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"877b02039c","applicationID":"140456413,2052686","transactionName":"ZFYHMhZSXUpRUkcKDF0cJAUQWlxXH19cBwZsQwQBAWxFUFVG","queueTime":0,"applicationTime":534,"atts":"SBEERF5ITkQ=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html><!--
+     FILE ARCHIVED ON 11:45:27 Dec 31, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:34:09 Jan 05, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

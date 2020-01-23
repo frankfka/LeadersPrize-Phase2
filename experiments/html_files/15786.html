@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US">
+<![endif]--><!--[if IE 7]>
+<html id="ie7" lang="en-US">
+<![endif]--><!--[if IE 8]>
+<html id="ie8" lang="en-US">
+<![endif]--><!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!--><html lang="en-US">
+<!--<![endif]-->
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app105.us.archive.org';v.server_ms=425;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20200101065453", "khn.org");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"1fa8b5b91a",applicationID:"211788170"};window.NREUM||(NREUM={}),__nr_require=function(n,e,t){function r(t){if(!e[t]){var i=e[t]={exports:{}};n[t][0].call(i.exports,function(e){var i=n[t][1][e];return r(i||e)},i,i.exports)}return e[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(n,e,t){function r(){}function i(n,e,t){return function(){return o(n,[u.now()].concat(f(arguments)),e?null:this,t),e?void 0:this}}var o=n("handle"),a=n(4),f=n(5),c=n("ee").get("tracer"),u=n("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(n,e){s[e]=i(d+e,!0,"api")}),s.addPageAction=i(d+"addPageAction",!0),s.setCurrentRouteName=i(d+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(n,e){var t={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),n,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return e.apply(this,arguments)}catch(n){throw c.emit("fn-err",[arguments,this,n],t),n}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(n,e){m[e]=i(l+e)}),newrelic.noticeError=function(n,e){"string"==typeof n&&(n=new Error(n)),o("err",[n,u.now(),!1,e])}},{}],2:[function(n,e,t){function r(n,e){var t=n.getEntries();t.forEach(function(n){"first-paint"===n.name?a("timing",["fp",Math.floor(n.startTime)]):"first-contentful-paint"===n.name&&a("timing",["fcp",Math.floor(n.startTime)])})}function i(n){if(n instanceof c&&!s){var e,t=Math.round(n.timeStamp);e=t>1e12?Date.now()-t:f.now()-t,s=!0,a("timing",["fi",t,{type:n.type,fid:e}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var o,a=n("handle"),f=n("loader"),c=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){o=new PerformanceObserver(r);try{o.observe({entryTypes:["paint"]})}catch(u){}}if("addEventListener"in document){var s=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(n){document.addEventListener(n,i,!1)})}}},{}],3:[function(n,e,t){function r(n,e){if(!i)return!1;if(n!==i)return!1;if(!e)return!0;if(!o)return!1;for(var t=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],4:[function(n,e,t){function r(n,e){var t=[],r="",o=0;for(r in n)i.call(n,r)&&(t[o]=e(r,n[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],5:[function(n,e,t){function r(n,e,t){e||(e=0),"undefined"==typeof t&&(t=n?n.length:0);for(var r=-1,i=t-e||0,o=Array(i<0?0:i);++r<i;)o[r]=n[e+r];return o}e.exports=r},{}],6:[function(n,e,t){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(n,e,t){function r(){}function i(n){function e(n){return n&&n instanceof r?n:n?c(n,f,o):o()}function t(t,r,i,o){if(!d.aborted||o){n&&n(t,r,i);for(var a=e(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(n,e){h[n]=v(n).concat(e)}function m(n,e){var t=h[n];if(t)for(var r=0;r<t.length;r++)t[r]===e&&t.splice(r,1)}function v(n){return h[n]||[]}function g(n){return p[n]=p[n]||i(t)}function w(n,e){u(n,function(n,t){e=e||"feature",y[t]=e,e in s||(s[e]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:e,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var f="nr@context",c=n("gos"),u=n(4),s={},p={},d=e.exports=i();d.backlog=s},{}],gos:[function(n,e,t){function r(n,e,t){if(i.call(n,e))return n[e];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return n[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(n,e,t){function r(n,e,t,r){i.buffer([n],r),i.emit(n,e,t)}var i=n("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(n,e,t){function r(n){var e=typeof n;return!n||"object"!==e&&"function"!==e?-1:n===window?0:a(n,o,function(){return i++})}var i=1,o="nr@id",a=n("gos");e.exports=r},{}],loader:[function(n,e,t){function r(){if(!x++){var n=E.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(n&&n.licenseKey&&n.applicationID&&e))return s.abort();u(y,function(e,t){n[e]||(n[e]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=l.createElement("script");t.src="https://"+n.agent,e.parentNode.insertBefore(t,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=n("handle"),u=n(4),s=n("ee"),p=n(3),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1158.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=e.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};n(1),n(2),l[m]?(l[m]("DOMContentLoaded",o,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",i),d[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=n(6)},{}],"wrap-function":[function(n,e,t){function r(n){return!(n&&n instanceof Function&&n.apply&&!n[a])}var i=n("ee"),o=n(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;e.exports=function(n,e){function t(n,e,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){d([u,"",[r,a,i],f])}s(e+"start",[r,a,i],f);try{return c=n.apply(a,r)}catch(p){throw s(e+"err",[r,a,p],f),p}finally{s(e+"end",[r,a,c],f)}}return r(n)?n:(e||(e=""),nrWrapper[a]=n,p(n,nrWrapper),nrWrapper)}function u(n,e,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<e.length;c++)f=e[c],a=n[f],r(a)||(n[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||e){var o=c;c=!0;try{n.emit(t,r,i,e)}catch(a){d([a,t,r,i])}c=o}}function p(n,e){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(n);return t.forEach(function(t){Object.defineProperty(e,t,{get:function(){return n[t]},set:function(e){return n[t]=e,e}})}),e}catch(r){d([r])}for(var i in n)f.call(n,i)&&(e[i]=n[i]);return e}function d(e){try{n.emit("internal-error",e)}catch(t){}}return n||(n=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>A Texas Lawsuit Being Heard This Week Could Mean Life Or Death For The ACA | Kaiser Health News</title>
+<meta content="On Wednesday, a federal judge in Fort Worth, Texas, is set to hear arguments from Republican attorneys general who want him to strike down the federal health law and from Democratic counterparts who say the law is constitutional and should remain. " name="description"/>
+<meta content="Julie Rovner" name="author"/>
+<meta content="53d9be31d11b661044e9f301a46a89" name="pocket-site-verification"/>
+<!-- Styles -->
+<link href="https://khn.org/xmlrpc.php" rel="pingback"/>
+<link href="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/images/favicon.ico" rel="shortcut icon"/>
+<!-- Jetpack Site Verification Tags -->
+<meta content="El-hccfbhMd9lv-h8wAfp8Qu5KhqI8hjJMi1-CefIoQ" name="google-site-verification"/>
+<link href="//web.archive.org/web/20200101065453/https://s0.wp.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20200101065453/https://secure.gravatar.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20200101065453/https://www.google.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20200101065453/https://fonts.googleapis.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20200101065453/https://ajax.googleapis.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20200101065453/https://s.w.org/" rel="dns-prefetch"/>
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/web.archive.org\/web\/20200101065453\/https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"http:\/\/web.archive.org\/web\/20200101065453\/https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/web.archive.org\/web\/20200101065453\/https:\/\/khn.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.3.2"}};
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-includes/css/dist/block-library/style.min.css?ver=5.3.2" id="wp-block-library-css" media="all" rel="stylesheet"/>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/css/khn.css?ver=1.4.33" id="khn-screen-css" media="all" rel="stylesheet"/>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/css/print.css?ver=1.4.33" id="khn-print-css" media="print" rel="stylesheet"/>
+<link crossorigin="anonymous" href="//web.archive.org/web/20200101065453cs_/https://fonts.googleapis.com/css?family=PT+Serif%3A400%2C400i%2C700%2C700i%7CSource+Sans+Pro%3A300%2C400%2C400i%2C600%2C700%2C&amp;ver=1.4.33" id="khn-font-css" media="all" rel="stylesheet"/>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/css/font-awesome.min.css?ver=1.4.33" id="khn-fontawesome-css" media="all" rel="stylesheet"/>
+<!--[if lte IE 9]>
+<link rel='stylesheet' id='khn-ie8-css'  href='https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/css/ie8.css?ver=1.4.33' media='all' />
+<![endif]-->
+<link href="//web.archive.org/web/20200101065453cs_/https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css?ver=5.3.2" id="jquery-ui-autocomplete-css" media="all" rel="stylesheet"/>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-content/mu-plugins/jetpack/_inc/social-logos/social-logos.min.css?ver=1" id="social-logos-css" media="all" rel="stylesheet"/>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/css/sharedaddy.css?ver=1.4.33" id="khn-sharedaddy-custom-css" media="all" rel="stylesheet"/>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-content/mu-plugins/jetpack/css/jetpack.css?ver=8.0" id="jetpack_css-css" media="all" rel="stylesheet"/>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
+<script>
+var recaptchaVars = {"siteKeyHubspot":"6Lee2AoUAAAAAIWyydtpdH6EYqeW9FFO_EXUBTp0","widgetIdHubspot":"hubspot-recaptcha","siteKeyJetpack":"6LcikhkTAAAAAJeIj7Vt5BVZiGabeTbKToc1ok2y","widgetIdJetpack":"jetpack-recaptcha"};
+</script>
+<script>
+var recaptchaOnloadCallback = function() {
+					// This log is intentional and this function is required to prevent race conditions.
+					console.log( 'grecaptcha is ready' ); if ( document.getElementById(recaptchaVars.widgetIdHubspot) ) { grecaptcha.render( recaptchaVars.widgetIdHubspot, {'sitekey': recaptchaVars.siteKeyHubspot, 'size': 'compact'}) }if ( document.getElementById(recaptchaVars.widgetIdJetpack) ) { grecaptcha.render( recaptchaVars.widgetIdJetpack, {'sitekey': recaptchaVars.siteKeyJetpack, 'size': 'compact'}) } }
+</script>
+<script async="" defer="" src="http://web.archive.org/web/20200101065453js_/https://www.google.com/recaptcha/api.js?onload=recaptchaOnloadCallback&amp;render=explicit&amp;hl=en_US&amp;ver=2"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/js/bootstrap.min.js?ver=1.4.33"></script>
+<script>
+var orphan_drugs_strings = {"approved_for_mass_market":"Approved for mass market in","approved_as_orphan":"Approved as orphan in","exclusivity":"Exclusivity","approved":"Approved","mass_market_first":"* Drug was mass market first and had multiple approvals.","orphan_use_approved":"Orphan use approved in","tbd":"TBD"};
+</script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/js/global.js?ver=1.4.33"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/js/global.bundle.min.js?ver=1.4.33"></script>
+<link href="https://khn.org/wp-json/" rel="https://api.w.org/"/>
+<link href="https://khn.org/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<link href="https://khn.org/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+<meta content="WordPress 5.3.2" name="generator"/>
+<link href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/" rel="canonical"/>
+<link href="http://web.archive.org/web/20200101065453/https://khn.org/ODY4NjEw" rel="shortlink"/>
+<link href="http://web.archive.org/web/20200101065453/https://khn.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkhn.org%2Fnews%2Fdemocratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law%2F" rel="alternate" type="application/json+oembed"/>
+<link href="http://web.archive.org/web/20200101065453/https://khn.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fkhn.org%2Fnews%2Fdemocratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law%2F&amp;format=xml" rel="alternate" type="text/xml+oembed"/>
+<link href="//web.archive.org/web/20200101065453/https://v0.wordpress.com/" rel="dns-prefetch"/>
+<style type="text/css">img#wpstats{display:none}</style><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+{'gtm.start': new Date().getTime(),event:'gtm.js'}
+);var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'http://web.archive.org/web/20200101065453/https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5X9J43B');</script>
+<!-- End Google Tag Manager -->
+<link href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/amp/" rel="amphtml"/>
+<!-- Jetpack Open Graph Tags -->
+<meta content="article" property="og:type"/>
+<meta content="A Texas Lawsuit Being Heard This Week Could Mean Life Or Death For The ACA" property="og:title"/>
+<meta content="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/" property="og:url"/>
+<meta content="On Wednesday, a federal judge in Fort Worth, Texas, is set to hear arguments from Republican attorneys general who want him to strike down the federal health law and from Democratic counterparts wh…" property="og:description"/>
+<meta content="2018-09-04T09:00:57+00:00" property="article:published_time"/>
+<meta content="2018-09-04T17:42:53+00:00" property="article:modified_time"/>
+<meta content="Kaiser Health News" property="og:site_name"/>
+<meta content="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg" property="og:image"/>
+<meta content="1024" property="og:image:width"/>
+<meta content="683" property="og:image:height"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="@khnews" name="twitter:site"/>
+<meta content="A Texas Lawsuit Being Heard This Week Could Mean Life Or Death For The ACA" name="twitter:text:title"/>
+<meta content="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?w=640" name="twitter:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- End Jetpack Open Graph Tags -->
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//web.archive.org/web/20200101065453/https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-53070700-2', 'auto');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+<!-- HTML5 Shim IE8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body class="post-template-default single single-post postid-868610 single-format-standard 2017 khn nav-theme--none">
+<noscript><iframe height="0" src="http://web.archive.org/web/20200101065453if_/https://www.googletagmanager.com/ns.html?id=GTM-5X9J43B" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!--Site Header-->
+<header class="header-site" id="header-site">
+<nav class="navbar navbar-default navbar-special" role="navigation">
+<p class="navbar-text navbar-left"><a href="/web/20200101065453/https://khn.org/">Kaiser Health News <i aria-hidden="true" class="fa fa-home"></i></a></p>
+<a href="/web/20200101065453/https://khn.org/"><img alt="KHN | Kaiser Health News" class="header-logo-special" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/images/khn-logo-notagline.svg" title="KHN | Kaiser Health News"/></a>
+<p class="navbar-text navbar-right"><a href="/web/20200101065453/https://khn.org/contact-us/">Connect With Us <i aria-hidden="true" class="fa fa-envelope"></i></a></p>
+</nav>
+<div class="container">
+<div class="header-logo">
+<a href="/web/20200101065453/https://khn.org/"><img alt="KHN | Kaiser Health News" class="brand-scrolling" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/images/khn-logo-notagline.svg" title="KHN | Kaiser Health News"/><img alt="KHN | Kaiser Health News" class="brand" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/images/khn-logo.svg" title="KHN | Kaiser Health News"/></a>
+<img alt="KHN | Kaiser Health News" class="print" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/images/khn-logo-black.png"/>
+</div>
+<nav class="navbar navbar-default navbar-utility" role="navigation">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="navbar-secondary">
+<ul class="nav navbar-nav navbar-right navbar-share">
+<li class="navbar-text">Connect With Us: </li>
+<li><a class="icon-email" href="/web/20200101065453/https://khn.org/contact-us/" title="Contact"><span class="sr-only">Contact</span></a></li>
+<li>
+<a class="icon-twitter" href="http://web.archive.org/web/20200101065453/https://twitter.com/KHNews" target="_blank" title="Twitter"><span class="sr-only">Twitter</span></a>
+</li>
+<li>
+<a class="icon-facebook" href="http://web.archive.org/web/20200101065453/https://www.facebook.com/KaiserHealthNews" target="_blank" title="Facebook"><span class="sr-only">Facebook</span></a>
+</li>
+<li>
+<a class="icon-linkedin" href="http://web.archive.org/web/20200101065453/http://www.linkedin.com/company/2328770" target="_blank" title="LinkedIn"><span class="sr-only">LinkedIn</span></a>
+</li>
+<li>
+<a class="icon-instagram" href="http://web.archive.org/web/20200101065453/https://www.instagram.com/kaiserhealthnews/" target="_blank" title="Instagram"><span class="sr-only">Instagram</span></a>
+</li>
+<li>
+<a class="icon-rss" href="/web/20200101065453/https://khn.org/rss-feeds/" title="RSS"><span class="sr-only">RSS</span></a>
+</li>
+</ul>
+</div>
+</nav>
+<nav class="navbar navbar-default navbar-global" role="navigation">
+<div class="collapse navbar-collapse" id="navbar-primary">
+<ul class="nav navbar-nav" id="menu-khn-menu-for-redesign-site"><li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-789828" id="menu-item-789828"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/the-health-law/">Health Law</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789825" id="menu-item-789825"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/aging/">Aging</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789826" id="menu-item-789826"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/health-industry/">Industry</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789827" id="menu-item-789827"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/pharmaceuticals/">Pharma</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-794232" id="menu-item-794232"><a href="http://web.archive.org/web/20200101065453/https://khn.org/news/tag/investigation/">Investigations</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-789829 dropdown" id="menu-item-789829"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#">More Topics</a>
+<ul class="dropdown-menu" role="menu">
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-822377" id="menu-item-822377"><a href="http://web.archive.org/web/20200101065453/https://khn.org/news/tag/podcast/">Podcasts</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789832" id="menu-item-789832"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/medicaid/">Medicaid</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789833" id="menu-item-789833"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/medicare/">Medicare</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789830" id="menu-item-789830"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/cost-and-quality/">Cost and Quality</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-790320" id="menu-item-790320"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/health-care-costs/">Health Care Costs</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-789831" id="menu-item-789831"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/insurance/">Insurance</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789834" id="menu-item-789834"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/mental-health/">Mental Health</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-790319" id="menu-item-790319"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/public-health/">Public Health</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-789835" id="menu-item-789835"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/uninsured/">Uninsured</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-851465" id="menu-item-851465"><a href="http://web.archive.org/web/20200101065453/https://khn.org/landing/data-and-docs/">Data &amp; Docs</a></li>
+</ul> <form action="/web/20200101065453/https://khn.org/" class="navbar-form navbar-right navbar-search">
+<input class="form-control" name="s" placeholder="Search" type="text"/>
+<button class="icon-search" type="submit"></button>
+</form>
+</div>
+</nav>
+</div>
+</header>
+<!--Main Page Content-->
+<main class="content-main">
+<div class="container">
+<div class="row">
+<div id="primary">
+<div id="content" role="main">
+<article class="post-868610 post type-post status-publish format-standard has-post-thumbnail hentry category-california category-courts category-insurance category-the-health-law tag-texas primary-topic-the-health-law partners-npr" id="post-868610">
+<header class="entry-header">
+<div class="header">
+<h1 class="entry-title">A Texas Lawsuit Being Heard This Week Could Mean Life Or Death For The ACA</h1>
+</div>
+<div class="meta">
+<p>
+<span class="byline">
+		By <a href="http://web.archive.org/web/20200101065453/https://khn.org/news/author/julie-rovner/"><strong>Julie Rovner</strong></a> </span>
+<time class="posted-on" datetime="2018-09-04T05:00:57-04:00">September 4, 2018</time> </p>
+<div class="meta-utility">
+<p class="republish">
+<a class="btn-republish btn" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/view/republish/" rel="nofollow" title="Click to share">
+<span>Republish This Story</span>
+</a>
+</p>
+</div>
+</div>
+<aside class="share vertical"> <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-text sd-sharing"><div class="sd-content"><ul><li class="share-twitter"><a class="share-twitter sd-button no-icon" data-shared="sharing-twitter-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=twitter" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a class="share-facebook sd-button no-icon" data-shared="sharing-facebook-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=facebook" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-linkedin"><a class="share-linkedin sd-button no-icon" data-shared="sharing-linkedin-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=linkedin" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-print"><a class="share-print sd-button no-icon" data-shared="" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/#print" rel="nofollow noopener noreferrer" target="_blank" title="Click to print"><span>Print</span></a></li></ul></div></div></div></aside>
+<aside class="share mobile"> <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-text sd-sharing"><div class="sd-content"><ul><li class="share-twitter"><a class="share-twitter sd-button no-icon" data-shared="sharing-twitter-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=twitter" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a class="share-facebook sd-button no-icon" data-shared="sharing-facebook-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=facebook" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-linkedin"><a class="share-linkedin sd-button no-icon" data-shared="sharing-linkedin-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=linkedin" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-print"><a class="share-print sd-button no-icon" data-shared="" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/#print" rel="nofollow noopener noreferrer" target="_blank" title="Click to print"><span>Print</span></a></li></ul></div></div></div></aside>
+</header><!-- .entry-header -->
+<figure class="layout-lg">
+<img alt="" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" height="683" sizes="(max-width: 1024px) 100vw, 1024px" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?w=1024" srcset="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg 1350w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=150, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/100 150w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=500, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/333 500w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=768, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/512 768w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=1270, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/847 1270w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=770, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/513 770w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=840, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/560 840w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=570, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/380 570w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=370, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/247 370w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=270, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/180 270w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=170, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/113 170w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=100, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/67 100w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=1170, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/780 1170w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=300, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/200 300w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=200, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/134 200w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=315, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/210 315w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=630, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/420 630w, http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2018/08/health-care-gavel.jpg?resize=1200, /web/20200101065453im_/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/800 1200w" width="1024"/> <figcaption class="caption">(iStock/Getty Images)</figcaption>
+</figure>
+<div class="entry-content entry-content-article">
+<div class="article-body">
+<aside class="related partner-box top">
+<div class="related-content">
+	This story also ran on <a href="http://web.archive.org/web/20200101065453/https://www.npr.org/sections/health-shots/2018/09/04/644529224/whats-at-stake-in-the-latest-affordable-care-act-court-battle">NPR</a>.	<span class="replublish-story">
+		This story can be republished for free (<a href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/view/republish/" rel="nofollow">details</a>).	</span>
+<a href="http://web.archive.org/web/20200101065453/http://www.npr.org/sections/news/" target="_blank">
+<img alt="" class="aligncenter" height="49" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2019/12/NPRLogo_CMYK_Small-1.jpg" width="150"/> </a>
+</div>
+</aside>
+<p> <iframe allowfullscreen="allowfullscreen" frameborder="no" height="290" marginheight="0" marginwidth="0" scrolling="no" src="http://web.archive.org/web/20200101065453if_/https://www.npr.org/player/embed/644446986/644446990" width="100%">
+</iframe>
+				Wednesday is looking like yet another pivotal day in the life-or-death saga that has marked the history of the Affordable Care Act.</p>
+<p>In a Texas courtroom, a group of Republican attorneys general, led by Texas’ Ken Paxton, are set to face off against a group of Democratic attorneys general, led by California’s Xavier Becerra, in a lawsuit aimed at striking down the federal health law. The Republicans say that when Congress eliminated the penalty for not having health insurance as part of last year’s tax bill, lawmakers rendered the entire health law unconstitutional. The Democrats argue that’s not the case.</p>
+<p>But first, the sides will argue before U.S. District Judge Reed O’Connor in Fort Worth, Texas, whether the health law should be put on hold while the case is litigated. The GOP plaintiffs are seeking a “preliminary injunction” on the law.</p>
+<p>Ending the health law, even temporarily, “would wreak havoc in our health care system,” said Becerra in a call with reporters last week. “And we don’t believe Americans are ready to see that their children are no longer able to see a doctor or that they cannot get treated for a preexisting health condition.”</p>
+<p>Here are five questions and answers to help understand the case, <em>Texas v. U.S.</em></p>
+<p><strong>1. What is this suit about?</strong></p>
+<p>In February, 18 GOP attorneys general and two GOP governors filed the suit in federal district court in the Northern District of Texas. They argue that because the Supreme Court upheld the ACA in 2012 by saying its requirement to carry insurance was a legitimate use of Congress’ taxing power, eliminating the tax penalty for failure to have health insurance makes the entire law unconstitutional.</p>
+<p>“Texans have known all along that Obamacare is unlawful and a divided Supreme Court’s approval rested solely on the flimsy support of Congress’ authority to tax,” Paxton <a href="http://web.archive.org/web/20200101065453/https://www.texasattorneygeneral.gov/news/releases/ag-paxton-and-wisconsin-ag-file-20-state-lawsuit-to-end-the-grip-of-obamaca" rel="noopener" target="_blank">said in a statement</a> when the <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/docket/6321938/texas-v-united-states-of-america/?page=1" rel="noopener" target="_blank">suit was filed</a>. “Congress has now kicked that flimsy support from beneath the law.”</p>
+<p>The <a href="http://web.archive.org/web/20200101065453/https://www.texasattorneygeneral.gov/files/epress/Texas_Wisconsin_et_al_v._U.S._et_al_-_ACA_Complaint_(02-26-18).pdf" rel="noopener" target="_blank">lawsuit</a> asks the judge to prohibit the federal government “from implementing, regulating, enforcing, or otherwise acting under the authority of the ACA.”</p>
+<p><strong>2. Why are Democratic attorneys general defending the law?</strong></p>
+<p>The defendant in the case is technically the Trump administration. But in June, the <a href="http://web.archive.org/web/20200101065453/https://khn.org/news/administration-challenges-acas-preexisting-conditions-protection-in-court/" rel="noopener" target="_blank">administration announced</a> it would not fully defend the law in court.</p>
+<p>The Justice Department, in <a href="http://web.archive.org/web/20200101065453/https://www.justsecurity.org/wp-content/uploads/2018/06/ACA.Azar_.filing.pdf" rel="noopener" target="_blank">its filing in the case</a>, did not agree with the plaintiffs that eliminating the tax penalty should require that the entire law be struck down. But it did say that without the tax, the provisions of the law requiring insurance companies to sell to people with preexisting conditions and not charge them more should fall, beginning Jan. 1, 2019. That is when the tax penalty goes away.</p>
+<p>The Republican attorneys general say they still believe the entire law should be invalidated, but if that does not happen, they would accept the elimination of the preexisting condition protections.</p>
+<p>The Democratic attorneys general applied to “intervene” in the case to defend the law in its entirety. They say they needed to step forward to protect the health and well-being of their residents. The <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/recap/gov.uscourts.txnd.299449/gov.uscourts.txnd.299449.74.0.pdf" rel="noopener" target="_blank">judge granted</a> them that status on May 16.</p>
+<aside class="related inline">
+<div class="slab email-slab">
+<div class="email-signup">
+<div class="signup-text">
+<h3>
+		Email Sign-Up	</h3>
+<div class="slab-content">
+<p>Subscribe to KHN’s free Morning Briefing.</p>
+</div>
+</div>
+<div class="slab-container">
+<div class="hubspot-contacts">
+<form class="signup confirmation" data-hubspot-ajax-action="hubspot_contacts_signup" method="post">
+<input id="hubspot_contacts_nonce" name="hubspot_contacts_nonce" type="hidden" value="7cc13e0f55"/><input name="_wp_http_referer" type="hidden" value="/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/"/> <div class="signup-form-wrapper">
+<span></span> <input class="form-control email-address" default="" name="hubspot_contact[email]" placeholder="Your email address" type="text"/> </div>
+<button class="email-submit" type="submit">
+					Sign Up				</button>
+</form>
+<div class="messages in-context hs-hidden">
+</div>
+<form class="single-signup hs-hidden" data-hubspot-ajax-action="hubspot_contacts_update" method="post">
+<input id="hubspot_contacts_nonce" name="hubspot_contacts_nonce" type="hidden" value="3e1813c467"/><input name="_wp_http_referer" type="hidden" value="/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/"/><span></span> <input class="hs-hidden" default="" name="hubspot_contact[email]" type="text"/>
+<label>
+						Please confirm your email address below:						<input class="form-control" name="repeat_email" required="required" type="email"/>
+</label>
+<input checked="1" class="hs-hidden" default="" name="hubspot_contact[khn_hp_report]" type="checkbox" value="1"/> <div id="hubspot-recaptcha"></div><span id="recaptcha-validate"></span> <button id="hubspot-submit" type="submit">
+						Sign Up					</button>
+</form>
+</div>
+</div><!--/.slab-container -->
+</div><!--/.email-signup -->
+</div>
+</aside>
+<p><strong>3. What would happen if the judge grants a preliminary injunction?</strong></p>
+<p>The GOP plaintiffs say the law needs to be stopped immediately, “both because individuals will make insurance decisions during fall open-enrollment periods and because the States cannot turn their employee insurance plans and Medicaid operations on a dime,” according to <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/recap/gov.uscourts.txnd.299449/gov.uscourts.txnd.299449.40.0.pdf" rel="noopener" target="_blank">their brief</a>.</p>
+<p>But setting aside the ACA while the case proceeds “would throw the entire [health] system into chaos,” Becerra said. That’s because the ACA made major changes not just to the insurance market for individuals, but also to Medicare, Medicaid and the employer insurance market.</p>
+<p>Even in 2012, when the Supreme Court was considering the constitutionality of the law before much of it had taken effect, <a href="http://web.archive.org/web/20200101065453/https://www.npr.org/sections/health-shots/2012/04/24/151242554/if-the-health-care-overhaul-goes-down-could-medicare-follow" rel="noopener" target="_blank">some analysts from both parties predicted</a> that finding the law unconstitutional could have serious repercussions for the Medicare program and the rest of the health care system.</p>
+<p>In practice, however, even if Judge O’Connor were to rule in favor of the Republicans’ request to stop the law’s enforcement immediately, the decision could be quickly appealed up the line, including, if necessary, before the Supreme Court.</p>
+<p><strong>4. Is this case purely Republicans versus Democrats?</strong></p>
+<p>The case is largely partisan — with Republicans who oppose the health law arguing for its cancellation and Democrats who support it fighting to keep it in place.</p>
+<p>But a <a href="http://web.archive.org/web/20200101065453/https://www.courthousenews.com/wp-content/uploads/2018/06/Law-profs.amicus.pdf" rel="noopener" target="_blank">friend-of-the-court brief</a> filed by five law professors who disagree on the merits of the ACA said that, regardless, both the GOP states and the Justice Department are wrong to conclude that eliminating the tax penalty should result in the entire law being thrown out.</p>
+<p>In this case, “Congress itself has essentially eliminated the provision in question and left the rest of a statute standing,” so courts do not need to guess whether lawmakers intended for the rest of the law to remain, they wrote.</p>
+<p><strong>5. What is Congress doing about this?</strong></p>
+<p>Technically, Congress is watching the case just as everyone else is. But Republicans in particular, while they mostly oppose the health law, are aware that the provisions protecting people with preexisting conditions are by far the most popular part of the ACA. And Democrats are already <a href="http://web.archive.org/web/20200101065453/https://www.nytimes.com/2018/08/01/upshot/democratic-candidates-midterms-health-care.html" rel="noopener" target="_blank">using the issue</a> to hammer opponents in the upcoming midterm elections.</p>
+<p>Last month, 10 GOP senators introduced legislation they said would maintain the ACA’s preexisting condition protections in the event the lawsuit succeeds.</p>
+<p>“This legislation is a common-sense solution that guarantees Americans with preexisting conditions will have health care coverage, regardless of how our judicial system rules on the future of Obamacare,” said Sen. Thom Tillis (R-N.C.), the bill’s lead sponsor, in <a href="http://web.archive.org/web/20200101065453/https://www.tillis.senate.gov/public/index.cfm/2018/8/senators-introduce-legislation-to-protect-americans-with-pre-existing-conditions" rel="noopener" target="_blank">a statement</a>.</p>
+<p>Critics, however, were quick to point out that the bill <a href="http://web.archive.org/web/20200101065453/https://twitter.com/larry_levitt/status/1033020087437996033" rel="noopener" target="_blank">doesn’t actually offer the same protections</a> that are embodied in the ACA. While the health law requires coverage for all conditions without extra premiums, the GOP bill would require that insurers sell to people with preexisting conditions, but not that those policies actually cover those conditions.</p>
+<aside class="related partner-box bottom">
+<div class="related-content">
+	This story also ran on <a href="http://web.archive.org/web/20200101065453/https://www.npr.org/sections/health-shots/2018/09/04/644529224/whats-at-stake-in-the-latest-affordable-care-act-court-battle">NPR</a>.	<span class="replublish-story">
+		This story can be republished for free (<a href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/view/republish/" rel="nofollow">details</a>).	</span>
+<a href="http://web.archive.org/web/20200101065453/http://www.npr.org/sections/news/" target="_blank">
+<img alt="" class="aligncenter" height="49" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2019/12/NPRLogo_CMYK_Small-1.jpg" width="150"/> </a>
+</div>
+</aside>
+<aside class="meta-authors meta">
+<p>
+<span class="author-name">Julie Rovner: </span>
+<a href="http://web.archive.org/web/20200101065453/mailto:jrovner@kff.org">jrovner@kff.org</a>,											<a href="http://web.archive.org/web/20200101065453/http://twitter.com/jrovner" target="_blank">
+							@jrovner</a>
+</p>
+</aside>
+<section class="meta-tags">
+<h3>Related Topics</h3>
+<span class="categories"><a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/california/" rel="category tag">California</a> <a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/courts/" rel="category tag">Courts</a> <a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/insurance/" rel="category tag">Insurance</a> <a href="http://web.archive.org/web/20200101065453/https://khn.org/topics/the-health-law/" rel="category tag">The Health Law</a></span>
+<span class="tags">
+<a href="http://web.archive.org/web/20200101065453/https://khn.org/news/tag/texas/" rel="tag">Texas</a> </span>
+</section>
+</div>
+</div><!-- .entry-content -->
+<footer class="entry-meta">
+<!-- Share Tools Horizontal -->
+<aside class="share horizontal"><p>Share This Story:</p> <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-text sd-sharing"><div class="sd-content"><ul><li class="share-twitter"><a class="share-twitter sd-button no-icon" data-shared="sharing-twitter-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=twitter" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a class="share-facebook sd-button no-icon" data-shared="sharing-facebook-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=facebook" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on Facebook"><span>Facebook</span></a></li><li class="share-linkedin"><a class="share-linkedin sd-button no-icon" data-shared="sharing-linkedin-868610" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/?share=linkedin" rel="nofollow noopener noreferrer" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-print"><a class="share-print sd-button no-icon" data-shared="" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/#print" rel="nofollow noopener noreferrer" target="_blank" title="Click to print"><span>Print</span></a></li></ul></div></div></div></aside>
+<p class="feedback">
+<a class="btn-feedback" href="/web/20200101065453/https://khn.org/contact-us/">We want to hear from you: Contact Us</a>
+</p>
+<p class="republish">
+<a class="btn-republish btn" href="http://web.archive.org/web/20200101065453/https://khn.org/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/view/republish/" rel="nofollow" title="Click to share">
+<span>Republish This Story</span>
+</a>
+</p>
+</footer><!-- .entry-meta -->
+</article><!-- #post-868610 -->
+</div><!-- #content -->
+</div><!-- #primary wrapper -->
+</div><!-- .row wrapper -->
+<!--Republish Modal-->
+<div aria-labelledby="republishModalLabel" class="modal fade" id="republishModal" role="dialog" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+<h3 class="modal-title">Copy And Paste To Republish This Story</h3>
+</div>
+<div class="modal-body">
+<h1>A Texas Lawsuit Being Heard This Week Could Mean Life Or Death For The ACA</h1> <p class="meta">
+<span class="byline">
+		By <a href="http://web.archive.org/web/20200101065453/https://khn.org/news/author/julie-rovner/"><strong>Julie Rovner</strong></a> </span>
+<time class="posted-on" datetime="2018-09-04T05:00:57-04:00">September 4, 2018</time> </p>
+<textarea class="form-control" id="republish-content" rows="5"><h1>A Texas Lawsuit Being Heard This Week Could Mean Life Or Death For The ACA</h1>
+	<span class="byline">Julie Rovner, Kaiser Health News</span>
+<p>				<iframe allowfullscreen="allowfullscreen" frameborder="no" height="290" marginheight="0" marginwidth="0" scrolling="no" src="http://web.archive.org/web/20200101065453if_/https://www.npr.org/player/embed/644446986/644446990" width="100%">
+				</iframe>
+				Wednesday is looking like yet another pivotal day in the life-or-death saga that has marked the history of the Affordable Care Act.</p>
+<p>In a Texas courtroom, a group of Republican attorneys general, led by Texas’ Ken Paxton, are set to face off against a group of Democratic attorneys general, led by California’s Xavier Becerra, in a lawsuit aimed at striking down the federal health law. The Republicans say that when Congress eliminated the penalty for not having health insurance as part of last year’s tax bill, lawmakers rendered the entire health law unconstitutional. The Democrats argue that’s not the case.</p>
+<p>But first, the sides will argue before U.S. District Judge Reed O’Connor in Fort Worth, Texas, whether the health law should be put on hold while the case is litigated. The GOP plaintiffs are seeking a “preliminary injunction” on the law.</p>
+<p>Ending the health law, even temporarily, “would wreak havoc in our health care system,” said Becerra in a call with reporters last week. “And we don’t believe Americans are ready to see that their children are no longer able to see a doctor or that they cannot get treated for a preexisting health condition.”</p>
+<p>Here are five questions and answers to help understand the case, Texas v. U.S.</p>
+<p>1. What is this suit about?</p>
+<p>In February, 18 GOP attorneys general and two GOP governors filed the suit in federal district court in the Northern District of Texas. They argue that because the Supreme Court upheld the ACA in 2012 by saying its requirement to carry insurance was a legitimate use of Congress’ taxing power, eliminating the tax penalty for failure to have health insurance makes the entire law unconstitutional.</p>
+<p>“Texans have known all along that Obamacare is unlawful and a divided Supreme Court’s approval rested solely on the flimsy support of Congress’ authority to tax,” Paxton <a href="http://web.archive.org/web/20200101065453/https://www.texasattorneygeneral.gov/news/releases/ag-paxton-and-wisconsin-ag-file-20-state-lawsuit-to-end-the-grip-of-obamaca">said in a statement</a> when the <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/docket/6321938/texas-v-united-states-of-america/?page=1">suit was filed</a>. “Congress has now kicked that flimsy support from beneath the law.”</p>
+<p>The <a href="http://web.archive.org/web/20200101065453/https://www.texasattorneygeneral.gov/files/epress/Texas_Wisconsin_et_al_v._U.S._et_al_-_ACA_Complaint_(02-26-18).pdf">lawsuit</a> asks the judge to prohibit the federal government “from implementing, regulating, enforcing, or otherwise acting under the authority of the ACA.”</p>
+<p>2. Why are Democratic attorneys general defending the law?</p>
+<p>The defendant in the case is technically the Trump administration. But in June, the <a href="http://web.archive.org/web/20200101065453/https://khn.org/news/administration-challenges-acas-preexisting-conditions-protection-in-court/">administration announced</a> it would not fully defend the law in court.</p>
+<p>The Justice Department, in <a href="http://web.archive.org/web/20200101065453/https://www.justsecurity.org/wp-content/uploads/2018/06/ACA.Azar_.filing.pdf">its filing in the case</a>, did not agree with the plaintiffs that eliminating the tax penalty should require that the entire law be struck down. But it did say that without the tax, the provisions of the law requiring insurance companies to sell to people with preexisting conditions and not charge them more should fall, beginning Jan. 1, 2019. That is when the tax penalty goes away.</p>
+<p>The Republican attorneys general say they still believe the entire law should be invalidated, but if that does not happen, they would accept the elimination of the preexisting condition protections.</p>
+<p>The Democratic attorneys general applied to “intervene” in the case to defend the law in its entirety. They say they needed to step forward to protect the health and well-being of their residents. The <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/recap/gov.uscourts.txnd.299449/gov.uscourts.txnd.299449.74.0.pdf">judge granted</a> them that status on May 16.</p>
+				<aside class="related inline">
+											<div class="slab email-slab">
+												<div class="email-signup">
+	<div class="signup-text">
+			<h3>
+		Email Sign-Up	</h3>
+	<div class="slab-content">
+		<p>				<iframe allowfullscreen="allowfullscreen" frameborder="no" height="290" marginheight="0" marginwidth="0" scrolling="no" src="http://web.archive.org/web/20200101065453if_/https://www.npr.org/player/embed/644446986/644446990" width="100%">
+				</iframe>
+				Wednesday is looking like yet another pivotal day in the life-or-death saga that has marked the history of the Affordable Care Act.</p>
+<p>In a Texas courtroom, a group of Republican attorneys general, led by Texas’ Ken Paxton, are set to face off against a group of Democratic attorneys general, led by California’s Xavier Becerra, in a lawsuit aimed at striking down the federal health law. The Republicans say that when Congress eliminated the penalty for not having health insurance as part of last year’s tax bill, lawmakers rendered the entire health law unconstitutional. The Democrats argue that’s not the case.</p>
+<p>But first, the sides will argue before U.S. District Judge Reed O’Connor in Fort Worth, Texas, whether the health law should be put on hold while the case is litigated. The GOP plaintiffs are seeking a “preliminary injunction” on the law.</p>
+<p>Ending the health law, even temporarily, “would wreak havoc in our health care system,” said Becerra in a call with reporters last week. “And we don’t believe Americans are ready to see that their children are no longer able to see a doctor or that they cannot get treated for a preexisting health condition.”</p>
+<p>Here are five questions and answers to help understand the case, Texas v. U.S.</p>
+<p>1. What is this suit about?</p>
+<p>In February, 18 GOP attorneys general and two GOP governors filed the suit in federal district court in the Northern District of Texas. They argue that because the Supreme Court upheld the ACA in 2012 by saying its requirement to carry insurance was a legitimate use of Congress’ taxing power, eliminating the tax penalty for failure to have health insurance makes the entire law unconstitutional.</p>
+<p>“Texans have known all along that Obamacare is unlawful and a divided Supreme Court’s approval rested solely on the flimsy support of Congress’ authority to tax,” Paxton <a href="http://web.archive.org/web/20200101065453/https://www.texasattorneygeneral.gov/news/releases/ag-paxton-and-wisconsin-ag-file-20-state-lawsuit-to-end-the-grip-of-obamaca">said in a statement</a> when the <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/docket/6321938/texas-v-united-states-of-america/?page=1">suit was filed</a>. “Congress has now kicked that flimsy support from beneath the law.”</p>
+<p>The <a href="http://web.archive.org/web/20200101065453/https://www.texasattorneygeneral.gov/files/epress/Texas_Wisconsin_et_al_v._U.S._et_al_-_ACA_Complaint_(02-26-18).pdf">lawsuit</a> asks the judge to prohibit the federal government “from implementing, regulating, enforcing, or otherwise acting under the authority of the ACA.”</p>
+<p>2. Why are Democratic attorneys general defending the law?</p>
+<p>The defendant in the case is technically the Trump administration. But in June, the <a href="http://web.archive.org/web/20200101065453/https://khn.org/news/administration-challenges-acas-preexisting-conditions-protection-in-court/">administration announced</a> it would not fully defend the law in court.</p>
+<p>The Justice Department, in <a href="http://web.archive.org/web/20200101065453/https://www.justsecurity.org/wp-content/uploads/2018/06/ACA.Azar_.filing.pdf">its filing in the case</a>, did not agree with the plaintiffs that eliminating the tax penalty should require that the entire law be struck down. But it did say that without the tax, the provisions of the law requiring insurance companies to sell to people with preexisting conditions and not charge them more should fall, beginning Jan. 1, 2019. That is when the tax penalty goes away.</p>
+<p>The Republican attorneys general say they still believe the entire law should be invalidated, but if that does not happen, they would accept the elimination of the preexisting condition protections.</p>
+<p>The Democratic attorneys general applied to “intervene” in the case to defend the law in its entirety. They say they needed to step forward to protect the health and well-being of their residents. The <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/recap/gov.uscourts.txnd.299449/gov.uscourts.txnd.299449.74.0.pdf">judge granted</a> them that status on May 16.</p>
+
+<p>3. What would happen if the judge grants a preliminary injunction?</p>
+<p>The GOP plaintiffs say the law needs to be stopped immediately, “both because individuals will make insurance decisions during fall open-enrollment periods and because the States cannot turn their employee insurance plans and Medicaid operations on a dime,” according to <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/recap/gov.uscourts.txnd.299449/gov.uscourts.txnd.299449.40.0.pdf">their brief</a>.</p>
+<p>But setting aside the ACA while the case proceeds “would throw the entire [health] system into chaos,” Becerra said. That’s because the ACA made major changes not just to the insurance market for individuals, but also to Medicare, Medicaid and the employer insurance market.</p>
+<p>Even in 2012, when the Supreme Court was considering the constitutionality of the law before much of it had taken effect, <a href="http://web.archive.org/web/20200101065453/https://www.npr.org/sections/health-shots/2012/04/24/151242554/if-the-health-care-overhaul-goes-down-could-medicare-follow">some analysts from both parties predicted</a> that finding the law unconstitutional could have serious repercussions for the Medicare program and the rest of the health care system.</p>
+<p>In practice, however, even if Judge O’Connor were to rule in favor of the Republicans’ request to stop the law’s enforcement immediately, the decision could be quickly appealed up the line, including, if necessary, before the Supreme Court.</p>
+<p>4. Is this case purely Republicans versus Democrats?</p>
+<p>The case is largely partisan — with Republicans who oppose the health law arguing for its cancellation and Democrats who support it fighting to keep it in place.</p>
+<p>But a <a href="http://web.archive.org/web/20200101065453/https://www.courthousenews.com/wp-content/uploads/2018/06/Law-profs.amicus.pdf">friend-of-the-court brief</a> filed by five law professors who disagree on the merits of the ACA said that, regardless, both the GOP states and the Justice Department are wrong to conclude that eliminating the tax penalty should result in the entire law being thrown out.</p>
+<p>In this case, “Congress itself has essentially eliminated the provision in question and left the rest of a statute standing,” so courts do not need to guess whether lawmakers intended for the rest of the law to remain, they wrote.</p>
+<p>5. What is Congress doing about this?</p>
+<p>Technically, Congress is watching the case just as everyone else is. But Republicans in particular, while they mostly oppose the health law, are aware that the provisions protecting people with preexisting conditions are by far the most popular part of the ACA. And Democrats are already <a href="http://web.archive.org/web/20200101065453/https://www.nytimes.com/2018/08/01/upshot/democratic-candidates-midterms-health-care.html">using the issue</a> to hammer opponents in the upcoming midterm elections.</p>
+<p>Last month, 10 GOP senators introduced legislation they said would maintain the ACA’s preexisting condition protections in the event the lawsuit succeeds.</p>
+<p>“This legislation is a common-sense solution that guarantees Americans with preexisting conditions will have health care coverage, regardless of how our judicial system rules on the future of Obamacare,” said Sen. Thom Tillis (R-N.C.), the bill’s lead sponsor, in <a href="http://web.archive.org/web/20200101065453/https://www.tillis.senate.gov/public/index.cfm/2018/8/senators-introduce-legislation-to-protect-americans-with-pre-existing-conditions">a statement</a>.</p>
+<p>Critics, however, were quick to point out that the bill <a href="http://web.archive.org/web/20200101065453/https://twitter.com/larry_levitt/status/1033020087437996033">doesn’t actually offer the same protections</a> that are embodied in the ACA. While the health law requires coverage for all conditions without extra premiums, the GOP bill would require that insurers sell to people with preexisting conditions, but not that those policies actually cover those conditions.</p>
+	</div>
+	</div>
+
+	<div class="slab-container">
+		
+		<div class="hubspot-contacts">
+
+			<form class="signup confirmation" data-hubspot-ajax-action="hubspot_contacts_signup" method="post">
+				<input id="hubspot_contacts_nonce" name="hubspot_contacts_nonce" type="hidden" value="7cc13e0f55"/><input name="_wp_http_referer" type="hidden" value="/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/"/>				<div class="signup-form-wrapper">
+					<span></span> <input class="form-control email-address" default="" name="hubspot_contact[email]" placeholder="Your email address" type="text"/>				</div>
+				<button class="email-submit" type="submit">
+					Sign Up				</button>
+			</form>
+
+			
+			<div class="messages in-context hs-hidden">
+							</div>
+
+			
+				
+				<form class="single-signup hs-hidden" data-hubspot-ajax-action="hubspot_contacts_update" method="post">
+
+					<input id="hubspot_contacts_nonce" name="hubspot_contacts_nonce" type="hidden" value="3e1813c467"/><input name="_wp_http_referer" type="hidden" value="/news/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law/"/><span></span> <input class="hs-hidden" default="" name="hubspot_contact[email]" type="text"/>
+					<label>
+						Please confirm your email address below:						<input class="form-control" name="repeat_email" required="required" type="email"/>
+					</label>
+
+					<input checked="1" class="hs-hidden" default="" name="hubspot_contact[khn_hp_report]" type="checkbox" value="1"/> 					<div id="hubspot-recaptcha"></div><span id="recaptcha-validate"></span>					<button id="hubspot-submit" type="submit">
+						Sign Up					</button>
+				</form>
+					</div>
+	</div><!--/.slab-container -->
+</div><!--/.email-signup -->
+						</div>
+									</aside>
+				
+<p>3. What would happen if the judge grants a preliminary injunction?</p>
+<p>The GOP plaintiffs say the law needs to be stopped immediately, “both because individuals will make insurance decisions during fall open-enrollment periods and because the States cannot turn their employee insurance plans and Medicaid operations on a dime,” according to <a href="http://web.archive.org/web/20200101065453/https://www.courtlistener.com/recap/gov.uscourts.txnd.299449/gov.uscourts.txnd.299449.40.0.pdf">their brief</a>.</p>
+<p>But setting aside the ACA while the case proceeds “would throw the entire [health] system into chaos,” Becerra said. That’s because the ACA made major changes not just to the insurance market for individuals, but also to Medicare, Medicaid and the employer insurance market.</p>
+<p>Even in 2012, when the Supreme Court was considering the constitutionality of the law before much of it had taken effect, <a href="http://web.archive.org/web/20200101065453/https://www.npr.org/sections/health-shots/2012/04/24/151242554/if-the-health-care-overhaul-goes-down-could-medicare-follow">some analysts from both parties predicted</a> that finding the law unconstitutional could have serious repercussions for the Medicare program and the rest of the health care system.</p>
+<p>In practice, however, even if Judge O’Connor were to rule in favor of the Republicans’ request to stop the law’s enforcement immediately, the decision could be quickly appealed up the line, including, if necessary, before the Supreme Court.</p>
+<p>4. Is this case purely Republicans versus Democrats?</p>
+<p>The case is largely partisan — with Republicans who oppose the health law arguing for its cancellation and Democrats who support it fighting to keep it in place.</p>
+<p>But a <a href="http://web.archive.org/web/20200101065453/https://www.courthousenews.com/wp-content/uploads/2018/06/Law-profs.amicus.pdf">friend-of-the-court brief</a> filed by five law professors who disagree on the merits of the ACA said that, regardless, both the GOP states and the Justice Department are wrong to conclude that eliminating the tax penalty should result in the entire law being thrown out.</p>
+<p>In this case, “Congress itself has essentially eliminated the provision in question and left the rest of a statute standing,” so courts do not need to guess whether lawmakers intended for the rest of the law to remain, they wrote.</p>
+<p>5. What is Congress doing about this?</p>
+<p>Technically, Congress is watching the case just as everyone else is. But Republicans in particular, while they mostly oppose the health law, are aware that the provisions protecting people with preexisting conditions are by far the most popular part of the ACA. And Democrats are already <a href="http://web.archive.org/web/20200101065453/https://www.nytimes.com/2018/08/01/upshot/democratic-candidates-midterms-health-care.html">using the issue</a> to hammer opponents in the upcoming midterm elections.</p>
+<p>Last month, 10 GOP senators introduced legislation they said would maintain the ACA’s preexisting condition protections in the event the lawsuit succeeds.</p>
+<p>“This legislation is a common-sense solution that guarantees Americans with preexisting conditions will have health care coverage, regardless of how our judicial system rules on the future of Obamacare,” said Sen. Thom Tillis (R-N.C.), the bill’s lead sponsor, in <a href="http://web.archive.org/web/20200101065453/https://www.tillis.senate.gov/public/index.cfm/2018/8/senators-introduce-legislation-to-protect-americans-with-pre-existing-conditions">a statement</a>.</p>
+<p>Critics, however, were quick to point out that the bill <a href="http://web.archive.org/web/20200101065453/https://twitter.com/larry_levitt/status/1033020087437996033">doesn’t actually offer the same protections</a> that are embodied in the ACA. While the health law requires coverage for all conditions without extra premiums, the GOP bill would require that insurers sell to people with preexisting conditions, but not that those policies actually cover those conditions.</p>
+</textarea>
+<button class="btn btn-secondary btn-sm copy-btn" data-clipboard-target="#republish-content" type="button">Copy HTML</button>
+<div class="modal-details">
+<p>We encourage organizations to republish our content, free of charge. Here’s what we ask:</p>
+<p>You must credit us as the original publisher, with a hyperlink to our khn.org site. If possible, please include the original author(s) and “Kaiser Health News” in the byline. Please preserve the hyperlinks in the story.</p>
+<p>It’s important to note, not everything on khn.org is available for republishing. If a story is labeled “All Rights Reserved,” we cannot grant permission to republish that item.</p>
+<p>Have questions? Let us know at <a href="http://web.archive.org/web/20200101065453/mailto:KHNHelp@kff.org">KHNHelp@kff.org</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mini Homepage Promos -->
+<section class="promo-homepage hidden-xs">
+<!-- Readersight -->
+<div id="rs_ctTileRecommender">
+<div class="container">
+<h3 class="head-section">More From KHN</h3>
+<div class="row">
+<div class="module">
+<article class="promoted-link">
+<a href="http://web.archive.org/web/20200101065453/https://khn.org/news/paying-it-forward-bill-of-the-month-series-a-vital-toolkit-for-patients-wraps-year-2/">
+<img alt="" class="img-responsive wp-post-image" height="180" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2019/12/Thumbnail-web-100.jpg?w=270&amp;h=180&amp;crop=1" width="270"/> <p class="headline" href="https://khn.org/news/paying-it-forward-bill-of-the-month-series-a-vital-toolkit-for-patients-wraps-year-2/">
+										Paying It Forward: ‘Bill Of The Month’ Series, A Vital Toolkit For Patients, Wraps Year 2									</p>
+</a>
+</article>
+</div>
+<div class="module">
+<article class="promoted-link">
+<a href="http://web.archive.org/web/20200101065453/https://khn.org/news/an-arm-and-a-leg-tradition-grows-into-1-million-gift-for-people-in-medical-debt/">
+<img alt="" class="img-responsive wp-post-image" height="180" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2019/11/A4L_Kaiser_S3REWORK.jpg?w=270&amp;h=180&amp;crop=1" width="270"/> <p class="headline" href="https://khn.org/news/an-arm-and-a-leg-tradition-grows-into-1-million-gift-for-people-in-medical-debt/">
+										‘An Arm And A Leg’: Tradition Grows Into $1 Million Gift For People In Medical Debt									</p>
+</a>
+</article>
+</div>
+<div class="module">
+<article class="promoted-link">
+<a href="http://web.archive.org/web/20200101065453/https://khn.org/news/a-reality-check-on-artificial-intelligence-are-health-care-claims-overblown/">
+<img alt="" class="img-responsive wp-post-image" height="180" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2019/12/AI_illustration_02.jpg?w=270&amp;h=180&amp;crop=1" width="270"/> <p class="headline" href="https://khn.org/news/a-reality-check-on-artificial-intelligence-are-health-care-claims-overblown/">
+										A Reality Check On Artificial Intelligence: Are Health Care Claims Overblown?									</p>
+</a>
+</article>
+</div>
+<div class="module">
+<article class="promoted-link">
+<a href="http://web.archive.org/web/20200101065453/https://khn.org/news/hospital-group-mum-as-members-pursue-patients-with-lawsuits-and-debt-collectors/">
+<img alt="" class="img-responsive wp-post-image" height="180" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/uploads/sites/2/2019/12/morristown-resized.jpg?w=270&amp;h=180&amp;crop=1" width="270"/> <p class="headline" href="https://khn.org/news/hospital-group-mum-as-members-pursue-patients-with-lawsuits-and-debt-collectors/">
+										Hospital Group Mum As Members Pursue Patients With Lawsuits And Debt Collectors									</p>
+</a>
+</article>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!--Site Footer-->
+<footer class="footer-site">
+<div class="footer-main">
+<a href="http://web.archive.org/web/20200101065453/http://kff.org/" target="_blank"><img alt="Kaiser Family Foundation" class="footer-logo" src="http://web.archive.org/web/20200101065453im_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/images/kff-logo.svg" title="Kaiser Family Foundation"/></a>
+<p class="footer-copyright">
+				© 2020 <a href="http://web.archive.org/web/20200101065453/http://kff.org/" target="_blank">Kaiser Family Foundation</a>. All rights reserved.			</p>
+<ul class="footer-utility">
+<li><a href="/web/20200101065453/https://khn.org/about-us/">About Us</a></li>
+<li><a href="/web/20200101065453/https://khn.org/contact-us/">Contact Us</a></li>
+<li><a href="/web/20200101065453/https://khn.org/editorial-policy/">Editorial Policy</a></li>
+<li><a href="/web/20200101065453/https://khn.org/privacy-policy/">Privacy Policy</a></li>
+<li><a href="/web/20200101065453/https://khn.org/staff/">Staff</a></li>
+<li><a href="/web/20200101065453/https://khn.org/syndication/">Republish Our Content</a></li>
+<li><a href="/web/20200101065453/https://khn.org/email-signup/">Email Sign-Up</a></li>
+</ul>
+<ul class="footer-social">
+<li>
+<a class="icon-twitter" href="http://web.archive.org/web/20200101065453/https://twitter.com/KHNews" target="_blank" title="Twitter"><span class="sr-only">Twitter</span></a>
+</li>
+<li>
+<a class="icon-facebook" href="http://web.archive.org/web/20200101065453/https://www.facebook.com/KaiserHealthNews" target="_blank" title="Facebook"><span class="sr-only">Facebook</span></a>
+</li>
+<li>
+<a class="icon-linkedin" href="http://web.archive.org/web/20200101065453/http://www.linkedin.com/company/2328770" target="_blank" title="LinkedIn"><span class="sr-only">LinkedIn</span></a>
+</li>
+<li>
+<a class="icon-instagram" href="http://web.archive.org/web/20200101065453/https://www.instagram.com/kaiserhealthnews/" target="_blank" title="Instagram"><span class="sr-only">Instagram</span></a>
+</li>
+<li>
+<a class="icon-rss" href="/web/20200101065453/https://khn.org/rss-feeds/" title="RSS"><span class="sr-only">RSS</span></a>
+</li>
+</ul>
+<p class="footer-vip-powered">
+				Powered by <a class="powered-by-wpcom" href="http://web.archive.org/web/20200101065453/https://wpvip.com/?utm_source=vip_powered_wpcom&amp;utm_medium=web&amp;utm_campaign=VIP%20Footer%20Credit&amp;utm_term=khn.org" rel="generator nofollow">WordPress.com VIP</a> </p>
+</div>
+</footer>
+<div style="display:none">
+</div>
+<!-- Start of Async HubSpot Analytics Code -->
+<script type="text/javascript">
+			(function (d, s, i, r) {
+				if (d.getElementById(i)) {
+					return;
+				}
+				var n = d.createElement(s), e = d.getElementsByTagName(s)[0];
+				n.id = i;
+				n.src = '//web.archive.org/web/20200101065453/https://js.hs-analytics.net/analytics/' + (Math.ceil(new Date() / r) * r) + '/292449.js';
+				e.parentNode.insertBefore(n, e);
+			})(document, "script", "hs-analytics", 300000);
+		</script>
+<!-- End of Async HubSpot Analytics Code -->
+<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/web.archive.org\/web\/20200101065453\/https:\/\/khn.org\/news\/democratic-gop-attorneys-general-square-off-in-texas-showdown-over-health-law\/":868610};
+	</script>
+<link href="http://web.archive.org/web/20200101065453cs_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/css/hubspot-signup-form-khn.css?ver=1.0" id="hubspot-signup-form-css" media="all" rel="stylesheet"/>
+<script src="http://web.archive.org/web/20200101065453js_/https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=202001"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://secure.gravatar.com/js/gprofiles.js?ver=2020Janaa"></script>
+<script>
+var WPGroHo = {"my_hash":""};
+</script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/mu-plugins/jetpack/modules/wpgroho.js?ver=5.3.2"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/ui/effect.min.js?ver=1.11.4"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/clipboard.min.js?ver=5.3.2"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=7.4.4"></script>
+<script>
+( 'fetch' in window ) || document.write( '<script src="http://web.archive.org/web/20200101065453/https://khn.org/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="http://web.archive.org/web/20200101065453/https://khn.org/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?ver=3.26.0-0"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="http://web.archive.org/web/20200101065453/https://khn.org/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="http://web.archive.org/web/20200101065453/https://khn.org/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/dist/dom-ready.min.js?ver=2.5.1"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/dist/a11y.min.js?ver=2.5.1"></script>
+<script>
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+</script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/jquery/ui/autocomplete.min.js?ver=1.11.4"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-includes/js/wp-embed.min.js?ver=5.3.2"></script>
+<script>
+var HubspotContacts = {"ajaxurl":"http:\/\/web.archive.org\/web\/20200101065453\/https:\/\/khn.org\/wp-admin\/admin-ajax.php","ajax_security_param":"hubpost_ajax_security","ajax_security_value":"d3d8a2bc8d","form_container":"hubspot_contact","STATUS_SIGNUP":"signup","STATUS_ERROR":"error","STATUS_SUCCESS":"success","STATUS_SETTINGS":"settings","recaptcha_message":"Please verify by checking the box above"};
+</script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/inc/hubspot-contacts/js/hubspot-contacts.js?ver=1.4.33"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/js/modernizr-formvalidation.min.js?ver=2.8.3"></script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/themes/kaiser-healthnews-2017/static/js/hubspot-signup-form.js?ver=1.1"></script>
+<script>
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+</script>
+<script src="http://web.archive.org/web/20200101065453js_/https://khn.org/wp-content/mu-plugins/jetpack/_inc/build/sharedaddy/sharing.min.js?ver=8.0"></script>
+<script>
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+</script>
+<script async="async" defer="defer" src="http://web.archive.org/web/20200101065453js_/https://stats.wp.com/e-202001.js" type="text/javascript"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.0',blog:'161476233',post:'868610',tz:'-5',srv:'khn.org'} ]);
+	_stq.push([ 'clickTrackerInit', '161476233', '868610' ]);
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"1fa8b5b91a","applicationID":"211788170","transactionName":"YgMBZ0cFWUFUUBEICVtJIlBBDVhcGkAMDwFZAw==","queueTime":0,"applicationTime":357,"atts":"TkQWEQ8fSh4XUkdbHUgb","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<!--
+     FILE ARCHIVED ON 06:54:53 Jan 01, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 07:37:58 Jan 05, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

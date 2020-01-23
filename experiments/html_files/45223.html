@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app101.us.archive.org';v.server_ms=261;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20191007223942", "www.cato.org");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta charset="utf-8"/><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","http://web.archive.org/web/20191007223942/https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-1677831-1", {"cookieDomain":"auto"});ga("set", "dimension1", "\u003Ca href=\u0022\/people\/alex-nowrasteh\u0022 hreflang=\u0022und\u0022\u003EAlex Nowrasteh\u003C\/a\u003E");ga("set", "dimension2", "\u003Ca href=\u0022\/research\/international-economics-development-immigration\u0022 hreflang=\u0022en\u0022\u003EInternational Economics, Development \u0026amp; Immigration\u003C\/a\u003E");ga("send", "pageview");</script>
+<meta content="Interpreting the New Deportation Statistics | Cato @ Liberty" name="title"/>
+<meta content="noodp" name="robots"/>
+<meta content="5311211" property="fb:admins"/>
+<meta content="26668999076" property="fb:pages"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/interpreting-new-deportation-statistics" rel="canonical"/>
+<meta content="Cato Institute" property="og:site_name"/>
+<meta content="158687980817033" property="fb:app_id"/>
+<meta content="article" property="og:type"/>
+<meta content="@CatoInstitute" name="twitter:site"/>
+<meta content="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/interpreting-new-deportation-statistics" property="og:url"/>
+<link href="http://web.archive.org/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/optimized/public/wp-content/uploads/interior1.jpg?itok=gjwM2MZQ" rel="image_src"/>
+<meta content="Interpreting the New Deportation Statistics" property="og:title"/>
+<meta content="President Obama is still out-deporting President Bush based on the data available." property="og:description"/>
+<meta content="http://web.archive.org/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/optimized/public/wp-content/uploads/interior1.jpg?itok=gjwM2MZQ" property="og:image"/>
+<meta content="https://www.cato.org/sites/cato.org/files/styles/optimized/public/wp-content/uploads/interior1.jpg?itok=gjwM2MZQ" property="og:image:secure_url"/>
+<meta content="image/jpeg" property="og:image:type"/>
+<meta content="795" property="og:image:width"/>
+<meta content="289" property="og:image:height"/>
+<meta content="2016-02-23T10:18:37-0500" property="og:updated_time"/>
+<meta content="Media Name: interior1.jpg" property="og:image:alt"/>
+<meta content="1000 Massachusetts Avenue, N.W." property="og:street_address"/>
+<meta content="Washington" property="og:locality"/>
+<meta content="DC" property="og:region"/>
+<meta content="20001" property="og:postal_code"/>
+<meta content="United States" property="og:country_name"/>
+<meta content="(202) 842-0200" property="og:phone_number"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="https://www.facebook.com/CatoInstitute" property="article:publisher"/>
+<meta content="2015-01-05T10:23:00-0500" property="article:published_time"/>
+<meta content="2016-02-23T10:18:37-0500" property="article:modified_time"/>
+<meta content="Drupal 8 (https://www.drupal.org)" name="Generator"/>
+<meta content="width" name="MobileOptimized"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://www.cato.org/blog/interpreting-new-deportation-statistics" rel="revision"/>
+<link href="https://www.cato.org/node/55833/embed" rel="content-embed"/>
+<script>window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};a2a_config.icon_color = "#666";
+a2a_config.track_links = 'ga';
+a2a_config.templates.twitter = {
+  text: "${title} ${link}",
+  via: "CatoInstitute",
+  related: "Libertarianism"
+};
+a2a_config.callbacks.push({
+  share: function(data) {
+    window.dispatchEvent(
+      new CustomEvent(
+        'custom_analytics_event', {
+          detail: {
+            eventName: `Share via ${data.service}`,
+            eventAction: 'share',
+            eventValue: data.url,
+            eventNonInteraction: false
+          }
+        }
+      )
+    );
+  }
+});
+</script>
+<style>.a2a_svg { border-radius: 0 !important; }</style>
+<link crossorigin="anonymous" href="http://web.archive.org/web/20191007223942/https://use.typekit.net/" rel="preconnect"/>
+<link href="http://web.archive.org/web/20191007223942/https://p.typekit.net/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://use.typekit.net/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20191007223942/https://p.typekit.net/" rel="dns-prefetch"/>
+<link as="style" crossorigin="anonymous" href="http://web.archive.org/web/20191007223942/https://use.typekit.net/cbr8zoz.css" onload="this.rel='stylesheet'" rel="preload"/>
+<link crossorigin="anonymous" href="http://web.archive.org/web/20191007223942/https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://fonts.gstatic.com/" rel="dns-prefetch"/>
+<link href="http://web.archive.org/web/20191007223942/https://js.hsforms.net/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://js.hsforms.net/" rel="dns-prefetch"/>
+<link href="http://web.archive.org/web/20191007223942/https://js.hs-scripts.com/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://js.hs-scripts.com/" rel="dns-prefetch"/>
+<link href="http://web.archive.org/web/20191007223942/https://s3.amazonaws.com/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://s3.amazonaws.com/" rel="dns-prefetch"/>
+<link href="http://web.archive.org/web/20191007223942/https://customer.cludo.com/" rel="preconnect"/>
+<link href="http://web.archive.org/web/20191007223942/https://api.cludo.com/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://fonts.gstatic.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20191007223942/https://s3.amazonaws.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20191007223942/https://use.fontawesome.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20191007223942/https://customer.cludo.com/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20191007223942/https://api.cludo.com/" rel="dns-prefetch"/>
+<link href="http://web.archive.org/web/20191007223942/https://api.hubapi.com/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://api.hubapi.com/" rel="dns-prefetch"/>
+<link href="http://web.archive.org/web/20191007223942/https://track.hubspot.com/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://track.hubspot.com/" rel="dns-prefetch"/>
+<link href="http://web.archive.org/web/20191007223942/https://connect.facebook.net/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://connect.facebook.net/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20191007223942/https://stats.g.doubleclick.net/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://stats.g.doubleclick.net/" rel="dns-prefetch"/>
+<link href="//web.archive.org/web/20191007223942/https://www.google-analytics.com/" rel="preconnect"/>
+<link href="//web.archive.org/web/20191007223942/https://www.google-analytics.com/" rel="dns-prefetch"/>
+<link as="font" crossorigin="anonymous" href="http://web.archive.org/web/20191007223942/https://fonts.gstatic.com/s/notoserif/v6/ga6Iaw1J5X9T9RW6j9bNfFcWaDq8fMU.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="anonymous" href="http://web.archive.org/web/20191007223942/https://fonts.gstatic.com/s/notoserif/v6/ga6Kaw1J5X9T9RW6j9bNfFImajC7XsdBMg.woff2" rel="preload" type="font/woff2"/>
+<style>
+      @font-face{font-family:'Noto Serif';font-display:fallback;font-style:normal;font-weight:400;src:local('Noto Serif'),local('NotoSerif'),url(http://web.archive.org/web/20191007223942im_/https://fonts.gstatic.com/s/notoserif/v6/ga6Iaw1J5X9T9RW6j9bNfFcWaDq8fMU.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Noto Serif';font-display:fallback;font-style:italic;font-weight:400;src:local('Noto Serif Italic'),local('NotoSerif-Italic'),url(http://web.archive.org/web/20191007223942im_/https://fonts.gstatic.com/s/notoserif/v6/ga6Kaw1J5X9T9RW6j9bNfFImajC7XsdBMg.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Noto Serif';font-display:fallback;font-style:italic;font-weight:700;src:local('Noto Serif Bold Italic'),local('NotoSerif-BoldItalic'),url(http://web.archive.org/web/20191007223942im_/https://fonts.gstatic.com/s/notoserif/v6/ga6Vaw1J5X9T9RW6j9bNfFIu0RWuc-VMGIUYDw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Noto Serif';font-display:fallback;font-style:normal;font-weight:700;src:local('Noto Serif Bold'),local('NotoSerif-Bold'),url(http://web.archive.org/web/20191007223942im_/https://fonts.gstatic.com/s/notoserif/v6/ga6Law1J5X9T9RW6j9bNdOwzfReece9LOoc.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Shadows Into Light Two';font-display:fallback;font-style:normal;font-weight:400;src:local('Shadows Into Light Two'),local('ShadowsIntoLightTwo-Regular'),url(http://web.archive.org/web/20191007223942im_/https://fonts.gstatic.com/s/shadowsintolighttwo/v5/4iC86LVlZsRSjQhpWGedwyOoW-0A6_kpsyNmpALHGZFkMFzObw.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Shadows Into Light Two';font-display:fallback;font-style:normal;font-weight:400;src:local('Shadows Into Light Two'),local('ShadowsIntoLightTwo-Regular'),url(http://web.archive.org/web/20191007223942im_/https://fonts.gstatic.com/s/shadowsintolighttwo/v5/4iC86LVlZsRSjQhpWGedwyOoW-0A6_kpsyNmpAzHGZFkMFw.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+    </style>
+<title>Interpreting the New Deportation Statistics | Cato @ Liberty</title>
+<link href="http://web.archive.org/web/20191007223942cs_/https://customer.cludo.com/css/templates/v1.1/essentials/cludo-search.min.css" rel="stylesheet" type="text/css"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/sites/cato.org/files/css/css_G6G8rgI_5Z5g6XtRgeiqyf4ijH4Ss3Xs0soQO9fNv80.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/sites/cato.org/files/css/css_QTlErUFthbyotesoNQ2rJGR3Vw_PJlDt09LyetMHl4A.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/modules/custom/cato_mega_menu/build/css/cato-mega-menu.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/uipatterns/03-organisms/mega_menu_block/build/css/mega-menu-block.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/uipatterns/02-molecules/text_icon_inline/build/css/text-icon-inline.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/uipatterns/01-atoms/icon/build/css/icon.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/sites/cato.org/files/css/css_rRGtYecg6fQTpmAm18wvy-3l2rrfUggKxPPh4gP1JIc.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/uipatterns/02-molecules/expand_list/build/css/expand-list.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/sites/cato.org/files/css/css_zTlrHj8T5K0j4v-dvBU42uxy4Ide5WkHuamDCT7DKXs.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/uipatterns/02-molecules/meta_line/build/css/meta-line.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/modules/custom/custom_blocks/cato_blog_header/build/css/cato-blog-header.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/sites/cato.org/files/css/css_KOMTbUJ3ule8irzwAhK_wiUIf5g5f8_M3RJS_upCirw.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/build/css/bootstrap.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/build/css/universal.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/sites/cato.org/files/css/css_HeZDfV6pRwcSTGnoX2zAsYJWSYVNaxTdZsZZo3S8AEw.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/sites/cato.org/files/css/css_eW0m1eu1As0MhKlqRYX246GVPLNdpQb0HU8mULGDwSQ.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/build/css/components.cludo.css?pz0uqx" media="all" rel="stylesheet"/>
+<link href="/web/20191007223942cs_/https://www.cato.org/themes/custom/cato/build/css/components.entity-embed.css?pz0uqx" media="all" rel="stylesheet"/>
+<!--[if lte IE 8]>
+<script src="/sites/cato.org/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+</head>
+<body class="path-node page-node-type-blog">
+<a class="visually-hidden focusable skip-link" href="#main-content">
+  Skip to main content
+</a>
+<div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas="">
+<div class="wrapper--page">
+<div class="bg--header">
+<header class="layout--header optimize-legibility" role="banner">
+<nav class="navbar navbar-expand-lg sitenav">
+<a class="navbar-brand flex-lg-shrink-0 sitenav__branding" href="/web/20191007223942/https://www.cato.org/" rel="home" title="Home">
+<img alt="Cato Institute home" class="logo sitenav__logo" src="/web/20191007223942im_/https://www.cato.org/themes/custom/cato/build/images/cato-logo-white.svg"/>
+</a>
+<button aria-controls="nav-menus" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler--header navbar-toggler--square navbar-toggler--menu" data-target="#nav-menus" data-toggle="collapse" type="button">
+<div class="icon__wrapper">
+<svg class="icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-bars"></use>
+</svg>
+</div>
+</button>
+<button aria-controls="nav-search" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler--header navbar-toggler--square navbar-toggler--search" data-target="#nav-search" data-toggle="collapse" type="button">
+<div class="icon__wrapper">
+<svg class="icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-search"></use>
+</svg>
+</div>
+</button>
+<div class="collapse navbar-collapse navbar-collapse--header flex-column flex-shrink-0 px-lg-half-gutter align-items-start sitenav__menus line-height-normal" id="nav-menus" role="navigation">
+<nav class="nav nav--main flex-column flex-lg-row">
+<div class="nav-item nav-item--main">
+<a class="nav-link js-mega-menu-link" data-cato-mega-menu-id="megamenu_research" href="/web/20191007223942/https://www.cato.org/research">Research</a>
+<div class="mega-menu-panel d-none js-mega-menu-panel"></div>
+</div>
+<div class="nav-item nav-item--main">
+<a class="nav-link js-mega-menu-link" data-cato-mega-menu-id="megamenu_event" href="/web/20191007223942/https://www.cato.org/events">Events</a>
+<div class="mega-menu-panel d-none js-mega-menu-panel"></div>
+</div>
+<div class="nav-item nav-item--main">
+<a class="nav-link js-mega-menu-link" data-cato-mega-menu-id="megamenu_publications" href="/web/20191007223942/https://www.cato.org/publications">Publications</a>
+<div class="mega-menu-panel d-none js-mega-menu-panel"></div>
+</div>
+<div class="nav-item nav-item--main mega-menu-reverse">
+<a class="nav-link js-mega-menu-link" data-cato-mega-menu-id="megamenu_commentary" href="/web/20191007223942/https://www.cato.org/commentary">Commentary</a>
+<div class="mega-menu-panel d-none js-mega-menu-panel"></div>
+</div>
+<div class="nav-item nav-item--main mega-menu-reverse">
+<a class="nav-link js-mega-menu-link" data-cato-mega-menu-id="megamenu_store" href="http://web.archive.org/web/20191007223942/https://store.cato.org/">Store</a>
+<div class="mega-menu-panel d-none js-mega-menu-panel"></div>
+</div>
+<div class="nav-item nav-item--main mega-menu-reverse">
+<a class="nav-link js-mega-menu-link" data-cato-mega-menu-id="megamenu_support" href="/web/20191007223942/https://www.cato.org/support">Support</a>
+<div class="mega-menu-panel d-none js-mega-menu-panel"></div>
+</div>
+</nav>
+<nav class="nav nav--submenu flex-column flex-lg-row text-sans small">
+<a class="nav-link nav-link--header nav-link--submenu" href="/web/20191007223942/https://www.cato.org/about">
+<span class="nav-link__text">About Cato</span>
+</a>
+<a class="nav-link nav-link--header nav-link--submenu" href="/web/20191007223942/https://www.cato.org/blog">
+<span class="nav-link__text">Blog</span>
+</a>
+<a class="nav-link nav-link--header nav-link--submenu" href="/web/20191007223942/https://www.cato.org/people/policy-scholars">
+<span class="nav-link__text">Our Experts</span>
+</a>
+<a class="nav-link nav-link--header nav-link--submenu" href="/web/20191007223942/https://www.cato.org/projects">
+<span class="nav-link__text">Our Centers</span>
+</a>
+<a class="nav-link nav-link--header nav-link--submenu" href="http://web.archive.org/web/20191007223942/https://www.facebook.com/CatoInstitute" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-facebook-square"></use>
+</svg>
+</div>
+<span class="nav-link__text">Facebook</span>
+</a>
+<a class="nav-link nav-link--header nav-link--submenu" href="http://web.archive.org/web/20191007223942/https://twitter.com/catoinstitute" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-twitter"></use>
+</svg>
+</div>
+<span class="nav-link__text">Twitter</span>
+</a>
+</nav>
+</div>
+<div class="collapse navbar-collapse navbar-collapse--header flex-shrink-0 sitenav__search" id="nav-search" role="search">
+<form accept-charset="UTF-8" action="/web/20191007223942/https://www.cato.org/search" id="cludo-search-form" method="get" target="_self">
+<div class="form-group">
+<div class="input-group input-group--light-on-dark input-group--search">
+<input class="form-control form-control-sm form-control--search" maxlength="128" name="q" placeholder="Search" title="Enter the terms you wish to search for." type="search" value=""/>
+<div class="input-group-append">
+<button class="btn btn--search reduced" id="search-button" name="op" type="submit">
+<div class="icon__wrapper">
+<svg class="icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-search"></use>
+</svg>
+</div>
+</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+</nav>
+</header>
+</div>
+<main class="pb-standard layout--main" role="main">
+<a id="main-content" tabindex="-1"></a>
+<aside class="mb-standard layout--prescript" role="complementary">
+<div class="block-cato-blog-header block-cato-blog-header-block block-blog-header block" id="block-blogheader">
+<div class="block--inner">
+<header class="blog-header border--bottom mb-standard mb-lg-double py-4">
+<div class="container position-relative">
+<a class="blog-header__link" href="/web/20191007223942/https://www.cato.org/blog">
+<img alt="Cato @ Liberty" class="blog-header__graphic" src="/web/20191007223942im_/https://www.cato.org/modules/custom/custom_blocks/cato_blog_header/build/images/blog_rev4.png"/>
+<hgroup class="blog-header__heading-wrapper">
+<h1 class="blog-header__heading text-sans-alternate2 text-uppercase mb-0">
+<span class="d-none d-lg-inline">Cato</span> At Liberty
+          </h1>
+</hgroup>
+</a>
+<div class="blog-header__rss text-sans-alternate text-uppercase small link-color--gray">
+<a href="/web/20191007223942/https://www.cato.org/rss/blog">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-rss"></use>
+</svg>
+</div>
+
+    
+    RSS
+  
+  
+        </a>
+</div>
+</div>
+</header>
+</div>
+</div>
+</aside>
+<aside class="container layout--help" role="complementary">
+<div class="hidden" data-drupal-messages-fallback=""></div>
+</aside>
+<div class="container clearfix font-smoothing layout--flexible-regions layout--flexible-regions--grid px-standard container layout--flexible-regions layout--flexible-regions--active layout--flexible-regions--one-active layout--flexible-regions--right-active" id="main-inner">
+<div class="layout--flexible-regions__region layout--flexible-regions__primary">
+<div class="layout--flexible-regions__primary-inner layout--flexible-regions--grid clearfix">
+<section class="layout--flexible-regions__region layout--flexible-regions__content">
+<div class="block-system block-system-main-block block-main-page-content block" id="block-cato-content">
+<div class="block--inner">
+<article class="blog-post mb-double">
+<header class="blog-post-header mb-4">
+<div class="mb-2 text-semibold meta">
+<span>January 5, 2015</span> 10:23AM
+      
+  </div>
+<h1 class="mb-2 h2 heading">Interpreting the New Deportation Statistics </h1>
+<div class="meta-line d-flex flex-row justify-content-between align-items-center">
+<div class="bg-white pr-2 flex-shrink-1 meta meta--large">
+          
+        By 
+  <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/people/alex-nowrasteh" hreflang="und">Alex Nowrasteh</a>
+</div>
+<div class="pl-2 pb-1 bg-white flex-shrink-0 ml-auto">
+<span class="a2a_kit a2a_kit_size_18 addtoany_list" data-a2a-title="Interpreting the New Deportation Statistics" data-a2a-url="https://www.cato.org/blog/interpreting-new-deportation-statistics"><a class="a2a_button_twitter"></a><a class="a2a_button_linkedin"></a><a class="a2a_button_reddit"></a><a class="a2a_button_facebook"></a></span>
+</div>
+</div>
+</header>
+<div>
+<div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><p><span>Shortly before Christmas the Department of Homeland Security (DHS) released a </span><a href="http://web.archive.org/web/20191007223942/https://www.ice.gov/doclib/about/offices/ero/pdf/2014-ice-immigration-removals.pdf">report</a><span> detailing deportations (henceforth “removals”) conducted by Immigration and Customs Enforcement (ICE) during fiscal year 2014.  Below I present the data on removals in historical context – combined with information from the </span><a href="http://web.archive.org/web/20191007223942/http://www.migrationpolicy.org/research/deportation-and-discretion-reviewing-record-and-options-change">Migration Policy Institute</a><span> and </span><a href="http://web.archive.org/web/20191007223942/http://www.pewhispanic.org/2014/09/03/as-growth-stalls-unauthorized-immigrant-population-becomes-more-settled/">Pew</a><span>.  See my previous writings on this topic </span><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/obama-still-deporter-chief">here</a><span> and </span><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/updates-president-obamas-immigration-enforcement-record-0">here</a><span>.       </span> <br/>
+<br/><span>ICE deported 102,224 unauthorized immigrants from the </span><em>interior</em><span> of the United States in 2014, down from a peak of 188,422 in 2011.  Removals from the interior are distinct from removals of recent border crossers.  Removals from the interior peaked during the Obama administration and have since fallen to a level equal to that of 2007. </span> <br/>
+</p>
+<div class="embedded-entity" data-embed-button="image" data-entity-embed-display="view_mode:media.blog_post" data-entity-type="media" data-entity-uuid="1f4e4493-886f-49c6-b9b9-c67bcc0b526a" data-langcode="und">
+<p><img alt="Media Name: interior1.jpg" class="component-image" height="254" src="http://web.archive.org/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs/public/wp-content/uploads/interior1.jpg?itok=ZOI0Am2r" srcset="/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs/public/wp-content/uploads/interior1.jpg?itok=ZOI0Am2r 1x, /web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs_2x/public/wp-content/uploads/interior1.jpg?itok=4FlI3EXr 1.5x" typeof="foaf:Image" width="700"/></p></div>
+<p><em>Source: MPI and DHS.</em> <br/>
+<br/>
+The number of <em>interior</em> removals under the last six years of the Bush administration (the first two years are unavailable so far) was about 475,000.  From 2009-2014, the Obama administration removed about 950,000 from the <em>interior</em> of the United States. <span> </span> <br/>
+<br/>
+President Bush’s administration removed an average of about 276,000 unauthorized immigrants per year for the years available and an average of 79,000 of them annually were <em>interior</em> removals.  President Obama’s administration has removed an average of 405,000 unauthorized immigrants a year, an average of 158,000 of them annually were <em>interior</em> removals.  There were a large numbers of unknowns during the Bush administration that decreased as the years progressed. <br/>
+<br/>
+ <br/>
+</p>
+<div class="embedded-entity" data-embed-button="image" data-entity-embed-display="view_mode:media.blog_post" data-entity-type="media" data-entity-uuid="f3c5aa72-ec9e-4ac0-9624-6bf2933dc1c0" data-langcode="und">
+<p><img alt="Media Name: interior2.jpg" class="component-image" height="404" src="http://web.archive.org/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs/public/wp-content/uploads/interior2.jpg?itok=PhSQOyT0" srcset="/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs/public/wp-content/uploads/interior2.jpg?itok=PhSQOyT0 1x, /web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs_2x/public/wp-content/uploads/interior2.jpg?itok=ahmps2PV 1.5x" typeof="foaf:Image" width="668"/></p></div>
+<p><em>Source: MPI and DHS.</em> <br/>
+<br/>
+The Obama administration’s recent decrease in the number of interior removals is not the whole story.  The <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/president-obama-still-deporter-chief">best way</a> to measure the intensity of immigration enforcement is to look at the percentage of the unauthorized immigrant population removed in each year.  Based on estimates of the total size of the unauthorized immigrant population, 0.89 percent of that population was removed from the interior of the United States in 2014 – down from 1.15 percent in 2013. <br/>
+<br/><span></span></p>
+<div class="embedded-entity" data-embed-button="image" data-entity-embed-display="view_mode:media.blog_post" data-entity-type="media" data-entity-uuid="e7315de8-4c1c-4eec-a5dd-4bb7144d1aa4" data-langcode="und">
+<p><img alt="Media Name: interior3.jpg" class="component-image" height="323" src="http://web.archive.org/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs/public/wp-content/uploads/interior3.jpg?itok=P8NwnAaV" srcset="/web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs/public/wp-content/uploads/interior3.jpg?itok=P8NwnAaV 1x, /web/20191007223942im_/https://www.cato.org/sites/cato.org/files/styles/pubs_2x/public/wp-content/uploads/interior3.jpg?itok=e4JGsMik 1.5x" typeof="foaf:Image" width="700"/></p></div>
+<p> </p>
+<p> <br/>
+<br/><em>Source: MPI, Department of Homeland Security, Pew, Author’s Calculations.</em><span> </span> <br/>
+<br/>
+For every year for which data was available, the Bush administration removed an average of 0.7 percent of the interior unauthorized immigrant population.  President Obama’s administration has removed an average of 1.39 percent of the <em>interior</em> unauthorized immigrant population every year of his presidency – about twice the rate as under the Bush administration.  Even when focusing on <em>interior </em>removals, President Obama is still out-deporting President Bush based on the data available.<br/>
+<br/>
+The unauthorized immigrant population increased under the Bush administration from 9.4 million in 2001 to a peak of 12.2 million in 2007 and then declined to 11.7 million in 2008.  During Obama’s administration, the number of unauthorized immigrants has, so far, stayed at or below 11.5 million.    <br/>
+<br/>
+Obama’s <em>interior</em> removal statistics show a downward trend beginning in 2012 through to 2014.  The Obama administration has also focused immigration enforcement on criminal offenders (<a href="http://web.archive.org/web/20191007223942/http://www.sutherlandinstitute.org/uploads/Are%20Undocumented%20Criminals-01.pdf">not all unlawful immigrants are criminals</a>) but the data is a little difficult to disentangle for 2014 so I left it out of this blog post – stay tuned for a future one on that topic. <br/>
+<br/>
+The Obama administration has clearly not gutted <em>interior </em>immigration enforcement as their 2014 figures for <em>interior </em>removals are higher than they were for every year of the Bush administration except for 2007 and 2008.  </p>
+</div>
+</div>
+<footer class="blog-post-footer border--top border--bottom py-3 mt-half-gutter text-sans-alternate medium">
+<div class="clearfix mb-2 field field--name-field-topics field--type-entity-reference field--label-inline">
+<div class="field__label">Topics</div>
+<div class="field__items">
+<div class="field__item"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/research/international-economics-development-immigration" hreflang="en">International Economics, Development &amp; Immigration</a></div>
+</div>
+</div>
+<div class="clearfix field field--name-field-tags field--type-entity-reference field--label-inline">
+<div class="field__label">Tags</div>
+<div class="field__items">
+<div class="field__item"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/illegals" hreflang="en">illegals</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/illegal-immigration" hreflang="en">illegal immigration</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/deportations" hreflang="en">deportations</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/removals" hreflang="en">removals</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/ice" hreflang="en">ICE</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/obama" hreflang="en">obama</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/bush" hreflang="en">Bush</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/cbp" hreflang="en">CBP</a>, <a href="http://web.archive.org/web/20191007223942/https://www.cato.org/tags/dhs" hreflang="en">dhs</a></div>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+<div class="block-cato-creative-commons block-cato-creative-commons-block block" id="block-catocreativecommonsblock">
+<div class="block--inner">
+<div class="medium text-sans-alternate">
+<a href="http://web.archive.org/web/20191007223942/http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license"><img alt="Creative Commons License" src="http://web.archive.org/web/20191007223942im_/https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" style="border-width:0"/></a>
+<br/>This work is licensed under a <a href="http://web.archive.org/web/20191007223942/http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license">Creative
+    Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+    
+  </div>
+</div>
+</div>
+</section>
+<aside class="layout--flexible-regions__region layout--flexible-regions__sidebar layout--flexible-regions__bottom layout--flexible-regions__right" role="complementary">
+<div class="block-blockgroup block-block-groupblog-topics-and-archives block-blog-topics-and-archives block" id="block-blogtopicsandarchives">
+<div class="grid grid--auto grid--no-row-gap block--inner">
+<div class="views-element-container mb-standard mb-lg-double block-views block-views-blockblog-topics-block-1 block- block" id="block-views-block-blog-topics-block-1">
+<h4 class="block__title heading">Topics</h4>
+<div class="block--inner">
+<div><div class="text-sans-alternate reduced view view-blog-topics view-id-blog_topics view-display-id-block_1 js-view-dom-id-d53009acc858f5aa7df1ea71d08e8d73c79682e91de677c69dcca934a5a92ec8">
+<div class="view-content">
+<div>
+<ul class="list--styled-bullets">
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/cato-publications">Cato Publications</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/constitution%2C-the-law%2C-and-the-courts">Constitution, the Law, and the Courts</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/criminal-law-and-civil-liberties">Criminal Law and Civil Liberties</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/education-and-child-policy">Education and Child Policy</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/energy-and-environment">Energy and Environment</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/finance%2C-banking-%26-monetary-policy">Finance, Banking &amp; Monetary Policy</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/foreign-policy-and-national-security">Foreign Policy and National Security</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/general">General</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/government-and-politics">Government and Politics</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/health-care">Health Care</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/international-economics%2C-development-%26-immigration">International Economics, Development &amp; Immigration</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/political-philosophy">Political Philosophy</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/poverty-%26-social-welfare">Poverty &amp; Social Welfare</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/regulatory-studies">Regulatory Studies</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/social-security">Social Security</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/tax-and-budget-policy">Tax and Budget Policy</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/telecom%2C-internet-%26-information-policy">Telecom, Internet &amp; Information Policy</a></span></div></li>
+<li><div class="views-field views-field-name"><span class="field-content"><a href="http://web.archive.org/web/20191007223942/https://www.cato.org/blog/topics/trade-policy">Trade Policy</a></span></div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="block-blog-archive-links block-archives block" id="block-archives">
+<h4 class="block__title heading">Archives</h4>
+<div class="block--inner">
+<ul class="expand-list list--styled-bullets two-col text-sans-alternate reduced clearfix">
+<li class="expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201910">October 2019</a></li>
+<li class="expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201909">September 2019</a></li>
+<li class="expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201908">August 2019</a></li>
+<li class="expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201907">July 2019</a></li>
+<li class="expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201906">June 2019</a></li>
+<li class="expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201905">May 2019</a></li>
+<li class="expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201904">April 2019</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201903">March 2019</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201902">February 2019</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201901">January 2019</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201812">December 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201811">November 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201810">October 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201809">September 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201808">August 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201807">July 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201806">June 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201805">May 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201804">April 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201803">March 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201802">February 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201801">January 2018</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201712">December 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201711">November 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201710">October 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201709">September 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201708">August 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201707">July 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201706">June 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201705">May 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201704">April 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201703">March 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201702">February 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201701">January 2017</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201612">December 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201611">November 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201610">October 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201609">September 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201608">August 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201607">July 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201606">June 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201605">May 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201604">April 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201603">March 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201602">February 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201601">January 2016</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201512">December 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201511">November 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201510">October 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201509">September 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201508">August 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201507">July 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201506">June 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201505">May 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201504">April 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201503">March 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201502">February 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201501">January 2015</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201412">December 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201411">November 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201410">October 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201409">September 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201408">August 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201407">July 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201406">June 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201405">May 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201404">April 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201403">March 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201402">February 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201401">January 2014</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201312">December 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201311">November 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201310">October 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201309">September 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201308">August 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201307">July 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201306">June 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201305">May 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201304">April 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201303">March 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201302">February 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201301">January 2013</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201212">December 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201211">November 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201210">October 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201209">September 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201208">August 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201207">July 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201206">June 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201205">May 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201204">April 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201203">March 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201202">February 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201201">January 2012</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201112">December 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201111">November 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201110">October 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201109">September 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201108">August 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201107">July 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201106">June 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201105">May 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201104">April 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201103">March 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201102">February 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201101">January 2011</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201012">December 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201011">November 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201010">October 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201009">September 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201008">August 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201007">July 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201006">June 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201005">May 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201004">April 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201003">March 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201002">February 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/201001">January 2010</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200912">December 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200911">November 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200910">October 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200909">September 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200908">August 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200907">July 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200906">June 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200905">May 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200904">April 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200903">March 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200902">February 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200901">January 2009</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200812">December 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200811">November 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200810">October 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200809">September 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200808">August 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200807">July 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200806">June 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200805">May 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200804">April 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200803">March 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200802">February 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200801">January 2008</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200712">December 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200711">November 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200710">October 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200709">September 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200708">August 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200707">July 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200706">June 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200705">May 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200704">April 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200703">March 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200702">February 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200701">January 2007</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200612">December 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200611">November 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200610">October 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200609">September 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200608">August 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200607">July 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200606">June 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200605">May 2006</a></li>
+<li class="js-expand-list-item d-none expand-list__item"><a href="/web/20191007223942/https://www.cato.org/blog/archives/200604">April 2006</a></li>
+<li class="expand-list__item expand-list__toggler">
+<a class="js-expand-list-toggler" href="javascript:void(0);">
+        Show More
+      </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="block block-fixed-block-content block-fixed-block-contentblock-sidebar-extra block-block-sidebar-extra" id="block-blocksidebarextra">
+<div class="block--inner">
+<div class="clearfix text-formatted field field--name-body field--type-text-with-summary field--label-hidden field__item"><div class="tease-special blog-email-tease text-center">
+<h4 class="text-uppercase">Email Alerts</h4>
+<p class="text-sans-alternate reduced">Sign up to have Cato At Liberty posts delivered straight to your inbox!</p>
+<!-- START HUBSPOT FORM -->
+<!--[if lte IE 8]>
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+<![endif]-->
+<script charset="utf-8" src="//web.archive.org/web/20191007223942js_/https://js.hsforms.net/forms/v2.js" type="text/javascript"></script><script>
+<!--//--><![CDATA[// ><!--
+
+<!--//--><![CDATA[// ><!--
+
+  hbspt.forms.create({
+	portalId: "4957480",
+	formId: "b34d725c-09c0-4df5-9e77-11147d188704"
+});
+
+//--><!]]]]><![CDATA[>
+
+//--><!]]>
+</script><!-- END HUBSPOT FORM --></div>
+<div class="tease-special blog-kindle-tease text-center">
+<a href="http://web.archive.org/web/20191007223942/https://www.cato.org/href%3D" http:="" target="_blank"><img alt="Subscribe on Kindle" class="lozad" data-src="http://web.archive.org/web/20191007223942/https://www.cato.org/themes/custom/cato/build/images/kindle-tease.png" data-srcset="/web/20191007223942im_/https://www.cato.org/themes/custom/cato/build/images/kindle-tease.png, /web/20191007223942im_/https://www.cato.org/themes/custom/cato/build/images/kindle-tease-retina.png 1.5x, /web/20191007223942im_/https://www.cato.org/themes/custom/cato/build/images/kindle-tease-retina.png 2x" height="40" width="150"/></a>
+<p class="text-sans-alternate reduced">Read Cato At Liberty right <span class="word-wrap">on your Kindle. Sign up today!</span></p>
+<a class="btn btn-secondary btn-sm" href="http://web.archive.org/web/20191007223942/http://www.amazon.com/gp/product/B00W1ULHRM" target="_blank">Subscribe</a>
+</div></div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</main>
+<footer class="layout--footer optimize-legibility bg--backdrop" role="contentinfo">
+<div class="footer-inner container">
+<aside class="footer__signup block">
+<h4 class="block__title heading">Sign Up</h4>
+<div class="block--inner">
+<div class="text-sans medium">
+<p>Receive periodic updates on Cato research, events,
+      and publications.</p>
+<!-- Begin MailChimp Signup Form -->
+<div class="mb-3" id="mc_embed_signup">
+<!--[if lte IE 8]>
+      <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+      <![endif]-->
+<script charset="utf-8" src="//web.archive.org/web/20191007223942js_/https://js.hsforms.net/forms/v2.js" type="text/javascript"></script>
+<script>
+        hbspt.forms.create({
+          portalId: "4957480",
+          formId: "04e35c5d-83a7-4a31-9eed-0fb940cb121b"
+        });
+      </script>
+</div>
+<!--End mc_embed_signup-->
+<p><a href="/web/20191007223942/https://www.cato.org/ecommunity" target="_blank">See our full list of email newsletters</a></p>
+</div>
+</div>
+</aside>
+<aside class="footer__socialmedia block">
+<h4 class="block__title heading">Social Media</h4>
+<div class="block--inner">
+<nav class="nav nav--footer flex-column text-sans text-uppercase">
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.facebook.com/CatoInstitute" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-facebook-square"></use>
+</svg>
+</div>
+<span class="nav-link__text">Facebook</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://twitter.com/catoinstitute" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-twitter"></use>
+</svg>
+</div>
+<span class="nav-link__text">Twitter</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.youtube.com/catoinstitutevideo" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-youtube"></use>
+</svg>
+</div>
+<span class="nav-link__text">YouTube</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.linkedin.com/company/cato-institute" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-linkedin"></use>
+</svg>
+</div>
+<span class="nav-link__text">LinkedIn</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://instagram.com/catoinstitute" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-instagram"></use>
+</svg>
+</div>
+<span class="nav-link__text">Instagram</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://catoinstitute.tumblr.com/" rel="me noopener" target="_blank">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-tumblr"></use>
+</svg>
+</div>
+<span class="nav-link__text">Tumblr</span>
+</a>
+<a class="nav-link nav-link--footer" href="/web/20191007223942/https://www.cato.org/ecommunity/rss">
+<div class="icon__wrapper">
+<svg class="icon--baseline icon" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
+<use xlink:href="/themes/custom/cato/uipatterns/01-atoms/icon/build/images/icons-20190915.svg#icon-rss"></use>
+</svg>
+</div>
+<span class="nav-link__text">RSS</span>
+</a>
+</nav>
+</div>
+</aside>
+<aside class="footer__alsofromcato block">
+<h4 class="block__title heading">Also From Cato</h4>
+<div class="block--inner">
+<nav class="nav nav--footer flex-column text-sans text-uppercase">
+<a class="nav-link nav-link--footer" href="/web/20191007223942/https://www.cato.org/students" rel="me noopener">
+<span class="nav-link__text">Internships and Student Programs</span></a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.downsizinggovernment.org/" rel="me noopener" target="_blank">
+<span class="nav-link__text">DownsizingGovernment.org</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.libertarianism.org/" rel="me noopener" target="_blank">
+<span class="nav-link__text">Libertarianism.org</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/http://humanprogress.org/" rel="me noopener" target="_blank">
+<span class="nav-link__text">HumanProgress.org</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.cato-unbound.org/" rel="me noopener" target="_blank">
+<span class="nav-link__text">Cato Unbound</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.unlawfulshield.com/" rel="me noopener" target="_blank">
+<span class="nav-link__text">Unlawful Shield</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.freedominthe50states.org/" rel="me noopener" target="_blank">
+<span class="nav-link__text">Freedom in the 50 States</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://overlawyered.com/" rel="me noopener" target="_blank">
+<span class="nav-link__text">Overlawyered</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.elcato.org/" rel="me noopener" target="_blank">
+<span class="nav-link__text">ElCato.org</span>
+</a>
+<a class="nav-link nav-link--footer" href="http://web.archive.org/web/20191007223942/https://www.alt-m.org/" rel="me noopener" target="_blank">
+<span class="nav-link__text">Alt-M</span>
+</a>
+</nav>
+</div>
+</aside>
+<aside class="text-center text-lg-left footer__address text-sans medium block">
+<div class="block--inner">
+<a class="d-block logo footer__logo" href="/web/20191007223942/https://www.cato.org/"><img alt="Cato Institute home" src="/web/20191007223942im_/https://www.cato.org/themes/custom/cato/build/images/cato-logo-white.svg"/></a>
+<p>Cato Institute<br/>
+    1000 Massachusetts Ave, NW<br/>
+    Washington, DC 20001-5403</p>
+<p>Phone (202) 842 0200</p>
+<p><a href="/web/20191007223942/https://www.cato.org/privacy">Privacy Policy</a></p>
+<p><a href="/web/20191007223942/https://www.cato.org/contact">Contact Us</a></p>
+<p><a href="/web/20191007223942/https://www.cato.org/for-media">Media Contact</a></p>
+</div>
+</aside>
+</div>
+</footer>
+</div>
+</div>
+<script data-drupal-selector="drupal-settings-json" type="application/json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/55833","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","customAnalyticsEvents":[{"Author":{"values":{"24454":"Alex Nowrasteh"},"action":"load","noninteraction":true}},{"Topic":{"values":{"15":"International Economics, Development \u0026 Immigration"},"action":"load","noninteraction":true}}],"google_analytics":{"trackOutbound":true,"trackMailto":true,"trackDownload":true,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackDomainMode":1},"user":{"uid":0,"permissionsHash":"5f7e41526848f77afe72770412b0b2c7430ccd4324ee897ffee05fac21d5fe74"}}</script>
+<script src="/web/20191007223942js_/https://www.cato.org/sites/cato.org/files/js/js_PqMs0Gw2rRH7TzjcdX45BDexOebi0Pzkl_WVObwrlRg.js"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/sites/cato.org/files/js/js_MsrzshzXwTqkibWW8ye9txzrF6TJjygQGjQHpL0IA2o.js"></script>
+<script async="" src="http://web.archive.org/web/20191007223942js_/https://static.addtoany.com/menu/page.js"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/sites/cato.org/files/js/js_9hQrIawObv2u4kvYgUX4BWBZuAOflmDvt3aDUtmxXb4.js"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/build/js/vendor/bootstrap.js?v=35ad363f"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/themes/custom/cato/build/js/bootstrap.js?v=7c8c77a3"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/themes/custom/cato/build/js/app~js/longFormHero.js?v=10eb93e5"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/themes/custom/cato/build/js/app.js?v=9cdc4578"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/build/js/vendor/hoverintent.js?v=ecacad2e"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/sites/cato.org/files/js/js_CIyx8X2LqvzFxJPqYRNjp7hIfkHEQaOn_9yKojCeAJE.js"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/sites/cato.org/files/js/js_0siBmacQJUJJdfiqXzBwRbyout1dOIhQATEplIg-oFk.js"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/themes/custom/cato/uipatterns/02-molecules/expand_list/build/js/expand-list.js?v=dad8308b"></script>
+<script src="/web/20191007223942js_/https://www.cato.org/sites/cato.org/files/js/js_zpqugB83O50OcJA8Z9FYIeVNyrqkf2N_SSngTAqMqAY.js"></script>
+<!-- Start of HubSpot Embed Code -->
+<script async="" defer="" id="hs-script-loader" src="//web.archive.org/web/20191007223942js_/https://js.hs-scripts.com/4957480.js" type="text/javascript"></script>
+<!-- End of HubSpot Embed Code -->
+<!--— Facebook Pixel Code —-->
+<script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','http://web.archive.org/web/20191007223942/https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '454916984694808'); // Insert your pixel ID here.
+      fbq('track', 'PageView');
+    </script>
+<noscript><img height="1" src="http://web.archive.org/web/20191007223942im_/https://www.facebook.com/tr?id= 454916984694808&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/></noscript>
+<!--— DO NOT MODIFY —-->
+<!--— End Facebook Pixel Code —-->
+<script src="//web.archive.org/web/20191007223942js_/https://customer.cludo.com/scripts/bundles/search-script.min.js" type="text/javascript"></script>
+<script>
+    var CludoSearch;
+    (function () {
+      var cludoSettings = {
+        customerId: 10000518,
+        engineId: 10000746,
+        searchUrl: '/search',
+        language: 'en',
+        searchInputs: ['cludo-search-form', 'search-form'],
+        type: 'inline',
+        disableAutocomplete: true
+      };
+      CludoSearch= new Cludo(cludoSettings);
+      CludoSearch.debug = true;
+      CludoSearch.init();
+    })();
+  </script>
+<!--[if lte IE 9]>
+  <script src="https://api.cludo.com/scripts/xdomain.js" slave="https://api.cludo.com/proxy.html" type="text/javascript"></script>
+  <![endif]-->
+<script>
+    var $buoop = {required:{e:-2,f:-2,o:-2,s:-2,c:-2},insecure:true,unsupported:true,api:2019.09,text:"<strong>This site works best using modern browsers.</strong> Update your browser for more security, speed, and the best experiences on this site."};
+    function $buo_f(){
+      var e = document.createElement("script");
+      e.src = "//web.archive.org/web/20191007223942/https://browser-update.org/update.min.js";
+      document.body.appendChild(e);
+    };
+    try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+    catch(e){window.attachEvent("onload", $buo_f)}
+  </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"a0fc03e915","applicationID":"7801710","transactionName":"ZF1SYUNRWkQCBkdZCV0XcVZFWVtZTCFBRRZSVGxQX0RdQxoURlUTVmRzWl9ERlgPCVZCOnZWRFxFSWVCBhBWZS9wV15BQ19YWwYXHg4HUFtVRkI=","queueTime":0,"applicationTime":148,"atts":"SBpRFwtLSUo=","errorBeacon":"bam.nr-data.net","agent":""}</script><script async="" src="/web/20191007223942js_/https://www.cato.org/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;ns=1&amp;cb=1629981903" type="text/javascript"></script>
+</body>
+</html>
+<!-- Cached at: 2019-10-07T17:55:56-04:00 -->

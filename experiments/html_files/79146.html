@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" lang="en-US" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app12.us.archive.org';v.server_ms=728;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20120112052155", "radtkeforsenate.com");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Jamie Radtke for Senate -- Supporting our Constitution</title>
+<link href="http://web.archive.org/web/20120112052155cs_/http://radtkeforsenate.com/wp-content/themes/radtke/style.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="http://web.archive.org/web/20120112052155js_/http://radtkeforsenate.com/wp-content/themes/radtke/js/jquery.1.5.1.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20120112052155js_/http://radtkeforsenate.com/wp-content/themes/radtke/js/cufon.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20120112052155js_/http://radtkeforsenate.com/wp-content/themes/radtke/js/cufon-fonts.js" type="text/javascript"></script>
+<script src="http://web.archive.org/web/20120112052155js_/http://radtkeforsenate.com/wp-content/themes/radtke/js/jquery.main.js" type="text/javascript"></script>
+<link href="http://radtkeforsenate.com/xmlrpc.php?rsd" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<link href="http://radtkeforsenate.com/wp-includes/wlwmanifest.xml" rel="wlwmanifest" type="application/wlwmanifest+xml"/>
+<link href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/will-congress-president-obama-heed-new-warnings-on-national-debt/" rel="prev" title="Will Congress/Obama Heed New Warnings on National Debt?"/>
+<link href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/senate-candidate-jamie-radtke%e2%80%99s-response-to-media-inquiries/" rel="next" title="Senate Candidate Jamie Radtke’s Response to Media Inquiries"/>
+<link href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/radtke-responds-to-media-inquiries-regarding-senator-allen-potential-candidacy/" rel="canonical"/>
+<link href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/?p=181" rel="shortlink"/>
+<script type="text/javascript">
+  //<![CDATA[
+  var nationaldebt_CounterHandle="0";
+  var nationaldebt=0;
+
+  function nationaldebt_StartTheCounter(nationaldebt_CounterDisplayID, nationaldebt_InitialDebt) {
+    nationaldebt_CounterHandle = document.getElementById(nationaldebt_CounterDisplayID);
+    nationaldebt_InitialDebt = parseFloat(nationaldebt_InitialDebt);
+    nationaldebt = nationaldebt_CurrencyFormatted(nationaldebt_InitialDebt); 
+    nationaldebt = nationaldebt_CommaFormatted(nationaldebt);
+    nationaldebt_CounterHandle.innerHTML = "$" + nationaldebt;
+    window.setTimeout("nationaldebt_CounterTicker()", 250);
+  }
+
+  function nationaldebt_CounterTicker() {
+
+    var nationaldebt_increment = 11834.49;  // pass this in from calculation above
+    
+    // We need to remove any commas from the currently displayed number as it needs to be a float
+    var intIndexOfMatch = nationaldebt.indexOf(",");  // check for first match
+    while (intIndexOfMatch != -1){
+      // Relace out the first instance.
+      nationaldebt = nationaldebt.replace(",","")
+      // Get the index of any next matching instance.
+      intIndexOfMatch = nationaldebt.indexOf(",");
+    }
+
+    // now lets increment it
+    nationaldebt = parseFloat(nationaldebt) + nationaldebt_increment; 
+
+    // and now we format it as a currency with only 2 decimals
+    nationaldebt = nationaldebt_CurrencyFormatted(nationaldebt); 
+
+    // and then we add the comma seperators back between the thousands for easier reading of the large number
+    nationaldebt = nationaldebt_CommaFormatted(nationaldebt);  
+
+    // and lastly we write it back to the screen
+    nationaldebt_CounterHandle.innerHTML = "$" + nationaldebt;
+
+    // and instantiate the timer for the next quarter second
+    window.setTimeout("nationaldebt_CounterTicker()", 250);
+  }
+
+
+  function nationaldebt_CurrencyFormatted(theamount) {
+    var i = parseFloat(theamount);
+    if(isNaN(i)) { i = 0.00; }
+    var minus = '';
+    if(i < 0) { minus = '-'; }
+    i = Math.abs(i);
+    i = parseInt((i + .005) * 100);
+    i = i / 100;
+    s = new String(i);
+    if(s.indexOf('.') < 0) { s += '.00'; }
+    if(s.indexOf('.') == (s.length - 2)) { s += '0'; }
+    s = minus + s;
+    return s;
+  }
+
+  function nationaldebt_CommaFormatted(theamount) {
+    var delimiter = ",";
+    var a = theamount.split('.',2)
+    var d = a[1];
+    var i = parseInt(a[0]);
+    if(isNaN(i)) { return ''; }
+    var minus = '';
+    if(i < 0) { minus = '-'; }
+    i = Math.abs(i);
+    var n = new String(i);
+    var a = [];
+    while(n.length > 3) {
+      var nn = n.substr(n.length-3);
+      a.unshift(nn);
+      n = n.substr(0,n.length-3);
+    }
+    if(n.length > 0) { a.unshift(n); }
+    n = a.join(delimiter);
+    if(d.length < 1) { theamount = n; }
+    else { theamount = n + '.' + d; }
+    theamount = minus + theamount;
+    return theamount;
+  }
+
+  //]]>
+</script>
+<script charset="utf-8" src="http://web.archive.org/web/20120112052155js_/http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">stLight.options({publisher:'wp.accc53a2-860a-4642-9ea8-e2980eeccdca'});var st_type='wordpress3.1';</script><meta content="Jamie Radtke for Senate - Supporting Our Constitution" property="og:site_name"/> <meta content="Radtke Responds to Inquiries Regarding Allen&amp;#039;s Potential Candidacy" property="og:title"/> <meta content="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/radtke-responds-to-media-inquiries-regarding-senator-allen-potential-candidacy/" property="og:url"/> <meta content="article" property="og:type"/> <meta content="Jamie Radtke for Senate" property="og:title"/>
+<meta content="Jamie Radtke for Senate" property="og:site_name"/>
+<meta content="182128145138922" property="fb:page_id"/>
+</head><body><div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: 'your app id', status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//web.archive.org/web/20120112052155/http://connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="http://radtkeforsenate.com/wp-content/themes/radtke/ie.css" /><![endif]-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22228832-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'http://web.archive.org/web/20120112052155/https://ssl' : 'http://web.archive.org/web/20120112052155/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<div class="page">
+<div id="wrapper">
+<div id="header">
+<h1 class="logo"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/">Jamie Radtke for Senate</a></h1>
+<!-- MI inserted code -->
+<div id="LL"> <a href="http://web.archive.org/web/20120112052155/https://sites.google.com/a/radtkeforsenate.com/leaders/">Leader Login</a></div>
+<!-- MI inserted code -->
+<div class="nav-box">
+<ul class="header-menu" id="nav"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29" id="menu-item-29"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/home/"><span>Home</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28" id="menu-item-28"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/"><span>About</span></a>
+<div class="sub-nav"><ul>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2485" id="menu-item-2485"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/">Jamie’s Bio</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1241" id="menu-item-1241"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/republican-community-leaders/">Republican, Conservative Endorsements</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1245" id="menu-item-1245"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/tea-party-patriot-leaders/">Tea Party Endorsements</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1252" id="menu-item-1252"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/endorsements-political-leaders-media/">Statements in the Media</a></li>
+</ul></div>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27" id="menu-item-27"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/issues/"><span>Issues</span></a>
+<div class="sub-nav"><ul>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2483" id="menu-item-2483"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/issues/">Position on Issues</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2482" id="menu-item-2482"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/allen-comparison/">Radtke v. Allen on the Issues</a></li>
+</ul></div>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1045" id="menu-item-1045"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/media/"><span>Media</span></a>
+<div class="sub-nav"><ul>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1057" id="menu-item-1057"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/articles/">Articles</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1047" id="menu-item-1047"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/press-release/">Press Releases</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1055" id="menu-item-1055"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/radiocasts/">Radio</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1056" id="menu-item-1056"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/columns/">Op/Ed Columns</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1054" id="menu-item-1054"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/videos/">Video</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2484" id="menu-item-2484"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/media/">All Media</a></li>
+</ul></div>
+</li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2634" id="menu-item-2634"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/blog/"><span>Blog</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3266" id="menu-item-3266"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/store/"><span>Store</span></a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21" id="menu-item-21"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/contact-us/"><span>Contact</span></a></li>
+</ul> </div>
+</div> <div id="main">
+<div class="main-holder">
+<div class="container">
+<div id="content">
+<div class="gallery2">
+<div class="gallery2-holder">
+<ul>
+<li>
+<h2><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/03/latest-tweet/">Latest Tweet</a></h2>
+<div class="text">
+<p><a href="http://web.archive.org/web/20120112052155/http://twitter.com/#!/radtkeforsenate" onclick="javascript:_gaq.push(['_trackPageview', '/out/twitter.com/#!/radtkeforsenate']);">Click here</a> to follow Jamie Radtke for Senate on Twitter </p>
+</div>
+</li>
+<li>
+<h2><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/03/like-us-on-facebook/">Like Us On Facebook</a></h2>
+<div class="text">
+<p><script src="http://web.archive.org/web/20120112052155js_/http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like font="trebuchet ms" href="http://facebook.com/radtkeforsenate" layout="button_count" show_faces="false" width="80"></fb:like></p>
+</div>
+</li>
+<li>
+<h2><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/03/contribute/">Contribute</a></h2>
+<div class="text">
+<p><a href="/web/20120112052155/http://radtkeforsenate.com/donate/">Click here</a> to Contribute </p>
+</div>
+</li>
+</ul>
+</div>
+<div class="switcher"><ul><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li></ul></div> </div>
+<div class="blog-box">
+<div class="blog-box-holder">
+<div class="blog-box-frame">
+<div class="blog-title">
+<div class="image"><img alt="image description" height="112" src="http://web.archive.org/web/20120112052155im_/http://radtkeforsenate.com/wp-content/themes/radtke/images/text-blog.png" width="211"/></div>
+<div class="holder">
+<h2>Blog:</h2>
+<ul class="breadcrumbs">
+<!-- Breadcrumb NavXT 4.0.0 -->
+<li class="home"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/" title="Go to Home.">Home</a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/blog/" title="Go to Blog.">Blog</a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/blog/" title="Go to the Blog category archives.">Blog</a></li>
+<li class="current_item">Radtke Responds to Inquiries Regarding Allen's Potential Candidacy</li>
+</ul>
+</div>
+</div>
+<div class="post-box">
+<h3>Radtke Responds to Inquiries Regarding Allen's Potential Candidacy</h3>
+<div class="meta">
+<span class="date">Jan 18, 2011</span>
+<span class="comments"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/radtke-responds-to-media-inquiries-regarding-senator-allen-potential-candidacy/#comments" title="Comment on Radtke Responds to Inquiries Regarding Allen's Potential Candidacy">2 Comments</a></span>
+</div>
+<div class="entry-content">
+<p>FOR IMMEDIATE RELEASE</p>
+<p>Contact: Chuck Hansen<br/>
+January 17, 2011</p>
+<p><strong>Senate Candidate Jamie Radtke’s Response to Media Inquiries Regarding Reports that Senator Allen will Announce his Candidacy this Week</strong></p>
+<p><em>Proposes Town Halls: “It is important and healthy that the Republican Party has this debate.”</em></p>
+<p>“I am asking Senator Allen to join me in giving Virginia a new kind of Republican primary – rather than the same old politics as usual – with a series of monthly public Town Hall Forums across Virginia from now until the election. In these public Town Hall Forums, we will openly and forthrightly discuss the serious problems facing America.</p>
+<p>“For example, during Senator Allen’s six years in office, he voted for budgets adding $3.1 trillion to our national debt – that’s $16,400 for every second Senator Allen was in office. I disagree with his approach, and I believe it is important and healthy that the Republican Party has this debate.”</p>
+</div>
+<div class="controls">
+<div class="controls-holder">
+<div class="hold"><a class="twitter-share-button" data-count="horizontal" href="http://web.archive.org/web/20120112052155/http://twitter.com/share">Tweet</a><script src="http://web.archive.org/web/20120112052155js_/http://platform.twitter.com/widgets.js" type="text/javascript"></script></div>
+<div class="hold"><script src="http://web.archive.org/web/20120112052155js_/http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like font="trebuchet ms" href="http://radtkeforsenate.com/2011/01/radtke-responds-to-media-inquiries-regarding-senator-allen-potential-candidacy/" layout="button_count" show_faces="false" width="80"></fb:like></div>
+</div>
+</div>
+</div>
+<div class="navigation">
+<div class="next"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/will-congress-president-obama-heed-new-warnings-on-national-debt/" rel="prev">Will Congress/Obama Heed New Warnings on National Debt?</a> »</div>
+<div class="prev">« <a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/senate-candidate-jamie-radtke%e2%80%99s-response-to-media-inquiries/" rel="next">Senate Candidate Jamie Radtke’s Response to Media Inquiries</a></div>
+</div>
+<div class="box">
+<div class="title"><h2>Comments:</h2></div>
+<ul class="comments-list">
+<li>
+<span class="image"><a href=""><img alt="" class="avatar avatar-60 photo" height="60" src="http://web.archive.org/web/20120112052155im_/http://1.gravatar.com/avatar/36565d96f2eebadf407cf72ed6daa145?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" width="60"/></a></span>
+<div class="text">
+<div class="description">
+<p><a href="">Derek</a> says:</p>
+<span class="date">January 18, 2011 at 2:33 pm</span>
+</div>
+<p>I’d love to see open and frank debate in local venues.  You’ll be a better Senator for it.</p>
+</div>
+</li>
+<li>
+<span class="image"><a href="http://web.archive.org/web/20120112052155/http://www.redstate.com/ben_domenech/2011/01/18/jamie-radtke-on-how-to-fix-washington/"></a></span>
+<div class="text">
+<div class="description">
+<p><a href="http://web.archive.org/web/20120112052155/http://www.redstate.com/ben_domenech/2011/01/18/jamie-radtke-on-how-to-fix-washington/">Jamie Radtke on How to Fix Washington | RedState</a> says:</p>
+<span class="date">January 18, 2011 at 4:29 pm</span>
+</div>
+<p>[...] Radtke for US Senate Restore the Founders’ Vision Radtke Responds to Inquiries Regarding Allen’s Potential Candidacy Don’t count Jamie Radtke [...]</p>
+</div>
+</li>
+</ul>
+<div class="navigation">
+<div class="next"></div>
+<div class="prev"></div>
+</div>
+</div>
+</div>
+</div>
+<span class="ribbon"> </span>
+</div>
+</div>
+<div id="sidebar">
+<div class="widget_text"> <div class="textwidget"><div class="text-box">
+<form accept-charset="UTF-8" action="http://web.archive.org/web/20120112052155/https://app.icontact.com/icp/signup.php" class="subscribe2" id="icpsignup2816" name="icpsignup" onsubmit="return verifyRequired2816();">
+<fieldset>
+<h2>Sign Up:</h2>
+<div class="row">
+<div class="text"><input class="required" name="fields_email" span="" type="text" value="Email Address"/></div>
+</div>
+<div class="row">
+<div class="text2"><input class="required" name="fields_zip" span="" type="text" value="Zip Code"/><input name="listid" type="hidden" value="11085"/>
+<input name="specialid:11085" type="hidden" value="RGVL"/>
+<input name="clientid" type="hidden" value="858680"/>
+<input name="formid" type="hidden" value="2816"/>
+<input name="reallistid" type="hidden" value="1"/>
+<input name="doubleopt" type="hidden" value="0"/></div>
+<input name="redirect" type="hidden" value="http://radtkeforsenate.com/thank-you/"/>
+<input class="submit" type="submit" value="Sign Up"/>
+</div>
+<script type="text/javascript">
+
+var icpForm2816 = document.getElementById('icpsignup2816');
+
+if (document.location.protocol === "https:")
+
+	icpForm2816.action = "http://web.archive.org/web/20120112052155/https://app.icontact.com/icp/signup.php";
+function verifyRequired2816() {
+  if (icpForm2816["fields_email"].value == "") {
+    icpForm2816["fields_email"].focus();
+    alert("The Email field is required.");
+    return false;
+  }
+  if (icpForm2816["fields_zip"].value == "") {
+    icpForm2816["fields_zip"].focus();
+    alert("The Zip field is required.");
+    return false;
+  }
+
+
+return true;
+}
+</script>
+</fieldset></form>
+</div>
+</div>
+</div><div class="widget_search"><form action="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/" class="search" id="searchform" method="get">
+<fieldset>
+<h2>Search:</h2>
+<div class="row">
+<div class="text"><input name="s" type="text" value=""/></div>
+</div>
+<div class="row">
+<input class="submit" type="submit" value="Search"/>
+</div>
+</fieldset>
+</form></div> <div class="widget-box widget_recent_entries"> <h2><span class="widget-main-title">Recent Posts:</span> </h2> <ul class="posts-list">
+<li><p>We must protect our civil liberties<a class="more" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2012/01/we-must-protect-our-civil-liberties/" title="We must protect our civil liberties">Read More</a></p></li>
+<li><p>SOPA: More Government Intrusion, Less Freedom, and an End to the Internet?<a class="more" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/12/sopa-more-government-intrusion-less-freedom-and-an-end-to-the-internet/" title="SOPA: More Government Intrusion, Less Freedom, and an End to the Internet?">Read More</a></p></li>
+<li><p><span>Corn Pudding </span>&amp; Turkeys<a class="more" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/12/corn-pudding-turkeys/" title="&lt;span&gt;Corn Pudding &lt;/span&gt;&amp; Turkeys">Read More</a></p></li>
+<li><p>George Allen, Corn Pudding, Turkeys and Gasoline<a class="more" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/11/george-allen-corn-pudding-turkeys-and-gasoline/" title="George Allen, Corn Pudding, Turkeys and Gasoline">Read More</a></p></li>
+<li><p>Congressional Hoarders<a class="more" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/11/congressional-hoarders/" title="Congressional Hoarders">Read More</a></p></li>
+</ul>
+</div><div class="widget-box widget_archive"><h2><span class="widget-main-title">Post Archives:</span> </h2> <ul class="list2">
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2012/01/" title="January 2012">January 2012<span> (2)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/12/" title="December 2011">December 2011<span> (4)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/11/" title="November 2011">November 2011<span> (7)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/10/" title="October 2011">October 2011<span> (14)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/09/" title="September 2011">September 2011<span> (28)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/08/" title="August 2011">August 2011<span> (20)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/07/" title="July 2011">July 2011<span> (45)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/06/" title="June 2011">June 2011<span> (20)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/05/" title="May 2011">May 2011<span> (21)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/04/" title="April 2011">April 2011<span> (23)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/03/" title="March 2011">March 2011<span> (19)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/02/" title="February 2011">February 2011<span> (14)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2011/01/" title="January 2011">January 2011<span> (23)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2010/12/" title="December 2010">December 2010<span> (14)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2010/10/" title="October 2010">October 2010<span> (2)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2010/08/" title="August 2010">August 2010<span> (1)</span></a></li>
+<li><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/2010/04/" title="April 2010">April 2010<span> (1)</span></a></li>
+</ul>
+</div><div class="widget_twitter"><div><h2><span class="widget-main-title"><span class="twitterwidget twitterwidget-title">Latest Tweets:</span></span> </h2><ul><li><span class="entry-content">Great day at the Commonwealth Prayer Breakfast as a guest of Concerned Women For America and at the Fauquier Tea... <a href="http://web.archive.org/web/20120112052155/http://t.co/6CcansDo" target="_blank">http://t.co/6CcansDo</a></span> <span class="entry-meta"><span class="time-meta"><a href="http://web.archive.org/web/20120112052155/http://twitter.com/jamieradtke/statuses/157285558471753730" target="_blank">about 3 hours ago</a></span> <span class="from-meta">from <a href="http://web.archive.org/web/20120112052155/http://www.facebook.com/twitter" rel="nofollow">Facebook</a></span></span> <span class="intent-meta"><a class="in-reply-to" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/tweet?in_reply_to=157285558471753730" target="_blank" title="Reply">Reply</a><a class="retweet" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/retweet?tweet_id=157285558471753730" target="_blank" title="Retweet">Retweet</a><a class="favorite" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/favorite?tweet_id=157285558471753730" target="_blank" title="Favorite">Favorite</a></span></li><li><span class="entry-content">Me! RT <a class="twitter-user" href="http://web.archive.org/web/20120112052155/http://twitter.com/terichristoph" target="_blank">@terichristoph</a>: <a class="twitter-hashtag" href="http://web.archive.org/web/20120112052155/http://search.twitter.com/search?q=%23SGP" target="_blank">#SGP</a> is putting together comprehensive database of conservative women running 4 House&amp;Senate. Need to know who's...</span> <span class="entry-meta"><span class="time-meta"><a href="http://web.archive.org/web/20120112052155/http://twitter.com/jamieradtke/statuses/157172937827430400" target="_blank">about 10 hours ago</a></span> <span class="from-meta">from <a href="http://web.archive.org/web/20120112052155/http://www.hootsuite.com/" rel="nofollow">HootSuite</a></span></span> <span class="intent-meta"><a class="in-reply-to" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/tweet?in_reply_to=157172937827430400" target="_blank" title="Reply">Reply</a><a class="retweet" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/retweet?tweet_id=157172937827430400" target="_blank" title="Retweet">Retweet</a><a class="favorite" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/favorite?tweet_id=157172937827430400" target="_blank" title="Favorite">Favorite</a></span></li><li><span class="entry-content">HURT: Attacking markets exposes folly of Romney rivals - Washington Times: <a href="http://web.archive.org/web/20120112052155/http://t.co/851tvarH" target="_blank">http://t.co/851tvarH</a> via <a class="twitter-user" href="http://web.archive.org/web/20120112052155/http://twitter.com/washtimes" target="_blank">@washtimes</a></span> <span class="entry-meta"><span class="time-meta"><a href="http://web.archive.org/web/20120112052155/http://twitter.com/jamieradtke/statuses/157164262677164032" target="_blank">about 11 hours ago</a></span> <span class="from-meta">from <a href="http://web.archive.org/web/20120112052155/http://twitter.com/tweetbutton" rel="nofollow">Tweet Button</a></span></span> <span class="intent-meta"><a class="in-reply-to" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/tweet?in_reply_to=157164262677164032" target="_blank" title="Reply">Reply</a><a class="retweet" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/retweet?tweet_id=157164262677164032" target="_blank" title="Retweet">Retweet</a><a class="favorite" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/intent/favorite?tweet_id=157164262677164032" target="_blank" title="Favorite">Favorite</a></span></li></ul><div class="follow-button"><a class="twitter-follow-button" data-lang="en" href="http://web.archive.org/web/20120112052155/http://twitter.com/@JamieRadtke" target="_blank" title="Follow @@JamieRadtke">@@JamieRadtke</a></div></div></div><div class="widget_tag_cloud"><h2><span class="widget-main-title">Trending Topics:</span> </h2><div class="tagcloud"><a class="tag-link-77" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/afghanistan/" style="font-size: 8pt;" title="2 topics">Afghanistan</a>
+<a class="tag-link-151" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/ben-bernanke/" style="font-size: 8pt;" title="2 topics">Ben Bernanke</a>
+<a class="tag-link-25" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/budget/" style="font-size: 12.7727272727pt;" title="5 topics">budget</a>
+<a class="tag-link-64" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/budget-compromise/" style="font-size: 8pt;" title="2 topics">budget compromise</a>
+<a class="tag-link-158" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/cap/" style="font-size: 8pt;" title="2 topics">Cap</a>
+<a class="tag-link-157" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/cut/" style="font-size: 8pt;" title="2 topics">Cut</a>
+<a class="tag-link-198" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/debate/" style="font-size: 9.90909090909pt;" title="3 topics">debate</a>
+<a class="tag-link-27" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/debt/" style="font-size: 19.9318181818pt;" title="16 topics">debt</a>
+<a class="tag-link-58" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/debt-ceiling/" style="font-size: 14.6818181818pt;" title="7 topics">debt ceiling</a>
+<a class="tag-link-156" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/deficit/" style="font-size: 8pt;" title="2 topics">deficit</a>
+<a class="tag-link-72" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/dulles/" style="font-size: 9.90909090909pt;" title="3 topics">Dulles</a>
+<a class="tag-link-137" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/dulles-airport/" style="font-size: 11.5pt;" title="4 topics">Dulles Airport</a>
+<a class="tag-link-139" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/dulles-metrorail/" style="font-size: 11.5pt;" title="4 topics">Dulles Metrorail</a>
+<a class="tag-link-136" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/dulles-toll-road/" style="font-size: 12.7727272727pt;" title="5 topics">Dulles Toll Road</a>
+<a class="tag-link-160" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/establishment/" style="font-size: 11.5pt;" title="4 topics">Establishment</a>
+<a class="tag-link-203" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/fair-tax/" style="font-size: 9.90909090909pt;" title="3 topics">Fair Tax</a>
+<a class="tag-link-153" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/federal-reserve/" style="font-size: 9.90909090909pt;" title="3 topics">Federal Reserve</a>
+<a class="tag-link-7" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/george-allen/" style="font-size: 22pt;" title="22 topics">George Allen</a>
+<a class="tag-link-120" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/jamie-radtke/" style="font-size: 8pt;" title="2 topics">Jamie Radtke</a>
+<a class="tag-link-21" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/jamie-radtke-for-senate/" style="font-size: 11.5pt;" title="4 topics">Jamie Radtke For Senate</a>
+<a class="tag-link-39" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/libya/" style="font-size: 8pt;" title="2 topics">Libya</a>
+<a class="tag-link-29" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/limited-government/" style="font-size: 18.0227272727pt;" title="12 topics">limited government</a>
+<a class="tag-link-75" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/militant-islamic-terrorism/" style="font-size: 9.90909090909pt;" title="3 topics">militant islamic terrorism</a>
+<a class="tag-link-32" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/military-intervention/" style="font-size: 8pt;" title="2 topics">military intervention</a>
+<a class="tag-link-148" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/mitch-mcconnell/" style="font-size: 8pt;" title="2 topics">Mitch McConnell</a>
+<a class="tag-link-70" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/mwaa/" style="font-size: 13.8863636364pt;" title="6 topics">MWAA</a>
+<a class="tag-link-138" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/national-airport/" style="font-size: 9.90909090909pt;" title="3 topics">National Airport</a>
+<a class="tag-link-28" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/national-politics/" style="font-size: 21.6818181818pt;" title="21 topics">national politics</a>
+<a class="tag-link-52" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/obama/" style="font-size: 12.7727272727pt;" title="5 topics">Obama</a>
+<a class="tag-link-54" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/obamacare/" style="font-size: 9.90909090909pt;" title="3 topics">Obamacare</a>
+<a class="tag-link-26" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/president-obama/" style="font-size: 11.5pt;" title="4 topics">President Obama</a>
+<a class="tag-link-96" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/repeal-amendment/" style="font-size: 8pt;" title="2 topics">Repeal Amendment</a>
+<a class="tag-link-133" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/screening/" style="font-size: 8pt;" title="2 topics">screening</a>
+<a class="tag-link-134" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/security/" style="font-size: 8pt;" title="2 topics">security</a>
+<a class="tag-link-95" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/southwest-virginia/" style="font-size: 8pt;" title="2 topics">Southwest Virginia</a>
+<a class="tag-link-22" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/spending/" style="font-size: 22pt;" title="22 topics">spending</a>
+<a class="tag-link-59" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/tea-party/" style="font-size: 8pt;" title="2 topics">Tea Party</a>
+<a class="tag-link-135" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/terrorism/" style="font-size: 8pt;" title="2 topics">terrorism</a>
+<a class="tag-link-23" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/the-constitution/" style="font-size: 14.6818181818pt;" title="7 topics">The Constitution</a>
+<a class="tag-link-51" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/tim-kaine/" style="font-size: 8pt;" title="2 topics">tim kaine</a>
+<a class="tag-link-132" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/tsa/" style="font-size: 8pt;" title="2 topics">TSA</a>
+<a class="tag-link-109" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/veterans/" style="font-size: 8pt;" title="2 topics">veterans</a>
+<a class="tag-link-33" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/war-powers-clause/" style="font-size: 8pt;" title="2 topics">War Powers Clause</a>
+<a class="tag-link-15" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/washington-dc/" style="font-size: 20.7272727273pt;" title="18 topics">Washington D.C.</a>
+<a class="tag-link-121" href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/tag/washington-spending/" style="font-size: 8pt;" title="2 topics">Washington spending</a></div>
+</div></div> </div>
+</div>
+</div>
+<div id="footer">
+<div class="footer-holder">
+<div class="footer-frame">
+<div class="block">
+<div class="logo-box"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/"><img alt="image description" height="203" src="http://web.archive.org/web/20120112052155im_/http://radtkeforsenate.com/wp-content/themes/radtke/images/logo3.png" width="268"/></a></div>
+<p>© Copyright 2011 Jamie Radtke For Senate.</p>
+<div class="paid-box"><p>Paid for by Radtke For Senate, Inc</p></div>
+</div>
+<ul class="" id="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><div><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/home/">Home</a></div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><div><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/">About</a>
+<ul>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2485"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/">Jamie’s Bio</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1241"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/republican-community-leaders/">Republican, Conservative Endorsements</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1245"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/tea-party-patriot-leaders/">Tea Party Endorsements</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1252"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/about-jamie/endorsements-political-leaders-media/">Statements in the Media</a></li>
+</ul>
+</div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><div><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/issues/">Issues</a>
+<ul>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2483"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/issues/">Position on Issues</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2482"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/allen-comparison/">Radtke v. Allen on the Issues</a></li>
+</ul>
+</div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1045"><div><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/media/">Media</a>
+<ul>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1057"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/articles/">Articles</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1047"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/press-release/">Press Releases</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1055"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/radiocasts/">Radio</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1056"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/columns/">Op/Ed Columns</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1054"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/media/videos/">Video</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2484"><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/media/">All Media</a></li>
+</ul>
+</div></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2634"><div><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/category/blog/">Blog</a></div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3266"><div><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/store/">Store</a></div></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><div><a href="http://web.archive.org/web/20120112052155/http://radtkeforsenate.com/contact-us/">Contact</a></div></li>
+</ul> </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Google Analytics Code added by Web Ninja Google Analytics plugin v1.0.7: http://josh-fowler.com/?page_id=70 -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23129449-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'http://web.archive.org/web/20120112052155/https://ssl' : 'http://web.archive.org/web/20120112052155/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- Web Ninja Google Analytics Done -->
+<!-- Wordbooker code revision : 2.0.9 - Wake Up and Dance! -->
+<script src="http://web.archive.org/web/20120112052155js_/http://platform.twitter.com/widgets.js?ver=1.0.0" type="text/javascript"></script>
+</body></html><!--
+     FILE ARCHIVED ON 05:21:55 Jan 12, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 00:35:28 Jan 06, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 546.879
+  exclusion.robots: 0.187
+  PetaboxLoader3.resolve: 113.348
+  esindex: 0.011
+  exclusion.robots.policy: 0.174
+  CDXLines.iter: 15.677 (3)
+  LoadShardBlock: 126.606 (3)
+  RedisCDXSource: 400.5
+  PetaboxLoader3.datanode: 99.591 (4)
+  load_resource: 153.491
+-->

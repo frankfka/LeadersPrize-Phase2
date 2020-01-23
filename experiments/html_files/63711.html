@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app40.us.archive.org';v.server_ms=499;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20190823191256", "health.wusf.usf.edu");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgYHV1dVGwIBVFlVBQU="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(18),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(19),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(21)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(21)(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(21)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(21)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(b?b.then(a):w?w(a):(E=-E,R.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(21)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(){var t=window.NREUM,n=t.info.accountID||null,e=t.info.agentID||null,r=t.info.trustKey||null,i="btoa"in window&&"function"==typeof window.btoa;if(!n||!e||!i)return null;var a={v:[0,1],d:{ty:"Browser",ac:n,ap:e,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&n!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(16);n.exports={generateTraceHeader:r}},{}],11:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(l[r],this.listener,!1);n.aborted||(e.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):a(this,t),e.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[n,e,this.startTime]))}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return w(r)}function i(t,n){var e=f(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}function a(t,n){t.params.status=n.status;var e=o(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(12),u=t(10).generateTraceHeader,d=t("ee"),l=["load","error","abort","timeout"],p=l.length,h=t("id"),m=t(15),w=t(14),v=window.XMLHttpRequest;s.features.xhr=!0,t(9),d.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener("load",function(e){a(n,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var e=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(e=!!NREUM.init.distributed_tracing.enabled),e&&this.sameOrigin){var r=u();r&&n.setRequestHeader("newrelic",r)}}),d.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=w(r);i&&(e.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{d.emit("internal-error",[e])}catch(r){}}};for(var a=0;a<p;a++)n.addEventListener(l[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),d.on("xhr-load-added",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,n){var e=""+h(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],n)}),d.on("removeEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],n)}),d.on("fn-start",function(t,n,e){n instanceof v&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,n){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,n],n)})}},{}],12:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],13:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(18),s=t(19),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],14:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],15:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],16:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}n.exports={generateUuid:r,generateCatId:o}},{}],17:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],18:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],19:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],20:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],21:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(19),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(18),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(18),u=t("ee"),d=t(17),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1130.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:x,userAgent:d};t(13),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(20)},{}]},{},["loader",2,11,4,3]);</script>
+<meta content="http://web.archive.org/web/20190823191256/https://health.wusf.usf.edu/post/legislative-analysts-told-scott-his-medicaid-estimates-are-wrong-hes-using-them-anyway" property="og:url"/>
+<meta content="The state’s chief economist has warned the staff of Gov. Rick Scott that his Medicaid cost estimates are wrong, but Scott keeps using them anyway," property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="Legislative Analysts Told Scott His Medicaid Estimates Are Wrong (But He's Using Them Anyway)" property="og:title"/>
+<link href="//web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/201301/Rick_Scott_AP_2012.jpg" rel="image_src"/>
+<meta content="http://web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/styles/medium/public/201301/Rick_Scott_AP_2012.jpg" property="og:image"/>
+<meta content="184" property="og:image:height"/>
+<meta content="@HealthNewsFL" property="twitter:creator"/>
+<meta about="/post/legislative-analysts-told-scott-his-medicaid-estimates-are-wrong-hes-using-them-anyway" content="Legislative Analysts Told Scott His Medicaid Estimates Are Wrong (But He&amp;#039;s Using Them Anyway)" property="dc:title"/>
+<meta content="@HealthNewsFL" property="twitter:site"/>
+<meta content="summary" property="twitter:card"/>
+<meta content="204" property="og:image:width"/>
+<meta content="The state’s chief economist has warned the staff of Gov. Rick Scott that his Medicaid cost estimates are wrong, but Scott keeps using them anyway," name="description"/>
+<meta content="2013-01-08" name="datePublished"/>
+<meta content="1" name="has_audio"/>
+<meta content="none" name="programs"/>
+<link href="/web/20190823191256/https://health.wusf.usf.edu/node/479" rel="shortlink"/>
+<link href="/web/20190823191256/https://health.wusf.usf.edu/post/legislative-analysts-told-scott-his-medicaid-estimates-are-wrong-hes-using-them-anyway" rel="canonical"/>
+<meta content="Drupal 7 (http://drupal.org)" name="Generator"/>
+<meta content="HNF Stories" name="category"/>
+<meta content="479" name="nid"/>
+<meta content="902" name="wordCount"/>
+<meta content="153425389" name="story_id"/>
+<meta content="Medicaid, Patient Protection and Affordable Care Act, Michael Anway, Agency for Health Care Administration (AHCA), Amy Baker" name="keywords"/>
+<meta content="0" name="org_id"/>
+<meta content="Carol Gentry" name="author"/>
+<link href="/web/20190823191256im_/https://health.wusf.usf.edu/sites/all/themes/pilot/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+<title>Legislative Analysts Told Scott His Medicaid Estimates Are Wrong (But He's Using Them Anyway) | Health News Florida</title>
+<link href="http://web.archive.org/web/20190823191256cs_/https://health.wusf.usf.edu/sites/health.wusf.usf.edu/files/css/css_F3uD-Lw23WII-5kzB2YaJJzgKLwXUiYy4xQSzQwFLk4.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20190823191256cs_/https://health.wusf.usf.edu/sites/health.wusf.usf.edu/files/css/css_ZFlaYqkiQzTmlBPX4mQeT33IFQX3nR-zpGlyqFhtTNM.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20190823191256cs_/https://health.wusf.usf.edu/sites/health.wusf.usf.edu/files/css/css_PV0HBDBtTWS7oiEnFpozcEeThn_X5umpjVSdbNSQIRI.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20190823191256cs_/https://health.wusf.usf.edu/sites/health.wusf.usf.edu/files/css/css_mLfejeVnrsGVgP4G4Mw8VWx_ZqizxVYhULomRUFka5k.css" media="all" rel="stylesheet" type="text/css"/>
+<style media="all" type="text/css">
+<!--/*--><![CDATA[/*><!--*/
+.header-region-outer{background-color:#ffffff;}.branding .tagline{color:#000;}.branding .listen-live-toggle > a,.branding .header-utility > a,.branding .header-utility > a.trigger-nav{color:#DEDEDE;}@media screen and (min-width:641px){.branding .trigger-nav{background:#777777;}}@media screen and (max-width:640px){.branding .header-utility > a.trigger-nav,.active-menu .branding .header-utility > a.trigger-nav{color:#777777;}}#listen-live .listen-live-toggle{background-color:#0A88BC;}#listen-live .listen-live-btn{background-color:transparent;color:#DEDEDE;}@media screen and (min-width:640px){#listen-live .listen-live-btn{background-color:#0A88BC;}}.branding .give{background:#A32B19;}
+
+/*]]>*/-->
+</style>
+<link href="//web.archive.org/web/20190823191256cs_/https://fonts.googleapis.com/css?family=Lato:300,700,700italic,900,italic,regular&amp;subset=latin" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20190823191256cs_/https://health.wusf.usf.edu/sites/health.wusf.usf.edu/files/css/css_rNOa52ddHHo43vtbWFENyfaQHT1FaOvc10aWBF5kZ7w.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="http://web.archive.org/web/20190823191256cs_/https://health.wusf.usf.edu/sites/health.wusf.usf.edu/files/css/css_Xv3Pbhll0CnRvvOZVEWjBRPbKr0z_6rfBBPBi2Ij-Dk.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="//web.archive.org/web/20190823191256js_/https://health.wusf.usf.edu/sites/healthnewsfl/files/js/js_xSpMA4ArVcBKOZ43sPqNRk0gxQZdDVifw27pIUCzWU0.js" type="text/javascript"></script>
+<script src="//web.archive.org/web/20190823191256js_/https://health.wusf.usf.edu/sites/healthnewsfl/files/js/js_P9u0bgloveAIlc2kutVCUB_xMaRV3YHWhSVHD3IN5tM.js" type="text/javascript"></script>
+<script src="//web.archive.org/web/20190823191256js_/https://health.wusf.usf.edu/sites/healthnewsfl/files/js/js_f_6-OzlFXjayKlsU5sJKLwjz7LFQvdIZDm-Mt6jKwyM.js" type="text/javascript"></script>
+<script src="//web.archive.org/web/20190823191256js_/https://health.wusf.usf.edu/sites/healthnewsfl/files/js/js__4npt0PuTlrK-GkTl821OR8Eb7aiGB9GvsSeu1tr7U4.js" type="text/javascript"></script>
+<script src="//web.archive.org/web/20190823191256js_/https://www.googletagservices.com/tag/js/gpt.js" type="text/javascript"></script>
+<script src="//web.archive.org/web/20190823191256js_/https://health.wusf.usf.edu/sites/healthnewsfl/files/js/js_l44hfE-mYYA0gApGfapcJm-DyRuv65yks9SlxNDG8as.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src="//web.archive.org/web/20190823191256/https://stream.publicbroadcasting.net/analytics/aabu.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+<script src="//web.archive.org/web/20190823191256js_/https://health.wusf.usf.edu/sites/healthnewsfl/files/js/js_iLp9fFi3xCkBYdKsQat9-1zRaqONL4-l3N-9eT81Jfg.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"responso","theme_token":"IERW8MgzLoE7TTm82ZByot8BtSqw9Rsf3GKNuKX5Zqc","js":{"0":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.8\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/magnific-popup\/jquery.magnific-popup.min.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/vendor\/foundation\/foundation.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/vendor\/foundation\/foundation.topbar.js":1,"sites\/all\/modules\/contrib\/google_cse\/google_cse.js":1,"sites\/all\/modules\/custom\/pi_media_types\/pi_audio\/js\/pi-audio.js":1,"sites\/all\/modules\/custom\/pi_hull\/js\/pi-hull.js":1,"sites\/all\/modules\/custom\/pi_hull\/js\/jquery.innerfade.js":1,"sites\/all\/modules\/custom\/pi_hull\/jplayer\/js\/jquery.jplayer.min.js":1,"sites\/all\/modules\/custom\/pi_hull\/jplayer\/js\/main.js":1,"\/\/web.archive.org\/web\/20190823191256\/https:\/\/www.googletagservices.com\/tag\/js\/gpt.js":1,"sites\/all\/modules\/custom\/responsive_ads\/js\/main.js":1,"sites\/all\/modules\/custom\/pi_ajax_links_api\/nprogress\/nprogress.js":1,"sites\/all\/modules\/custom\/pi_ajax_links_api\/pi_ajax_links_api.js":1,"sites\/all\/modules\/custom\/npr_entities\/npr_fields\/npr_image_gallery\/js\/npr-image-gallery.js":1,"sites\/all\/modules\/custom\/npr_river\/assets\/npr-river.js":1,"sites\/all\/modules\/custom\/pi_assets\/plugins\/images\/js\/popup.js":1,"sites\/all\/modules\/custom\/pi_guide\/js\/pi_guide_schedule_selector.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/vendor\/modernizr.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/vendor\/media.match.min.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/vendor\/matchMedia.addListener.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/vendor\/enquire.min.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/vendor\/fastclick.js":1,"1":1,"sites\/all\/modules\/custom\/pi_content_types\/pi_program\/treatments\/program-promo\/program-promo.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/responsive-utilities.mediaqueries.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/responsive-utilities.scripts.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/responsive-utilities.responsiveimages.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/responsive-utilities.js":1,"sites\/all\/modules\/custom\/responsive_utilities\/js\/responsive-utilities.tag.js":1,"sites\/all\/modules\/contrib\/disqus\/disqus.js":1,"sites\/all\/modules\/custom\/audity\/audity\/dsplayer.min.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"sites\/all\/libraries\/magnific-popup\/magnific-popup.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/contrib\/google_cse\/google_cse.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/custom\/pi_hull\/pi_outrigger\/css\/pi_outrigger.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/custom\/pi_guide\/css\/pi_guide.css":1,"sites\/all\/modules\/custom\/pi_hull\/jplayer\/css\/jplayer.npr.css":1,"sites\/all\/modules\/custom\/pi_npr_story\/css\/pi_npr_story.css":1,"sites\/all\/modules\/custom\/pi_views\/pi_reports_views\/css\/pi_reports.css":1,"sites\/all\/modules\/custom\/pi_menus\/css\/flexiMenu.css":1,"sites\/all\/modules\/custom\/responsive_footer\/responsive-footer.admin.css":1,"0":1,"\/\/web.archive.org\/web\/20190823191256\/https:\/\/fonts.googleapis.com\/css?family=Lato:300,700,700italic,900,italic,regular\u0026subset=latin":1,"sites\/all\/modules\/custom\/audity\/audity\/css\/audity.css":1,"sites\/all\/modules\/custom\/pi_ajax_links_api\/pi_ajax_links_api.css":1,"sites\/all\/modules\/custom\/pi_ajax_links_api\/nprogress\/nprogress.css":1,"sites\/all\/modules\/custom\/pi_content_types\/pi_program\/treatments\/program-promo\/program-promo.css":1,"sites\/all\/modules\/custom\/npr_entities\/npr_fields\/npr_image_gallery\/css\/npr-image-gallery.css":1,"sites\/all\/themes\/responso\/css\/icon-fonts.css":1,"sites\/all\/themes\/responso\/css\/screen.css":1}},"googleCSE":{"cx":"010251366440257945544:r_n-7evutec","language":"","resultsWidth":600,"domain":"www.google.com","showWaterMark":true},"audityConfig":{"station":{"listenLabel":"Live Radio"},"streams":[{"desc":"News Information \u0026 All Night Jazz","name":0,"url":"http:\/\/web.archive.org\/web\/20190823191256\/http:\/\/mp3.wusf.usf.edu:8000","data":{"type":"composer2","ucs":"53a987a7e1c8a9517b2"}}],"analytics":{"acct":"aabu"},"ads":{"network":"10498769","units":{"audio":"HNF_R_player_audio","display":"HNF_R_player_display","leavebehind":"HNF_R_player_leavebehind"}}},"responsive_ads":{"networkCode":"10498769","prefix":"HNF_R","adUnitTypes":{"leaderboard":{"note":"Only shows above 1024; shows 970x90 or 728x90.","sizes":[{"viewportSize":[0,0],"slotSize":[]},{"viewportSize":[1024,200],"slotSize":[[970,90],[970,50],[728,90]]}]},"medium":{"note":"Won't be served on screens smaller than 640x480.","sizes":[{"viewportSize":[0,0],"slotSize":[]},{"viewportSize":[640,200],"slotSize":[300,250]}]},"tablet":{"note":"Won't be served on screens smaller than 640x480 or larger than 1024x768","sizes":[{"viewportSize":[0,0],"slotSize":[]},{"viewportSize":[640,200],"slotSize":[728,90]},{"viewportSize":[1024,200],"slotSize":[]}]},"mobile":{"note":"Won't be served on screens larger than 640x480.","sizes":[{"viewportSize":[0,0],"slotSize":[320,50]},{"viewportSize":[640,200],"slotSize":[]}]}},"adUnits":[{"name":"leaderboard_1","type":"leaderboard","width":728,"height":90},{"name":"player_display","type":"leaderboard","width":728,"height":90},{"name":"medium_1","type":"medium","width":300,"height":250},{"name":"medium_2","type":"medium","width":300,"height":250},{"name":"medium_3","type":"medium","width":300,"height":250},{"name":"tablet_1","type":"tablet","width":728,"height":90},{"name":"mobile_1","type":"mobile","width":320,"height":50}],"placements":{"leaderboard_1":"main#content","medium_1":".node .post-body .field-name-body","medium_2":".node .post-body p:nth-of-type(3)","medium_3":".node .post-body p:nth-of-type(3)","tablet_1":"main#content","mobile_1":"#block-pi-responsive-ads-mobile-1 .content"},"persistentPlacements":[],"targeting":{"id":"479","type":"post","tags":["Medicaid","Patient Protection and Affordable Care Act","Michael Anway","Agency for Health Care Administration (AHCA)","Amy Baker"],"category":"HNF Stories","programs":[]}},"tms_meta":{"has_audio":"1","programs":"none","category":"HNF Stories","nid":479,"author":"Carol Gentry","org_id":0,"keywords":"Medicaid, Patient Protection and Affordable Care Act, Michael Anway, Agency for Health Care Administration (AHCA), Amy Baker","wordCount":902,"story_id":"153425389","datePublished":"2013-01-08"},"responsive_utilities":{"body_classes":"html not-front not-logged-in no-sidebars page-node page-node- page-node-479 node-type-post fixed-header","custom_vars":{"nid":{"name":"nid","slot":8,"scope_id":3},"pop":{"name":"pop","slot":9,"scope_id":3},"author":{"name":"author","slot":11,"scope_id":3},"keywords":{"name":"tags","slot":12,"scope_id":3},"org_id":{"name":"org_id","slot":13,"scope_id":3},"brand":{"name":"CP_Station","slot":14,"scope_id":2},"has_audio":{"name":"Has_Inline_Audio","slot":15,"scope_id":3},"programs":{"name":"Program","slot":16,"scope_id":3},"category":{"name":"Category","slot":10,"scope_id":3},"datePublished":{"name":"PublishedDate","slot":17,"scope_id":3},"wordCount":{"name":"WordCount","slot":18,"scope_id":3},"story_id":{"name":"API_Story_Id","slot":19,"scope_id":3},"pmp_guid":{"name":"pmp_guid","slot":20,"scope_id":3}},"pagetype_vars":[{"page_type":"Content\/About","regex_pattern":"\/about(-us)?\/?$","pattern_name":"Core Publisher About Page"},{"page_type":"Events","regex_pattern":"\/events(\/|$)","pattern_name":"Core Publisher Events Page"},{"page_type":"People","regex_pattern":"\/people(\/|$)","pattern_name":"Core Publisher People Page"},{"page_type":"Playlist","regex_pattern":"\/search_playlists\/?$","pattern_name":"Core Publisher Playlist Page"},{"page_type":"Program","regex_pattern":"\/programs(\/|$)","pattern_name":"Core Publisher Program Page"},{"page_type":"Schedule","regex_pattern":"\/schedule(\/|$)","pattern_name":"Core Publisher Schedule Page"},{"page_type":"Search","regex_pattern":"\/search\/google\/?","pattern_name":"Core Publisher Search GSA Page"},{"page_type":"Story","regex_pattern":"\/post\/|\/webclip\/","pattern_name":"Core Publisher Story Page"},{"page_type":"Streaming","regex_pattern":"\/listen(-live)?\/?(#|$)","pattern_name":"Core Publisher Listen Live Page"}],"media_queries":{"mobile":"all and (max-width: 40em)","tablet":"screen and (min-width: 40.063em) and (max-width: 64em)","desktop":"screen and (min-width: 64.063em)"}},"pi_ajax_links_api":{"selector":"#page-document","trigger":"a.ajax-link,#page-wrapper a,a.logo,a.mobile-teaser-link,.dropdown a","negative_triggers":".dropdown .back a,.mobile .not-click \u003e a,#toolbar a,a.lightbox,.jp-interface a,.header .not-click \u003e a,.page-admin a,.page-block-factory a,a.give,.social-share a,#change-station,#rss-tablequeue a,a[href^=\"mailto:\"],.popup,a[href^=\"#\"],a:not([href]),ul.tabs\u003eli\u003ea,ul.contextual-links a,#table-queue-fleximenu a[target=\"_blank\"],.delete-button,a[href$='.pdf'],a[href^='http:']","scripts_included":0,"html5":1,"vpager":1}});
+//--><!]]>
+</script>
+<meta content="width=device-width" name="viewport"/>
+</head>
+<body class="html not-front not-logged-in page-node page-node- page-node-479 node-type-post fixed-header">
+<header class="header" role="banner">
+<div class="skiptocontent"><a href="#main-content">skip to main content</a></div>
+<div class="region region-header">
+<div class="block block-baby-bear" id="block-baby-bear-baby-bear-header">
+<div class="content">
+<div class="header-region-outer">
+<section class="header-region-inner row">
+<div class="branding large-12 columns">
+<div class="brand-inner-wrapper">
+<a class="logo" href="http://web.archive.org/web/20190823191256/http://www.healthnewsflorida.org/" rel="home" title="Health News Florida Home"><img alt="Health News Florida logo" src="//web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/201809/hnfl_news_no_npr_wusf_FINAL_Hdr3_HNF.jpg" title="Health News Florida Home" typeof="foaf:Image"/></a> <div class="tagline">
+</div>
+</div>
+<div class="header-utility">
+<a class="trigger-nav" href="#">
+<span class="icon-list"></span>
+<span class="menu-text">Site Menu</span>
+</a>
+<a class="give" href="http://web.archive.org/web/20190823191256/http://www.wusf.usf.edu/donate-now" target="_blank">
+  Donate</a>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="nav-wrapper mobile">
+<nav>
+<div class="top-bar contain-to-grid" data-topbar="">
+<ul class="title-area">
+<li class="toggle-topbar menu-icon">
+<a href="#">Menu</a>
+</li>
+</ul>
+<section class="top-bar-section">
+<div class="table-queue" id="table-queue-fleximenu">
+<ul class="menu dropdown">
+<li>
+<a href="http://web.archive.org/web/20190823191256/http://wusf.usf.edu/">WUSF Home</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20190823191256/http://www.wusfnews.org/">WUSF News</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/hnf-stories">HNF Stories</a>
+</li>
+<li class="dd has-dropdown not-click">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/">Special Coverage</a>
+<ul class="dropdown">
+<li class="left">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/their-only-option#stream/0">Their Only Option: Free Clinics</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/2018-florida-legislature">2018 Florida Legislature</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/parkland-shooting">Parkland shooting</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/PriceCheck">PriceCheck</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/obamacare">Health Care Reform</a>
+</li>
+<li class="left">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/term/zika">Zika Virus</a>
+</li>
+<li class="left">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/term/pregnant-and-poor#stream/0">Pregnant and Poor</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/npr-health">NPR Health</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/people/capacity/staff">News Staff</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/PriceCheck">PriceCheck</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/search/google">Search</a>
+</li>
+</ul>
+</div>
+</section>
+</div>
+</nav>
+</div>
+<div class="region region-persistent">
+<div class="block block-audity" id="block-audity-audity">
+<div class="content">
+</div>
+</div>
+</div>
+<div id="page-wrapper">
+<div class="page" id="page-document" role="document">
+<div class="nav-wrapper">
+<nav>
+<div class="top-bar contain-to-grid" data-topbar="">
+<ul class="title-area">
+<li class="toggle-topbar menu-icon">
+<a href="#">Menu</a>
+</li>
+</ul>
+<section class="top-bar-section">
+<div class="table-queue" id="table-queue-fleximenu">
+<ul class="menu dropdown">
+<li>
+<a href="http://web.archive.org/web/20190823191256/http://wusf.usf.edu/">WUSF Home</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20190823191256/http://www.wusfnews.org/">WUSF News</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/hnf-stories">HNF Stories</a>
+</li>
+<li class="dd has-dropdown not-click">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/">Special Coverage</a>
+<ul class="dropdown">
+<li class="left">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/their-only-option#stream/0">Their Only Option: Free Clinics</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/2018-florida-legislature">2018 Florida Legislature</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/parkland-shooting">Parkland shooting</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/PriceCheck">PriceCheck</a>
+</li>
+<li class="left">
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/obamacare">Health Care Reform</a>
+</li>
+<li class="left">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/term/zika">Zika Virus</a>
+</li>
+<li class="left">
+<a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/term/pregnant-and-poor#stream/0">Pregnant and Poor</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/npr-health">NPR Health</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/people/capacity/staff">News Staff</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/term/PriceCheck">PriceCheck</a>
+</li>
+<li>
+<a href="/web/20190823191256/https://health.wusf.usf.edu/search/google">Search</a>
+</li>
+</ul>
+</div>
+</section>
+</div>
+</nav>
+</div>
+<div class="player" id="player">
+</div>
+<div class="row">
+<main class="main-content small-12 columns" id="content" role="main">
+<article class="story">
+<a id="main-content"></a>
+<div class="region region-content">
+<div class="block block-system" id="block-system-main">
+<div class="content">
+<div about="/post/legislative-analysts-told-scott-his-medicaid-estimates-are-wrong-hes-using-them-anyway" class="node node-post node-promoted full row" id="node-479" typeof="sioc:Item foaf:Document">
+<div class="small-12 columns">
+<h1 class="post-title" itemprop="name">
+      Legislative Analysts Told Scott His Medicaid Estimates Are Wrong (But He's Using Them Anyway)    </h1>
+<div class="by-date">
+<span class="submitted"><span content="2013-01-08T00:23:09-05:00" datatype="xsd:dateTime" property="dc:date dc:created" rel="sioc:has_creator"><span class="submitted-label">By</span> <span class="name"><a href="/web/20190823191256/https://health.wusf.usf.edu/people/carol-gentry" rel="author">Carol Gentry</a></span></span></span>
+<i class="bullet">•</i>
+<span class="pub-date">Jan 8,  2013 </span>
+</div>
+<div class="row">
+<div class="large-2 columns sharing-and-programs">
+<div class="social-share clearfix"><a class="social-share-item twitter" href="http://web.archive.org/web/20190823191256/http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj&amp;text=Legislative%20Analysts%20Told%20Scott%20His%20Medicaid%20Estimates%20Are%20Wrong%20%28But%20He%27s%20Using%20Them%20Anyway%29" target="_blank" title="Tweet">Tweet</a><a class="social-share-item facebook" href="http://web.archive.org/web/20190823191256/http://facebook.com/sharer.php?u=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj&amp;t=Legislative%20Analysts%20Told%20Scott%20His%20Medicaid%20Estimates%20Are%20Wrong%20%28But%20He%27s%20Using%20Them%20Anyway%29" target="_blank" title="Share">Share</a><a class="social-share-item googleplus" href="http://web.archive.org/web/20190823191256/https://plus.google.com/share?url=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj" target="_blank" title="Google+">Google+</a><a class="social-share-item email" href="http://web.archive.org/web/20190823191256/mailto:/?subject=Legislative%20Analysts%20Told%20Scott%20His%20Medicaid%20Estimates%20Are%20Wrong%20%28But%20He%27s%20Using%20Them%20Anyway%29&amp;body=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj" target="_blank" title="Email">Email</a></div> </div>
+<div class="medium-10 medium-pull-1 large-8 large-pull-2 columns post-body-container">
+<div class="post-body">
+<div class="field field-name-field-image-gallery field-type-image field-label-hidden"><div class="field-items"></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p></p><div class="wysiwyg-asset-image-wrapper inset"> <div class="wysiwyg-asset-image"> <a class="popup" href="http://web.archive.org/web/20190823191256/https://mediad.publicbroadcasting.net/p/healthnewsfl/files/styles/x_large/public/201301/Rick_Scott_AP_2012.jpg"> <img class="pi_assets-image" data-interchange-default="http://web.archive.org/web/20190823191256/https://health.wusf.usf.edu/sites/healthnewsfl/files/styles/default/public/201301/Rick_Scott_AP_2012.jpg" data-interchange-large="http://web.archive.org/web/20190823191256/https://mediad.publicbroadcasting.net/p/healthnewsfl/files/styles/large/public/201301/Rick_Scott_AP_2012.jpg" data-interchange-medium="http://web.archive.org/web/20190823191256/https://mediad.publicbroadcasting.net/p/healthnewsfl/files/styles/medium/public/201301/Rick_Scott_AP_2012.jpg" data-interchange-small="http://web.archive.org/web/20190823191256/https://mediad.publicbroadcasting.net/p/healthnewsfl/files/styles/small/public/201301/Rick_Scott_AP_2012.jpg"/> <noscript> <img alt="Scott embraces controversial AHCA report." src="http://web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/styles/default/public/201301/Rick_Scott_AP_2012.jpg"/> </noscript> </a> <div class="image-meta"> <div class="caption">Scott embraces controversial AHCA report.</div> <div class="credit">Credit Associated Press</div> </div> </div> </div> <p>The state’s chief economist has warned the staff of Gov. Rick Scott that his Medicaid cost estimates are wrong, but Scott keeps using them anyway, according to e-mails obtained by <em>Health News Florida  (</em><strong><a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/post/scott-look-other-medicaid-cost-estimates">Update: Scott to Look at Other Estimates). </a></strong></p> <p>Scott says he opposes expanding Florida Medicaid because it would cost too much: $63 billion over 10 years, he says, with the state paying $26 billion of that.</p> <p>But those numbers are based on a flawed report, according to a legislative budget analyst and State Economist Amy Baker.  A series of e-mails obtained by <em>Health News Florida</em> shows the analysts warned Scott’s office the numbers were wrong weeks ago, but he is still using them. He cited them in a <em>Tampa Bay Times</em> op-ed on Sunday and at at a Washington press conference on Monday<strong> <a href="http://web.archive.org/web/20190823191256/http://www.youtube.com/watch?v=6AzAsPiPmJY">(see YouTube video)</a></strong>.</p> <p>The flawed report, “Estimates Related to the Affordable Care Act,” was sent to members of the Legislative Budget Commission on Dec. 17. Three days later, two of the recipients pointed out the faulty assumptions and sent it back to AHCA for a do-over.  They said it would violate Florida law to proceed with the estimate.</p> <p> </p><div class="audio-container"> <div class="jp-interface" id="jp-interface--5d4e29a8106f4"> <div class="jp-player" id="post-audio--5d4e29a8106f4" jp-instance="-5d4e29a8106f4"></div> <div class="playpause"> <a class="jp-play" href="http://web.archive.org/web/20190823191256/https://cpa.ds.npr.org/healthnewsfl/audio/2014/01/1-10_Healthnewsflorida_Medicaid_2-way_for_upload.mp3" title="Click here to listen to WUSF Health News Florida Editor Carol Gentry explain to News Director Scott Finn how she developed this story."></a> <a class="jp-pause"></a> </div> <div class="audio-meta"> <div class="listen-text-box"> <div class="listen-text">Listen </div> <div class="listening-text">Listening...</div> </div> <div class="jp-controls"> <div class="jp-progress"> <div class="jp-seek-bar" id="seekbar"> <div class="jp-play-bar" id="playbar"> <div class="scrubber"> </div> </div> </div> </div> </div> <div class="duration-wrapper"> <div class="jp-custom-current-time"></div> <span class="divider">/</span> <div class="jp-custom-duration">3:16</div> </div> </div> <div class="audio-caption">Click here to listen to WUSF Health News Florida Editor Carol Gentry explain to News Director Scott Finn how she developed this story.</div> </div> </div> <p>But Michael Anway, Scott’s new coordinator for health policy and budget, sent an e-mail Friday to the others saying he will submit the original estimates  as an “alternative forecast” when the revised AHCA report comes before the next budget estimating conference.</p> <p>Anway said he doesn’t believe the federal funds will come through. “The federal government has a $16 trillion national debt,  must borrow 46 cents of every dollar it spends, and in 2011 had its credit rating downgraded for the first time in history,” he wrote in explanation.</p> <p>Anway joined Scott’s staff in early December after working for members of Congress, then for the Pharmaceutical Research and Manufacturers of America, or PhRMA. The Center for Responsive Politics' web site <strong><a href="http://web.archive.org/web/20190823191256/http://www.opensecrets.org/revolving/rev_summary.php?id=77119">Open Secrets.org</a></strong> names Anway on its list of people in the “Revolving Door,” who go from the government to industry lobbyist and back.</p> <p>The AHCA cost estimates sent out in December came from the staff of Tom Wallace, Medicaid finance chief, the e-mails showed. The estimates immediately raised eyebrows because they had tripled since August.</p> <p>AHCA spokeswoman Michelle Dahnke said the estimates were updated after rules for the Affordable Care Act were released by the U.S. Department of Health and Human Services.  </p> <p>However, a closer look at the assumptions on which the calculations were based showed that the estimates zoomed mainly because AHCA decided not to count the increase in federal funds included in  the Affordable Care Act.</p> <p>The Act says the federal government will pay the lion’s share of the cost for new Medicaid eligibles if a state agrees to expand its program – a decision the Supreme Court left up to the states. The federal contribution for the new eligibles would be 100 percent between 2014 and 2016, then would taper after that to 90 percent by 2020 and stay there. </p> <p>But the AHCA report assumes the federal match for the new patients would be much lower, about 58 percent. It came up with that by averaging the match amount over the past 20 years.</p> <p>The report doesn’t say why the authors made that assumption. AHCA declined multiple requests to interview Medicaid officials familiar with the reasoning.</p> <p>According to the e-mail trail, the first state official to call the AHCA estimates into question was   J. Eric Pridgeon, on the staff of the House Health Care Appropriations Subcommittee. On Dec. 20, he wrote to Wallace that the federal revenues for Medicaid expansion states are part of the Affordable Care Act and therefore can’t be omitted without breaking Florida law.</p> <p>Baker, director of the Legislature’s Office of Economic &amp; Demographic Research, agreed with Pridgeon and asked Wallace to redo the report.</p> <p>As <strong><a href="http://web.archive.org/web/20190823191256/http://health.wusf.usf.edu/term/depth"><em>Health News Florida</em> </a></strong>reported on Dec. 21,   the AHCA estimates were huge in comparison to a study released by the Urban Institute and Kaiser Family Foundation, two neutral research groups that specialize in Medicaid studies. <strong><a href="http://web.archive.org/web/20190823191256/http://www.kff.org/medicaid/8384.cfm">Their study </a></strong>estimated that if Florida expands Medicaid, the 10-year cost to the state would be around $8.9 billion, and about 1.6 million more people would be covered.</p> <p>That cost estimate might be an overstatement, the authors said, since they did not account for savings to state and local governments that now spend on care for the uninsured.</p> <p>Two other recent studies, by Georgetown and University of Florida researchers, found a net gain to the state from Medicaid expansion.</p> <p><em><strong>--Health News Florida, journalism for a healthy state, is a service of WUSF Public Media. Carol Gentry, Editor, can be reached at 813-974-8629 (desk) or 727-410-3266 (cell), or by e-mail at cgentry@wusf.org</strong></em>.</p> </div></div></div><div class="field field-name-field-tags field-type-taxonomy-term-reference field-label-inline clearfix"><div class="field-label">Tags: </div><div class="field-items"><div class="field-item even"><a href="/web/20190823191256/https://health.wusf.usf.edu/term/medicaid" property="rdfs:label skos:prefLabel" typeof="skos:Concept">Medicaid</a></div><div class="field-item odd"><a href="/web/20190823191256/https://health.wusf.usf.edu/term/patient-protection-and-affordable-care-act" property="rdfs:label skos:prefLabel" typeof="skos:Concept">Patient Protection and Affordable Care Act</a></div><div class="field-item even"><a href="/web/20190823191256/https://health.wusf.usf.edu/term/michael-anway" property="rdfs:label skos:prefLabel" typeof="skos:Concept">Michael Anway</a></div><div class="field-item odd"><a href="/web/20190823191256/https://health.wusf.usf.edu/term/agency-health-care-administration-ahca" property="rdfs:label skos:prefLabel" typeof="skos:Concept">Agency for Health Care Administration (AHCA)</a></div><div class="field-item even"><a href="/web/20190823191256/https://health.wusf.usf.edu/term/amy-baker" property="rdfs:label skos:prefLabel" typeof="skos:Concept">Amy Baker</a></div></div></div><div class="social-share bottom"><a class="social-share-item twitter" href="http://web.archive.org/web/20190823191256/http://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj&amp;text=Legislative%20Analysts%20Told%20Scott%20His%20Medicaid%20Estimates%20Are%20Wrong%20%28But%20He%27s%20Using%20Them%20Anyway%29" target="_blank" title="Tweet">Tweet</a><a class="social-share-item facebook" href="http://web.archive.org/web/20190823191256/http://facebook.com/sharer.php?u=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj&amp;t=Legislative%20Analysts%20Told%20Scott%20His%20Medicaid%20Estimates%20Are%20Wrong%20%28But%20He%27s%20Using%20Them%20Anyway%29" target="_blank" title="Share">Share</a><a class="social-share-item googleplus" href="http://web.archive.org/web/20190823191256/https://plus.google.com/share?url=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj" target="_blank" title="Google+">Google+</a><a class="social-share-item email" href="http://web.archive.org/web/20190823191256/mailto:/?subject=Legislative%20Analysts%20Told%20Scott%20His%20Medicaid%20Estimates%20Are%20Wrong%20%28But%20He%27s%20Using%20Them%20Anyway%29&amp;body=http%3A%2F%2Fwww.tinyurl.com%2Fy2nqoelj" target="_blank" title="Email">Email</a></div> </div>
+<div class="related">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<section class="post-content">
+<div>
+<div class="region region-post-content">
+<div class="block block-pi-responsive-ads" id="block-pi-responsive-ads-mobile-1">
+<div class="content">
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="bottom-ads">
+<div class="bottom-ads-inner"></div>
+</div>
+</div>
+<footer class="footer" role="contentinfo">
+<div class="row">
+<div class="footer-affiliate-container small-centered columns">
+<div class="region region-footer">
+<div class="block block-pi-table-queue" id="block-pi-table-queue-partnerfooter">
+<div class="content">
+<div class="table-queue" id="table-queue-partnerfooter">
+<p class="partnerslabel">
+  Health News Florida Partners</p>
+<div class="item-list"><ul class="partner-logos"><li class="first"><a href="http://web.archive.org/web/20190823191256/http://wlrn.org/" target="_blank"><img alt="WLRN Public Media" src="//web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/styles/partner_footer_logo/public/201508/WLRN_Logo_130w.jpg" title="WLRN Public Media" typeof="foaf:Image"/></a></li>
+<li><a href="http://web.archive.org/web/20190823191256/http://www.wmfe.org/" target="_blank"><img alt="WMFE Public Radio of Central Florida" src="//web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/styles/partner_footer_logo/public/201508/907LOGO_Web_Sml.jpg" title="WMFE Public Radio of Central Florida" typeof="foaf:Image"/></a></li>
+<li><a href="http://web.archive.org/web/20190823191256/http://www.wusf.usf.edu/" target="_blank"><img alt="WUSF Public Media" src="//web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/styles/partner_footer_logo/public/201508/WUSFPM_Horiz_meWt_72ppi_200W_WHT_ret.png" title="WUSF Public Media" typeof="foaf:Image"/></a></li>
+<li class="last"><a href="http://web.archive.org/web/20190823191256/http://www.wusfnews.org/" target="_blank"><img alt="WUSF News" src="//web.archive.org/web/20190823191256im_/https://health.wusf.usf.edu/sites/healthnewsfl/files/styles/partner_footer_logo/public/201508/WUSF_News.png" title="WUSF News" typeof="foaf:Image"/></a></li>
+</ul></div></div>
+</div>
+</div>
+<div class="block block-pi-table-queue" id="block-pi-table-queue-auxiliarylinksfooter">
+<div class="content">
+<div class="table-queue" id="table-queue-auxiliarylinksfooter">
+<div class="item-list"><ul class="auxiliary-links"><li class="first last"><span>© 2019 Health News Florida</span></li>
+</ul></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+ (function ($) { $(document).foundation({ topbar: { custom_back_text: true, back_text: 'back', mobile_show_parent_link: true } }); }(jQuery));
+//--><!]]>
+</script>
+</div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"15ba4da3e8","applicationID":"1108724","transactionName":"NlMBMhAECEZRAU1eDg8ZIgUWDAlbHwxWUwQ+RgIBBzoQXFUV","queueTime":0,"applicationTime":314,"atts":"GhQCRFgeG0g=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<!--
+     FILE ARCHIVED ON 19:12:56 Aug 23, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:27:28 Jan 06, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
