@@ -1,16 +1,13 @@
 from models import LeadersPrizeClaim
 import nltk
 
-from util.text_util import clean_tokenized
+import util.text_util as text_util
 
 
 class QueryGenerator:
     """
     Generates a query based on all words in claim + claimant, stripping punctuation and stopwords
     """
-
-    def __init__(self):
-        nltk.download('stopwords')
 
     def get_query(self, claim: LeadersPrizeClaim) -> str:
         return self.__clean(claim.claim + ' ' + claim.claimant)
@@ -19,11 +16,10 @@ class QueryGenerator:
         """
         Cleans text given by the claim
         """
-        tokens = nltk.tokenize.word_tokenize(text)
-        tokens = clean_tokenized(tokens, lowercase=True, remove_punctuation=True, remove_stopwords=True)
+        tokens = text_util.tokenize_by_word(text)
+        tokens = text_util.clean_tokenized(tokens, lowercase=True, remove_punctuation=True, remove_stopwords=True)
         # Remove numbers and short words - numbers match HTML elements
         tokens_cleaned = [tok for tok in tokens if not tok.isnumeric() and len(tok) > 2]
-        # TODO: Can look at removing duplicate words
         if tokens_cleaned:
             return ' '.join(tokens_cleaned)
         return ' '.join(tokens)

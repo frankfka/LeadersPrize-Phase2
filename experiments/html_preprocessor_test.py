@@ -23,7 +23,7 @@ def main():
             processed_articles.append(processed)
 
     results_df = pd.DataFrame(data={"file": article_filenames, "processed": processed_articles})
-    save_results(results_df, "html_processor")
+    save_results(results_df, "html_processor", "html_processor")
 
 
 if __name__ == '__main__':

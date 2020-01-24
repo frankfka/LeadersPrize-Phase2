@@ -5,8 +5,7 @@ import unicodedata
 import contractions
 from nltk.corpus import stopwords
 from num2words import num2words
-from nltk import word_tokenize, sent_tokenize, pos_tag, WordNetLemmatizer
-from nltk.corpus import wordnet as wn
+from nltk import word_tokenize, sent_tokenize, pos_tag
 
 
 # Tokenize by Word
@@ -52,30 +51,9 @@ def clean_tokenized(
     return processed_tokens
 
 
-# Tags POS's a word-tokenized document
-# Has option for lemmatization (ex. flying -> fly)
-def analyze_pos(tokenized, lemmatize):
-    # This dict converts NLTK POS tags to POS args for Wordnet lemmatizer
-    from collections import defaultdict
-    pos_to_lemma_arg = defaultdict(lambda: wn.NOUN)  # Default to noun
-    pos_to_lemma_arg.update({
-        'JJ': wn.ADJ,
-        'VB': wn.VERB,
-        'RB': wn.ADV
-    })
-
-    # Tag words with their part of speech
-    tagged_tokens = pos_tag(tokenized)
-    # Lemmatize with their POS if needed
-    if lemmatize:
-        lemmatizer = WordNetLemmatizer()
-        tagged_tokens = [
-            (lemmatizer.lemmatize(w, pos_to_lemma_arg[pos]), pos)
-            for (w, pos) in tagged_tokens
-        ]
-
-    # Returns a tuple (word, part_of_speech)
-    return tagged_tokens
+# Tags parts of speech, outputs list of tuples
+def get_pos(word_tokens):
+    return pos_tag(word_tokens)
 
 
 # If this is a number, returns the word representation (ex. 4.2 to four point two). Otherwise, return original word
@@ -117,15 +95,12 @@ def replace_symbols(txt):
     return txt
 
 
-# Remove adjectives and adverbs
-def remove_adv_adj(tokenized_with_pos):
-    cleaned_toks = []
-    pos_to_clean = ['JJ', 'RB', 'FW', 'UH']
-    for item in tokenized_with_pos:
-        if item[1] in pos_to_clean:
-            # Don't remove useful words
-            word = item[0].lower()
-            if not ('no' in word or 'false' in word or 'fake' in word):
-                continue
-        cleaned_toks.append(item[0])
-    return cleaned_toks
+# Remove selected POS' from the input array, outputs an array of pos-tagged tokens without the selected parts of speech
+def remove_pos(words_with_pos):
+    pos_to_clean = [
+        'POS',  # Possessives ex. 's
+        'TO',  # ex. to go "to" the store
+        'FW',  # Foreign words
+        'UH'  # Interjections
+    ]
+    return list(filter(lambda item: item[1] not in pos_to_clean, words_with_pos))
