@@ -1,0 +1,2735 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app57.us.archive.org';v.server_ms=350;archive_analytics.send_pageview({});});</script><script charset="utf-8" src="/_static/js/ait-client-rewrite.js" type="text/javascript"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20080918155309", "blogs.abcnews.com");
+</script>
+<script charset="utf-8" src="/_static/js/wbhack.js" type="text/javascript"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link href="/_static/css/banner-styles.css" rel="stylesheet" type="text/css"/>
+<link href="/_static/css/iconochive.css" rel="stylesheet" type="text/css"/>
+<!-- End Wayback Rewrite JS Include -->
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="Political Punch Blog" name="description"/>
+<meta content="blog, political punch, jake tapper, barack obama, hillary clinton, john mccain, bill clinton, 2008, election, president, white house, vote, delegate, superdelegate, democrats, democratic, republicans, gop, iraq, surge, war, withdrawal, fundraising, president george w. bush, abc news " name="keywords"/>
+<meta content="http://www.typepad.com/" name="generator"/>
+<title>Political Punch</title>
+<link href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/atom2.xml" rel="alternate" title="Atom" type="application/atom+xml"/>
+<link href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/index.rdf" rel="alternate" title="RSS" type="application/rss+xml"/>
+<link href="http://www.typepad.com/t/rsd/176853" rel="EditURI" title="RSD" type="application/rsd+xml"/>
+<script language="javascript">
+var hasChanged = 0;
+var hostName = '.typepad.com';
+
+function setCookie (name, value, expires) {
+    document.cookie = name + '=' + escape(value) + '; expires=' + expires.toGMTString() + '; domain=' + hostName + '; path=/';
+}
+
+function getCookie (name) {
+    var key = name + '=';
+    var c = document.cookie;
+    var i = c.indexOf(key);
+    if (i < 0) return '';
+    var j = c.indexOf(';', i + key.length);
+    if (j < 0) j = c.length;
+    return unescape(c.substring(i + key.length, j));
+}
+
+function deleteCookie (name) {
+    if (getCookie(name))
+        setCookie(name, '', new Date(70, 0, 1, 0, 0, 1));
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    if( f.author )
+        setCookie('typepadauthor', f.author.value, now);
+    if( f.email )
+        setCookie('typepademail', f.email.value, now);
+    if( f.url )
+        setCookie('typepadurl', f.url.value, now);
+}
+
+function forgetMe () {
+    deleteCookie('typepadauthor');
+    deleteCookie('typepademail');
+    deleteCookie('typepadurl');
+}
+
+function setFormValues (f) {
+    var val = getCookie("typepadauthor");
+    if( f.author && !f.author.value && val)
+        f.author.value = val;
+    val = getCookie("typepademail");
+    if( f.email && !f.email.value && val)
+        f.email.value = val;
+    val = getCookie("typepadurl");
+    if( f.url && !f.url.value && val)
+        f.url.value = val;
+}
+
+function unsetFormValues (f) {
+    f.author.value = '';
+    f.email.value = '';
+    f.url.value = '';
+}
+
+function handleSubmit (f) {
+    if (validateForm(f)) {
+        if (f.bakecookie && f.bakecookie.checked)
+            rememberMe(f);
+        else
+            forgetMe();
+    } else {
+        return false;
+    }
+}
+
+function handleSubmitEvent( evt ) {
+    evt = evt || event;
+    var f = document.getElementById( "comment-form" ) || document.comment_form || document.comments_form;
+    if (validateForm(f)) {
+        return handleSubmit( f );
+    } else {
+        return false;
+    }
+}
+
+function validateForm (f) {
+var x=0;
+for (var i=0; i<f.length; i++) {
+        if ((f.elements[i].value == "") && (f.elements[i].name != "url")) {
+            alert ("Please enter your" + f.elements[i].name);
+            //alert (f.elements[i].name + " is blank");
+            x=x+1;
+        } else {
+            if (f.elements[i].name == "email") {
+                if (!((f.elements[i].value.indexOf(".") > 2) && (f.elements[i].value.indexOf("@") > 0))) {
+                    alert ("Please enter a valid email address");
+                    x=x+1;
+                }
+            }
+            
+            if ((f.elements[i].name == "url") && (f.elements[i].value != ""))  {
+                if (!((f.elements[i].value.indexOf("http://") > -1))) {
+                    alert ("Please enter a valid url");
+                    x=x+1;
+                }
+            }
+        }
+    }
+
+    if (x != "0") {
+        return false;
+    } else {
+        return true;
+    }
+}
+function handleCheck (e) {
+    if (hasChanged) return;
+    if (e.checked)
+        setFormValues(e.form);
+    else
+        unsetFormValues(e.form);
+}
+
+function handleChange (e) {
+    hasChanged = 1;
+}
+
+function doLoaded () {
+    var f = document.getElementById( "comment-form" ) ||
+        document.comment_form || document.comments_form;
+    if( !f )
+        return;
+    f.onsubmit = handleSubmitEvent;
+    setFormValues( f );
+    if( f.author && f.author.value && f.bakecookie )
+        f.bakecookie.checked = 1;
+}
+onload = doLoaded;
+
+var theForm;
+var requestSubmitted = false;
+function disableButton (e) {
+    if (!requestSubmitted) {
+        e.disabled = true;
+        theForm = e.form;
+        requestSubmitted = true;
+        setTimeout('submitIt()', 250);
+    } else {
+        return false;
+    }
+}
+
+function submitIt () {
+    // make sure we're posting
+    if (theForm.bakecookie) handleSubmit(theForm);
+    theForm.submit();
+    return false;
+}
+
+
+/* comment registration */  
+var showHideElements =
+{
+    "comments-open-login" : "none",
+    "comments-open-logout" : "block",
+    "comments-open-data" : "none",
+    "comments-open-text" : "block",
+    "comments-open-footer" : "block"
+};
+
+function commentSignIn()
+{
+    if( typeof commenterName == "undefined" || !commenterName )
+        return;
+    
+    // insert name
+    var e = document.getElementById( "commenter-name" );
+    if( e )
+        e.innerHTML = commenterName;
+    
+    // hide/show various elements
+    for( var i in showHideElements )
+    {
+        e = document.getElementById( i );
+        if( e )
+            e.style.display = showHideElements[ i ];
+    }
+}
+
+</script>
+<script type="text/javascript">
+hostName = '.abcnews.com';
+</script>
+<link href="http://blogs.abcnews.com/foaf.rdf" rel="meta" title="FOAF" type="application/rdf+xml"/>
+<script id="_hbc" language="javascript" type="text/javascript">
+//<![CDATA[
+var _acct="DM5103306BDW86EN3;DM5103083LCA38EN3"; //account number(s)
+var _pn="Blog"; //page name(s)
+var _mlc="/PoliticalPunch/"; //multi-level content category
+var _seg=""; // visitor segmentation
+var _cmp=""; // campaign id
+var _gp="";  // campaign goal
+var _cmpn="CMP";// campaign id in query
+var _gpn=""; // campaign goal in query
+var _fnl=""; // funnels
+var _pec=""; // error codes
+var _fv="";  // form validation function name
+var _dcmp="";// dynamic campaign
+var _dcmpn="";//dynamic campaign in query
+var _hra=""; // response attribute
+var _hcn=""; // conversion
+var _hcv=""; // conversion value
+var _hlt=""; // lead tracking
+var _hla=""; // lead attribute
+var _hqsr="";// response attribute in referrer query
+var _hqsp="";// response attribute in query
+var _hc1=""; // custom 1
+var _hc2=""; // custom 2
+var _hc3=""; // custom 3
+var _hc4=""; // custom 4
+var _lt="auto";  // link tracking
+var _ci="";  // customer id
+var _cp="null"; // campaign
+var _cpd=""; // campaign domain
+var _pndef="title"; //default page name
+var _ctdef="full"; //default content category
+var _dlf="n"; //download filter
+var _elf="n"; //exit link filter
+var _dft="n"; // download file tracker variable, set to y to use the name reference
+var _hrf=""; // custom referrer. use valid url or param name
+var _epg="n"; //event page identifier
+var _vpc="090101r";
+var _gn="ehg-dig.hitbox.com",_mn="we21"; //gateway & machine name
+//]]>
+</script>
+<script language="javascript1.1" src="http://web.archive.org/web/20080918155309js_/http://a.abcnews.com/js/hbx.js" type="text/javascript"></script>
+<script language="javascript" src="http://web.archive.org/web/20080918155309js_/http://a.abcnews.com/assets/static/wrapper/blogs/punch/blog_cssjs.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="bannerad"><div class="banneradcontainer"><script language="Javascript1.1" src="http://web.archive.org/web/20080918155309js_/http://abcnews.go.com/Adserver?CallDown&amp;js=1&amp;AdTypes=Banner;" type="text/javascript"></script></div></div>
+<script src="http://web.archive.org/web/20080918155309js_/http://a.abcnews.com/assets/static/wrapper/blogs/punch/blog_header.js" type="text/javascript"></script>
+<div class="bodycontainerwide">
+<div class="story">
+<div class="container">
+<div class="main">
+<div class="captop">
+<img alt="" border="0" class="left" height="2" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/cap-top_left.gif" width="3"/> <img alt="" border="0" class="right" height="2" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/cap-top_right.gif" width="3"/>
+</div>
+<div id="blogArea">
+<div class="breadcrumb">
+<a href="http://web.archive.org/web/20080918155309/http://abcnews.go.com/">Home</a> &gt; <a href="http://web.archive.org/web/20080918155309/http://abcnews.go.com/politics">Politics</a> &gt; <a class="active" href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch">Political Punch</a>
+</div>
+<div id="blogHeader">
+<div class="headline">
+<h1>Political Punch</h1>
+</div>
+<div class="dek">
+<h2>Power, pop, and probings from ABC News Senior National Correspondent Jake Tapper</h2>
+</div>
+</div>
+<div id="blogLeft">
+<div class="leftBox" id="aboutBlog">
+<a href="http://web.archive.org/web/20080918155309/http://abcnews.go.com/WNT/story?id=127673&amp;page=1"><img alt="" border="0" height="155" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/images/site/blog/redesign07/blog_tapper62107.jpg" width="218"/></a>
+<p>
+<a href="http://web.archive.org/web/20080918155309/http://abcnews.go.com/WNT/story?id=127673&amp;page=1"><strong>Jake Tapper</strong></a> is ABC News' Senior National Correspondent based in the network's Washington bureau. He writes about politics and popular culture and covers a range of national stories. 
+		</p>
+</div>
+<div class="leftBox" style="background-image:none;">
+<p style="padding:5px 0 5px 5px;"><a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/index.rdf"><img alt="Subscribe to this blog's feed" src="http://web.archive.org/web/20080918155309im_/http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" style="vertical-align:middle;border:0"/></a> <a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/index.rdf">Subscribe to this blog's feed</a></p>
+<p style="padding:2px 0 5px 5px;"><a href="http://web.archive.org/web/20080918155309/http://feeds.feedburner.com/AbcNews_Shuffle"><img alt="Subscribe to the Shuffle Podcast" src="http://web.archive.org/web/20080918155309im_/http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" style="vertical-align:middle;border:0;float:left;margin-right:5px;"/></a> <a href="http://web.archive.org/web/20080918155309/http://feeds.feedburner.com/AbcNews_Shuffle">Subscribe to Jake Tapper's "Shuffle" Podcast</a></p>
+<div style="clear:both"><!-- text --></div>
+</div>
+<div class="leftBox">
+<h3>RECENT POSTS</h3>
+<ul>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/baseball-apple.html">Baseball, Apple Pie, the Flag...</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/two-other-maver.html">Two Other Maverick Republicans Not So Psyched About the GOP Ticket</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/unanswered-qu-1.html">Unanswered Question Watch, Day 9: Are McCain-Palin Endorsing Sen. Ted Stevens' Re-election?</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/obama-holds-con.html">Obama Holds Conference Call with 900 Rabbis for the High Holy Days, Says His Volunteers Are Blowing Shofars of Action</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/obama-mccains-c.html">Obama: McCain's Campaign Like an 'SNL' Routine </a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/a-baby-toe-in-t.html">A Baby Toe in the Water</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/profiles-in-por.html">Profiles in Porridge</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/rhetoric-and-po.html">Rhetoric and Policy Proposals that Won't Be Showing Up in An Obama Speech Anytime Soon</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/palins-private.html">Palin's Private E-mails Hacked, McCain Campaign Shocked</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/from-the-fact-1.html">From the Fact Check Desk: Obama's New Spanish Language TV Ad Es Erróneo</a>
+</li>
+</ul>
+</div>
+<div class="leftBox">
+<h3>MONTHLY ARCHIVES</h3>
+<ul>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/index.html">September 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/08/index.html">August 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/index.html">July 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/06/index.html">June 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/05/index.html">May 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/04/index.html">April 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/03/index.html">March 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/02/index.html">February 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/01/index.html">January 2008</a>
+</li>
+<li>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2007/12/index.html">December 2007</a>
+</li>
+</ul>
+<!--<p class="syndicate"><a href="http://blogs.abcnews.com/politicalpunch/index.rdf"><img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" alt="Subscribe to this blog's feed" style="vertical-align:middle;border:0"/></a> <a href="http://blogs.abcnews.com/politicalpunch/index.rdf">Subscribe to this blog's feed</a></p>-->
+</div>
+<div class="leftBox">
+<div id="calendar">
+<table summary=" Monthly calendar with links to each day's posts
+				">
+<caption>
+					September 2008
+				</caption>
+<tr>
+<th>
+							Sun
+						</th>
+<th>
+							Mon
+						</th>
+<th>
+							Tue
+						</th>
+<th>
+							Wed
+						</th>
+<th>
+							Thu
+						</th>
+<th>
+							Fri
+						</th>
+<th>
+							Sat
+						</th>
+</tr>
+<tr>
+<td>
+							
+							
+															 
+							
+						</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/mccain-hires-go.html">1</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/lieberman-gets.html">2</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/mush.html">3</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/closing-song.html">4</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/i-dont-believe.html">5</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/the-pork-wars-c.html">6</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/mccain-pulls-ah.html">7</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/obama-on-the-ne.html">8</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/a-piggish-debat.html">9</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/obama-on-letter.html">10</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/when-hes-facing.html">11</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/palin-zings-oba.html">12</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/mccain-endorser.html">13</a>
+</td>
+</tr>
+<tr>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/joe-who.html">14</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/goldberg-how-is.html">15</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/gop-jewish-grou.html">16</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/obama-holds-con.html">17</a>
+</td>
+<td>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/09/baseball-apple.html">18</a>
+</td>
+<td>
+							
+															19
+							
+							
+						</td>
+<td>
+							
+															20
+							
+							
+						</td>
+</tr>
+<tr>
+<td>
+							
+															21
+							
+							
+						</td>
+<td>
+							
+															22
+							
+							
+						</td>
+<td>
+							
+															23
+							
+							
+						</td>
+<td>
+							
+															24
+							
+							
+						</td>
+<td>
+							
+															25
+							
+							
+						</td>
+<td>
+							
+															26
+							
+							
+						</td>
+<td>
+							
+															27
+							
+							
+						</td>
+</tr>
+<tr>
+<td>
+							
+															28
+							
+							
+						</td>
+<td>
+							
+															29
+							
+							
+						</td>
+<td>
+							
+															30
+							
+							
+						</td>
+<td>
+							
+							
+															 
+							
+						</td>
+<td>
+							
+							
+															 
+							
+						</td>
+<td>
+							
+							
+															 
+							
+						</td>
+<td>
+							
+							
+															 
+							
+						</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="blogMain">
+<p>
+<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/mccain-campaign.html">« McCain Campaign Finds Hillary's Anti-Obama Playbook Helpful</a> |
+			
+			<a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/">Main</a>
+						| <a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/nyt-finds-littl.html">NYT Finds Little Racial Progress Evident in Obama Run; Obama Camp Pushes Back »</a>
+</p>
+<h3>McCain Shifts Position on More US Troops to Afghanistan</h3>
+<p class="date">July 15, 2008  5:20 PM</p>
+<!-- <p class="author">Natalie Gewargis</p>-->
+<p>While <a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/the-success-of.html "><strong>Sen. Barack Obama, D-Illinois, was seeming defensive on Iraq today</strong></a>, Sen. John McCain, R-Ariz., was changing his position on Afghanistan.</p>
+<p>Just last week, <a href="http://web.archive.org/web/20080918155309/http://www.cbsnews.com/blogs/2008/07/09/politics/fromtheroad/entry4246617.shtml"><strong>McCain was calling for the U.S.'s NATO allies to increase their troop presence in Afghanistan</strong></a>  and was resisting calls for more U.S. troops there. “I would like to have our allies make a bigger commitment, both in personnel and other ways,” McCain said in Portsmouth, Ohio. “I’d like to hear from our military leaders, our chairman of the joint chiefs, as well as the military commanders there.” </p>
+<p>McCain foreign policy aide Randy Scheunemann told <a href="http://web.archive.org/web/20080918155309/http://www.boston.com/news/nation/articles/2008/07/06/obama_mccain_split_over_afghan_strategy/?page=2"><strong>the Boston Globe</strong></a>  that there needed to be more NATO troops, and "there is no easy answer, but clearly Pakistan needs to do more to crack down there."</p>
+<p>This was quite a contrast from Obama, who <a href="http://web.archive.org/web/20080918155309/http://www.nysun.com/national/mccain-will-call-for-a-surge-of-troops/81861/ "><strong>since August 2007</strong></a> has been calling for at least two additional U.S. brigades in Afghanistan.</p>
+<p>A contrast, that is…until today.</p>
+<p>"Our commanders on the ground in Afghanistan say that they need at least three additional brigades," <a href="http://web.archive.org/web/20080918155309/http://blogs.usatoday.com/onpolitics/2008/07/mccain-now-supp.html"><strong>McCain said today</strong></a>  at a town hall in Albuquerque. "Thanks to the success of the surge, these forces are becoming available, and our commanders in Afghanistan must get them."</p>
+<p>During a trip to Afghanistan in 2006, <a href="http://web.archive.org/web/20080918155309/http://www.iht.com/articles/ap/2006/12/16/asia/AS_GEN_Afghan_US.php "><strong>McCain resisted such a call</strong></a>, saying when asked if more US troops were needed, "If it's necessary, we will, and I'm sure we would be agreeable, but the focus here is more on training the Afghan National Army and the police, as opposed to the increased U.S. troop presence."</p>
+<p>Speaking to reporters on his bus today after his speech, <a href="http://web.archive.org/web/20080918155309/http://blog.washingtonpost.com/the-trail/2008/07/15/mccain_revises_plan_to_send_th.html "><strong>McCain rejected the notion</strong></a> that he and Obama have similar plans for the region.</p>
+<p>"He's just said we need more troops," McCain said. "There is a dramatic difference. He's never been to Afghanistan, he's never been briefed on Afghanistan personally by the commanders." Moreover, McCain asserted, Obama doesn't see the wars in Iraq and Afghanistan as connected, as does McCain.</p>
+<p>"If we fail in Iraq, it would have meant enormous encouragement to the Taliban in Afghanistan and other anti-American elements and jihadists throughout the region," McCain said. "And so to say, we could have let Iraq fail, as Senator Obama said,...that would have had a devastating effect in my view on our reliability in the region, that the willingness of our allies to cooperate with us in Afghanistan, and so they are connected. In life and warfare, failure breeds failure, success breeds success. That is just a lesson of history, and Senator Obama obviously does not understand those lessons."</p>
+<p>McCain also <a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/mccain-campaign.html"><strong>repeated a charge first made by Sen. Hillary Clinton, D-NY</strong></a>,  against Obama -- that he chairs a Foreign Affairs subcommittee with oversight over NATO operations and yet "he's never had a hearing. He's never had a hearing. So I am not surprised that all he has done is said, 'Well, we need more troops.'" </p>
+<p>Senate Foreign Relations Chairman Joe Biden, D-Del, rejected that accusation in a statement to ABC News. "The reason Senator Obama didn’t chair a NATO and Afghanistan subcommittee hearing is because I did, as Chairman of the Committee….when it comes to the war in Afghanistan and the war in Iraq, we hold those hearings at the full committee level,” he said.</p>
+<p>- jpt</p>
+<a id="more"></a>
+<p class="entryFoot">
+					July 15, 2008 
+					
+					| <a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/mccain-shifts-p.html">Permalink</a> 				  | <a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/mccain-shifts-p.html#comments">User Comments (106)</a>
+</p>
+<p class="formhed"><a id="trackback"></a><strong>TrackBack</strong></p>
+<p>TrackBack URL for this entry:<br/>http://www.typepad.com/t/trackback/433071/31266094</p>
+<p>Listed below are links to weblogs that reference <a href="http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/mccain-shifts-p.html">McCain Shifts Position on More US Troops to Afghanistan</a>:</p>
+<p class="formhed"><a id="comments"></a><strong>User Comments</strong></p>
+<a id="c122634702"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>West coast mess <br/>
+  You need help first of all hillary lost understand that second hillary voted yes to the war in iraq so that should tell where her judgement was during the primaries i never heard hillary speak about afghan the taliban or none of that face it obama has been right all along he has good judgment hes willing to listen to our military that is the kinds of things we need as potus obama 08</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">angie</span> | Jul 17, 2008 12:32:51 AM</p>
+<a id="c122597388"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Obama's shifts on foreign policy are making me dizzy. I see he scrubbed his criticisms on the surge from his website this weekend. hmmm....</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">rrow</span> | Jul 16, 2008 5:23:06 PM</p>
+<a id="c122579510"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>The only "connection" between Iraq and Afghanistan is the total incompetence by the Bush Regime, including Juan McCain, in running both Wars.  Iraq has nothing to do with 9/11 or any so called War on Terror. It was supposedly a War of Liberation and to enforce UN Resolutions regarding WMD's,  foreign fighters showed up there as Al Qaeda in Iraq because the U.S. Military was there, the insurgents there have every right to fight against any foreign occupation of their country, they are not Terrorists.</p>
+<p>Bush keeps saying that's it's better to fight them "over there" instead of here, but does he believe he's punishing Al Qaeda by making their trainees travel to Iraq, while Bin Laden and other Al Qaeda an Talaban leaders have been practically ignored since Bush abandoned his War on Terror for a War For Oil.</p>
+<p>It really doesn't matter what either Juan or Barrack plan for Iraq now, the Iraqi's themselves are ready to kick us out and then move forward with becoming a new Iranian State. Hundreds of Billions of U.S. Taxpayer dollars, borrowed from China, and more than 4000 American lives, all spent in aiding Iran.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">cynik47</span> | Jul 16, 2008 2:56:05 PM</p>
+<a id="c122551386"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>The major difference between these two on foreign policy are the advisers.  While Senator Obama has assembled a team of top notch foreign policy experts with varied backgrounds and affiliations and tends to take their advice into consideration before making a policy statement or a "shift" in policy, as time dictates needed changes; McCain on the other hand, has relied heavily on former Bush advisers, or individuals such as Charlie Black, the lobbyist who has been shuffled from the forefront after stating that "another attack on America would help McCain" and individuals such as former CIA head, James Woolsey, who advised McCain to "bomb Syria". In this respect, McCain's change, (shift, flip-flop, whatever term one wishes to apply), acknowledges the advantage and superiority Senator Obama has over that of his own team. McCain has consistently demonstrated his lack of ability to choose credible individuals for advice, as has been exhibited by the almost weekly exit of the same individuals from his team. This fact has just been reinforced by the exit of his top economic adviser, Phil Gramm.  This should be a red flag for anyone.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">devilkev</span> | Jul 16, 2008 11:17:16 AM</p>
+<a id="c122545458"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>dl made at comment at 8:40 that made a lot of sense. It is worth reading and thinking about.<br/>
+As for the topic of this article, McCain is following Obama on sending more troops to Afghanistan. Obama has been saying more troops were needed there for many months. The troops themselves have been saying the same thing in many news articles that they feel forgotten, that their numbers are too few, leaving them open to attack in many situations and unable to make progress. <br/>
+What McCain doesn't seem to understand is that is doesn't take prior military experience to lead an army. It takes someone that is intelligent and willing to listen to the troops, the generals, and good old common sense. Obama has proved over and over he has the ability to make the right calls. </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Lydia</span> | Jul 16, 2008 10:30:27 AM</p>
+<a id="c122543828"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>mccains been out of the senate for every vote this year... hes hte most absent member of congress</p>
+<p>hes missed environmental votes Gi bill votes fisa</p>
+<p>you name it mccain missed it</p>
+<p>oh and then mccain criticized congress for taking a break for july the 4th</p>
+<p>lol</p>
+<p>yea slackers back to work, oh i dont do weekends</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">bhrandon</span> | Jul 16, 2008 10:16:56 AM</p>
+<a id="c122537630"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>  Man it must irk John Sydney McCain III that the so-called naive one has been right on foreign policy issues more often than him the last few weeks. The Iraqis want a timetable (JSM III doesn't), the war commanders want to re-focus on Afghanistan (JSM III just now gets it) and the US and others are talking more to Iran (JSM III just wants to bomb them or kill them with lung cancer). Let's not even mention that John Sydney McCain III keeps referring to a country that hasn't existed for 15 years. Man is this guy serious or what?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Tommy Thompson</span> | Jul 16, 2008 9:23:10 AM</p>
+<a id="c122536658"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Obama chairs a Foreign Affairs committee and never has a hearing--votes present 129 times and has only 143 active days in the Senate.</p>
+<p>And we are to believe he has the experience and the backbone to lead this country?</p>
+<p>Obama would make a great pastor--but his sermons won't protect our country.</p>
+<p>McCain/Hillary</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">riley</span> | Jul 16, 2008 9:14:12 AM</p>
+<a id="c122536096"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>More flip flopping from the double talk express. What's new?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Drew Hoffman</span> | Jul 16, 2008 9:08:09 AM</p>
+<a id="c122533630"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Jake isn't the problem here</p>
+<p>the quiet of the surge  that they are callinjg a success is built on a playbook we have seen before...</p>
+<p>Prop up our enemies to come to our side...giving them weapons, money, promises (that will remain unfulfilled but we don't care)...</p>
+<p>this is what we did with the insurgents...</p>
+<p>Isn't this what we did with Iran and Afghanistan also?</p>
+<p>Isn't this what got us the taliban and al quaeda in the first place...</p>
+<p>and nw we have done it with the insurgents in Iraq...and like we did with Iran and Afghanistan we call it a success (to win over the support of the American people and the "temporary win" for political reasons)...and then it comes back to bite us in the a## 10 fold down the road...</p>
+<p>am I wrong...do we not need to see that McCain and Bush are taking a bad play out of an old playbook and no one is seeing it?</p>
+<p>Isn't that what got us here?</p>
+<p>why is no one showing the association and similarities in this tactic and what we should have learned as bad tactics from the 80's?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">dl</span> | Jul 16, 2008 8:40:49 AM</p>
+<a id="c122524592"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>GOP mass hypnosis is making it's way through the MSM. War is good, wrong is right, the economy is healthy, health care for the few, fight them over in Iraq....<br/>
+So many blind, deaf and dumb to choose from the GOP  has a large circus tent filled to overflowing. </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">David</span> | Jul 16, 2008 7:39:45 AM</p>
+<a id="c122522374"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>I can see why this guy has to have Sanctimonious Joe by his side at all times.  For two days in a row, he's talked about Czechoslovakia...a country that no longer exists.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Brooklyn Democrat</span> | Jul 16, 2008 6:52:33 AM</p>
+<a id="c122521792"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>At least McCain is smart enough to come around to Obama's way of thinking.</p>
+<p>It may be another flip-flop from the "Double-Talk Express", but at least it's George W McCain's first INTELLIGENT flip-flop.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">wilderrr</span> | Jul 16, 2008 6:38:25 AM</p>
+<a id="c122512732"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Just what this country needs another "DOLT" like BUSH in the White House for 4 more years...Throw the GOP bum's out the front door..</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Repubsout</span> | Jul 16, 2008 2:36:41 AM</p>
+<a id="c122506666"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Bush went as President... not as a candidate for office looking for a photo op.</p>
+<p>Mccain  made a quiet trip to Iraq<br/>
+around Father's Day to visit his son.<br/>
+Most of us weren't even aware of it until it was over.<br/>
+</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">eyes wide open</span> | Jul 16, 2008 12:44:44 AM</p>
+<a id="c122506364"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>I remember when the Obama haters in Washington were calling him naive and irresponsible for wanting to talk to world leaders. They claimed that "America does not negotiate with rogue leaders and terrorists". Just in the last few weeks Bush talked with North Korea and now going to talk to Iran. Talk about major flip-flopping and the pots calling the kettle black. It seems McCain and Bush are following Obama's lead, how ironic. Go Obama!!!</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Beth</span> | Jul 16, 2008 12:41:11 AM</p>
+<a id="c122505828"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>is grandmaisgold.. sandy?</p>
+<p>or do they share the same script?</p>
+<p>on purpose?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">hmmmmmmmmmm</span> | Jul 16, 2008 12:33:50 AM</p>
+<a id="c122498030"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>John's conscience:  Oh, you mean Obama chaired his committee in absentia?  Obama is all talk.  The problem is he forgets what he said before, then says something different.  It is a joke that he speaks of solutions for Afghanistan when he did nothing on the committee he chaired.  Change we can believe in!</p>
+<p>PUMA</p>
+<p>Hillary/McCain '08  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">georgia</span> | Jul 15, 2008 11:14:59 PM</p>
+<a id="c122495542"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>AkaDad - As of yesterday McCain's flip-flops were up to 70. Of course, that was before today. The self-professed candidate of “straight talk” and “experience” spent today changing his position on gay adoption, adopting Senator Obama’s position that we need more troops in Afghanistan after having resisted taking that position, flip flopping on whether he’d send U.S. or NATO troops (he actually offered three different explanations on where those additional troops would come from), and referring to a country that hasn’t existed since 1992 for the second time in two days.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">grandmaisgold</span> | Jul 15, 2008 10:47:46 PM</p>
+<a id="c122495310"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p> dmac: Totally agree with you!</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Colorado Dem</span> | Jul 15, 2008 10:45:34 PM</p>
+<a id="c122495008"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>AkaDad - the count on McCain's flip-flops is now up to 70! Of course, that was yesterday's total - McCain pulled another one today. The self-professed candidate of “straight talk” and “experience” spent today changing his position on gay adoption, adopting Senator Obama’s position that we need more troops in Afghanistan after having resisted taking that position, flip flopping on whether he’d send U.S. or NATO troops (he actually offered three different explanations on where those additional troops would come from), and referring to a country that hasn’t existed since 1992 for the second time in two days.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">sandy </span> | Jul 15, 2008 10:42:08 PM</p>
+<a id="c122493938"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>The reason why the media gives McCain a pass when he flip flops or shows his age with mis-quotes or appears dumbfounded when ask questions about Viagra or etc....has everything to do with making this election competitive. If the media devoted as much attention to McCain's every step the way they do toward Obama the Republican party would be forced to forfeit this election.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">peoples_prez</span> | Jul 15, 2008 10:29:48 PM</p>
+<a id="c122492350"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain graduated from the US Naval Academy 894th in a class of 899.  He wrecked five jets before they finally got rid of him.  Obviously he is not the brightest bulb on the tree.  He was shot down by an out-of-date Soviet missile by men with no experience in anti-aircraft warfare because he did not follow the rules of evasion taught at the Academy.  Let's just say the man has only one oar in the water. </p>
+<p>He disses two in five people on the face of the earth by referring to all Asians as “Gooks.” He may be viewed as a “hero,” but I don’t think being shot down qualifies him for the job of president.<br/>
+</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">rhbate</span> | Jul 15, 2008 10:12:18 PM</p>
+<a id="c122492244"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>John's conscience:</p>
+<p>Not to mention that the government can no longer sneeze without fueling the Chinese economy. Who is it that we owe most of our money to? We should be deathly worried that China may eventually no longer need us.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Nick B</span> | Jul 15, 2008 10:11:07 PM</p>
+<a id="c122492102"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>"He's never been to Afghanistan, he's never been briefed on Afghanistan personally by the commanders."  McCain</p>
+<p>Based on this reasoning, I suppose Roosevelt should have gone to Poland and France before deciding to enter WWll&gt;</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">rhbate</span> | Jul 15, 2008 10:09:50 PM</p>
+<a id="c122491992"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>What is the *real* reason that John McCain advocated surrendering Afghanistan to the Taliban, as he has sense the beginning of the Iraq war?</p>
+<p>Could it be that John McCain is loyal to the America's enemies?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">John's conscience</span> | Jul 15, 2008 10:08:32 PM</p>
+<a id="c122491990"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Besides getting more of our troops killed, how will McSame be different than Bush?  Is Phil Graham McSame's brain? Face it..this man is senile and incompetent.  After looking stupid to the world the past 8 years, it will be refreshing to have an articulate and intelligent commander that I can be proud of again; one that can at least read a tele prompter.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">dmac</span> | Jul 15, 2008 10:08:32 PM</p>
+<a id="c122491634"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Wisdom   You have the wisdom of a republican Rush Limbaugh listener. Obama said when having conversations with immigrant communities in the wake of 9/11 his meetings with Arab and Pakistani Americans, have been of an urgent quality. They have stories of detentions and FBI questioning and hard stares from neighbors have shaken their sense of security and belonging. They have been reminded that the history of immigration in this country has a dark underbelly. Therefore he has reassured them that he will stand with them should the political winds shift in an ugly direction. This simply means he would not allow our government to mistreat these Americans any more than he would allow any other group or type of people to be persecuted by our government. Obama is a man to be admired for standing up for us all.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Vicki</span> | Jul 15, 2008 10:03:50 PM</p>
+<a id="c122491468"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>West Coast Messenger:</p>
+<p>Get your facts straight. Those 'present' votes? Yeah, those amounted to maybe 1-3% of his total votes cast, and most of the time--for instance on an anti-abortion bill--that was what the pro-choice groups wanted him to do.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Nick B</span> | Jul 15, 2008 10:01:55 PM</p>
+<a id="c122491294"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Obama leads McSame in every category except foriegn policy, which McSame leads in simply because he is old and has been in Washington all his life.  What will McCain do?  Whatever GW wants him to do.  What's the difference between McSame and Bush,,,just ask Mark Sanford.  Want more of the same.....stay loyal to your party instead of your common sense.  This has been the worst 8 years of my life, and I want nothing that even resembles GW for the next 8-years.  Nothing against the man, but his time has come and gone.<br/>
+Obama will follow the direction of his cabinet, fresh ideas and competency, not the out of touch Phil Graham and Lieberman type.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">dmac</span> | Jul 15, 2008 10:00:33 PM</p>
+<a id="c122490840"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>WestCoastMessenger - Experience doesn't count for much when the principle is wrong. 26 years of experience should have taught McCain better. The concept of doing the same thing over and over and over, hoping for a different outcome doesn't make it right.<br/>
+This election is about Judgment. Repeatedly, Obama is showing significantly better judgment on issues than McCain. This most recent flip-flop of McCain's is just one more in a long line of 'shifts'. The last thing we need is a POTUS that continues the experience we've seen the past 7 years. More of the same isn't good enough.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">millie</span> | Jul 15, 2008 9:54:29 PM</p>
+<a id="c122490624"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Hearings on Afghanistan were held at the COMMITTEE level.</p>
+<p>Are Republicans mearly ignorant, or just willing to tell any lie?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">John's conscience</span> | Jul 15, 2008 9:51:49 PM</p>
+<a id="c122490542"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Mccain flip flops and the media ignores him.He is so incompetent!</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Ndali</span> | Jul 15, 2008 9:50:47 PM</p>
+<a id="c122490328"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Wasn't Obama supposed to be looking into more troops being supplied by NATO?  You know, the committee he was supposed to be chairing?  Any progress on that, or has Biden been doing it for him?  It looks like Obama failed in that responsibility.  McCain is reminding him of what he should have been doing as chair of that committee.  And just why do we even need to stay in Afghanistan?   Do as Ron Paul suggested and the get the h**l out of the Middle East!  Let them blow all of us up together!  Easy solutions for simple minds, huh?  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">georgia</span> | Jul 15, 2008 9:48:28 PM</p>
+<a id="c122490300"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Is this now 63 or 64 flip-flops for McCain? I've lost track.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">AkaDad</span> | Jul 15, 2008 9:47:58 PM</p>
+<a id="c122490050"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>These left wing liberal views on Afghanistan that McCain is now showing are just the influence of that ex-democrat Joe Lieberman. McCain's campaign is being infiltrated with radical ideas from within.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">abram</span> | Jul 15, 2008 9:45:13 PM</p>
+<a id="c122489956"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Hey Millie,<br/>
+Right, Obama was talking about an increase in troops for Afgahnistan when he was an Illinois state senator voting present all the time. Experience you can count on.<br/>
+=======================================<br/>
+Obama and trust -- don't count on it.<br/>
+=======================================</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">WestCoastMessenger</span> | Jul 15, 2008 9:44:15 PM</p>
+<a id="c122489798"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain outpolls Obama 72 to 48 on the commander-in-chief attribute. It looks like he is more trustworthy than Obama. I don't support McCain, but I don't trust Obama on making commander-in-chief decisions or anything else. I'd like to see Hillary back in the race so we have a better choice. She should consider jumping back in since Obama has reneged on the promises he made when he was attempting to steal votes from Hillary.<br/>
+========================================<br/>
+Obama -- just messin' with you man!!!!!<br/>
+========================================</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">WestCoastMessenger</span> | Jul 15, 2008 9:41:52 PM</p>
+<a id="c122489724"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>I say will all vote for General Custer</p>
+<p>Mcbush will set us free..if not in this</p>
+<p>World then in the Next.... </p>
+<p>The US Military should have reported </p>
+<p>and got more troops before ... </p>
+<p>how is it Obama called for it </p>
+<p>almost a year before Mcbush? </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Anita Yova</span> | Jul 15, 2008 9:41:02 PM</p>
+<a id="c122489596"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>The big difference is that McCain decides policy and policy changes after he has been to the war zone and spoke with the commanders...not before.</p>
+<p>O'Carter continually tries to decide policy prior to getting pertinent information, then he has to reverse himself and "shift emphasis." </p>
+<p>Whatever term is used by whatever campaign, weaseling out is what it amounts to.  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Jayhawk</span> | Jul 15, 2008 9:39:48 PM</p>
+<a id="c122489450"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Obama has been talking about Afghanistan for months now. McCain has been calling him 'naive' and 'inexperienced' for this stance. <br/>
+As recent as last April, McCain said Afghanistan poses no problem. All of a sudden, McFlipFlop now embraces Obama's policy on Afghanistan. <br/>
+This is even more than just a flip-flop for McBush. It shows he is out of touch on foreign policy, inconsistent in his views, or at least lacking in short term memory.<br/>
+This shift would suggest that Obama has the better handle on foreign policy, terrorism, and international relationships than does McCain. But, wasn't foreign policy supposed to be McCain's strong suit?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Millie</span> | Jul 15, 2008 9:38:16 PM</p>
+<a id="c122489344"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>vicki..</p>
+<p>You're right!</p>
+<p>"Obama will do nothing."</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">open mind....</span> | Jul 15, 2008 9:36:48 PM</p>
+<a id="c122489202"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain flip flops again.  After constantly calling Obama naive, McCain admitted the war on terror front is Afghanistan.</p>
+<p>Maybe if McCain could read a teleprompter, he would realize Obama has been arguing this since McCain authorized the war in Iraq.</p>
+<p>Obama called it a major mistake to not focus on Afghanistan and the head of Al Qaeda.</p>
+<p>This is the most disgusting flip flop I've ever seen.  McCain should have a "I love to flip flop tattoo" on his forehead.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Dan</span> | Jul 15, 2008 9:34:56 PM</p>
+<a id="c122489162"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>John McCain is incompetent</p>
+<p>Somebody has to tell the truth about John McCain. John is incompetent when it comes to military and international affairs.</p>
+<p>Sunni are a distinct group from Shia. Iran is Shia. Al Qaeda is Sunni. There is no country called Czechoslovakia. There was no “Al Qaeda in Iraq” until the Iraq war. And the Sunni's started forming anti-Al Qaeda 'awakening councils' BEFORE the surge.</p>
+<p>Most importantly, while the Republican economists like Phil Gramm were sleeping, an economic giant has risen that will soon have a larger middle class, more engineers and scientists, and LARGER GDP THAN THE UNITED STATES, has risen.</p>
+<p>In the twenty years it will take for off-shore oil production to go online, China's thirst for oil will have grown fifteen times the production capability of these fields. Tell me again how this is going to lower the world price of oil?</p>
+<p>John McCain is right about one thing: he really doesn't know very much about economics. Except for what Phil Gramm has told him!  <br/>
+</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">John's conscience</span> | Jul 15, 2008 9:34:28 PM</p>
+<a id="c122488958"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain has flipped and flopped all over the place and it has been called shifting his position by the media. There has not been fair reporting when it comes to McCain against, then for tax breaks for the wealthy, for, then against his own bill(McCain/Feingold) campaign finance reform, against, then for off shore drilling, against, then for religious right. Republicans have been blindly following Bush while he made sure he screwed up as much as possible. Obama will do nothing blindly, his decisions and actions will be careful and thorough. Something that has been seriously lacking in these pitiful Bush years and we can't put up with any in the future.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Vicki</span> | Jul 15, 2008 9:32:12 PM</p>
+<a id="c122488886"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain wants to maintain troops in Iraq and increase troops levels in Afganistan.  The US military can't maintain high troop levels in both combat zones.  Sounds like McCain's knowledge of econimics is as fuzzy as his math.  </p>
+<p>Aside from politics, let's not forget want happened to the Soviets in Afganistan when they continued to send troops into a terrain that was not conducive to foreigners.  </p>
+<p>Regards,</p>
+<p>Matt</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">wheelermj30</span> | Jul 15, 2008 9:31:20 PM</p>
+<a id="c122488254"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Lisa Again (and Patrick and Jefferey):</p>
+<p>You of course realize that the term 'flip-flop' was invented by your party, right? We're just giving you a taste of your own medicine. Only this time, McCain has *actually* changed positions (not just changing them for good reason, mind you, but often denies that he has ever done anything different). Whereas Kerry was labeled so due to a carelessly-worded statement.</p>
+<p>See, Democrats (or most anyway), would never have come up with such a shallow, politically-resonant term to derail someone--that's what Karl Rove was so good at. We're just retaliating. Feels good, doesn't it?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Nick B</span> | Jul 15, 2008 9:23:43 PM</p>
+<a id="c122486804"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>So when McCain does it, it's a "SHIFT" but when Obama does it it's a "FLIP FLOP" </p>
+<p>Great reporting Jake.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">David</span> | Jul 15, 2008 9:07:51 PM</p>
+<a id="c122486218"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Look Jeff - I believe only the Truth!</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Mayor Mac Cheese</span> | Jul 15, 2008 9:00:57 PM</p>
+<a id="c122486094"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>He beat Hillary and he showed a new generation how to love, Yes - Love! Obama is a man of PEACE! He stands with some of the greatest orators of our time and don't you ever forget it!</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Mayor Mac Cheese</span> | Jul 15, 2008 8:59:45 PM</p>
+<a id="c122485336"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p></p>
+<p><br/>
+Obama:  Mister 'never accomplished a single noteworthy thing'.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Soetoro No!</span> | Jul 15, 2008 8:51:07 PM</p>
+<a id="c122485036"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>It's called a FLIP-FLOP.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">American Patriot</span> | Jul 15, 2008 8:47:26 PM</p>
+<a id="c122484966"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Of course McCain flip-flopped, whatever little bit of supposed "maverick" he ever had in him is definitely gone now. He is a weak, pathetic, right-wing patsy who would be VERY dangerous as POTUS.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">miles1967</span> | Jul 15, 2008 8:46:42 PM</p>
+<a id="c122484816"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Is "shift" French for "flip flop"?</p>
+<p>What took Senator McCain so long to recognize that Afghanistan was spiraling out of control? </p>
+<p>Senator Obama has been saying this for more than a year.</p>
+<p>Right news media?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Nobodys fool</span> | Jul 15, 2008 8:44:55 PM</p>
+<a id="c122484762"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p><br/>
+I didnt see a huge change in mccains opinion for Afghanistan he said before if we need to add more troops we will and now he is saying we need  more troops the thought is did we always need more troops and he just didnt see this need or did this need just come about?<br/>
+  "In life and warfare, failure breeds failure, success breeds success."<br/>
+  if he believes this he has already admitted that we have failed. The iraq war was not needed and brought more problems and death than was before and for what? i have yet to have a straight answer as to why we are even in iraq?!! <br/>
+ i would call that a HUGE failure! I think the level of respect and trust we have from other countries vs 8 or 10 years ago is a problem because of failures and our refusal to admit them.  but i dont agree that because you fail at one thing that you are doomed to always fail.  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">melissa</span> | Jul 15, 2008 8:44:17 PM</p>
+<a id="c122484746"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain believes that events, not timetables, should dictate when forces come home...that includes Afghanistan.  You can't blindly follow some "pull-out" schedule like Obama would in Iraq.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Patrick</span> | Jul 15, 2008 8:44:12 PM</p>
+<a id="c122483848"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain did not shift position, He is repeating what Sen.Obama has been saying since running for President!!!! </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">janet</span> | Jul 15, 2008 8:33:44 PM</p>
+<a id="c122483510"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>A responsible commander dealing with a dynamic situation must, from time to time, adjust his policies accordingly. It's like driving your automobile down the road and not turning your wheel to follow it. You see - "holding the wheel so you go in only one direction will cause you to wreck!" </p>
+<p>HOPE THIS HELPS FOLKS!  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Jeffrey Smythe</span> | Jul 15, 2008 8:29:32 PM</p>
+<a id="c122482872"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p></p>
+<p>Obama:  Always multiple answers to singular problems!</p>
+<p><br/>
+</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Soetoro No!</span> | Jul 15, 2008 8:22:14 PM</p>
+<a id="c122482756"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Lisa:  Tell me, how exactly is Obama a fraud?  He came from modest means, became a scholar, worked for inner city communities, became involved in politics, and is now a Senator.  The majority of his campaign money has come from donations of under $200.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">m</span> | Jul 15, 2008 8:20:41 PM</p>
+<a id="c122482290"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Can NO ONE come up with another word besides flip-flop?  If this board is any indication of the mentality of the voters in this election, it is no wonder that you think Obama would make a competent leader of this country.  Please, be careful what you wish for.  Obama is a fraud in every sense of the word.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Lisa Again</span> | Jul 15, 2008 8:15:10 PM</p>
+<a id="c122480878"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>So Obama "flip flops", while McCain "shifts position".</p>
+<p>Thanks for the fair and balanced reporting, ABC.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Nick B</span> | Jul 15, 2008 7:56:52 PM</p>
+<a id="c122480836"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>I read this story and I can't see a flip flop. He said he would like more help from NATO. He would like to hear from commanders in Afghanistan. I am sure he would like NATO to step up but you can't count on anyone else so we have to send in our troops.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">boulderhippie2</span> | Jul 15, 2008 7:56:20 PM</p>
+<a id="c122480180"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>I agree. Both candidates have flip-flopped. The difference is McCain has flip-flopped on the major issues rather then Obama on the minor issues.</p>
+<p>McCain has flop double flop on the economy, both wars, health care, drilling, abortion, energy... and flip-flopped to the wrong side.</p>
+<p>Obama is shifting from a liberal to a moderate stance.<br/>
+McCain is shifting from a liberal to a conservative stance.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Vanessa</span> | Jul 15, 2008 7:48:33 PM</p>
+<a id="c122479796"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain Flip-Flopped. Someone should make a list of all of McCain's Flip - Flops on issues.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">James</span> | Jul 15, 2008 7:43:53 PM</p>
+<a id="c122479736"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain had said he want an honorable victory in Iraq.How in hell can you get an honorable win when the war was created by a LIE.Can you take a LIE and make it honorable?Go head and vote for McCain.And if he wins,this country will lose from within.There is no doubt in my mine that McCain temperament is due to Post-Traumatic Stress Disorder symptoms,and he will start World War 3</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Glenn  </span> | Jul 15, 2008 7:42:57 PM</p>
+<a id="c122479406"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>m: Don't you think you are over stating the crises you say are the worst in history? There have been many wars worse than Iraq. The 911 attacks happened 9 months after Bush became president and was basically set up by a seperation of the CIA and FBI imposed by Clinton. Katrina was setup by placing many people in poverty in a vulnerable city. I cannot believe the Democrats could have done a better job. Have you heard of the Great Depression? I guess you must be a product of the worst educational in history. Rational thinking isn't part of the curriculum anymore. </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name"><a href="http://web.archive.org/web/20080918155309/http://www.typepad.com/t/trackback/433071/26624482" rel="nofollow" target="_blank" title="http://www.typepad.com/t/trackback/433071/26624482">boulderhippie2</a></span> | Jul 15, 2008 7:38:54 PM</p>
+<a id="c122478112"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Both of the candidates flip flop. They<br/>
+should be called McBama and O'Cain</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">BikernAz</span> | Jul 15, 2008 7:23:57 PM</p>
+<a id="c122477774"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>if you want more of the same Bush=McCain, then  vote against Obama.  If you want progress, solutions to real issues both domestic and abroad, vote Obama.  Obama has a clear and realistic plan for the economy, clean energy, education, foreign policy, domestic safety and the environment.  McCain has admitted he knows very little about the economy and wants war with Iran.  He wants no timetable for Iraq, despite the fact that most Americans want out.  He basically will take over where Bush left off--a place of dispair and incompetance.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">m</span> | Jul 15, 2008 7:19:54 PM</p>
+<a id="c122477650"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>I agree with McFish (like a fish out of water he flips and flops all over the place) in that the wars in Iraq and Afghanistan are connected.  Invasion of Iraq let the Taliban regain strength in Afghanistan and Pakistan--leading us to perhaps lose the real reason for being at war there.</p>
+<p>Additionally, Iran is a problem because the US war in Iraq has more than anything else elevated Iran's power in the region.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Last Call</span> | Jul 15, 2008 7:17:51 PM</p>
+<a id="c122477382"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>During the GOP reign, we've had the worst national disaster and response in history, the worst terrorist attack on our nation in history, one of the worst and unncessary wars (Iraq) in our history, one of the worst recessions in history, one of the worst financial fraud impacts in history, the worst environmental status in history, the worst educational system in history....should I go on?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name"><a href="http://web.archive.org/web/20080918155309/http://www.typepad.com/t/comments?__mode=red&amp;user_id=433071&amp;id=122477382" rel="nofollow" target="_blank" title="http://blogs.abcnews.com/politicalradar/2007/09/controversial-c.html">m</a></span> | Jul 15, 2008 7:14:51 PM</p>
+<a id="c122475622"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>The flip-flop isn't the only problem. It's also the affordability. McCain wants to expend the surge in Iraq and pile on to Afganistan. With whose money? Chinese money? more borrowing?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Vanessa</span> | Jul 15, 2008 6:56:38 PM</p>
+<a id="c122475258"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>fathead check, "Yes, right, nuke 'em."</p>
+<p>McCain's the one with the itchy trigger finger, remember, "Bomb, Bomb, Bomb .... Bomb, Bomb Iran"</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">JR</span> | Jul 15, 2008 6:52:45 PM</p>
+<a id="c122475122"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Spin away, Johnny boy.  </p>
+<p>I do not blame McCain for changing his position on Afghanistan.  It is much better to correct a mistake than  stubbornly refuse to do so lest someone lables you a flip-flopper.</p>
+<p>What greatly concerns me, however, is McCain's failure to grasp this earlier. </p>
+<p>Frankly, I do not regard Obama as a military genius on getting this point right away, as it was pretty obvious.  But I do believe McCain's long delay in cognition reveals a lack of even  minimal competence to correctly assess and deal with pretty straightforward military issues.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">ToastOnDayOne</span> | Jul 15, 2008 6:51:36 PM</p>
+<a id="c122475058"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Just goes to prove Obama is the leader and McCain is the follower although McCain has been to both Iraq and Afghanistan, he still needs to follow Obama's stance because McCain doesn't really know what is happening.  McCain is not a good leadaer and not presidential.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">eyeonyou</span> | Jul 15, 2008 6:51:03 PM</p>
+<a id="c122475004"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p><br/>
+HEY Topher | Jul 15, 2008 6:29:34 PM;</p>
+<p>Don't you find it a tad scarey that Obama  "chairs a Foreign Affairs subcommittee with oversight over NATO operations and yet "he's never had a hearing. He's never had a hearing."</p>
+<p>I think I would rather take McCain's view then, when he says: "So I am not surprised that all he has done is said, 'Well, we need more troops.'" </p>
+<p>-------------</p>
+<p><br/>
+HILLARY OR MCCAIN</p>
+<p>COUNTRY BEFORE PARTY..... A L W A Y S!!!</p>
+<p><br/>
+</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">be careful what you wish for.....</span> | Jul 15, 2008 6:50:38 PM</p>
+<a id="c122474642"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>chattyway, not from changing his war plans from two years ago but from a WEEK ago.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">JR</span> | Jul 15, 2008 6:47:37 PM</p>
+<a id="c122474268"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Maybe McCain should use 'the google' to research some of his other stances that he might need to rethink by next week.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Ryan</span> | Jul 15, 2008 6:44:08 PM</p>
+<a id="c122474236"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>McCain's latest flip-flop proves Obama's been right all along.</p>
+<p>Will be good to have an intelligent president again. America thanks you, Sen. Obama.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">wilderrr</span> | Jul 15, 2008 6:43:40 PM</p>
+<a id="c122473852"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Sounds like a flip-flop.<br/>
+ Looks like a flip-flop.<br/>
+ must be a flip-flop !!<br/>
+ What !!!  He's Republican?<br/>
+ Oh.... then it's alright....<br/>
+ Hummmmmm</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">spacerook1</span> | Jul 15, 2008 6:39:35 PM</p>
+<a id="c122473612"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>In either case (Iraq or Afghanistan) we have been fighting the wrong war for 7 years. Osama has been literally missing for those 7 years which means if he were any other person on the planet, he would be considered legally dead by statute by now. Instead of accepting this as we would with any other person who has been missing for this long, we feel it necessary to ratchet up the military presence in a war that has no more real definition to what would qualify it as a success any more than we have for Iraq.<br/>
+Give up the ghost. The largest, most technologically advance nation and military in history has not so much as reported spotting this guy in 7 years. Do we really have to wage an unending war in some middle eastern equivalent of the 1930's dust bowl for 7 more years to justify our sense of vengeance and the failure of our leadership to apprehend a man who has succefully alluded the United States president's promise of his dead or alive capture?? No.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">foxisms</span> | Jul 15, 2008 6:37:22 PM</p>
+<a id="c122473020"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>It's easy to support the war in Iraq when you're not the one over there fighting, dying and losing limbs.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Topher</span> | Jul 15, 2008 6:31:23 PM</p>
+<a id="c122472850"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>What's scary is not a "flip-flopper." That is a word made up by the media. Spooky Language everybody!!</p>
+<p>What scary is someone whose views are entrenched in what they believe so much so that they wouldn't be willing to possibly shift their position when new, vital information changes the game.</p>
+<p>Not considering new information would be like Bush still fighting the war in Iraq, citing WMD's, long after it was determined there were none. Oh wait, he did that!!</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Topher</span> | Jul 15, 2008 6:29:34 PM</p>
+<a id="c122472840"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>And we should tell Pakistan that we ARE coming after the enemy forces which take refuge over the border. Musharraf is NOT our "ally".</p>
+<p>Posted by: Rhys | Jul 15, 2008 6:20:59 PM<br/>
+====</p>
+<p>Yes, right, nuke 'em. That's exactly the kind of boneheaded mistakes that 0-bama will make, as he admits daily.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">fact check</span> | Jul 15, 2008 6:29:27 PM</p>
+<a id="c122472026"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>We have been fighting the WRONG WAR for almost seven years.  We shouldn't find fault with McCain or anyone else for realizing that our enemies are in Afghanistan (and Pakistan).</p>
+<p>It's time to admit Bush's mistake and exit from Iraq, concentrating on Afghanistan.  And we should tell Pakistan that we ARE coming after the enemy forces which take refuge over the border.  Musharraf is NOT our "ally".</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Rhys</span> | Jul 15, 2008 6:20:59 PM</p>
+<a id="c122471688"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>What's funny is that there's no flip flop here.  You people are delusional.</p>
+<p>It's almost as if you folks wouldn't be happy unless McCain wanted to apply exactly the same military strategy to both countries now as would have been appropriate in 2006.</p>
+<p>You want to talk flip-floppery?  Obama railed against the surge all of 2007.  He said it would make things worse.  He called it a failure.  Now all his anti-surge talk has been scrubbed from his website and his team is pretending that they always thought more troops would fix the security problem.</p>
+<p>FYI, I'm voting 3rd party, so I'm no McCain shill.  But to accuse McCain of flip-flopping on the wars is sheer idiocy.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">murphy</span> | Jul 15, 2008 6:17:55 PM</p>
+<a id="c122471680"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>One of the things that differentiates the human being from other species is our ability to digest new information and adjust and adapt our point of view because of it. McCain is no more (or less) of a "flip flopper" than any one. The problem with McCain in this instance is, he is urging success in Iraq, when no one has qualified what success might be regarding Iraq. In this way he is guilty of blowing smoke and just mimicking the Bush administration's ability to say what they like whether it's true or not and make it up as they go along regardless of the fact that they lost sight of the reality of the situation, long ago.   </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">foxisms</span> | Jul 15, 2008 6:17:50 PM</p>
+<a id="c122471458"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>"Yes, things have changed in 2 years"</p>
+<p>Good point. But the real question is how in the worlds of worlds can we afford this? Maintaining the surge in Iraq and piling on in Afganistan?</p>
+<p>We can't even afford the war on Iraq. McCain is so wrong on this issue it's ridiculous. Should we count on a draft from a McCain presidency?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Vanessa</span> | Jul 15, 2008 6:15:54 PM</p>
+<a id="c122471232"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>There should be more NATO troops sent to Afganistan but unfortunatly we cannot get them to step up to the plate. Now like always the US will have to take care of business. McCain is right about NATO troops, but with things faultering in Afganistan his position has changed to send in US troops. No suprise here, sounds like he is going to do the surge agin, this time in Afganistan. I guess Obama has learned his lesson on opposing surges.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">billy bob</span> | Jul 15, 2008 6:13:19 PM</p>
+<a id="c122471030"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>So will the talk radio hosts and the media call this a McClain flip flop.<br/>
+Obama, was right about Iraq, Pakistan,<br/>
+Afghanistan, and the housing crisis.</p>
+<p>Google his 2006 Stop Fraud Act.</p>
+<p>Had the bill became law, the housing crisis would have been largely averted.  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Mr. Unite Us </span> | Jul 15, 2008 6:11:50 PM</p>
+<a id="c122470912"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>and chattyway they showed Keryy footage from 16 yrs prior and said he was a flip floper if you can't change a position in 16 yrs how can you in just 2 ? don't you know you can't change your mind based on new info in American Politics  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Dennis Fort Myers Fl </span> | Jul 15, 2008 6:10:32 PM</p>
+<a id="c122470794"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p></p>
+<p>So McCain's position is to beg NATO for more troops that they won't send. Jeez at leat Obama is being honest about putting troops in there. McCain is trying to con both the US and NATO. Question: "When is a war not a war?"</p>
+<p>Posted by: pity | Jul 15, 2008 5:49:28 PM<br/>
+===</p>
+<p>If 0-bama has done 1% of his job as the Chairman of his senate subcommittee that oversees NATO and Afghanistan, it would have not been this greater mess developing in Afghanistan.</p>
+<p>Another addition to his record of 0 accomplishment, being a zero-bama.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">fact check</span> | Jul 15, 2008 6:09:08 PM</p>
+<a id="c122470646"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Wait a minute, you are trying to condemn McCain for changing his war strategy from 2006 two years later?  LOL.....Yes, things have changed in 2 years.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">chattyway</span> | Jul 15, 2008 6:07:33 PM</p>
+<a id="c122470564"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Actually thats false. Some poll had Obama within 4 in NC against Hillary, he won by 14.</p>
+<p>Polls had Hillary leading by 12 in Indiana, she won by 1.4 or something along the lines.</p>
+<p>For the most part the poll have been consistent in whom wins the states. The gallup/rasmusseen polls are not as important as the electoral college pollsa. </p>
+<p>Obama leads McCain in the electoral college count by 317 to 221</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Vanessa</span> | Jul 15, 2008 6:06:44 PM</p>
+<a id="c122470534"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Can You say FLIP FLOP that's all he does John "the Flipper" McCain his new campaign slogan should be  John McCain "There isn't an issue I won't change my mind on, yes there is, no there isn't " Or John McCain " whatever W says "  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Dennis Fort Myers Fl </span> | Jul 15, 2008 6:06:19 PM</p>
+<a id="c122470526"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Yup, big devil vs. small devil.  They are all devils.  Which do you prefer?  The phony devil or the straight-talking one.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">fact check</span> | Jul 15, 2008 6:06:12 PM</p>
+<a id="c122470334"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>What exactly is McCain talking about when he says "success in Iraq"?? No one has, in seven years clearly defined what the mission is in Iraq. The man is making things up as he goes along, just like George Bush has!!</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">foxisms</span> | Jul 15, 2008 6:04:21 PM</p>
+<a id="c122469912"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>What hasn't mccain flip-flopped on? </p>
+<p>He's flip-flopped on the economy, health care, both wars, abortion, immigration, drilling, energy....... EVERYTHING</p>
+<p>Typical John McCain</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Vanessa</span> | Jul 15, 2008 6:00:15 PM</p>
+<a id="c122469156"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Where the hell is McCain going to get the troops to go in Afghanistan when McCain wants to "win" in Iraq (what ever that means) which may mean staying there for 100 years.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Michelle</span> | Jul 15, 2008 5:52:53 PM</p>
+<a id="c122468864"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>So McCain's position is to beg NATO for more troops that they won't send. Jeez at leat Obama is being honest about putting troops in there. McCain is trying to con both the US and NATO. Question: "When is a war not a war?"  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">pity</span> | Jul 15, 2008 5:49:28 PM</p>
+<a id="c122468266"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Jeremy,</p>
+<p>McCain said he will move troops from Iraq.</p>
+<p>McCain said he hopes Petreaus recommend more troops from Iraq.</p>
+<p>McCain said the goal of the surge was so iraqis can take over and our troops can come home.  </p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Michael</span> | Jul 15, 2008 5:44:10 PM</p>
+<a id="c122467816"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Obama calls ICE immigration agents terrorists for arresting illegals.</p>
+<p>I am so sick of these stupid polls.</p>
+<p><br/>
+Obama lead Hillary by 26 percent in some polls and she got more votes.</p>
+<p><br/>
+Obama always polls better than in the voting booth.</p>
+<p><br/>
+Obama always polled far better in exit polls than the results showed.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Michael</span> | Jul 15, 2008 5:40:14 PM</p>
+<a id="c122467676"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>I hate this election.</p>
+<p>Obama flip flopped on undivided jerusalem and no mention.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Michael</span> | Jul 15, 2008 5:38:59 PM</p>
+<a id="c122467622"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>So if are military is  already over-extended and McCain won't move troops from Iraq how is he planning to accomplish an escalation in Afghanistan?</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">jeremy</span> | Jul 15, 2008 5:38:27 PM</p>
+<a id="c122467280"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Jake,</p>
+<p>The media ragged on Obama for his "refine" Iraq policy as being a flip flopper.  Why can't the media call McCain a FLIP FLOPPER for totally CHANGING his Afghanistan policy.</p>
+<p>You can see there is a disparity between how the media treats Obama vs McCain.</p>
+<p>McCain is the flip flopper on his Afghanistan approach and NO ONE IS CALLING HIM ON IT.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Michelle</span> | Jul 15, 2008 5:35:16 PM</p>
+<a id="c122466434"></a>
+<div id="commentMain">
+<div class="bubbleTop">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-top_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="innerWrapper">
+<span class="comments"><p>Thank you Jake for reporting what seemed obvious to many of us today.  This is the big story, McCain's flip-flop on foreign policy and outright copying of Obama's superior stance on Afghanistan.</p></span>
+</div>
+<div class="bubbleBot">
+<img alt="" border="0" class="fLeft" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_left.gif" width="3"/>
+<img alt="" border="0" class="fRight" height="3" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/corner-bot_right.gif" width="3"/>
+<div style="clear:both;"><!--!--></div>
+</div>
+<div class="arrowEnd"><!--!--></div>
+</div>
+<p class="posted">Posted by: <span class="name">Brian</span> | Jul 15, 2008 5:27:48 PM</p>
+<p class="formhed"><strong>Post a comment</strong></p>
+<form action="http://web.archive.org/web/20080918155309/http://www.typepad.com/t/comments" method="post" name="comments_form" onsubmit="handleSubmit(this);">
+<input name="static" type="hidden" value="1"/>
+<input name="entry_id" type="hidden" value="52742062"/>
+<div id="comment-data">
+<p><label for="author">Name:</label><br/>
+<input id="author" name="author" onchange="handleChange(this)" tabindex="1" type="text"/></p>
+<p><label for="email">Email Address:</label><br/>
+<input id="email" name="email" onchange="handleChange(this)" tabindex="2"/></p>
+<p><label for="url">URL:</label><br/>
+<input id="url" name="url" onchange="handleChange(this)" tabindex="3"/></p>
+</div>
+<p><label><input id="bakecookie" name="bakecookie" onclick="handleCheck(this)" tabindex="5" type="checkbox" value="1"/> Remember personal info?</label></p>
+<p><label for="comment-text">Comments:</label><br/>
+<textarea cols="40" id="comment-text" name="text" rows="10" tabindex="4"></textarea></p>
+<input name="post" onmouseout="this.src='http://web.archive.org/web/20080918155309/http://abcnews.go.com/images/site/blog/btn_post_off.gif'" onmouseover="this.src='http://web.archive.org/web/20080918155309/http://abcnews.go.com/images/site/blog/btn_post_ov.gif'" src="http://web.archive.org/web/20080918155309im_/http://abcnews.go.com/images/site/blog/btn_post_off.gif" style="border: 0; margin: 8px" tabindex="7" type="image" value="Post"/>
+</form>
+</div>
+</div>
+</div>
+<div class="media">
+<div id="homead">
+<div class="captop">
+<img alt="" border="0" class="left" height="2" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/cap-top_left.gif" width="3"/> <img alt="" border="0" class="right" height="2" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/cap-top_right.gif" width="3"/>
+</div>
+<div class="container">
+<div class="label">
+				  
+			</div>
+<div class="ad">
+<!--		
+<InLineReplace name=ad type=Rectangles>                       
+-->
+<script language="Javascript1.1" src="http://web.archive.org/web/20080918155309js_/http://abcnews.go.com/Adserver?CallDown&amp;js=1&amp;AdTypes=Rectangle;" type="text/javascript"></script>
+</div>
+</div>
+<div class="capbottom">
+<img alt="" border="0" class="left" height="2" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/cap-bot_left.gif" width="3"/> <img alt="" border="0" class="right" height="2" src="http://web.archive.org/web/20080918155309im_/http://a.abcnews.com/assets/images/cap-bot_right.gif" width="3"/>
+</div>
+</div>
+<div class="abcpromo">
+<!-- QUIGO -->
+<div class="quigo_ad">
+<script type="text/javascript">adsonar_placementId=1281749;adsonar_pid=174757;adsonar_ps=-1;adsonar_zw=300;adsonar_zh=250;adsonar_jv='ads.adsonar.com';</script><script language="JavaScript" src="http://web.archive.org/web/20080918155309js_/http://js.adsonar.com/js/adsonar.js"></script>
+</div>
+</div>
+</div>
+<div class="capbot">
+				  
+			</div>
+</div>
+</div>
+<script src="http://web.archive.org/web/20080918155309js_/http://a.abcnews.com/assets/static/wrapper/blogs/punch/blog_footer.js" type="text/javascript"></script>
+</div>
+<script language="JavaScript">
+	var mt = new Object();
+	mt.MTBlogDirname = "politicalpunch";
+	mt.MTEntryID = "0052742062";
+	mt.MTEntryPermalink = "http://web.archive.org/web/20080918155309/http://blogs.abcnews.com/politicalpunch/2008/07/mccain-shifts-p.html";
+	mt.MTEntryAuthor = "Natalie Gewargis";
+	mt.MTEntryTitle = "McCain Shifts Position on More US Troops to Afghanistan";
+</script>
+<script language="JavaScript" src="http://web.archive.org/web/20080918155309js_/http://a.abcnews.com/assets/js/s_code.js"></script>
+<script language="JavaScript" src="http://web.archive.org/web/20080918155309js_/http://a.abcnews.com/includes/insert/omnitureTypePadJS"></script>
+<!-- Start Quantcast tag -->
+<script src="http://web.archive.org/web/20080918155309js_/http://edge.quantserve.com/quant.js" type="text/javascript"></script>
+<script type="text/javascript">_qoptions = { tags:"typepad.extended" }; _qacct="p-fcYWUmj5YbYKM"; quantserve();</script>
+<noscript>
+<a href="http://web.archive.org/web/20080918155309/http://www.quantcast.com/p-fcYWUmj5YbYKM" target="_blank"><img alt="Quantcast" border="0" height="1" src="http://web.archive.org/web/20080918155309im_/http://pixel.quantserve.com/pixel/p-fcYWUmj5YbYKM.gif?tags=typepad.extended" style="display: none" width="1"/></a>
+</noscript>
+<!-- End Quantcast tag -->
+</body>
+</html>
+<!--
+     FILE ARCHIVED ON 15:53:09 Sep 18, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 03:15:06 Jan 06, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->

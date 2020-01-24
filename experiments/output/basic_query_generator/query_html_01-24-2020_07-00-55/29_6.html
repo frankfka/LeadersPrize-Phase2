@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app58.us.archive.org';v.server_ms=509;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/ait-client-rewrite.js" charset="utf-8"></script>
+<script type="text/javascript">
+WB_wombat_Init("http://web.archive.org/web/", "20191209031246", "joebiden.com");
+</script>
+<script type="text/javascript" src="/_static/js/wbhack.js" charset="utf-8"></script>
+<script type="text/javascript">
+__wbhack.init('http://web.archive.org/web');
+</script>
+<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css" />
+<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css" />
+<!-- End Wayback Rewrite JS Include -->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"853c31a225",applicationID:"143000334"};window.NREUM||(NREUM={}),__nr_require=function(n,e,t){function r(t){if(!e[t]){var i=e[t]={exports:{}};n[t][0].call(i.exports,function(e){var i=n[t][1][e];return r(i||e)},i,i.exports)}return e[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(n,e,t){function r(){}function i(n,e,t){return function(){return o(n,[u.now()].concat(f(arguments)),e?null:this,t),e?void 0:this}}var o=n("handle"),a=n(4),f=n(5),c=n("ee").get("tracer"),u=n("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(n,e){s[e]=i(d+e,!0,"api")}),s.addPageAction=i(d+"addPageAction",!0),s.setCurrentRouteName=i(d+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(n,e){var t={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),n,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return e.apply(this,arguments)}catch(n){throw c.emit("fn-err",[arguments,this,n],t),n}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(n,e){m[e]=i(l+e)}),newrelic.noticeError=function(n,e){"string"==typeof n&&(n=new Error(n)),o("err",[n,u.now(),!1,e])}},{}],2:[function(n,e,t){function r(n,e){var t=n.getEntries();t.forEach(function(n){"first-paint"===n.name?a("timing",["fp",Math.floor(n.startTime)]):"first-contentful-paint"===n.name&&a("timing",["fcp",Math.floor(n.startTime)])})}function i(n){if(n instanceof c&&!s){var e,t=Math.round(n.timeStamp);e=t>1e12?Date.now()-t:f.now()-t,s=!0,a("timing",["fi",t,{type:n.type,fid:e}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var o,a=n("handle"),f=n("loader"),c=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){o=new PerformanceObserver(r);try{o.observe({entryTypes:["paint"]})}catch(u){}}if("addEventListener"in document){var s=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(n){document.addEventListener(n,i,!1)})}}},{}],3:[function(n,e,t){function r(n,e){if(!i)return!1;if(n!==i)return!1;if(!e)return!0;if(!o)return!1;for(var t=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],4:[function(n,e,t){function r(n,e){var t=[],r="",o=0;for(r in n)i.call(n,r)&&(t[o]=e(r,n[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],5:[function(n,e,t){function r(n,e,t){e||(e=0),"undefined"==typeof t&&(t=n?n.length:0);for(var r=-1,i=t-e||0,o=Array(i<0?0:i);++r<i;)o[r]=n[e+r];return o}e.exports=r},{}],6:[function(n,e,t){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(n,e,t){function r(){}function i(n){function e(n){return n&&n instanceof r?n:n?c(n,f,o):o()}function t(t,r,i,o){if(!d.aborted||o){n&&n(t,r,i);for(var a=e(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(n,e){h[n]=v(n).concat(e)}function m(n,e){var t=h[n];if(t)for(var r=0;r<t.length;r++)t[r]===e&&t.splice(r,1)}function v(n){return h[n]||[]}function g(n){return p[n]=p[n]||i(t)}function w(n,e){u(n,function(n,t){e=e||"feature",y[t]=e,e in s||(s[e]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:e,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var f="nr@context",c=n("gos"),u=n(4),s={},p={},d=e.exports=i();d.backlog=s},{}],gos:[function(n,e,t){function r(n,e,t){if(i.call(n,e))return n[e];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return n[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(n,e,t){function r(n,e,t,r){i.buffer([n],r),i.emit(n,e,t)}var i=n("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(n,e,t){function r(n){var e=typeof n;return!n||"object"!==e&&"function"!==e?-1:n===window?0:a(n,o,function(){return i++})}var i=1,o="nr@id",a=n("gos");e.exports=r},{}],loader:[function(n,e,t){function r(){if(!x++){var n=E.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(n&&n.licenseKey&&n.applicationID&&e))return s.abort();u(y,function(e,t){n[e]||(n[e]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=l.createElement("script");t.src="https://"+n.agent,e.parentNode.insertBefore(t,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=n("handle"),u=n(4),s=n("ee"),p=n(3),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1153.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=e.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};n(1),n(2),l[m]?(l[m]("DOMContentLoaded",o,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",i),d[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=n(6)},{}],"wrap-function":[function(n,e,t){function r(n){return!(n&&n instanceof Function&&n.apply&&!n[a])}var i=n("ee"),o=n(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;e.exports=function(n,e){function t(n,e,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){d([u,"",[r,a,i],f])}s(e+"start",[r,a,i],f);try{return c=n.apply(a,r)}catch(p){throw s(e+"err",[r,a,p],f),p}finally{s(e+"end",[r,a,c],f)}}return r(n)?n:(e||(e=""),nrWrapper[a]=n,p(n,nrWrapper),nrWrapper)}function u(n,e,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<e.length;c++)f=e[c],a=n[f],r(a)||(n[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||e){var o=c;c=!0;try{n.emit(t,r,i,e)}catch(a){d([a,t,r,i])}c=o}}function p(n,e){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(n);return t.forEach(function(t){Object.defineProperty(e,t,{get:function(){return n[t]},set:function(e){return n[t]=e,e}})}),e}catch(r){d([r])}for(var i in n)f.call(n,i)&&(e[i]=n[i]);return e}function d(e){try{n.emit("internal-error",e)}catch(t){}}return n||(n=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'http://web.archive.org/web/20191209031246/https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M96J785');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/themes/bexc/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/themes/bexc/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/themes/bexc/favicons/favicon-16x16.png">
+  <link rel="manifest" href="http://web.archive.org/web/20191209031246/https://joebiden.com/wp-content/themes/bexc/favicons/site.webmanifest">
+  <link rel="mask-icon" href="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/themes/bexc/favicons/safari-pinned-tab.svg" color="#233f94">
+  <link rel="shortcut icon" href="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/themes/bexc/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-config" content="https://joebiden.com/wp-content/themes/bexc/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Joe Biden&#039;s Plan for Rural America | Joe Biden for President</title>
+  <script src="http://web.archive.org/web/20191209031246js_/https://use.typekit.net/lwk5jsx.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+    
+<!-- This site is optimized with the Yoast SEO plugin v12.5.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Joe Biden's plan for rural America will build a healthy, vibrant rural America — because he knows it is essential to the success of our country."/>
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="http://web.archive.org/web/20191209031246/https://joebiden.com/rural/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Joe Biden's Plan for Rural America | Joe Biden for President"/>
+<meta property="og:description" content="Joe Biden's plan for rural America will build a healthy, vibrant rural America — because he knows it is essential to the success of our country."/>
+<meta property="og:url" content="http://web.archive.org/web/20191209031246/https://joebiden.com/rural/"/>
+<meta property="og:site_name" content="Joe Biden for President"/>
+<meta property="og:image" content="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/uploads/2019/10/BFP-Twitter-Cards-Rural-America_v2.png"/>
+<meta property="og:image:secure_url" content="https://joebiden.com/wp-content/uploads/2019/10/BFP-Twitter-Cards-Rural-America_v2.png"/>
+<meta property="og:image:width" content="1600"/>
+<meta property="og:image:height" content="836"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:description" content="Joe Biden's plan for rural America will build a healthy, vibrant rural America — because he knows it is essential to the success of our country."/>
+<meta name="twitter:title" content="Joe Biden's Plan for Rural America | Joe Biden for President"/>
+<meta name="twitter:image" content="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/uploads/2019/10/BFP-Twitter-Cards-Rural-America_v2.png"/>
+<script type="application/ld+json" class="yoast-schema-graph yoast-schema-graph--main">{"@context":"http://web.archive.org/web/20191209031246/https://schema.org","@graph":[{"@type":"WebSite","@id":"http://web.archive.org/web/20191209031246/https://joebiden.com/#website","url":"http://web.archive.org/web/20191209031246/https://joebiden.com/","name":"Joe Biden for President","potentialAction":{"@type":"SearchAction","target":"http://web.archive.org/web/20191209031246/https://joebiden.com/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"http://web.archive.org/web/20191209031246/https://joebiden.com/rural/#webpage","url":"http://web.archive.org/web/20191209031246/https://joebiden.com/rural/","inLanguage":"en-US","name":"Joe Biden&#039;s Plan for Rural America | Joe Biden for President","isPartOf":{"@id":"http://web.archive.org/web/20191209031246/https://joebiden.com/#website"},"datePublished":"2019-07-16T12:32:39-04:00","dateModified":"2019-12-06T14:46:14-05:00","description":"Joe Biden's plan for rural America will build a healthy, vibrant rural America \u2014 because he knows it is essential to the success of our country."}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="//web.archive.org/web/20191209031246/https://joebiden.com/"/>
+<link rel="stylesheet" id="bexc-main-css" href="http://web.archive.org/web/20191209031246cs_/https://joebiden.com/wp-content/themes/bexc/css/main.css?ver=0.58" type="text/css" media="all"/>
+<script type="text/javascript" src="http://web.archive.org/web/20191209031246js_/https://joebiden.com/wp-content/themes/bexc/js/min/modernizr.min.js?ver=3.6.0"></script>
+<link rel="alternate" type="application/json+oembed" href="http://web.archive.org/web/20191209031246/https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Frural%2F"/>
+<link rel="alternate" type="text/xml+oembed" href="http://web.archive.org/web/20191209031246/https://joebiden.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fjoebiden.com%2Frural%2F&amp;format=xml"/>
+<link rel="alternate" href="http://web.archive.org/web/20191209031246/https://joebiden.com/rural/" hreflang="en"/>
+<link rel="alternate" href="http://web.archive.org/web/20191209031246/https://joebiden.com/es/el-plan-biden-para-las-zonas-rurales-en-los-estados-unidos/" hreflang="es"/>
+  
+</head>
+
+<body class="page-template-default page page-id-1089 has-alert language-en">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="http://web.archive.org/web/20191209031246if_/https://www.googletagmanager.com/ns.html?id=GTM-M96J785" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a class="skip-link screen-reader-text" href="#main-content">Skip to content</a>
+
+      <div id="alert-bar">
+                    <div class="body"><p><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/biden2020_fr_q42019_beattrumpfund?refcode=JB_EM_FR_2019.10.09_B8_livestream_X__F1_S1_C1__website&amp;amount=25&amp;amounts=5,25,50,100,250,500&amp;utm_medium=email&amp;utm_source=bsd&amp;utm_campaign=JB_EM_FR_2019.10.09_B8_livestream_X__F1_S1_C1__website">Donald Trump should be impeached. Contribute to our Beat Trump Fund to get him out of the White House &gt;&gt;</a></p>
+</div>
+          </div>
+  
+  <div class="site-header-wrapper">
+    <header id="site-header" class="clearfix">
+              <div class="site-title">
+          <a href="http://web.archive.org/web/20191209031246/https://joebiden.com/" rel="home">
+                        <img class="no-lazyload" src="http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/themes/bexc/img/logo.svg" width="135" height="56" alt="Logo for Joe Biden for President">
+          </a>
+        </div>
+            <nav id="nav-header">
+        <ul class="top">
+          <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/joes-story/">Joe&#8217;s Story</a></li>
+<li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/joes-vision/">Joe’s Vision</a></li>
+<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-134"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/take-action/">Action Center</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-35"><a href="http://web.archive.org/web/20191209031246/https://store.joebiden.com/">Store</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/join/">Join the Team</a></li>
+                                                                              <li class="translation"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/es/el-plan-biden-para-las-zonas-rurales-en-los-estados-unidos/">En Español</a></li>
+                                    
+                                <li class="social">
+              <ul>
+                                                      <li><a href="http://web.archive.org/web/20191209031246/https://twitter.com/joebiden">
+                      <span class="icon-twitter"></span>
+                      <span class="element-invisible">Twitter</span>
+                    </a></li>
+                                                                        <li><a href="http://web.archive.org/web/20191209031246/https://www.facebook.com/joebiden">
+                      <span class="icon-facebook"></span>
+                      <span class="element-invisible">Facebook</span>
+                    </a></li>
+                                                                        <li><a href="http://web.archive.org/web/20191209031246/https://www.instagram.com/joebiden">
+                      <span class="icon-instagram"></span>
+                      <span class="element-invisible">Instagram</span>
+                    </a></li>
+                                                                        <li><a href="http://web.archive.org/web/20191209031246/https://www.youtube.com/joebiden">
+                      <span class="icon-youtube"></span>
+                      <span class="element-invisible">Youtube</span>
+                    </a></li>
+                                                                        <li><a href="http://web.archive.org/web/20191209031246/https://medium.com/@joebiden">
+                      <span class="icon-medium"></span>
+                      <span class="element-invisible">Medium</span>
+                    </a></li>
+                                                </ul>
+            </li>
+                  </ul>
+      </nav>
+                        <a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate-button">Donate</a>
+                    <a class="burger" href="#nav-header">
+        <span class="open">Menu</span>
+        <span class="close">Close</span>
+      </a>
+    </header><!-- #site-header -->
+  </div>
+
+  <div id="main-content">
+
+<main id="main">
+
+                    <div id="donate-bar">
+    <div class="donate-bar">
+              <h2>Support Joe</h2>
+            <ul>
+              <li><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=5" class="button red donate">$5</a></li>
+              <li><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=10" class="button red donate">$10</a></li>
+              <li><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=20" class="button red donate">$20</a></li>
+              <li><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=50" class="button red donate">$50</a></li>
+              <li><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=100" class="button red donate">$100</a></li>
+              <li><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=250" class="button red donate">$250</a></li>
+              <li><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage?amount=500" class="button red donate">$500</a></li>
+            <li class="other"><a href="http://web.archive.org/web/20191209031246/https://secure.actblue.com/donate/joe2020?refcode=frontpage" class="button red donate">Other</a></li>
+      </ul>
+    </div>
+  </div>
+
+    <article class="view-page post-1089 page type-page status-publish hentry">
+
+    <header class="entry-header">
+      <h1 class="entry-title">The Biden Plan for Rural America</h1>
+    </header>
+    <div class="entry-content">
+      <p>Rural America is home to <a href="http://web.archive.org/web/20191209031246/https://www.census.gov/library/stories/2017/08/rural-america.html"><span style="font-weight: 400;">roughly 20%</span></a><span style="font-weight: 400;"> of Americans, but we are all connected to rural communities in many ways. Rural Americans fuel us and feed us. Rural lands provide us with places to spend time outdoors with friends and family and relax.</span></p>
+<p><span style="font-weight: 400;">A healthy, vibrant rural America is essential to the success of our country. Yet in small town after small town, parents watch their kids and grandkids leave rural communities because there just is not enough opportunity for them at home. For too many rural Americans, a pathway to the middle class is out of reach if they stay in their rural communities.</span></p>
+<p><span style="font-weight: 400;">The moral obligation of our time is rebuilding the middle class, so that this time everyone comes along regardless of their race, gender, sexual orientation, disability or zip code.  It should not be dependent on whether they live in a city center, a small town, or a remote area. Everyone means everyone. </span></p>
+<p><span style="font-weight: 400;">As president, Biden will build a pathway to the middle class for rural Americans, </span><i><span style="font-weight: 400;">in </span></i><span style="font-weight: 400;">rural America. He will pursue a rural economic development strategy that partners with rural communities to invest in their unique assets, with the goal of giving young people more options to live, work, and raise the next generation in rural America. It’s not just good for those in rural America, it’s good for everyone across our country. </span></p>
+<p><b>I. FUNDAMENTALLY REVITALIZE RURAL ECONOMIES</b></p>
+<p><span style="font-weight: 400;">Rural America is asset-rich. It feeds and fuels the rest of the country, gives us places to enjoy the outdoors and spend time with friends and family, and is home to creative, hard-working Americans. Yet rural America’s economy is traditionally based on extraction, taking the resources out of rural communities and never returning the profits.</span></p>
+<p><span style="font-weight: 400;">The Biden strategy for rural economic development will be to partner with rural communities, invest in their unique assets, and make sure the wealth created in rural America stays in rural America.</span></p>
+<p><span style="font-weight: 400;">Under this strategy, Biden will:</span></p>
+<p><strong>Strengthen our agricultural sector by:</strong></p>
+<ul>
+<li><strong>Pursuing a trade policy that works for American farmers. </strong><b><a href="http://web.archive.org/web/20191209031246/https://www.fas.usda.gov/data/percentage-us-agricultural-products-exported"><span style="font-weight: 400;">More than 20%</span></a><span style="font-weight: 400;"> of all crops grown and products raised in the United States are exported, </span><a href="http://web.archive.org/web/20191209031246/https://www.ers.usda.gov/amber-waves/2015/may/calculating-the-jobs-associated-with-us-agricultural-exports/"><span style="font-weight: 400;">supporting hundreds of thousands of jobs</span></a><span style="font-weight: 400;"> and helping to stabilize farm income. But America’s farmers and rural communities have paid a heavy price for President Trump’s tariffs. While Trump is pursuing a damaging and erratic trade war without any real strategy, President Biden will stand up to China by working with our allies to negotiate from the strongest possible position. And, he’ll make sure our trade policy works for American farmers.</span></b></li>
+</ul>
+<ul>
+<li><strong>Supporting beginning farmers</strong><span style="font-weight: 400;"><strong>.</strong> America tries to make it easy to start a business, but unless you inherit the land, it’s much more difficult to start a farm. The Biden Administration will expand the Obama-Biden Administration’s </span><a href="http://web.archive.org/web/20191209031246/https://www.fsa.usda.gov/programs-and-services/farm-loan-programs/microloans/index"><span style="font-weight: 400;">microloan program for new and beginning farmers</span></a><span style="font-weight: 400;">, doubling the maximum loan amount to $100,000. And, it will increase funding for the U.S. Department of Agriculture’s </span><a href="http://web.archive.org/web/20191209031246/https://www.fsa.usda.gov/programs-and-services/farm-loan-programs/"><span style="font-weight: 400;">farm ownership and operating loans</span></a><span style="font-weight: 400;"> that typically serve beginning farmers who grew up on a family farm but need low-cost capital to add to their family’s operation to support another household.</span></li>
+</ul>
+<ul>
+<li><strong>Fostering the development of regional food systems</strong><span style="font-weight: 400;"><strong>.</strong> The Biden Administration will partner with small and mid-sized farmers to help them collectively create supply chains to deliver fresh produce and other products to schools, hospitals, and other major state and federal institutions, including the Defense Department. This will allow these farmers to negotiate their own prices. And, it will help farmers identify markets for specialty crops and secondary products, like ice cream produced by dairy farmers to bring in additional revenue.</span></li>
+</ul>
+<ul>
+<li><strong>Re-investing in land grant universities’ agricultural research so the public, not private companies, owns patents to agricultural advances</strong><span style="font-weight: 400;"><strong>.</strong> The Biden Administration will reinvest in agricultural research by bolstering funding for the </span><a href="http://web.archive.org/web/20191209031246/https://www.sare.org/"><span style="font-weight: 400;">Sustainable Agriculture Research and Education Program</span></a><span style="font-weight: 400;"> and the </span><a href="http://web.archive.org/web/20191209031246/https://nifa.usda.gov/"><span style="font-weight: 400;">National Institute of Food and Agriculture</span></a><span style="font-weight: 400;">. Our farmers need new technologies to compete in world markets while protecting our soil and water. These new technologies – and the next new seeds – should be developed and owned by the American people, not private companies who can use patents to expand profits.</span></li>
+</ul>
+<ul>
+<li><strong>Partnering with farmers to make American agriculture first in the world to achieve net-zero emissions, giving farmers new sources of income in the process</strong><span style="font-weight: 400;"><strong>.</strong> Many farmers are some of the best stewards of our land, air, and water. The government needs to partner with them to accelerate progress toward net-zero emissions. As president, Biden will ensure our agricultural sector is the first in the world to achieve net-zero emissions, and that our farmers earn income as we meet this milestone. Toward this end, the Biden Administration will dramatically expand and fortify the pioneering </span><a href="http://web.archive.org/web/20191209031246/https://www.nrcs.usda.gov/wps/portal/nrcs/main/national/programs/financial/csp/"><span style="font-weight: 400;">Conservation Stewardship Program</span></a><span style="font-weight: 400;">, created by former Senate Agriculture Committee Chair Tom Harkin, to support farm income through payments based on farmers&#8217; practices to protect the environment, including carbon sequestration. In addition to seeking full federal funding for the program, the Biden Administration will ensure the program can participate in carbon markets. Corporations, individuals, and foundations interested in promoting greenhouse gas reductions could offset their emissions by contributing to Conservation Stewardship Program payments to farmers for those sequestering carbon &#8212; for example, through cover crops. This will not only help combat climate change, which Vice President Biden has called an </span><a href="http://web.archive.org/web/20191209031246/http://joebiden.com/climate"><span style="font-weight: 400;">existential </span></a><span style="font-weight: 400;">threat, but also create additional revenue sources for farmers at a time when many are struggling to make ends meet. And, this approach will create a whole series of new businesses that survey, measure, certify, and quantify conservation results. In addition, the Biden Plan will make a significant investment in research to refine practices to build soil carbon while maximizing farm and ranch productivity. Soil is the next frontier for storing carbon. </span></li>
+</ul>
+<ul>
+<li><strong>Strengthening antitrust enforcement</strong><span style="font-weight: 400;"><strong>.</strong> From the inputs they depend on – such as seeds – to the markets where they sell their products, American farmers and ranchers are being hurt by increasing market concentration. The Biden Administration will protect small and medium-sized farmers and producers by strengthening enforcement of the Sherman and Clayton Antitrust Acts and the Packers and Stockyards Act.</span></li>
+</ul>
+<ul>
+<li><strong>Expand bio-based manufacturing to bring cutting-edge manufacturing jobs back to rural America.</strong> <span style="font-weight: 400;">The Biden Administration will create </span><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/climate/"><span style="font-weight: 400;">a low-carbon manufacturing sector in every state</span></a><span style="font-weight: 400;"> in the country, but not just in cities. As president, Biden will grow the bioeconomy and bio-based manufacturing to bring cutting-edge manufacturing jobs back to rural America. This means taking every aspect of agricultural production – from corn stock to manure – to create chemicals, materials, fabrics, and fibers in a process that is good for the environment and creates new sources of revenue for farmers. Key to this strategy will be connecting research universities, community colleges, incubators and accelerators, manufacturing institutes, employers, unions, and state and local governments – alone or as part of a regional pact. The federal government will provide them with significant funding for deployment of a place-based plan to help their state or region build a competitive and low-carbon future in manufacturing that reflects climate impacts in their local communities. </span></li>
+</ul>
+<p><strong>Promote ethanol and the next generation of biofuels.</strong> <span style="font-weight: 400;">Joe Biden believes renewable fuels are vital to the future of rural America – and the climate. The Biden Plan will invest </span><a href="http://web.archive.org/web/20191209031246/http://joebiden.com/climate"><span style="font-weight: 400;">$400 billion in clean energy research, innovation, and deployment</span></a><span style="font-weight: 400;"> – more than twice what America spent to put a man on the moon. And, as part of this effort, developing the next generation of biofuels will be a top priority. The Biden Plan will invest in research to develop cellulosic biofuels in a manner that protects</span> <span style="font-weight: 400;">our soil and water and addresses the challenge of climate change, while turning grass, crop residues, and other biomass into fuel. Doubling down on these liquid fuels of the future will not only make value-added agriculture a key part of the solution to climate change – reducing emissions in planes, ships, and other forms of transportation – but will also create quality jobs across rural America. From day one, President Biden will use every tool at his disposal, including the federal fleet and the federal government’s purchasing power, to promote and advance renewable energy, ethanol, and other biofuels.</span></p>
+<p><strong>Invest in wind and solar energy.</strong> President Obama put Vice President Biden in charge of the Recovery Act, which invested more than <a href="http://web.archive.org/web/20191209031246/https://obamawhitehouse.archives.gov/the-press-office/2016/02/25/fact-sheet-recovery-act-made-largest-single-investment-clean-energy">$90 billion</a> in clean energy technology. Those investments contributed to a <a href="http://web.archive.org/web/20191209031246/https://obamawhitehouse.archives.gov/the-press-office/2016/02/25/fact-sheet-recovery-act-made-largest-single-investment-clean-energy"><span style="font-weight: 400;">doubling</span></a><span style="font-weight: 400;"> of the share of domestically produced wind turbine components and produced a dramatic </span><a href="http://web.archive.org/web/20191209031246/https://obamawhitehouse.archives.gov/the-press-office/2016/02/25/fact-sheet-recovery-act-made-largest-single-investment-clean-energy"><span style="font-weight: 400;">decrease</span></a><span style="font-weight: 400;"> in solar costs, making wind and solar power cost-competitive. Biden will build on the Recovery Act by setting an ambitious but essential goal for America to achieve a</span> <span style="font-weight: 400;">100% clean energy economy and net-zero emissions no later than 2050. His </span><a href="http://web.archive.org/web/20191209031246/http://joebiden.com/climate"><span style="font-weight: 400;">clean energy plan</span></a><span style="font-weight: 400;"> will accelerate the already dramatic growth of solar, wind, and other renewable energy sources. </span></p>
+<p><strong>Invest $20 billion in rural broadband infrastructure, and triple funding to expand broadband access in rural areas. </strong><b><span style="font-weight: 400;">High-speed broadband is essential in the 21st Century economy. Yet far too many rural communities still don’t have access to it. Rural Americans are </span><a href="http://web.archive.org/web/20191209031246/https://fas.org/sgp/crs/misc/RL33816.pdf"><span style="font-weight: 400;">over 10 times more likely</span></a><span style="font-weight: 400;"> than urban residents to lack quality broadband access. At a time when so many jobs and businesses could be located anywhere, high-speed internet access should be a great economic equalizer for rural America, not another economic disadvantage. Investing $20 billion in rural broadband infrastructure has the potential to create more than <a href="http://web.archive.org/web/20191209031246/https://www.democrats.senate.gov/files/documents/ABlueprinttoRebuildAmericasInfrastructure.pdf">a quarter million new jobs.</a> The Biden Plan will triple <a href="http://web.archive.org/web/20191209031246/https://www.rd.usda.gov/programs-services/community-connect-grants">Community Connect</a> broadband grants and partner with municipal utilities to bring cutting-edge broadband connections to communities across rural America.</span></b></p>
+<p><strong>Invest in green infrastructure nationwide.</strong> <span style="font-weight: 400;">As president, Biden will make smart infrastructure investments to rebuild the nation and to ensure that our buildings, water, transportation, and energy infrastructure can meet America’s economic needs and withstand the impacts of climate change. The Biden Administration will use this infrastructure funding to ensure that rural communities across the country have access to clean, safe drinking water. It will modernize the lock and dam system vital to getting rural products to markets, leveraging the federal resources to the maximum extent possible with the private sector. And, it will build the roads to give farms and small town businesses access to markets and an efficient means to participate in the world economy.  </span></p>
+<p><strong>Expand access to credit for new and small businesses.</strong><span style="font-weight: 400;"> Entrepreneurs in small towns and rural areas should have access to the capital they need to realize their dreams. The Biden Administration will dramatically expand funding for Community Development Financial Institutions (CDFIs) and the Rural Microentrepreneur Assistance Program to help rural entrepreneurs. Biden will expand the number of </span><a href="http://web.archive.org/web/20191209031246/https://www.rd.usda.gov/programs-services/rural-business-investment-program"><span style="font-weight: 400;">Rural Business Investment Companies</span></a><span style="font-weight: 400;"> to help rural companies obtain capital.</span></p>
+<p><b>II. PARTNER WITH RURAL COMMUNITIES TO HELP THEM FULLY ACCESS FEDERAL RESOURCES</b></p>
+<p><span style="font-weight: 400;">A contributing factor to place-based inequality across the U.S. is the simple fact that some communities are more successful at accessing federal dollars and technical assistance than others. The federal government’s programs are too often too challenging to navigate for cities and towns that do not have the ability to hire highly qualified professionals to engage with the system.</span></p>
+<p><span style="font-weight: 400;">The Biden Administration wants to fundamentally change how the federal government interacts with rural communities that so often do not have access to federal programs. The Biden Administration will partner with these communities to help them fully access federal resources to create jobs, build wealth, and give rural Americans who live in poverty the chance to join the middle class.</span></p>
+<p><span style="font-weight: 400;">The Biden Administration will do this in two ways:</span></p>
+<ul>
+<li><strong>Create a White House “StrikeForce” to partner with rural communities to help them access federal funds. </strong><b><span style="font-weight: 400;">The Biden Administration will create a White House StrikeForce consisting of agency leaders who will partner with community-building organizations in persistent poverty rural communities and help them unlock federal resources. This approach is modeled on the </span><a href="http://web.archive.org/web/20191209031246/https://nifa.usda.gov/topic/strikeforce"><span style="font-weight: 400;">StrikeForce</span></a><span style="font-weight: 400;"> Secretary Tom Vilsack successfully established in the U.S. Department of Agriculture during the Obama-Biden Administration.</span></b></li>
+<li><strong>Prioritize persistent poverty rural communities. </strong><a href="http://web.archive.org/web/20191209031246/https://www.ers.usda.gov/data-products/county-typology-codes/descriptions-and-maps/"><span style="font-weight: 400;">Approximately 85% of roughly 350 persistent poverty counties in the United States fall outside of a metropolitan area</span></a><span style="font-weight: 400;">. To tackle persistent poverty in all communities, but especially rural America, Vice President Biden supports applying Congressman James Clyburn’s </span><a href="http://web.archive.org/web/20191209031246/https://clyburn.house.gov/10-20-30-amendment"><span style="font-weight: 400;">10-20-30 formula</span></a><span style="font-weight: 400;">, which will allocate 10 percent of funding to areas “where 20 percent or more of the population has been living below the poverty line for the last 30 years,” to all federal programs.</span></li>
+</ul>
+<p><b>III. PROTECT AND BUILD ON THE AFFORDABLE CARE ACT TO IMPROVE ACCESS TO QUALITY HEALTH CARE IN RURAL COMMUNITIES</b></p>
+<p><span style="font-weight: 400;">The Affordable Care Act was a big deal in rural America, and it should be protected and built upon. As president, Biden will protect and build on Obamacare – not get rid of it and start over with something new. He will not support any policy that means getting rid of Obamacare, whether proposed by a Democrat or Republican.</span></p>
+<p><span style="font-weight: 400;">Vice President Biden believes that every American has a right to the peace of mind that comes with knowing they have health insurance and access to affordable, quality health care. He believes that it’s a right, not a privilege. It should not be dependent on whether they live in a city center, a small town, or a remote community.</span></p>
+<p><span style="font-weight: 400;">Rural America faces unique challenges and opportunities when it comes to access to quality health care. In many rural communities, the local hospital is one of the largest – if not the largest  – employers. Keeping our rural hospitals open is critical not only for saving lives, but also for supporting local economies in rural America. Yet, since 2010, more than </span><a href="http://web.archive.org/web/20191209031246/https://www.shepscenter.unc.edu/programs-projects/rural-health/rural-hospital-closures/"><span style="font-weight: 400;">100 rural hospitals</span></a><span style="font-weight: 400;"> across the United States have closed. Combined, these closures represent the loss of over </span><a href="http://web.archive.org/web/20191209031246/https://www.ivantageindex.com/rural-hospital-closures-eclipsing-the-century-mark/"><span style="font-weight: 400;">10,000 jobs</span></a><span style="font-weight: 400;">. And, they could mean life or death for patients in rural communities. Already, someone injured in a rural area has to travel, on average, </span><a href="http://web.archive.org/web/20191209031246/https://www.citylab.com/equity/2018/12/rural-americans-hospitals-healthcare-travel-times-far/578305/"><span style="font-weight: 400;">nearly twice as far</span></a><span style="font-weight: 400;"> to get to the closest hospital as someone injured in an urban area. These critical moments lost in travel time are one reason an estimated </span><a href="http://web.archive.org/web/20191209031246/https://www.ruralhealthweb.org/NRHA/media/Emerge_NRHA/Advocacy/Government%20affairs/2018/2018-NRHA-Save-Rural-Hospitals-Act-(H-R-2957)-sponsor-request.pdf"><span style="font-weight: 400;">60%</span></a><span style="font-weight: 400;"> of all trauma fatalities occur in rural communities. </span></p>
+<p><span style="font-weight: 400;">This problem is at risk of getting even worse. Roughly </span><a href="http://web.archive.org/web/20191209031246/https://www.ruralhealthweb.org/advocate"><span style="font-weight: 400;">1 out of 3</span></a><span style="font-weight: 400;"> rural hospitals are at risk of shutting down. And that’s only part of the story. Rural clinics and rural nursing homes are closing as well.</span></p>
+<p><span style="font-weight: 400;">You can read Vice President Biden’s full health care plan </span><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/healthcare/"><span style="font-weight: 400;">here</span></a><span style="font-weight: 400;">. To specifically help rural Americans, his plan will also:</span></p>
+<ul>
+<li style="font-weight: 400;"><strong>Keep our rural hospitals open by:</strong>
+<ul>
+<li style="font-weight: 400;"><strong>Defending the Affordable Care Act</strong><span style="font-weight: 400;"><strong>.</strong> The first step to save our rural hospitals is to defend the Affordable Care Act. In fact, one proposal to repeal the Affordable Care Act would have caused </span><a href="http://web.archive.org/web/20191209031246/https://www.ivantageindex.com/graham-cassidy-and-the-impact-to-rural-healthcare/"><span style="font-weight: 400;">$1.7 billion in cuts to rural hospitals, 181 additional rural hospitals “forced into the red,” and nearly 38,000 lost jobs</span></a><span style="font-weight: 400;">.  President Biden isn’t going to eliminate the Affordable Care Act, he’s going to build on it.</span></li>
+<li style="font-weight: 400;"><strong>Finishing the job of expanding coverage to low-income adults. </strong><a href="http://web.archive.org/web/20191209031246/https://www.healthaffairs.org/doi/10.1377/hlthaff.2017.0976"><span style="font-weight: 400;">Research</span></a><span style="font-weight: 400;"> found that, in states that took up the Affordable Care Act’s Medicaid expansion, the expansion was a critical tool in keeping rural hospitals open. Yet, </span><a href="http://web.archive.org/web/20191209031246/https://www.kff.org/medicaid/issue-brief/the-coverage-gap-uninsured-poor-adults-in-states-that-do-not-expand-medicaid/"><span style="font-weight: 400;">14 states</span></a><span style="font-weight: 400;"> have still not expanded Medicaid eligibility, and </span><a href="http://web.archive.org/web/20191209031246/https://www.kff.org/medicaid/issue-brief/the-coverage-gap-uninsured-poor-adults-in-states-that-do-not-expand-medicaid/"><span style="font-weight: 400;">an estimated 4.9 million individuals</span></a><span style="font-weight: 400;"> would be eligible for coverage but for their state’s inaction. Vice President Biden’s plan will enroll all of these individuals in a new public option, without a premium and with benefits like those offered in Medicaid. This isn’t just the right thing to do, it will help rural hospitals remain solvent. And, under the Biden Plan, which preserves individuals’ ability to choose private insurance, these hospitals won’t be threatened by having to get by on low Medicare reimbursement rates for all.</span></li>
+<li style="font-weight: 400;"><strong>Giving rural hospitals the flexibility they need to keep their doors open and care for their patients.</strong><span style="font-weight: 400;"> The Biden Administration will provide rural health care providers with funding and flexibility necessary to identify, test, and deploy innovative approaches to keeping their doors open and providing care for the unique needs of rural communities. The Affordable Care Act supports this type of innovation, for example through demonstration projects like the </span><a href="http://web.archive.org/web/20191209031246/https://innovation.cms.gov/initiatives/pa-rural-health-model/"><span style="font-weight: 400;">Pennsylvania Rural Health Model</span></a><span style="font-weight: 400;">, which is giving rural hospitals in the state more flexibility to decide how best to spend dollars to improve the health of the population they serve. The Biden Plan will expand funding for these types of demonstration projects, and then accelerate efforts to replicate proven models to other rural hospitals across the country. And, the Biden Plan will identify and eliminate federal rules making it harder for rural hospitals to serve their communities. For example, many rural hospitals serving small populations do not have enough patients to maintain inpatient care, but those communities still need a 24/7 emergency department. One approach to ensure they can keep their doors open is to create a new designation, the Community Outpatient Hospital, as proposed in the bipartisan </span><a href="http://web.archive.org/web/20191209031246/https://www.congress.gov/115/bills/hr2957/BILLS-115hr2957ih.pdf"><span style="font-weight: 400;">Save Rural Hospitals Act</span></a><span style="font-weight: 400;">. The Biden Administration will make sure the federal government is helping rural hospitals meet community needs, not serving as a roadblock.</span></li>
+<li style="font-weight: 400;"><strong>Adequately funding our rural hospitals</strong><span style="font-weight: 400;"><strong>.</strong> To help hospitals keep their doors open, President Biden supports the elimination of payment cuts and additional payments for rural hospitals as detailed in the bipartisan </span><a href="http://web.archive.org/web/20191209031246/https://www.congress.gov/115/bills/hr2957/BILLS-115hr2957ih.pdf"><span style="font-weight: 400;">Save Rural Hospitals Act</span></a><span style="font-weight: 400;">.</span></li>
+</ul>
+</li>
+<li style="font-weight: 400;"><strong>Expand primary care and innovative health care delivery models in rural communities by:</strong>
+<ul>
+<li style="font-weight: 400;"><strong>Doubling funding for community health centers. </strong><a href="http://web.archive.org/web/20191209031246/https://www.healthcare.gov/community-health-centers/"><span style="font-weight: 400;">Community health centers</span></a><span style="font-weight: 400;">  provide primary, prenatal, and other important care to underserved populations. The Biden Plan will double the federal investment in these centers, expanding access to high quality health care for the populations that need it most. More than </span><a href="http://web.archive.org/web/20191209031246/https://www.kff.org/report-section/community-health-centers-recent-growth-and-the-role-of-the-aca-issue-brief/"><span style="font-weight: 400;">half</span></a><span style="font-weight: 400;"> of community health centers are in rural areas.</span></li>
+<li style="font-weight: 400;"><strong>Equipping rural community health centers to be hubs for healthy communities</strong><span style="font-weight: 400;"><strong>.</strong> As president, Biden will establish a grant program to help community health centers hire social workers or other professionals to coordinate resources necessary for community health, such as transportation to get patients to health centers and connections to housing and nutrition services.</span></li>
+<li style="font-weight: 400;"><strong>Expanding the pipeline of rural health care providers</strong><span style="font-weight: 400;"><strong>.</strong> The Biden Administration will use a comprehensive approach to increase the number of rural individuals going to medical school or other training programs and returning or staying in rural communities to provide care, with a focus on primary care physicians, nurses, nurse practitioners, nurse anesthetists, and other in-demand providers. This initiative will include additional funding for residency programs in rural areas, expanding the </span><a href="http://web.archive.org/web/20191209031246/https://nhsc.hrsa.gov/"><span style="font-weight: 400;">National Health Service Corps</span></a><span style="font-weight: 400;">, and developing high school-community-college-health-center partnerships to inspire rural youth to pursue jobs in health care and pursue the advanced credits or industry credentials that will put them on the path to success in the field.</span></li>
+<li style="font-weight: 400;"><strong>Building new health clinics and deploying telehealth in rural America</strong><span style="font-weight: 400;"><strong>.</strong> The Obama-Biden Administration successfully used the </span><a href="http://web.archive.org/web/20191209031246/https://www.rd.usda.gov/programs-services/community-facilities-direct-loan-grant-program"><span style="font-weight: 400;">USDA Community Facility Direct Loan &amp; Grant Program</span></a><span style="font-weight: 400;"> to build rural hospitals and mental health clinics across rural America and equip them with the best technology. As president, Biden will expand this grant funding, with a focus on accelerating the deployment of telehealth for mental health and specialty care. Telehealth – the use of videoconferencing and other technology to provide remote care – can be a vital resource for rural communities with limited access to providers.</span></li>
+</ul>
+</li>
+</ul>
+<p><span style="font-weight: 400;">&#8212;&#8212;</span></p>
+<p><i><span style="font-weight: 400;">Previously Released Biden Plans &amp; Rural America</span></i></p>
+<p><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/healthcare/"><i><span style="font-weight: 400;">To Protect &amp; Build on the Affordable Care Act</span></i></a><i><span style="font-weight: 400;">, </span></i><span style="font-weight: 400;">including a public option, which will give rural Americans a new health insurance choice, and other policies to lower health care costs.</span></p>
+<p><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/education/"><i><span style="font-weight: 400;">For Educators, Students, and Our Future</span></i></a><span style="font-weight: 400;">, which will triple funding for Title I schools, </span><span style="font-weight: 400;">including those in rural communities, and expand high school-community college-business partnerships to prepare students for good jobs.</span></p>
+<p><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/climate/"><i><span style="font-weight: 400;">For a Clean Energy Revolution and Climate Justice</span></i></a><i><span style="font-weight: 400;">, </span></i><span style="font-weight: 400;">which </span><span style="font-weight: 400;">commits our country to fulfilling our obligation to all workers impacted by the energy transition, like coal miners and power plant workers and their communities</span></p>
+<p><span style="font-weight: 400;">In the months ahead, Biden will release a higher education proposal which will include a policy to support small, low-endowment private colleges that are often anchor institutions in rural communities.</span></p>
+    </div>
+  </article>
+
+
+</main><!-- #main -->
+
+
+</div><!-- #main-content -->
+
+<footer id="site-footer" class="clearfix">
+
+  <div class="site-footer__column site-footer__column--a">
+
+              <form name="signup" class="bsd-signup" action="" data-ajax="" method="post">
+
+        <div class="form-inline clearfix">
+          <div class="fieldset" id="bsd-field-email-footer">
+            <div class="label"><label class="field" for="email-footer">Email Address</label></div>
+            <div class="input"><input type="email" class="text" size="48" id="email-footer" name="email" required="required"></div>
+          </div>
+
+          <div class="fieldset" id="bsd-field-zip-footer">
+            <div class="label"><label class="field" for="zip-footer">ZIP Code</label></div>
+            <div class="input"><input size="8" id="zip-footer" name="zip" type="text" class="text" required="required"></div>
+          </div>
+        </div>
+
+        <div class="form-inline clearfix">
+          <div class="fieldset" id="bsd-field-mobile-footer">
+            <div class="label"><label class="field" for="mobile-footer">Mobile Phone</label></div>
+            <div class="input"><input type="tel" class="text" size="15" id="mobile-footer" name="mobile"></div>
+          </div>
+
+          <div class="form-submit">
+            <button class="button" data-submitting="Adding" data-success="Success">
+              <div class="text">Join Us</div>
+              <div class="submitting"></div>
+              <div class="success"><span class="icon-check"></span></div>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    
+    <nav id="nav-footer">
+        <ul class="menu clearfix">
+        <li id="menu-item-1134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1134"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/accessibility/">Accessibility</a></li>
+<li id="menu-item-357" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-357"><a href="http://web.archive.org/web/20191209031246/https://jobs.lever.co/joebiden">Work with Us</a></li>
+<li id="menu-item-801" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-801"><a href="http://web.archive.org/web/20191209031246/https://go.joebiden.com/page/s/contact-us">Contact Us</a></li>
+<li id="menu-item-61" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-61"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-567" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-567"><a href="http://web.archive.org/web/20191209031246/https://joebiden.com/terms/">Terms and Conditions</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="site-footer__column site-footer__column--b">
+              <ul class="social">
+                              <li><a href="http://web.archive.org/web/20191209031246/https://twitter.com/joebiden">
+              <span class="icon-twitter"></span>
+              <span class="element-invisible">Twitter</span>
+            </a></li>
+                                        <li><a href="http://web.archive.org/web/20191209031246/https://www.facebook.com/joebiden">
+              <span class="icon-facebook"></span>
+              <span class="element-invisible">Facebook</span>
+            </a></li>
+                                        <li><a href="http://web.archive.org/web/20191209031246/https://www.instagram.com/joebiden">
+              <span class="icon-instagram"></span>
+              <span class="element-invisible">Instagram</span>
+            </a></li>
+                                        <li><a href="http://web.archive.org/web/20191209031246/https://www.youtube.com/joebiden">
+              <span class="icon-youtube"></span>
+              <span class="element-invisible">Youtube</span>
+            </a></li>
+                                        <li><a href="http://web.archive.org/web/20191209031246/https://medium.com/@joebiden">
+              <span class="icon-medium"></span>
+              <span class="element-invisible">Medium</span>
+            </a></li>
+                        </ul>
+    
+          <div class="disclaimer">Paid for by Biden for President.</div>
+    
+          <div class="footer-text"><p>Support our presidential campaign to elect Joe Biden by signing up to <a href="http://web.archive.org/web/20191209031246/https://go.joebiden.com/page/s/volunteer">volunteer</a> or making a <a href="http://web.archive.org/web/20191209031246/https://joebiden.com/donate">donation online</a>.</p>
+<p>&nbsp;</p>
+<p>To contribute by mail, please <a href="http://web.archive.org/web/20191209031246/https://joebiden.com/contribute-by-mail/">click here</a></p>
+</div>
+    
+    <div class="site-footer__copyright">&copy; Copyright 2019. All rights reserved.</div>
+  </div>
+
+</footer><!-- #site-footer -->
+
+            <script type="text/javascript">
+      var modal_expires = 0;
+            var modal_cookie = 'modal-lightbox';
+            </script>
+      <div class="modal-wrapper" id="modal">
+        <div class="modal-container">
+          <div class="modal">
+            <div class="modal-outer">
+              <div class="modal-inner">
+                <a class="close modal-close" href="#site-header">Close</a>
+                <h2>
+                                      <div class="title">Say You're On</div>
+                                                        <div class="title light">Team Joe!</div>
+                                  </h2>
+                                                                  <form name="signup" class="bsd-signup" action="http://web.archive.org/web/20191209031246/https://go.joebiden.com/page/s/sign_up_splash" data-ajax="https://go.joebiden.com/page/sapi/sign_up_splash" method="post">
+
+                    <div class="fieldset" id="bsd-field-email">
+                      <div class="label"><label class="field" for="email">Email Address</label></div>
+                      <div class="input"><input type="email" class="text" size="48" id="email" name="email" required="required"></div>
+                    </div>
+
+                    <div class="form-inline clearfix">
+                      <div class="fieldset" id="bsd-field-mobile">
+                        <div class="label"><label class="field" for="mobile">Mobile Phone</label></div>
+                        <div class="input"><input type="tel" class="text" size="15" id="mobile" name="mobile"></div>
+                      </div>
+
+                      <div class="fieldset" id="bsd-field-zip">
+                        <div class="label"><label class="field" for="zip">ZIP Code</label></div>
+                        <div class="input"><input size="8" id="zip" name="zip" type="text" class="text" required="required"></div>
+                      </div>
+                    </div>
+
+                                                                                            <div class="fieldset" id="bsd-field-custom-1571-group">
+                            <div class="input checkbox">
+                              <input id="custom-1571_0" class="custom-1571" name="__custom-1571[0]" type="checkbox" value="1" onclick="if (this.checked) { this.form['custom-1571[0]'].value='Sign up for volunteer updates'; }else { this.form['custom-1571[0]'].value=''; } ">
+                              <label for="custom-1571_0">Sign up for volunteer updates</label>
+                              <input type="hidden" name="custom-1571[0]" value="">
+                            </div>
+                          </div>
+                                                                  
+                                          <input value="Let's go" type="submit" class="button red" data-submitting="Submitting" data-success="Success">
+                                      </form>
+                                                  <div class="disclaimer"><p>By providing your mobile phone number you consent to receive recurring text messages from Biden for President. Message &amp; Data Rates May Apply. Text HELP for Info. Text STOP to opt out. No purchase necessary. <a href="http://web.archive.org/web/20191209031246/https://joebiden.com/terms/">Terms and Conditions</a> and <a href="http://web.archive.org/web/20191209031246/https://joebiden.com/privacy-policy/">Privacy Policy</a>.</p>
+</div>
+                              </div>
+            </div>
+                          <div class="background" style="background-image: url(http://web.archive.org/web/20191209031246im_/https://joebiden.com/wp-content/uploads/2019/11/join-overlay-2-optimized.jpg);"></div>
+                      </div>
+        </div>
+      </div>
+      
+<script type="text/javascript" src="//web.archive.org/web/20191209031246js_/https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='http://web.archive.org/web/20191209031246/https://joebiden.com/wp-content/themes/bexc/js/min/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+
+<style>.lazyload,.lazyloading{opacity:0;}.lazyloaded{opacity:1;transition:opacity 300ms;}</style><noscript><style>.lazyload{display:none;}</style></noscript><script data-noptimize="1">window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1;</script><script async data-noptimize="1" src="http://web.archive.org/web/20191209031246js_/https://joebiden.com/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js"></script><script type="text/javascript" src="http://web.archive.org/web/20191209031246js_/https://joebiden.com/wp-content/themes/bexc/js/min/plugins.min.js?ver=0.58"></script>
+<script type="text/javascript" src="http://web.archive.org/web/20191209031246js_/https://joebiden.com/wp-content/themes/bexc/js/min/main.min.js?ver=0.58"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"853c31a225","applicationID":"143000334","transactionName":"MVxbNkICCxEEVUZaWwgWeAFECgoMSkZTVFE=","queueTime":0,"applicationTime":317,"atts":"HRtYQAoYGB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+<!--
+     FILE ARCHIVED ON 03:12:46 Dec 09, 2019 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 11:46:14 Jan 07, 2020.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 283.569
+  exclusion.robots: 0.117
+  load_resource: 209.166
+  PetaboxLoader3.datanode: 211.405 (4)
+  RedisCDXSource: 152.591
+  exclusion.robots.policy: 0.102
+  LoadShardBlock: 115.269 (3)
+  PetaboxLoader3.resolve: 86.922
+  esindex: 0.013
+  CDXLines.iter: 12.772 (3)
+-->
