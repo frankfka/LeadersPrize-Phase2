@@ -17,8 +17,8 @@ def execute_query_export_html(query: str):
 
 
 def main():
-    q = "Rural schools enroll 40 percent American children, receive 22 percent federal education funding"
-    q += " countryside education money"
+    q = "179,000 human beings jail country today 2.3-million percent black african-american mike gravel"
+    q += " "
     execute_query_export_html(q)
 
 

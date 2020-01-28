@@ -15,9 +15,14 @@ class SearchQueryResponse:
         self.error = None
         self.results = []
         if r.status_code == 200:
+            # Elasticsearch sometimes gives duplicate results
+            urls = set()
             results = []
             for hit in r.json()["hits"]["hits"]:
-                results.append(SearchQueryResult(hit))
+                result = SearchQueryResult(hit)
+                if result.url not in urls:
+                    results.append(result)
+                    urls.add(result.url)
             self.results = results
         else:
             self.error = r.text
