@@ -1,19 +1,39 @@
 import pandas as pd
 
 from experiments.experiment_util import train_data_generator, get_query_generator, get_search_client, \
-    get_text_preprocessor, get_html_preprocessor, get_relevance_scorer, save_results
+    get_text_preprocessor, get_html_preprocessor, get_word2vec_relevance_scorer, save_results, \
+    get_infersent_relevance_scorer
+from relevance_scorer.infersent_relevance_scorer import InfersentRelevanceScorer
+from relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
+
+INFERSENT_RELEVANCE_SCORER = "infersent"
+WORD2VEC_RELEVANCE_SCORER = "word2vec"
+
+# Run config
+NUM_EXAMPLES = 50  # Number of examples to process, as this can get quite expensive
+RELEVANCE_TYPE = INFERSENT_RELEVANCE_SCORER
+
+
+def get_word2vec_relevances(claim, sentences, scorer: Word2VecRelevanceScorer):
+    relevances = []
+    for sentence in sentences:
+        relevances.append(scorer.get_relevance(claim, sentence))
+    return relevances
+
+
+def get_infersent_relevances(claim, sentences, scorer: InfersentRelevanceScorer):
+    return scorer.get_relevance(claim, sentences)
 
 
 def main():
-    # Don't process everything as this can get quite expensive
-    num_items = 50
-
     # Services
     query_generator = get_query_generator()
     client = get_search_client()
     html_preprocessor = get_html_preprocessor()
     text_preprocessor = get_text_preprocessor()
-    relevance_scorer = get_relevance_scorer()
+    # Create the appropriate relevance scorer
+    relevance_scorer = get_infersent_relevance_scorer() if RELEVANCE_TYPE == INFERSENT_RELEVANCE_SCORER \
+        else get_word2vec_relevance_scorer()
 
     # Outputs
     ids = []
@@ -24,7 +44,7 @@ def main():
     true_labels = []
 
     for idx, claim in enumerate(train_data_generator()):
-        if idx == num_items:
+        if idx == NUM_EXAMPLES:
             break
         print(idx)
 
@@ -42,16 +62,21 @@ def main():
             processed_sentences.append(f"Error: {search_res.error}")
             continue
 
-        # Process article text from HTML
-        processed_articles = map(lambda article: html_preprocessor.process(article.content).text, search_res.results)
+        # Create master list of sentences
+        sentences = []
+        for article in search_res.results:
+            html_processed = html_preprocessor.process(article.content).text
+            text_processed = text_preprocessor.process(html_processed)
+            sentences += text_processed.bert_sentences
 
-        # Combine all the articles, find relevance, then sort by decreasing relevance
-        processed_sentences_with_relevance = []
-        for a in processed_articles:
-            for processed_sentence in text_preprocessor.process(a).bert_sentences:
-                relevance = relevance_scorer.get_relevance(processed_claim, processed_sentence)
-                processed_sentences_with_relevance.append((relevance, processed_sentence))
+        # Run relevance scores
+        if RELEVANCE_TYPE == INFERSENT_RELEVANCE_SCORER:
+            relevances = get_infersent_relevances(claim.claim, sentences, relevance_scorer)
+        else:
+            relevances = get_word2vec_relevances(claim.claim, sentences, relevance_scorer)
 
+        # Combine the two results
+        processed_sentences_with_relevance = list(zip(relevances, sentences))
         # Construct final string
         processed_sentences_with_relevance.sort(key=lambda item: item[0], reverse=True)
         process_result = ""
@@ -66,7 +91,7 @@ def main():
     # Export the result, with relevance scores and the processed text
     export_df = pd.DataFrame(data={"id": ids, "label": true_labels, "original": original_claims, "query": queries,
                                    "processed_claim": processed_claims, "processed_sentences": processed_sentences})
-    save_results(export_df, "relevance_scorer", "claim_to_relevance")
+    save_results(export_df, "relevance_scorer", f"claim_to_{RELEVANCE_TYPE}_relevance")
 
 
 if __name__ == '__main__':

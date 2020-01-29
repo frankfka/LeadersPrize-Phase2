@@ -1,13 +1,13 @@
 from typing import List
 
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
 
 from relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
 from util import text_util
+from util.text_util import cosine_similarity
 
 
-class RelevanceScorer:
+class Word2VecRelevanceScorer:
 
     def __init__(self, vectorizer: Word2VecVectorizer):
         self.vectorizer = vectorizer
@@ -15,6 +15,8 @@ class RelevanceScorer:
     def get_relevance(self, text: str, other_text: str, max_seq_len: int = 150) -> float:
         """
         Gets the cosine similarity between the two lists of tokens, truncating each to max_seq_len
+        This is the most general case and ignores the presence of sentences, so we can compare any length/sequence
+        of text.
         """
         tokens = text_util.tokenize_by_word(text)
         other_tokens = text_util.tokenize_by_word(other_text)
@@ -33,8 +35,7 @@ class RelevanceScorer:
         # Get average vectors of the texts
         avg_vec = self.__get_avg_vec(vectors).reshape(1, -1)  # Reshape to get a 2D array of a single sample
         avg_other_vec = self.__get_avg_vec(other_vectors).reshape(1, -1)
-        cos_similarities = cosine_similarity(avg_vec, avg_other_vec)  # n samples x n samples matrix
-        return np.diagonal(cos_similarities)[0]
+        return cosine_similarity(avg_vec, avg_other_vec)
 
     # Returns a column vector resulting from taking an element-wise mean
     def __get_avg_vec(self, vectors):

@@ -5,7 +5,13 @@ import unicodedata
 import contractions
 from nltk.corpus import stopwords
 from num2words import num2words
+import numpy as np
 from nltk import word_tokenize, sent_tokenize, pos_tag
+
+
+# Get cosine similarity between two vectors
+def cosine_similarity(u, v):
+    return np.dot(u, v) / (np.linalg.norm(u) * np.linalg.norm(v))
 
 
 # Tokenize by Word

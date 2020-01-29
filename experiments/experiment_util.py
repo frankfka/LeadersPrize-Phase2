@@ -8,7 +8,9 @@ from models import LeadersPrizeClaim
 from preprocessor.html_preprocessor import HTMLProcessor
 from preprocessor.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
-from relevance_scorer.relevance_scorer import RelevanceScorer
+from relevance_scorer.infersent_relevance_scorer import InfersentRelevanceScorer
+from relevance_scorer.infersent_vectorizer import InfersentVectorizer
+from relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
 from search_client.client import ArticleSearchClient
 from datetime import datetime
@@ -30,9 +32,14 @@ def get_text_preprocessor():
     return TextPreprocessor()
 
 
-def get_relevance_scorer():
-    vectorizer = Word2VecVectorizer("../assets/GoogleNewsVectors.bin.gz")
-    return RelevanceScorer(vectorizer)
+def get_infersent_relevance_scorer():
+    vectorizer = InfersentVectorizer("../assets/infersent/infersent2.pkl", "../assets/fastttext/crawl-300d-2M.vec")
+    return InfersentRelevanceScorer(vectorizer)
+
+
+def get_word2vec_relevance_scorer():
+    vectorizer = Word2VecVectorizer("../assets/word2vec/GoogleNewsVectors.bin.gz")
+    return Word2VecRelevanceScorer(vectorizer)
 
 
 def train_data_generator():
