@@ -1,7 +1,4 @@
-import string
 from typing import List
-
-import nltk
 
 import util.text_util as text_util
 
@@ -31,11 +28,9 @@ class TextPreprocessor:
                     text_util.tokenize_by_word(sentence)
             )
             sent_words_with_pos = text_util.remove_pos(sent_words_with_pos)
-            # Final cleaning - remove any punctuation
-            sent_words = text_util.clean_tokenized(
-                list(map(lambda x: x[0], sent_words_with_pos)),
-                remove_stopwords=False,
-                remove_punctuation=True
-            )
-            sentences.append(' '.join(sent_words))
+            # Final cleaning - keep only alphanumeric
+            sentence = " ".join([item[0] for item in sent_words_with_pos])
+            sentence = text_util.keep_alphanumeric(sentence).strip()
+            if sentence:
+                sentences.append(sentence)
         return sentences
