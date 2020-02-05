@@ -1,6 +1,6 @@
 from typing import List
 
-import util.text_util as text_util
+import preprocessor.text_util as text_util
 
 
 class TextPreprocessResult:

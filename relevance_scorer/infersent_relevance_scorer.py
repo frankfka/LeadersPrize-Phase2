@@ -1,7 +1,7 @@
 from typing import List
 
 from relevance_scorer.infersent_vectorizer import InfersentVectorizer
-from util.text_util import cosine_similarity
+from preprocessor.text_util import cos_sim
 
 
 class InfersentRelevanceScorer:
@@ -18,5 +18,5 @@ class InfersentRelevanceScorer:
         assert len(reference_vector) == 1  # We should get 1 vector back
         reference_vector = reference_vector[0]  # Get the vector itself
         # Map sentence vectors to cosine similarity
-        return [cosine_similarity(reference_vector, sent_vector) for sent_vector in
+        return [cos_sim(reference_vector, sent_vector) for sent_vector in
                 self.vectorizer.get_sentence_vectors(sentences)]

@@ -1,7 +1,6 @@
-from models import LeadersPrizeClaim
-import nltk
+from core.models import LeadersPrizeClaim
 
-import util.text_util as text_util
+import preprocessor.text_util as text_util
 
 
 class QueryGenerator:

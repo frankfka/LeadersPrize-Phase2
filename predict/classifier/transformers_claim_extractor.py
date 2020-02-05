@@ -9,7 +9,7 @@ class TransformersClaimExtractor:
 
     def extract(self, claim_object):
         """
-        Extracts relevant information for Transformers models
+        Extracts relevant information for Transformers predict
         """
         return
     

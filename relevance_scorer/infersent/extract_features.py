@@ -4,7 +4,7 @@ import torch
 import argparse
 
 import numpy as np
-from models import InferSent
+from core.models import InferSent
 
 if __name__ == '__main__':
 

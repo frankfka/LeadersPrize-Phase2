@@ -4,8 +4,6 @@ from typing import List
 from relevance_scorer.infersent.models import InferSent
 import torch
 
-from util.text_util import cosine_similarity
-
 
 class InfersentVectorizer(object):
     """

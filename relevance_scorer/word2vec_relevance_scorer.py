@@ -3,8 +3,8 @@ from typing import List
 import numpy as np
 
 from relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
-from util import text_util
-from util.text_util import cosine_similarity
+from preprocessor import text_util
+from preprocessor.text_util import cos_sim
 
 
 class Word2VecRelevanceScorer:
@@ -35,7 +35,7 @@ class Word2VecRelevanceScorer:
         # Get average vectors of the texts
         avg_vec = self.__get_avg_vec(vectors).reshape(1, -1)  # Reshape to get a 2D array of a single sample
         avg_other_vec = self.__get_avg_vec(other_vectors).reshape(1, -1)
-        return cosine_similarity(avg_vec, avg_other_vec)
+        return cos_sim(avg_vec, avg_other_vec)
 
     # Returns a column vector resulting from taking an element-wise mean
     def __get_avg_vec(self, vectors):

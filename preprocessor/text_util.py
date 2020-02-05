@@ -7,11 +7,13 @@ from nltk.corpus import stopwords
 from num2words import num2words
 import numpy as np
 from nltk import word_tokenize, sent_tokenize, pos_tag
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 # Get cosine similarity between two vectors
-def cosine_similarity(u, v):
-    return np.dot(u, v) / (np.linalg.norm(u) * np.linalg.norm(v))
+def cos_sim(u, v):
+    cos_similarities = cosine_similarity(u, v)  # n samples x n samples matrix
+    return np.diagonal(cos_similarities)[0]
 
 
 # Tokenize by Word
