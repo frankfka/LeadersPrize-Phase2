@@ -1,7 +1,7 @@
 from typing import List
 
-from relevance_scorer.infersent_vectorizer import InfersentVectorizer
-from preprocessor.text_util import cos_sim
+from analyze.relevance_scorer import InfersentVectorizer
+from preprocess.text_util import cos_sim
 
 
 class InfersentRelevanceScorer:

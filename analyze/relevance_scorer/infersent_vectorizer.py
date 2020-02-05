@@ -1,7 +1,7 @@
 import time
 from typing import List
 
-from relevance_scorer.infersent.models import InferSent
+from analyze.relevance_scorer import InferSent
 import torch
 
 

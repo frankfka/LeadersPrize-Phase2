@@ -2,9 +2,9 @@ from typing import List
 
 import numpy as np
 
-from relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
-from preprocessor import text_util
-from preprocessor.text_util import cos_sim
+from analyze.relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
+from preprocess import text_util
+from preprocess.text_util import cos_sim
 
 
 class Word2VecRelevanceScorer:

@@ -2,7 +2,7 @@ from typing import List
 import pandas as pd
 
 from experiments.experiment_util import get_text_preprocessor, save_results
-from preprocessor.text_preprocessor import TextPreprocessor
+from preprocess.text_preprocessor import TextPreprocessor
 
 
 def main():

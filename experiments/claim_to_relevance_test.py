@@ -3,8 +3,8 @@ import pandas as pd
 from experiments.experiment_util import train_data_generator, get_query_generator, get_search_client, \
     get_text_preprocessor, get_html_preprocessor, get_word2vec_relevance_scorer, save_results, \
     get_infersent_relevance_scorer
-from relevance_scorer.infersent_relevance_scorer import InfersentRelevanceScorer
-from relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
+from analyze.relevance_scorer import InfersentRelevanceScorer
+from analyze.relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 
 INFERSENT_RELEVANCE_SCORER = "infersent"
 WORD2VEC_RELEVANCE_SCORER = "word2vec"

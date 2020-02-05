@@ -1,6 +1,6 @@
 from core.models import LeadersPrizeClaim
 
-import preprocessor.text_util as text_util
+import preprocess.text_util as text_util
 
 
 class QueryGenerator:
