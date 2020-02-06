@@ -1,6 +1,6 @@
 from typing import List
 
-from analyze.relevance_scorer import InfersentVectorizer
+from analyze.relevance_scorer.infersent_vectorizer import InfersentVectorizer
 from preprocess.text_util import cos_sim
 
 

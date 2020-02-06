@@ -4,12 +4,13 @@ import os
 
 import pandas as pd
 
-from models import LeadersPrizeClaim
+from analyze.relevance_scorer.infersent_relevance_scorer import InfersentRelevanceScorer
+from analyze.relevance_scorer.infersent_vectorizer import InfersentVectorizer
+from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTupleExtractor
+from core.models import LeadersPrizeClaim
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
-from analyze.relevance_scorer import InfersentRelevanceScorer
-from analyze.relevance_scorer import InfersentVectorizer
 from analyze.relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from analyze.relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
 from search_client.client import ArticleSearchClient
@@ -26,6 +27,10 @@ def get_search_client():
 
 def get_html_preprocessor():
     return HTMLProcessor()
+
+
+def get_truth_tuple_extractor():
+    return TruthTupleExtractor()
 
 
 def get_text_preprocessor():
