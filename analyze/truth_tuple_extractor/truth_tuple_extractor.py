@@ -28,7 +28,7 @@ class TruthTuple:
         self.is_root = is_root
 
     def __repr__(self):
-        return f"|| Agent: {self.agent}; Event: {self.event}, Object: {self.prep_obj}, Is Root: {self.is_root} ||"
+        return f"( Agent: {self.agent}; Event: {self.event}, Object: {self.prep_obj}, Is Root: {self.is_root} )"
 
 
 class TruthTupleExtractor:
