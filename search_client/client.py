@@ -14,6 +14,14 @@ class SearchQueryResult:
         self.url = hit["url"]
 
 
+def __remove_http__(url) -> str:
+    if url.startswith("https://"):
+        return url[8:]
+    elif url.startswith("http://"):
+        return url[7:]
+    return url
+
+
 class SearchQueryResponse:
     """
     Data structure for each individual query
@@ -28,10 +36,11 @@ class SearchQueryResponse:
             results = []
             for hit in r.json()["hits"]["hits"]:
                 result = SearchQueryResult(hit)
-                # TODO: Need to strip out http/https in dedup, sometimes there are duplicates
-                if result.url not in urls:
+                # Remove https/http for deduplication
+                clean_url = __remove_http__(result.url)
+                if clean_url not in urls:
                     results.append(result)
-                    urls.add(result.url)
+                    urls.add(clean_url)
             self.results = results
         else:
             self.error = r.text

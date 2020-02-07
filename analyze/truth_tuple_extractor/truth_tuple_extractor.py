@@ -8,10 +8,13 @@ from spacy.matcher import Matcher
 subj_symbols = {sym.nsubj, sym.csubj, sym.nsubjpass, sym.csubjpass, sym.agent, sym.expl}
 obj_symbols = {sym.dobj, sym.obj, sym.attr, sym.oprd, sym.pobj, sym.acomp}
 prep_symbols = {sym.ADJ}
+verb_symbols = {sym.AUX, sym.VERB}
 ignore_pos = {sym.AUX, sym.CONJ, sym.CCONJ, sym.DET, sym.INTJ, sym.PART, sym.PUNCT, sym.SCONJ, sym.X, sym.SPACE}
 prep_pattern = [
     {"POS": "VERB", "OP": "*"},
+    {"POS": "AUX", "OP": "*"},
     {"POS": "ADV", "OP": "*"},
+    {"POS": "AUX", "OP": "*"},
     {"POS": "PART", "OP": "*"},
     {"POS": "VERB", "OP": "+"},
     {"POS": "PART", "OP": "*"}
@@ -55,9 +58,9 @@ class TruthTupleExtractor:
                 continue
             # Get the root verb for the subject, skip if we can't find one
             possible_verb = token.head
-            while possible_verb.head != possible_verb and possible_verb.pos != sym.VERB:
+            while possible_verb.head != possible_verb and possible_verb.pos not in verb_symbols:
                 possible_verb = possible_verb.head
-            if possible_verb.pos != sym.VERB:
+            if possible_verb.pos not in verb_symbols:
                 continue
             # Get truth tuple objects
             subject = token

@@ -33,20 +33,20 @@ class LeadersPrizePipeline:
             pipeline_object = PipelineClaim(claim)
             # 1. Get query from claim
             search_query = self.query_generator.get_query(pipeline_object.original_claim)
-            # 1.1 Preprocess the claim
-            processed_claim = self.text_preprocessor.process(pipeline_object.original_claim.claim)  # TODO: add claimant?
+            # 1.1 Preprocess the claim + claimant
+            claim_with_claimant = pipeline_object.original_claim.claimant + " " + pipeline_object.original_claim.claim
+            processed_claim = self.text_preprocessor.process(claim_with_claimant)
             if len(processed_claim.bert_sentences) > 0:
                 pipeline_object.bert_claim = processed_claim.bert_sentences[0]
             else:
-                # TODO: Deal with this error case
-                print("Preprocessed claim is empty")
+                print("Preprocessed claim is empty - defaulting to original claim")
+                pipeline_object.bert_claim = claim_with_claimant
 
             # 2. Execute search query to get articles
             search_response = self.search_client.search(search_query)
             if search_response.error:
-                # TODO: Deal with this error case
+                # Error, the articles will just be empty
                 print(f"Error searching query for claim {pipeline_object.original_claim.id}")
-                continue
             # 3. Process articles
             pipeline_articles = []
             for raw_article in search_response.results:
