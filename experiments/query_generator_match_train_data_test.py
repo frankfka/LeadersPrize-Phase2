@@ -1,12 +1,14 @@
-from experiments.experiment_util import train_data_generator, get_query_generator, get_search_client
+from experiments.experiment_util import train_data_generator, get_query_generator, get_search_client, \
+    get_truth_tuple_extractor
 
 
 def compare_query_results_with_train_data():
     """
     Compare the resulting URL's from searched articles with the ground truth articles given in training data
     """
-    num_examples = 100  # Limit # of examples so this runs faster
+    num_examples = 30  # Limit # of examples so this runs faster
     bqg = get_query_generator()
+    truth_tup_extractor = get_truth_tuple_extractor()
     client = get_search_client()
 
     ids = []
@@ -22,7 +24,8 @@ def compare_query_results_with_train_data():
             break
 
         # Execute query
-        q = bqg.get_query(claim)
+        claim_truth_tuples = truth_tup_extractor.extract(claim.claimant + " " + claim.claim)
+        q = bqg.get_query(claim, truth_tuples=claim_truth_tuples)
         res = client.search(q)
         searched_urls = []
         # Get URLs from the result

@@ -1,5 +1,6 @@
-from typing import List
+from typing import List, Optional
 
+from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTuple
 from search_client.client import SearchQueryResult
 
 
@@ -40,6 +41,7 @@ class PipelineClaim:
         # Original claim object
         self.original_claim = original_claim
         self.bert_claim: str = ""
+        self.claim_truth_tuples: List[TruthTuple] = []
         self.articles: List[PipelineArticle] = []  # Results from search client
 
 

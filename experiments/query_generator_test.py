@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 from experiments.experiment_util import train_data_generator, save_results, get_query_generator, get_search_client, \
-    get_timestamp
+    get_timestamp, get_truth_tuple_extractor
 
 
 def execute_queries_export_urls():
@@ -26,6 +26,7 @@ def execute_queries_export_urls():
 
         ids.append(claim.id)
         original_claims.append(claim.claim)
+        # TODO: No truth tuples here
         q = bqg.get_query(claim)
         res = client.search(q)
         export_str = ""
@@ -47,23 +48,28 @@ def create_and_export_queries():
     """
     Output the generated queries only
     """
+    num_examples = 100
     bqg = get_query_generator()
+    truth_tup_extractor = get_truth_tuple_extractor()
 
     ids = []
     original_claims = []
     processed = []
 
-    for claim in train_data_generator():
+    for idx, claim in enumerate(train_data_generator()):
+        if idx == num_examples:
+            break
         ids.append(claim.id)
         original_claims.append(claim.claim)
-        processed.append(bqg.get_query(claim))
+        claim_truth_tuples = truth_tup_extractor.extract(claim.claimant + " " + claim.claim)
+        processed.append(bqg.get_query(claim, truth_tuples=claim_truth_tuples))
 
-    export_df = pd.DataFrame(data={"id": ids, "original": original_claims, "processed": processed})
+    export_df = pd.DataFrame(data={"id": ids, "original": original_claims, "queries": processed})
     save_results(export_df, "basic_query_generator", "queries")
 
 
 def main():
-    execute_queries_export_urls()
+    create_and_export_queries()
 
 
 if __name__ == '__main__':

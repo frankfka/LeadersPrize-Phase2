@@ -48,6 +48,7 @@ def main():
             break
         print(idx)
 
+        # TODO: No truth tuples here
         query = query_generator.get_query(claim)
         search_res = client.search(query)
         processed_claim = ' '.join(text_preprocessor.process(claim.claim).bert_sentences)  # Preprocessed claim

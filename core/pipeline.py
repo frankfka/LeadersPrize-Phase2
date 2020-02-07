@@ -1,5 +1,6 @@
 from typing import List
 
+from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTupleExtractor
 from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, PipelineSentence
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
@@ -20,6 +21,7 @@ class LeadersPrizePipeline:
     def __init__(self, config):
         self.search_client = ArticleSearchClient(config[LeadersPrizePipeline.CONFIG_ENDPOINT],
                                                  config[LeadersPrizePipeline.CONFIG_API_KEY])
+        self.truth_tuple_extractor = TruthTupleExtractor()
         self.query_generator = QueryGenerator()
         self.html_preprocessor = HTMLProcessor()
         self.text_preprocessor = TextPreprocessor()
@@ -31,10 +33,13 @@ class LeadersPrizePipeline:
         for claim in raw_claims:
             # Create pipeline object - this will hold all the annotations of our processing
             pipeline_object = PipelineClaim(claim)
-            # 1. Get query from claim
-            search_query = self.query_generator.get_query(pipeline_object.original_claim)
-            # 1.1 Preprocess the claim + claimant
             claim_with_claimant = pipeline_object.original_claim.claimant + " " + pipeline_object.original_claim.claim
+            claim_truth_tuples = self.truth_tuple_extractor.extract(claim_with_claimant)
+            pipeline_object.claim_truth_tuples = claim_truth_tuples
+            # 1. Get query from claim
+            search_query = self.query_generator.get_query(pipeline_object.original_claim,
+                                                          truth_tuples=claim_truth_tuples)
+            # 1.1 Preprocess the claim + claimant
             processed_claim = self.text_preprocessor.process(claim_with_claimant)
             if len(processed_claim.bert_sentences) > 0:
                 pipeline_object.bert_claim = processed_claim.bert_sentences[0]
