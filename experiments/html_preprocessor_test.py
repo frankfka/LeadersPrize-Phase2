@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-from experiments.experiment_util import save_results, get_html_preprocessor
+from experiments.util.experiment_util import save_results, get_html_preprocessor
 
 
 def main():

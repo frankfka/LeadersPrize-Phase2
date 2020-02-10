@@ -1,5 +1,6 @@
-from experiments.experiment_util import train_data_generator, get_query_generator, get_search_client, \
+from experiments.util.experiment_util import get_query_generator, get_search_client, \
     get_truth_tuple_extractor
+from experiments.util.train_data_util import train_data_generator
 
 
 def compare_query_results_with_train_data():

@@ -2,8 +2,9 @@ import os
 
 import pandas as pd
 
-from experiments.experiment_util import train_data_generator, save_results, get_query_generator, get_search_client, \
+from experiments.util.experiment_util import save_results, get_query_generator, get_search_client, \
     get_timestamp, get_truth_tuple_extractor
+from experiments.util.train_data_util import train_data_generator
 
 
 def execute_queries_export_urls():

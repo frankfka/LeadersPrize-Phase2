@@ -1,10 +1,11 @@
 import pandas as pd
 
-from experiments.experiment_util import train_data_generator, get_query_generator, get_search_client, \
+from experiments.util.experiment_util import get_query_generator, get_search_client, \
     get_text_preprocessor, get_html_preprocessor, get_word2vec_relevance_scorer, save_results, \
     get_infersent_relevance_scorer
-from analyze.relevance_scorer import InfersentRelevanceScorer
-from analyze.relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
+from experiments.util.train_data_util import train_data_generator
+from analyze.sentence_relevance_scorer import InfersentRelevanceScorer
+from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 
 INFERSENT_RELEVANCE_SCORER = "infersent"
 WORD2VEC_RELEVANCE_SCORER = "word2vec"
@@ -92,7 +93,7 @@ def main():
     # Export the result, with relevance scores and the processed text
     export_df = pd.DataFrame(data={"id": ids, "label": true_labels, "original": original_claims, "query": queries,
                                    "processed_claim": processed_claims, "processed_sentences": processed_sentences})
-    save_results(export_df, "relevance_scorer", f"claim_to_{RELEVANCE_TYPE}_relevance")
+    save_results(export_df, "sentence_relevance_scorer", f"claim_to_{RELEVANCE_TYPE}_relevance")
 
 
 if __name__ == '__main__':

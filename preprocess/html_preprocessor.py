@@ -61,6 +61,8 @@ class HTMLProcessor:
         article_text = self.__get_article_text_newspaper(html)
         if not article_text and soup:
             article_text = self.__get_article_text_bs4(soup)
+            if not article_text:
+                print("Neither newspaper nor BS4 could extract article text")
         # Add title & description from html attributes
         if html_atts.description:
             article_text = f"{html_atts.description} ." + article_text
@@ -77,8 +79,7 @@ class HTMLProcessor:
         try:
             return fulltext(html)
         except Exception:
-            print("Could not process with newspaper")
-        return ""
+            return ""
 
     def __clean_article_text(self, text: str) -> str:
         # Replace newlines with a separator

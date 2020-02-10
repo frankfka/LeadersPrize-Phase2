@@ -1,4 +1,4 @@
-from experiments.experiment_util import get_truth_tuple_extractor
+from experiments.util.experiment_util import get_truth_tuple_extractor
 
 claims = [
     "The economic impact of Atlanta's 2000 Super Bowl was $292 million.",

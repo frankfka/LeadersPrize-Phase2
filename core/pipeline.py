@@ -5,8 +5,8 @@ from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, Pipel
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
-from analyze.relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
-from analyze.relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
+from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
+from analyze.sentence_relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
 from search_client.client import ArticleSearchClient
 
 

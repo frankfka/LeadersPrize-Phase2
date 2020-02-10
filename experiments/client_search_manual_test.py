@@ -1,6 +1,6 @@
 import os
 
-from experiments.experiment_util import get_search_client, get_timestamp
+from experiments.util.experiment_util import get_search_client, get_timestamp
 
 
 def execute_query_export_html(query: str):

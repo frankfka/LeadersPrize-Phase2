@@ -64,8 +64,8 @@ class PipelineSentence:
     """
 
     def __init__(self, sentence: str):
-        self.sentence = sentence
-        self.relevance = None  # Relevance score of the sentence
+        self.sentence: str = sentence
+        self.relevance: float = 0  # Relevance score of the sentence
 
     def __repr__(self):
         return self.sentence + f"; Relevance: {self.relevance}"

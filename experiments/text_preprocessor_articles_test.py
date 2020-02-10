@@ -1,7 +1,7 @@
 from typing import List
 import pandas as pd
 
-from experiments.experiment_util import get_text_preprocessor, save_results
+from experiments.util.experiment_util import get_text_preprocessor, save_results
 from preprocess.text_preprocessor import TextPreprocessor
 
 

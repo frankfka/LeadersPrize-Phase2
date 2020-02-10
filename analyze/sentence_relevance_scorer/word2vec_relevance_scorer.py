@@ -2,7 +2,7 @@ from typing import List
 
 import numpy as np
 
-from analyze.relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
+from analyze.sentence_relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
 from preprocess import text_util
 from preprocess.text_util import cos_sim
 
