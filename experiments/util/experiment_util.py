@@ -36,7 +36,7 @@ def get_text_preprocessor():
     return TextPreprocessor()
 
 
-def get_doc_sentence_extractor():
+def get_relevant_info_extractor():
     return RelevantInformationExtractor()
 
 

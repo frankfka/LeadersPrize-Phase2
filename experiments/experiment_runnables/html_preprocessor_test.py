@@ -9,7 +9,7 @@ def main():
     processed_articles = []
     processor = get_html_preprocessor()
 
-    html_dir = './html_files'
+    html_dir = '../html_files'
     # Iterate through all HTML files
     for f in os.listdir(html_dir):
         filepath = f"{html_dir}/{f}"

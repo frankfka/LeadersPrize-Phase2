@@ -43,6 +43,7 @@ def preprocess_articles_from_data_pkl(pkl_path, save_path):
     df['related_articles'] = processed_articles_col
     df.to_pickle(save_path)
 
+
 if __name__ == '__main__':
     preprocess_articles_from_data_pkl(
         "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/train_data_with_articles.pkl",

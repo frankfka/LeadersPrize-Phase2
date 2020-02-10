@@ -6,7 +6,7 @@ from typing import List
 import pandas as pd
 
 from core.models import PipelineSentence
-from experiments.util.experiment_util import get_word2vec_relevance_scorer, get_doc_sentence_extractor, save_results
+from experiments.util.experiment_util import get_word2vec_relevance_scorer, get_relevant_info_extractor, save_results
 from experiments.util.train_data_util import get_preprocessed_train_data
 from preprocess.text_util import tokenize_by_sentence
 
@@ -16,7 +16,7 @@ def test_extraction_from_preprocessed_train_data(processed_pkl_path: str):
     relevance_scorer = get_word2vec_relevance_scorer()
 
     # Get extractor
-    sentence_extractor = get_doc_sentence_extractor()
+    sentence_extractor = get_relevant_info_extractor()
 
     # Read the train data
     preprocessed_df = get_preprocessed_train_data(processed_pkl_path)

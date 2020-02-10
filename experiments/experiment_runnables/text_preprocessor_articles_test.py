@@ -24,7 +24,7 @@ def __preprocess(preprocessor: TextPreprocessor, texts: List[str]) -> List[str]:
 
 def main():
     # Get text from HTML preprocess output
-    text_df = pd.read_csv("./output/html_processor/html_processor_01-23-2020_20-08-47.csv")
+    text_df = pd.read_csv("../output/html_processor/html_processor_01-23-2020_20-08-47.csv")
     preprocessor = get_text_preprocessor()
     texts = list(text_df["processed"])
     processed = __preprocess(preprocessor, texts)
