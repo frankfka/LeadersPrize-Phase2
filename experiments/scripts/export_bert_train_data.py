@@ -11,6 +11,14 @@ from experiments.util.train_data_util import get_preprocessed_train_data
 from preprocess.text_util import tokenize_by_sentence
 
 
+def combine_bert_trained_dfs(paths: List[str], output_path: str):
+    dfs = []
+    for path in paths:
+        dfs.append(pd.read_pickle(path))
+    df: pd.DataFrame = pd.concat(dfs)
+    df.to_pickle(output_path)
+
+
 def export_bert_train_data(preprocessed_pickle_path: str, sentence_extraction_window: int, output_path: str):
     # Get dependencies
     relevance_scorer = get_word2vec_relevance_scorer()
@@ -55,14 +63,22 @@ def export_bert_train_data(preprocessed_pickle_path: str, sentence_extraction_wi
             num_words += len(sent.sentence.split())
         extracted_info.append(extracted_txt)
 
+        if idx % 100 == 0:
+            print(idx)
+            print(claim)
+            print(label)
+            print(extracted_txt)
+            print("\n")
+
     # Export results
     export_df = pd.DataFrame(data={"text_1": claims, "text_2": extracted_info, "label": labels})
     export_df.to_pickle(output_path)
 
 
 if __name__ == '__main__':
-    export_bert_train_data(
-        "",
-        0,
-        ""
+    combine_bert_trained_dfs([
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_w2v_1window_0-5000.pkl",
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_w2v_1window_5000-13000.pkl"
+    ],
+    "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_w2v_1window.pkl"
     )

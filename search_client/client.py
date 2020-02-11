@@ -70,7 +70,7 @@ class ArticleSearchClient:
         client_response = ClientSearchResult([], "")
         initial_from = 0  # An index for Elasticsearch to begin its query
         while initial_from < num_results:
-            # TODO: Parallelize this
+            # TODO: Parallelize this if needed: https://aiohttp.readthedocs.io/en/stable/client_quickstart.html
             params = {'query': query, 'from': initial_from}
             resp = SearchQueryResponse(requests.get(self.endpoint, params=params, headers=self.headers))
             initial_from += 10
