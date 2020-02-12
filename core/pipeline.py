@@ -1,5 +1,6 @@
 from typing import List
 
+from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
 from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTupleExtractor
 from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, PipelineSentence
 from preprocess.html_preprocessor import HTMLProcessor
@@ -27,6 +28,7 @@ class LeadersPrizePipeline:
         self.text_preprocessor = TextPreprocessor()
         w2v_vectorizer = Word2VecVectorizer(path=config[LeadersPrizePipeline.CONFIG_W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
+        self.bert_information_extractor = RelevantInformationExtractor()
 
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
         pipeline_objects: List[PipelineClaim] = []
@@ -65,16 +67,32 @@ class LeadersPrizePipeline:
                 # 3.3 Get relevances for each sentence
                 article_sentences: List[PipelineSentence] = []
                 for bert_sentence in text_process_result.bert_sentences:
+                    # Enforce a minimum sentence length
+                    if len(bert_sentence.split()) < 5:
+                        continue
                     relevance = self.sentence_relevance_scorer.get_relevance(pipeline_object.bert_claim,
                                                                              bert_sentence)
                     pipeline_sentence = PipelineSentence(bert_sentence)
                     pipeline_sentence.relevance = relevance
                     article_sentences.append(pipeline_sentence)
                 pipeline_article.bert_sentences = article_sentences
-
                 pipeline_articles.append(pipeline_article)
 
             pipeline_object.articles = pipeline_articles
+
+            # 4. Extract Information for BERT - concat all the sentences
+            all_article_sentences = []
+            for article in pipeline_articles:
+                all_article_sentences += article.bert_sentences
+            bert_sentences_by_relevance = self.bert_information_extractor.extract(all_article_sentences, window=1)
+            bert_preprocessed = ""
+            num_words_in_bert_preprocessed = 0
+            for bert_sentence in bert_sentences_by_relevance:
+                if num_words_in_bert_preprocessed > 256:
+                    break
+                bert_preprocessed += ' . ' + bert_sentence.sentence
+                num_words_in_bert_preprocessed += len(bert_sentence.sentence.split())
+            pipeline_object.bert_preprocessed = bert_preprocessed
 
             pipeline_objects.append(pipeline_object)
 

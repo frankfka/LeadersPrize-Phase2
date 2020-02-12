@@ -58,7 +58,7 @@ def save_results(df: pd.DataFrame, tag: str, filekey: str, time_str: str = None)
     if not time_str:
         time_str = get_timestamp()
     filename = f"{filekey}_{time_str}"
-    filepath = f"output/{tag}/{filename}.csv"
+    filepath = f"../output/{tag}/{filename}.csv"
     os.makedirs(os.path.dirname(filepath), exist_ok=True)
     df.to_csv(filepath, quoting=csv.QUOTE_ALL)
 

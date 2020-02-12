@@ -30,6 +30,9 @@ class SearchQueryResponse:
     def __init__(self, r):
         self.error: str = ""
         self.results: List[SearchQueryResult] = []
+        if not r:
+            # Client somehow failed
+            return
         if r.status_code == 200:
             # Elasticsearch sometimes gives duplicate results
             urls = set()
@@ -72,7 +75,12 @@ class ArticleSearchClient:
         while initial_from < num_results:
             # TODO: Parallelize this if needed: https://aiohttp.readthedocs.io/en/stable/client_quickstart.html
             params = {'query': query, 'from': initial_from}
-            resp = SearchQueryResponse(requests.get(self.endpoint, params=params, headers=self.headers))
+            resp = SearchQueryResponse(None)  # Default empty response in case search fails
+            try:
+                req_resp = requests.get(self.endpoint, params=params, headers=self.headers)
+                resp = SearchQueryResponse(req_resp)
+            except Exception:
+                print("Exception calling search client")
             initial_from += 10
             if resp.error:
                 print(f"Error querying {query}: {resp.error}")
