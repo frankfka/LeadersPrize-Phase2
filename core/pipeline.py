@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import List
 
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
@@ -18,8 +19,10 @@ class LeadersPrizePipeline:
     CONFIG_API_KEY = "api_key"
     CONFIG_ENDPOINT = "endpoint"
     CONFIG_W2V_PATH = "w2v_path"
+    CONFIG_DEBUG = "debug"  # Prints debug info
 
     def __init__(self, config):
+        self.debug_mode = config.get(LeadersPrizePipeline.CONFIG_DEBUG, False)
         self.search_client = ArticleSearchClient(config[LeadersPrizePipeline.CONFIG_ENDPOINT],
                                                  config[LeadersPrizePipeline.CONFIG_API_KEY])
         self.truth_tuple_extractor = TruthTupleExtractor()
@@ -33,11 +36,18 @@ class LeadersPrizePipeline:
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
         pipeline_objects: List[PipelineClaim] = []
         for claim in raw_claims:
+            t = datetime.now()
             # Create pipeline object - this will hold all the annotations of our processing
             pipeline_object = PipelineClaim(claim)
             claim_with_claimant = pipeline_object.original_claim.claimant + " " + pipeline_object.original_claim.claim
             claim_truth_tuples = self.truth_tuple_extractor.extract(claim_with_claimant)
             pipeline_object.claim_truth_tuples = claim_truth_tuples
+
+            nt = datetime.now()
+            if self.debug_mode:
+                print(f"Initialized claim in {nt - t}")
+            t = nt
+
             # 1. Get query from claim
             search_query = self.query_generator.get_query(pipeline_object.original_claim,
                                                           truth_tuples=claim_truth_tuples)
@@ -54,6 +64,12 @@ class LeadersPrizePipeline:
             if search_response.error:
                 # Error, the articles will just be empty
                 print(f"Error searching query for claim {pipeline_object.original_claim.id}")
+
+            nt = datetime.now()
+            if self.debug_mode:
+                print(f"Retrieved articles for claim in {nt - t}")
+            t = nt
+
             # 3. Process articles
             pipeline_articles = []
             for raw_article in search_response.results:
@@ -80,6 +96,11 @@ class LeadersPrizePipeline:
 
             pipeline_object.articles = pipeline_articles
 
+            nt = datetime.now()
+            if self.debug_mode:
+                print(f"Preprocessed and analyzed articles in {nt - t}")
+            t = nt
+
             # 4. Extract Information for BERT - concat all the sentences
             all_article_sentences = []
             for article in pipeline_articles:
@@ -93,6 +114,11 @@ class LeadersPrizePipeline:
                 bert_preprocessed += ' . ' + bert_sentence.sentence
                 num_words_in_bert_preprocessed += len(bert_sentence.sentence.split())
             pipeline_object.bert_preprocessed = bert_preprocessed
+
+            nt = datetime.now()
+            if self.debug_mode:
+                print(f"Extracted information for BERT in {nt - t}")
+            t = nt
 
             pipeline_objects.append(pipeline_object)
 

@@ -11,8 +11,11 @@ from experiments.util.train_data_util import train_data_generator
 
 def test_pipeline():
     raw_claims: List[LeadersPrizeClaim] = []
-    for claim in train_data_generator("/Users/frankjia/Desktop/LeadersPrize/train/train.json"):
-        if len(raw_claims) == 20:
+    process_range = range(19, 40)
+    for idx, claim in train_data_generator("/Users/frankjia/Desktop/LeadersPrize/train/train.json"):
+        if idx < process_range.start:
+            continue
+        elif idx >= process_range.stop:
             break
         raw_claims.append(claim)
 
@@ -23,6 +26,7 @@ def test_pipeline():
         LeadersPrizePipeline.CONFIG_W2V_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/word2vec/GoogleNewsVectors.bin.gz",
         LeadersPrizePipeline.CONFIG_API_KEY: "ff5fdad7-de1f-4a74-bfac-acd42538131f",
         LeadersPrizePipeline.CONFIG_ENDPOINT: "http://lpsa.wrw.org",
+        LeadersPrizePipeline.CONFIG_DEBUG: True
     })
 
     # Run the prediction

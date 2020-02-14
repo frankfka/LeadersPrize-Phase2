@@ -56,5 +56,5 @@ def get_train_article(root_path: str, article_path: str) -> str:
 def train_data_generator(json_path: str):
     with open(json_path) as json_file:
         data = json.load(json_file)
-        for item in data:
-            yield LeadersPrizeClaim(item)
+        for idx, item in enumerate(data):
+            yield idx, LeadersPrizeClaim(item)
