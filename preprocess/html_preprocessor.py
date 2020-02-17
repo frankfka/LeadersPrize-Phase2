@@ -65,9 +65,9 @@ class HTMLProcessor:
                 print("Neither newspaper nor BS4 could extract article text")
         # Add title & description from html attributes
         if html_atts.description:
-            article_text = f"{html_atts.description} ." + article_text
+            article_text = f"{html_atts.description} . " + article_text
         if html_atts.title:
-            article_text = f"{html_atts.title} ." + article_text
+            article_text = f"{html_atts.title} . " + article_text
         return self.__clean_article_text(article_text)
 
     def __get_article_text_bs4(self, soup: BeautifulSoup) -> str:

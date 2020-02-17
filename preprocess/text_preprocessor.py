@@ -1,3 +1,5 @@
+import re
+import string
 from typing import List
 
 import preprocess.text_util as text_util
@@ -12,7 +14,7 @@ class TextPreprocessResult:
 class TextPreprocessor:
 
     def process(self, text: str) -> TextPreprocessResult:
-        bert_sentences = self.__get_cleaned_sentences(text)
+        bert_sentences = self.__get_cleaned_sentences_phase1(text)
         return TextPreprocessResult(bert_sentences)
 
     def __get_cleaned_sentences(self, text: str) -> List[str]:
@@ -31,6 +33,27 @@ class TextPreprocessor:
             # Final cleaning - keep only alphanumeric
             sentence = " ".join([item[0] for item in sent_words_with_pos])
             sentence = text_util.keep_alphanumeric(sentence).strip()
+            if sentence:
+                sentences.append(sentence)
+        return sentences
+
+    def __get_cleaned_sentences_phase1(self, text: str) -> List[str]:
+        sentences = []
+        for sentence in text_util.tokenize_by_sentence(text):
+            # Do cleaning on entire sentence text
+            sentence = text_util.expand_contractions(sentence)
+            sentence = text_util.replace_symbols(sentence)
+            sentence = text_util.clean_accent(sentence)
+            sentence = re.sub('[^0-9a-zA-Z.,]+', ' ', sentence)  # Strip non-alphanum except period and comma (useful in numbers)
+            sentence = text_util.convert_nums_to_words(sentence)
+            # Strip periods and commas, but we can't do a Regex because U.S. -> U S
+            words_in_sentence = []
+            # This will retain U.S. -> U.S., we could alternatively just cast U.S. -> US
+            for word in text_util.tokenize_by_word(sentence):
+                word = word.strip()
+                if word not in set(string.punctuation):
+                    words_in_sentence.append(word)
+            sentence = ' '.join(words_in_sentence)
             if sentence:
                 sentences.append(sentence)
         return sentences

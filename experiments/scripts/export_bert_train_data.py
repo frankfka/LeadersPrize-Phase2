@@ -76,9 +76,18 @@ def export_bert_train_data(preprocessed_pickle_path: str, sentence_extraction_wi
 
 
 if __name__ == '__main__':
+    # export_bert_train_data(
+    #     "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/train_data_with_phase1_preprocessed_articles_10000-END.pkl",
+    #     1,
+    #     "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window_10000-END.pkl"
+    # )
     combine_bert_trained_dfs([
-        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_w2v_1window_0-5000.pkl",
-        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_w2v_1window_5000-13000.pkl"
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window_0-2000.pkl",
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window_4000-6000.pkl",
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window_2000-4000.pkl",
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window_6000-8000.pkl",
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window_8000-10000.pkl",
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window_10000-END.pkl"
     ],
-    "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_w2v_1window.pkl"
+    "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/bert_train_data_phase1w2v_1window.pkl"
     )
