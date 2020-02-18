@@ -3,6 +3,7 @@ import os
 
 import pandas as pd
 
+from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
 from analyze.sentence_relevance_scorer.infersent_relevance_scorer import InfersentRelevanceScorer
 from analyze.sentence_relevance_scorer.infersent_vectorizer import InfersentVectorizer
@@ -52,6 +53,10 @@ def get_word2vec_relevance_scorer():
     vectorizer = Word2VecVectorizer("/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/word2vec"
                                     "/GoogleNewsVectors.bin.gz")
     return Word2VecRelevanceScorer(vectorizer)
+
+
+def get_lsa_relevance_scorer():
+    return LSADocumentRelevanceAnalyzer()
 
 
 def save_results(df: pd.DataFrame, tag: str, filekey: str, time_str: str = None):

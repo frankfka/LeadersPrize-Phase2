@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="en-US"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="en-US"><!--<![endif]-->
+<head profile="http://gmpg.org/xfn/11" prefix="og: http://ogp.me/ns#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"40e18f227a",applicationID:"128711286"};window.NREUM||(NREUM={}),__nr_require=function(n,e,t){function r(t){if(!e[t]){var i=e[t]={exports:{}};n[t][0].call(i.exports,function(e){var i=n[t][1][e];return r(i||e)},i,i.exports)}return e[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<t.length;i++)r(t[i]);return r}({1:[function(n,e,t){function r(){}function i(n,e,t){return function(){return o(n,[u.now()].concat(f(arguments)),e?null:this,t),e?void 0:this}}var o=n("handle"),a=n(4),f=n(5),c=n("ee").get("tracer"),u=n("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(n,e){s[e]=i(d+e,!0,"api")}),s.addPageAction=i(d+"addPageAction",!0),s.setCurrentRouteName=i(d+"routeName",!0),e.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(n,e){var t={},r=this,i="function"==typeof e;return o(l+"tracer",[u.now(),n,t],r),function(){if(c.emit((i?"":"no-")+"fn-start",[u.now(),r,i],t),i)try{return e.apply(this,arguments)}catch(n){throw c.emit("fn-err",[arguments,this,n],t),n}finally{c.emit("fn-end",[u.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(n,e){m[e]=i(l+e)}),newrelic.noticeError=function(n,e){"string"==typeof n&&(n=new Error(n)),o("err",[n,u.now(),!1,e])}},{}],2:[function(n,e,t){function r(n,e){var t=n.getEntries();t.forEach(function(n){"first-paint"===n.name?a("timing",["fp",Math.floor(n.startTime)]):"first-contentful-paint"===n.name&&a("timing",["fcp",Math.floor(n.startTime)])})}function i(n){if(n instanceof c&&!s){var e,t=Math.round(n.timeStamp);e=t>1e12?Date.now()-t:f.now()-t,s=!0,a("timing",["fi",t,{type:n.type,fid:e}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var o,a=n("handle"),f=n("loader"),c=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){o=new PerformanceObserver(r);try{o.observe({entryTypes:["paint"]})}catch(u){}}if("addEventListener"in document){var s=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(n){document.addEventListener(n,i,!1)})}}},{}],3:[function(n,e,t){function r(n,e){if(!i)return!1;if(n!==i)return!1;if(!e)return!0;if(!o)return!1;for(var t=o.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var f=navigator.userAgent,c=f.match(a);c&&f.indexOf("Chrome")===-1&&f.indexOf("Chromium")===-1&&(i="Safari",o=c[1])}e.exports={agent:i,version:o,match:r}},{}],4:[function(n,e,t){function r(n,e){var t=[],r="",o=0;for(r in n)i.call(n,r)&&(t[o]=e(r,n[r]),o+=1);return t}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],5:[function(n,e,t){function r(n,e,t){e||(e=0),"undefined"==typeof t&&(t=n?n.length:0);for(var r=-1,i=t-e||0,o=Array(i<0?0:i);++r<i;)o[r]=n[e+r];return o}e.exports=r},{}],6:[function(n,e,t){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(n,e,t){function r(){}function i(n){function e(n){return n&&n instanceof r?n:n?c(n,f,o):o()}function t(t,r,i,o){if(!d.aborted||o){n&&n(t,r,i);for(var a=e(i),f=v(t),c=f.length,u=0;u<c;u++)f[u].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(n,e){h[n]=v(n).concat(e)}function m(n,e){var t=h[n];if(t)for(var r=0;r<t.length;r++)t[r]===e&&t.splice(r,1)}function v(n){return h[n]||[]}function g(n){return p[n]=p[n]||i(t)}function w(n,e){u(n,function(n,t){e=e||"feature",y[t]=e,e in s||(s[e]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:e,buffer:w,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var f="nr@context",c=n("gos"),u=n(4),s={},p={},d=e.exports=i();d.backlog=s},{}],gos:[function(n,e,t){function r(n,e,t){if(i.call(n,e))return n[e];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(n,e,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return n[e]=r,r}var i=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(n,e,t){function r(n,e,t,r){i.buffer([n],r),i.emit(n,e,t)}var i=n("ee").get("handle");e.exports=r,r.ee=i},{}],id:[function(n,e,t){function r(n){var e=typeof n;return!n||"object"!==e&&"function"!==e?-1:n===window?0:a(n,o,function(){return i++})}var i=1,o="nr@id",a=n("gos");e.exports=r},{}],loader:[function(n,e,t){function r(){if(!x++){var n=E.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(n&&n.licenseKey&&n.applicationID&&e))return s.abort();u(y,function(e,t){n[e]||(n[e]=t)}),c("mark",["onload",a()+E.offset],null,"api");var t=l.createElement("script");t.src="https://"+n.agent,e.parentNode.insertBefore(t,e)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+E.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(f=Math.max((new Date).getTime(),f))-E.offset}var f=(new Date).getTime(),c=n("handle"),u=n(4),s=n("ee"),p=n(3),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1158.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),E=e.exports={offset:f,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};n(1),n(2),l[m]?(l[m]("DOMContentLoaded",o,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",i),d[v]("onload",r)),c("mark",["firstbyte",f],null,"api");var x=0,O=n(6)},{}],"wrap-function":[function(n,e,t){function r(n){return!(n&&n instanceof Function&&n.apply&&!n[a])}var i=n("ee"),o=n(5),a="nr@original",f=Object.prototype.hasOwnProperty,c=!1;e.exports=function(n,e){function t(n,e,t,i){function nrWrapper(){var r,a,f,c;try{a=this,r=o(arguments),f="function"==typeof t?t(r,a):t||{}}catch(u){d([u,"",[r,a,i],f])}s(e+"start",[r,a,i],f);try{return c=n.apply(a,r)}catch(p){throw s(e+"err",[r,a,p],f),p}finally{s(e+"end",[r,a,c],f)}}return r(n)?n:(e||(e=""),nrWrapper[a]=n,p(n,nrWrapper),nrWrapper)}function u(n,e,i,o){i||(i="");var a,f,c,u="-"===i.charAt(0);for(c=0;c<e.length;c++)f=e[c],a=n[f],r(a)||(n[f]=t(a,u?f+i:i,o,f))}function s(t,r,i){if(!c||e){var o=c;c=!0;try{n.emit(t,r,i,e)}catch(a){d([a,t,r,i])}c=o}}function p(n,e){if(Object.defineProperty&&Object.keys)try{var t=Object.keys(n);return t.forEach(function(t){Object.defineProperty(e,t,{get:function(){return n[t]},set:function(e){return n[t]=e,e}})}),e}catch(r){d([r])}for(var i in n)f.call(n,i)&&(e[i]=n[i]);return e}function d(e){try{n.emit("internal-error",e)}catch(t){}}return n||(n=i),t.inPlace=u,t.flag=a,t}},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width">
+<title>U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade | Pew Research Center</title>
+<meta name="date" content="20190829">
+ 
+<link rel="alternate" type="application/rss+xml" title="Pew Research Center for the People and the Press RSS Feed" href="https://www.people-press.org/feed/">
+<link rel="image_src" href="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/featured.png?w=150&h=150&crop=1">
+	<!--
+	#    _____                  _____                                     _        _____              _
+	#   |  __ \                |  __ \                                   | |      / ____|            | |
+	#   | |__) |___ __      __ | |__) | ___  ___   ___   __ _  _ __  ___ | |__   | |      ___  _ __  | |_  ___  _ __
+	#   |  ___// _ \\ \ /\ / / |  _  / / _ \/ __| / _ \ / _` || '__|/ __|| '_ \  | |     / _ \| '_ \ | __|/ _ \| '__|
+	#   | |   |  __/ \ V  V /  | | \ \|  __/\__ \|  __/| (_| || |  | (__ | | | | | |____|  __/| | | || |_|  __/| |
+	#   |_|    \___|  \_/\_/   |_|  \_\\___||___/ \___| \__,_||_|   \___||_| |_|  \_____|\___||_| |_| \__|\___||_|
+	#
+	#   Github: http://github.com/pewresearch
+	#   Version: 3.6	#
+	-->
+		
+<!-- This site is optimized with the Yoast SEO Premium plugin v11.9 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="As debates over abortion continue in states around the country, a majority of Americans (61%) continue to say that abortion should be legal in all (27%) or most (34%) cases."/>
+<link rel="canonical" href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade" />
+<meta property="og:description" content="As debates over abortion continue in states around the country, a majority of Americans (61%) continue to say that abortion should be legal in all (27%) or most (34%) cases." />
+<meta property="og:url" content="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/" />
+<meta property="og:site_name" content="Pew Research Center for the People and the Press" />
+<meta property="article:publisher" content="https://www.facebook.com/pewresearch" />
+<meta property="article:section" content="Publications" />
+<meta property="article:published_time" content="2019-08-29T15:07:50-04:00" />
+<meta property="article:modified_time" content="2019-12-31T05:26:54-05:00" />
+<meta property="og:updated_time" content="2019-12-31T05:26:54-05:00" />
+<meta property="og:image" content="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/featured.png" />
+<meta property="og:image:secure_url" content="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/featured.png" />
+<meta property="og:image:width" content="700" />
+<meta property="og:image:height" content="394" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="As debates over abortion continue in states around the country, a majority of Americans (61%) continue to say that abortion should be legal in all (27%) or most (34%) cases." />
+<meta name="twitter:title" content="U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade " />
+<meta name="twitter:site" content="@pewresearch" />
+<meta name="twitter:image" content="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/featured.png" />
+<meta name="twitter:creator" content="@pewresearch" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.people-press.org/#website","url":"https://www.people-press.org/","name":"Pew Research Center for the People and the Press","potentialAction":{"@type":"SearchAction","target":"https://www.people-press.org/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"ImageObject","@id":"https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/#primaryimage","url":"https://www.people-press.org/wp-content/uploads/sites/4/2019/08/featured.png","width":700,"height":394},{"@type":"WebPage","@id":"https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/#webpage","url":"https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/","inLanguage":"en-US","name":"U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade | Pew Research Center","isPartOf":{"@id":"https://www.people-press.org/#website"},"primaryImageOfPage":{"@id":"https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/#primaryimage"},"datePublished":"2019-08-29T15:07:50-04:00","dateModified":"2019-12-31T05:26:54-05:00","author":{"@id":"https://www.people-press.org/#/schema/person/62ce63bcb6ff24bb81ac08c408ae70d2"},"description":"As debates over abortion continue in states around the country, a majority of Americans (61%) continue to say that abortion should be legal in all (27%) or most (34%) cases."},{"@type":["Person"],"@id":"https://www.people-press.org/#/schema/person/62ce63bcb6ff24bb81ac08c408ae70d2","name":"Amina Dunn","image":{"@type":"ImageObject","@id":"https://www.people-press.org/#authorlogo","url":"https://secure.gravatar.com/avatar/212fa9d563fee4767f14a48c237b342d?s=96&d=mm&r=g","caption":"Amina Dunn"},"sameAs":[]}]}</script>
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//ajax.googleapis.com' />
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//use.typekit.net' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='all-css-0' href='https://www.people-press.org/_static/??-eJydj0GOwjAMRS9EaligrhCXYI/a1ICFk1i2oertSemMQBpphEg20ct/+TGMEmLJjtnBL5jQQHAMgkUYgyiaQbQZvkBTwQo+FI3ymfGPInw7U14cxVMXvWiwC6UnsagkbtCXEfUYS5KSq2UwdF53z2hNRq+m1RujO4bBn3Uv0szZw5JNlL/8wYnYUcNP5+8blCPfBlwmHMgcei7xGph67XQC86nO/F9rRdKpIU9vxzm9T7vNtq1r3babB0/NnGU=' type='text/css' media='all' />
+<link rel='stylesheet' id='typekit-css'  href='https://use.typekit.net/xos5dbo.css?ver=5.3.2' media='all' />
+<link rel='stylesheet' id='all-css-2' href='https://www.people-press.org/_static/??-eJyNjkkOwjAMRS9EapBaEAvEUZDrujS0GRQ76vVJmDYICcsLD/8/fVijoeCVvUJc8tV6gcirSTwiaUhGJusARVgFSJ5PCokbZ31TDhv4i9CHldOFgovBF6WAsEOvlmCwop/tNzGRycLJIFHIFdBnuwwgihVSkzksibpxf2xbwoam7OcvnMvmTbyxRqT5YX3NVX52p113KLUtfQfqbGoq' type='text/css' media='all' />
+<link rel='stylesheet' id='print-css-2' href='https://www.people-press.org/wp-content/themes/pew-people-press/css/print.css?m=1577770771g' type='text/css' media='print' />
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'></script>
+<script type='text/javascript' src='https://www.people-press.org/wp-content/plugins/pew-refactor-shim/bower_components/semantic/dist/semantic.min.js?m=1577770770g'></script>
+<link rel='https://api.w.org/' href='https://www.people-press.org/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.people-press.org/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.people-press.org/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.3.2" />
+<link rel='shortlink' href='https://www.people-press.org/?p=20071201' />
+<link rel="alternate" type="application/json+oembed" href="https://www.people-press.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.people-press.org%2F2019%2F08%2F29%2Fu-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.people-press.org/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.people-press.org%2F2019%2F08%2F29%2Fu-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade%2F&#038;format=xml" />
+<link rel='alternate' type='application/json' title='JSON Representation' href='https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade//feed/json/'><link rel='alternate' type='text/plain' title='Prism XML Version' href='https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade//feed/prism/'><link rel='alternate' type='text/plain' title='Plain Text Version' href='https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade//feed/plain/'><meta name='robots' content='NOODP' />
+
+<!-- Begin Taxonomy Meta -->
+<meta name='topics' content='Abortion'>
+<!-- End Taxonomy Meta --><!-- / HREFLANG Tags by DCGWS -->
+<!-- / HREFLANG Tags by DCGWS -->
+<script>var chart = [];</script>        <!-- GTM Data Layer -->
+        <script>
+			dataLayer = [];
+        </script>
+        <!-- Cross Domain GTM -->
+				
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MVFJNW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MVFJNW');
+        </script>
+        <!-- End Google Tag Manager -->
+
+    
+                        <!-- Site Specific GTM -->
+        <!-- Google Tag Manager -->
+        <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WCHNW3G');
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta property="share:appID:fb" content="1077976005626572">
+<!-- BEGIN wp-parsely Plugin Version 2.0 -->
+<meta name="wp-parsely_version" id="wp-parsely_version" content="2.0"/>
+			<script type="application/ld+json">
+		{"@context":"http:\/\/schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/www.people-press.org\/2019\/08\/29\/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade\/"},"headline":"U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade","url":"http:\/\/www.people-press.org\/2019\/08\/29\/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade\/","thumbnailUrl":"https:\/\/www.people-press.org\/wp-content\/uploads\/sites\/4\/2019\/08\/featured.png?w=150&h=150&crop=1","image":{"@type":"ImageObject","url":"https:\/\/www.people-press.org\/wp-content\/uploads\/sites\/4\/2019\/08\/featured.png?w=150&h=150&crop=1"},"dateCreated":"2019-08-29T15:07:50Z","datePublished":"2019-08-29T15:07:50Z","dateModified":"2019-12-31T01:25:10Z","articleSection":"Publications","author":[],"creator":[],"keywords":[],"publisher":{"@type":"Organization","name":"Pew Research Center for the People and the Press","logo":{"@type":"ImageObject","url":"https:\/\/www.pewresearch.org\/wp-content\/uploads\/2018\/06\/favicon_128x128.png"}}}
+		</script>
+
+			<!-- END wp-parsely Plugin Version 2.0 -->
+<!--[if lt IE 9]><script src="https://www.people-press.org/wp-content/plugins/pew-refactor-shim/pew-scripts/js/html5shiv-printshiv.min.js"></script><![endif]-->
+    <style>
+    .pullquote > div:before,
+    .pullquote > div:after {
+        color: ;
+    }
+    .chapter-title .honkin-number {
+        color: ;
+    }
+    </style>
+    <meta name='theme-color' content='#D1A730'>
+
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<style type='text/css'>img#wpstats{display:none}</style><link rel="icon" href="https://www.people-press.org/wp-content/uploads/sites/4/2018/09/favicon_128x128.png?w=32" sizes="32x32" />
+<link rel="icon" href="https://www.people-press.org/wp-content/uploads/sites/4/2018/09/favicon_128x128.png?w=128" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://www.people-press.org/wp-content/uploads/sites/4/2018/09/favicon_128x128.png?w=128" />
+<meta name="msapplication-TileImage" content="https://www.people-press.org/wp-content/uploads/sites/4/2018/09/favicon_128x128.png?w=128" />
+</head>
+<!--googleoff: index-->
+<body class="post-template-default single group-blog singular no-js politics multi-section-report multi-section-parent project peoplepress publications">
+
+		<div id="js-tophat" class="tophat">
+		<div class="container xl">
+			<div class="flex">
+				<p>Numbers, Facts and Trends Shaping Your World</p>
+				<p>
+					<a href="https://www.pewresearch.org/about">About</a>
+					<a href="https://www.pewresearch.org/follow-us">Follow</a>
+							<div class="ui dropdown item">
+			My Account
+			<i class="dropdown icon"></i>
+			<div class="menu">
+				<a href="https://www.pewresearch.org/profile" class="item is-logged-out">Log in</a>
+				<a href="https://www.pewresearch.org/profile" class="item is-logged-in">View Account</a>
+				<a id="js-prc-logout" class="item is-logged-in">Log out</a>
+			</div>
+		</div>
+		<style>
+		body.external-user-signed-in .is-logged-out {
+			display: none!important;
+		}
+		body:not(.external-user-signed-in) .is-logged-in {
+			display: none!important;
+		}
+		</style>
+							<div><a href='https://pewresearch.networkforgood.com/?utm_source=PeoplePress&utm_medium=InternalPromo&utm_campaign=TopDonateButton' class='tophat-button'>Donate</a></div>				</p>
+			</div>
+		</div>
+	</div>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="container xl">
+			<div class="site-branding">
+				<a href="https://www.pewresearch.org/" class="logo" rel="home"><img src="https://www.people-press.org/wp-content/plugins/pew-refactor-shim/assets/img/logos/desktop-header.svg" alt="Pew Research Center"></a>
+				<p class='project politics site-description label'>U.S. Politics &amp; Policy</p>					<div id="quick_search_form" class="quick-search">
+		<div id="js-quick-search" class="ui small search">
+			<div class="ui right icon input js-quick-search">
+				<input class="prompt" type="text" placeholder="Search..." value="">
+				<i class="search link icon"></i>
+			</div>
+		</div>
+	</div>
+	<script>
+		jQuery('#quick_search_form i').on('click', function(){
+			var value = jQuery('#quick_searcH_form input.prompt').val();
+			location.assign( window.siteDomain + "/search/" + value );
+		});
+		jQuery('#quick_search_form input.prompt').keydown(function(e){
+			var searchTerm = jQuery(this).val();
+			if(e.keyCode === 13){
+				// Go to search page.
+				location.assign( window.siteDomain + "/search/" + searchTerm );
+			}
+		});
+	</script>
+	<style>
+		#quick_search_form {
+		align-items: center;
+		float: right;
+		display: flex !important;
+		justify-content: flex-end;
+		}
+		#quick_search_form .ui.input.focus > input,
+		#quick_search_form .ui.input > input:focus {
+		border-color: #b7b8af;
+		}
+		#quick_search_form .ui.search {
+		max-width: 275px;
+		width: 100%;
+		}
+		#quick_search_form input.prompt {
+		padding: 0.47857143em 1em;
+		border-radius: 5px !important;
+		}
+		#quick_search_form input.prompt,
+		#quick_search_form input.prompt::placeholder {
+		font-family: 'franklin-gothic-urw', Verdana, Geneva, sans-serif;
+		}
+		#quick_search_form input.prompt::placeholder {
+		text-transform: uppercase;
+		}
+		#quick_search_form .ui.icon.input > i.search.icon {
+		background-color: #b7b8af !important;
+		color: white;
+		background-color: #b7b8ae;
+		opacity: 1 !important;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		cursor: pointer !important;
+		}
+		.site-header i.search.icon {
+		cursor: pointer;
+		}
+		</style>
+					<ul id="js-mobile-menu-tabs" class="flex flex-list">
+					<li data-target-state="false"><a href="javascript:void(0)" data-target-menu="#js-site-menu" class="politics bg">Menu</a></li>
+										<li data-target-state="false"><a href="javascript:void(0)" data-target-menu="#js-verticals-menu">Research Areas</a></li>
+				</ul>
+			</div><!-- /.site-branding -->
+
+			<nav id="js-verticals-menu" role="navigation">
+				<ul class="navigation verticals-menu flex flex-list">
+					<li><a href="https://www.pewresearch.org" class="pewresearch">Home</a></li><li><a href="https://www.people-press.org" class="politics">U.S. Politics</a></li><li><a href="https://www.journalism.org" class="journalism">Media &amp; News</a></li><li><a href="https://www.pewsocialtrends.org" class="social-trends">Social Trends</a></li><li><a href="https://www.pewforum.org" class="religion">Religion</a></li><li><a href="https://www.pewinternet.org" class="internet">Internet &amp; Tech</a></li><li><a href="https://www.pewresearch.org/science" class="science">Science</a></li><li><a href="http://www.pewhispanic.org" class="hispanic">Hispanics</a></li><li><a href="https://www.pewglobal.org" class="global">Global</a></li><li><a href="//www.pewresearch.org/methods" class="methods">Methods</a></li>				</ul>
+			</nav><!-- /#verticals-menu -->
+		</div>
+	</header><!-- /#masthead -->
+
+	<div id="js-site-menu-container" class="container xl">
+		<nav id="js-site-menu" class="politics bg"><ul id="site-navigation" class="navigation site-menu flex flex-list "><li id="menu-item-20017797" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-20017797"><a href="https://www.people-press.org/category/publications/">Publications</a></li>
+<li id="menu-item-20053387" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20053387"><a href="https://www.people-press.org/topics/">Topics</a></li>
+<li id="menu-item-20011226" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20011226"><a href="https://www.people-press.org/question-search/">Question Search</a></li>
+<li id="menu-item-20069928" class="menu-item menu-item-type-post_type_archive menu-item-object-dataset menu-item-20069928"><a href="https://www.people-press.org/?post_type=dataset">Datasets</a></li>
+<li id="menu-item-20057236" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20057236"><a href="https://www.pewresearch.org/packages/about-our-research-methods/">Methodology</a></li>
+<li id="menu-item-20057213" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20057213"><a href="https://www.pewresearch.org/areas-of-expertise/politics-and-elections/">Experts</a></li>
+</ul></nav>	</div>
+		<!--Begin Main Holder--><div class="holder"><div id="banner"></div>
+<!--googleoff: index-->
+<div id="content" role="main" class="content">
+<div class="ui text menu social share-tools">			<div class="item fb-pew-share" fb-share-url="https://pewrsr.ch/2Ud6iOt" fb-share-description=""><i class="facebook icon"></i></div>
+			<a href="" class="item twtr-pew-share" twtr-share-url="https://pewrsr.ch/2Ud6iOt" twtr-share-description="U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade"><i class="twitter icon"></i></a>
+			<a href="" class="item linkedin-pew-share" linkedin-share-url="https://pewrsr.ch/2Ud6iOt" linkedin-share-description=""><i class="linkedin square icon"></i></a>
+						<a href="javascript:window.print();" class="item"><i class="print icon"></i></a>
+			</div><div class="meta"><span class="date" data-datetime="August 29, 2019">August 29, 2019</span></div>
+	
+    <h1>U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade</h1>
+    <p class="subhead">More agree with Democrats than Republicans on abortion policy</p><p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-1/" rel="attachment wp-att-20071247"><img class="alignright wp-image-20071247" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png" alt="Majority continues to say abortion should be legal in all or most cases" width="310" height="448" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png 626w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png?resize=208,300 208w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png?resize=160,231 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png?resize=280,405 280w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png?resize=200,289 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png?resize=260,375 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png?resize=310,448 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-1.png?resize=420,607 420w" sizes="(max-width: 310px) 100vw, 310px" /></a>As debates over abortion continue in states around the country, a majority of Americans (61%) continue to say that abortion should be legal in all (27%) or most (34%) cases. A smaller share of the public (38%) says abortion should be illegal in all (12%) or most cases (26%).</p>
+<p>The new survey by Pew Research Center, conducted July 22-August 4 among 4,175 adults, also finds little support for overturning Roe v. Wade, the landmark Supreme Court decision that established a woman’s right to an abortion. Seven-in-ten say they do not want to see the Roe v. Wade decision completely overturned; 28% say they would like to see the Supreme Court completely overturn the 1973 decision.</p>
+<p>Consistent with these views, a majority of Americans say their greater concern is that some states are making it too difficult (59%) rather than too easy (39%) for people to be able to get an abortion.</p>
+<p><a id="trends-and-mode-changes"></a><div class="ui callout callout-wide shortcode-collapsible"></p>
+<a class="toc-anchor" name="trends-and-mode-changes"></a><a class="toc-anchor" name="trends-and-mode-changes"></a><div class="ui collapsed"><h4 class="collapsible-title"><i class="dropdown icon"></i>Trends and mode changes</h4></div><div class="content" style="display:none;">
+<p>Results for this report are based on a survey conducted through Pew Research Center’s American Trends Panel – a probability-based, nationally representative panel of U.S. adults administered online. Two of the questions on this survey have been included on telephone surveys in the past.</p>
+<p>Results from self-administered (online) and interviewer-administered (telephone) surveys are<br />
+sometimes different even when the questions are worded the same. This difference is called a mode effect.</p>
+<p>To assess possible mode effects in abortion attitudes, the two questions with previous phone trends were included on a recent telephone survey in addition to this wave of the American Trends Panel. The two surveys produced similar estimates for these two abortion attitudes. Results for both surveys are shown in the topline.</p>
+<p>Charts in the report that draw upon trend data from telephone surveys include footnotes indicating the mode of data collection. For more information about mode effects, <a href="https://www.pewresearch.org/methods/2015/05/13/from-telephone-to-the-web-the-challenge-of-mode-of-interview-effects-in-public-opinion-polls/">click here</a>.</p>
+<p></div></div></p>
+<p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-2/" rel="attachment wp-att-20071249"><img class="alignright wp-image-20071249" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png" alt="Broad public opposition to completely overturning Roe v. Wade" width="310" height="383" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png 624w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png?resize=243,300 243w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png?resize=160,197 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png?resize=328,405 328w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png?resize=200,247 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png?resize=260,321 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png?resize=310,383 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-2.png?resize=420,518 420w" sizes="(max-width: 310px) 100vw, 310px" /></a>Partisan divides over abortion policy remain deep and the issue also exposes differences within the two parties, especially the GOP.</p>
+<p>Democrats broadly back access to legal abortion: About eight-in-ten Democrats and Democratic-leaning independents (82%) say abortion should be legal in all or most cases. A somewhat larger share of liberal (91%) than conservative and moderate (75%) Democrats say abortion should be legal in all or most cases.</p>
+<p>Democrats are ideologically divided over how far protections for legal abortion should extend: Conservative and moderate Democrats are more likely to say abortion should be legal in <em>most</em> cases (45%) than in <em>all </em>cases (30%). The balance of opinion is reversed among liberal Democrats: 51% say abortion should be legal in all cases, while 39% say it should be legal in most cases.</p>
+<p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-3/" rel="attachment wp-att-20071250"><img class="alignright wp-image-20071250" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png" alt="Wide divide among Republicans in views of legal abortion" width="310" height="365" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png 624w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png?resize=255,300 255w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png?resize=160,188 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png?resize=344,405 344w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png?resize=200,235 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png?resize=260,306 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png?resize=310,365 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-3.png?resize=420,494 420w" sizes="(max-width: 310px) 100vw, 310px" /></a>Among Republicans and Republican leaners, significantly more say abortion should be illegal (62%) than legal (36%) in all or most cases. Republicans are deeply split on this question by ideology: 77% of conservative Republicans say abortion should be illegal in all or most cases; just 22% say it should be legal. By contrast, 57% of moderate and liberal Republicans think abortion should be legal in all or most cases, compared with a smaller share (41%) who say it should be illegal.</p>
+<p>When it comes to abortion policy, the public expresses somewhat more agreement with the Democratic Party’s policies than those of the Republican Party – though a sizable minority says they don’t agree with either party’s policies.</p>
+<a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-4/" rel="attachment wp-att-20071251"><img class="aligncenter wp-image-20071251" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png" alt="Larger share of public agrees with Democratic Party than GOP on abortion policy" width="640" height="362" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png 1282w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=300,170 300w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=768,435 768w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=1024,580 1024w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=160,91 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=715,405 715w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=200,113 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=260,147 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=310,176 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=420,238 420w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=640,362 640w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=740,419 740w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-4.png?resize=540,304 540w" sizes="(max-width: 640px) 100vw, 640px" /></a>
+<p>Overall, 42% agree with the Democratic Party’s policies on abortion either strongly (28%) or somewhat (15%). A smaller share (32%) says they strongly (21%) or somewhat (11%) agree with the policies of the GOP. About a quarter (24%) says they don’t agree with either party on this issue.</p>
+<p>Most partisans agree with their own party’s stance on abortion policy, but moderates in both parties are especially likely to express some doubts about their own party’s policies on abortion.</p>
+<p>Among Republicans and Republican leaners, 64% agree with the GOP’s stance on abortion, while 23% say they do not agree with either party and 12% say they agree with the Democratic Party’s policies. About eight-in-ten conservative Republicans (81%) agree with the GOP on abortion policy, compared with just 41% of moderate and liberal Republicans. A majority of moderate and liberal Republicans (59%) do not agree with either party (35%) or agree with the Democratic Party (24%) on abortion policy.</p>
+<p>Seven-in-ten Democrats and Democratic leaners say they agree with their own party on abortion policy; 22% say they do not agree with either party and just 7% agree with the GOP. Liberal Democrats (85%) are much more likely than conservatives and moderates (57%) to agree with the Democratic Party’s policies on abortion. Roughly a third of conservatives and moderates (32%) say they do not agree with either party’s policies; 9% say they agree with the GOP.</p>
+<a class="toc-anchor" name="partisan-gap-in-views-of-legal-abortion-has-widened-in-recent-years"></a><a class="toc-anchor" name="partisan-gap-in-views-of-legal-abortion-has-widened-in-recent-years"></a><h3>Partisan gap in views of legal abortion has widened in recent years</h3>
+<p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/5-3-4/" rel="attachment wp-att-20071272"><img class="alignright size-310-wide wp-image-20071272" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/5-3.png?w=308" alt="Growing share of Democrats favor legal abortion in all or most cases" width="308" height="439" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/5-3.png 308w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/5-3.png?resize=210,300 210w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/5-3.png?resize=160,228 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/5-3.png?resize=284,405 284w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/5-3.png?resize=200,285 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/5-3.png?resize=260,371 260w" sizes="(max-width: 308px) 100vw, 308px" /></a>While Republicans and Democrats have long differed in their views on abortion, the partisan gap today is larger than it has been in recent years. And the growing partisan gap has been driven largely by an increase in support for legal abortion among Democrats.</p>
+<p>In the current survey, Democrats and Democratic leaners are 46 percentage points more likely than Republicans and Republican leaners to say abortion should be legal in all or most cases (82% vs. 36%). This gap is wider than it has been in previous Pew Research Center surveys dating to 2007. For instance, in 2016, there was a 33-point gap between the shares of Democrats (72%) and Republicans (39%) who supported legal abortion in all or most cases.</p>
+<p>Differences in views on legal abortion extend beyond party affiliation; there are significant divides in views on the basis of religious affiliation, education and age. Notably, there are virtually no differences in the opinions of women and men.</p>
+<p data-wp-editing="1"><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-6/" rel="attachment wp-att-20071253"><img class="alignright wp-image-20071253" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png" alt="Large differences in views of legal abortion by religious affiliation" width="310" height="628" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png 628w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png?resize=148,300 148w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png?resize=506,1024 506w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png?resize=158,320 158w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png?resize=200,405 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png?resize=260,527 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png?resize=310,628 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-6.png?resize=420,851 420w" sizes="(max-width: 310px) 100vw, 310px" /></a>A majority of white mainline Protestants (60%) and black Protestants (64%) say abortion should be legal in all or most cases. By contrast, 77% of white evangelical Protestants say abortion should be illegal in all or most cases. Among Catholics, more say abortion should be legal (56%) than illegal (42%) in all or most cases. Those who are not affiliated with a religion are among the most supportive of legal abortion: 83% say abortion should be legal in all or most cases.</p>
+<p>Among all adults, those with higher levels of educational attainment are more supportive of legal abortion than those with less education. While 72% of those with postgraduate degrees say abortion should be legal in all or most cases, a smaller majority of those who have not completed college (57%) say the same.</p>
+<p>Across age groups, those under 50 are more supportive of legal abortion than are those 50 and older. For example, 70% of those ages 18 to 29 say abortion should be legal in all or most cases, compared with 55% of those ages 65 and older.</p>
+<a class="toc-anchor" name="most-americans-oppose-overturning-roe-v-wade"></a><a class="toc-anchor" name="most-americans-oppose-overturning-roe-v-wade"></a><h3>Most Americans oppose overturning Roe v. Wade</h3>
+<p>Seven-in-ten say they do not want the Supreme Court to completely overturn its Roe v. Wade decision, compared with 28% who want to see the decision completely overturned.</p>
+<p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-7/" rel="attachment wp-att-20071254"><img class="alignright wp-image-20071254" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png" alt="Republicans divided on whether Roe v. Wade should be completely overturned" width="310" height="530" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png 628w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=175,300 175w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=599,1024 599w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=160,274 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=237,405 237w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=200,342 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=260,445 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=310,530 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-7-.png?resize=420,718 420w" sizes="(max-width: 310px) 100vw, 310px" /></a>Similar majorities of women (70%) and men (69%) do not want Roe v. Wade overturned.</p>
+<p>Republicans are divided in their views, reflecting internal ideological differences. Half of Republicans and Republican leaners do not want the Supreme Court to overturn Roe v. Wade; nearly as many (48%) would like to see the decision overturned.</p>
+<p>By 61% to 37%, conservative Republicans say they would like Roe v. Wade to be overturned. Moderate and liberal Republicans take the opposite view: 70% do not want the Supreme Court to overturn the decision, while just 27% say they want this to happen.</p>
+<p>Nearly nine-in-ten Democrats and Democratic leaners (87%) do not want Roe v. Wade overturned, including 94% of liberal Democrats and 81% of conservative and moderate Democrats.</p>
+<p>Views on the Roe v. Wade decision are tied to overall views on whether abortion should be legal or illegal. For instance, 92% of those who say abortion should be legal in all or most cases do not want the Supreme Court to overturn Roe v. Wade. A majority of those who say abortion should be illegal in all or most cases (62%) want the decision overturned; however, a sizable minority (35%) of those who think abortion should be illegal in all or most cases do not want the court to completely overturn its 1973 decision.</p>
+<a class="toc-anchor" name="who-knows-someone-who-has-had-an-abortion"></a><a class="toc-anchor" name="who-knows-someone-who-has-had-an-abortion"></a><h3>Who knows someone who has had an abortion?</h3>
+<p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-8/" rel="attachment wp-att-20071255"><img class="alignright wp-image-20071255" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png" alt="Majority of public says they know someone who has had an abortion" width="310" height="486" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png 628w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png?resize=191,300 191w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png?resize=160,251 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png?resize=258,405 258w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png?resize=200,313 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png?resize=260,407 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png?resize=310,486 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-8-.png?resize=420,658 420w" sizes="(max-width: 310px) 100vw, 310px" /></a>When asked whether they personally know someone who has had an abortion – such as a close friend, family member or the respondent themselves – 57% of the public says they know someone who has had an abortion; 42% say they do not.</p>
+<p>About half or more across most demographic groups say they know someone who has had an abortion.</p>
+<p>Women (63%) are 12 percentage points more likely than men (51%) to say they personally know someone who has had an abortion.</p>
+<p>Across age groups, the youngest adults ages 18 to 29 (48%) are less likely than older adults – particularly those ages 50 to 64 – to say they know someone who has had an abortion.</p>
+<p>The share who know someone who has had an abortion varies little across levels of educational attainment.</p>
+<p>Nearly identical shares of Democrats and Democratic leaners (58%) and Republicans and Republican leaners (57%) say they personally know someone who has had an abortion.</p>
+<p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/abortion-9/" rel="attachment wp-att-20071256"><img class="alignright wp-image-20071256" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png" alt="Knowing someone who has had an abortion has a modest impact on abortion policy views" width="310" height="451" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png 630w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png?resize=206,300 206w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png?resize=160,233 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png?resize=279,405 279w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png?resize=200,291 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png?resize=260,378 260w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png?resize=310,451 310w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/abortion-9-.png?resize=420,611 420w" sizes="(max-width: 310px) 100vw, 310px" /></a>Those who personally know someone who has had an abortion are only modestly more likely than those who do not to say abortion should be legal. Almost two-thirds of those who know someone who has had an abortion say abortion should be legal in all or most cases (64%). Among those who do not know someone who has had an abortion, support for legal abortion is slightly lower (57%).</p>
+<p>Among Democrats and Democratic leaners, those who know someone who has had an abortion are 7 percentage points more likely than those who don’t to support legal abortion (85% and 78%, respectively). There is only a 3-point difference among Republicans and Republicans leaners in support for legal abortion between those who know someone who has had an abortion (38%) and those who do not (35%).</p>
+<a class="toc-anchor" name="broad-concern-that-some-states-are-making-it-too-difficult-to-get-an-abortion"></a><a class="toc-anchor" name="broad-concern-that-some-states-are-making-it-too-difficult-to-get-an-abortion"></a><h3>Broad concern that some states are making it ‘too difficult’ to get an abortion</h3>
+<p><a href="https://www.people-press.org/2019/08/29/u-s-public-continues-to-favor-legal-abortion-oppose-overturning-roe-v-wade/10-3-3/" rel="attachment wp-att-20071273"><img class="alignright size-310-wide wp-image-20071273" src="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/10-3.png?w=308" alt="Views of access to abortion in states are similar to opinions about legal abortion" width="308" height="415" srcset="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/10-3.png 308w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/10-3.png?resize=223,300 223w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/10-3.png?resize=160,216 160w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/10-3.png?resize=301,405 301w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/10-3.png?resize=200,269 200w, https://www.people-press.org/wp-content/uploads/sites/4/2019/08/10-3.png?resize=260,350 260w" sizes="(max-width: 308px) 100vw, 308px" /></a>About six-in-ten Americans (59%) say their greater concern is that some states are making it too difficult for people to be able to get an abortion; 39% say their greater concern is that some states are making it too easy for people to be able to get an abortion.</p>
+<p>A majority of Democrats and Democratic leaners (83%) say their greater concern is that some states are making it too difficult for people to get an abortion. By 65% to 33%, Republicans and Republican leaners say their greater concern is that some states are making it too easy for people to get an abortion.</p>
+<p>Views on this question are closely related to overall views on whether abortion should be legal or illegal. Almost nine-in-ten of those who say abortion should be legal in all or most cases (88%) say their greater concern is that some states are making it too difficult to get an abortion. Among those who think abortion should be illegal in all or most cases, 83% say their greater concern is over states making it too easy for people to get an abortion.</p>
+<p>Demographic differences on this question are similar to those on whether abortion should be legal or illegal.</p>
+	<div id="pagination">
+		<h2 class="hidden" id="pagination-label">Pagination</h2>
+					<a href="https://www.people-press.org/2019/08/29/methodology-226/" class="multi-section-button" rel="next">Next: Methodology</a>
+		
+
+					<a href="https://www.people-press.org/2019/08/29/methodology-226/" class="next" rel="next">Next Page <span class="arrow" aria-hidden="true">&rarr;</span></a>
+			
+
+					<a class="prev disabled"><span class="arrow" aria-hidden="true">&larr;</span> Prev Page</a>
+		
+				<ol start="1"  aria-labelledby="pagination-label">
+								<li class="active"><a><span class="hidden">You are reading page</span> 1</a></li>
+													<li><a href="https://www.people-press.org/2019/08/29/methodology-226/" rel="next"><span class="hidden">Page</span> 2</a></li>
+									</ol>
+			</div>
+		</div>
+<!--googleoff: index-->
+
+
+<div id="sidebar" role="complementary">
+<div class="widget" id="report-materials"><h5 class="uppercase-label widget-title">Report Materials</h5><div class="inner filter"><ul><li class="complete-report pdf"><a href="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/PP_2019.08.29_U.S.-Public-Continues-to-Favor-Legal-Abortion_FINAL-2.pdf" download>Complete Report PDF</a></li><li class="topline-questionnaire pdf"><a href="https://www.people-press.org/wp-content/uploads/sites/4/2019/08/PP_2019.08.29_U.S.-Public-Continues-to-Favor-Legal-Abortion_TOPLINE-1.pdf" download>Topline</a></li><li class="promo-item"><a href="https://www.pewforum.org/fact-sheet/public-opinion-on-abortion/"><strong>Fact Sheet</strong><span aria-hidden="true">:</span> Public Opinion on Abortion</a></li></ul></div></div>  
+<div class="widget">
+
+	<h2 class="header">Table of Contents</h2>
+	<div class="inner toc filter">
+		<ul>
+							<li class="active"><a>Overview</a>
+						<ul class="sub-toc children"><li class="toc-level-3 "><a rel="bookmark nofollow" href="#partisan-gap-in-views-of-legal-abortion-has-widened-in-recent-years" title="Partisan gap in views of legal abortion has widened in recent years">Partisan gap in views of legal abortion has widened in recent years</a></li><li class="toc-level-3 "><a rel="bookmark nofollow" href="#most-americans-oppose-overturning-roe-v-wade" title="Most Americans oppose overturning Roe v. Wade">Most Americans oppose overturning Roe v. Wade</a></li><li class="toc-level-3 "><a rel="bookmark nofollow" href="#who-knows-someone-who-has-had-an-abortion" title="Who knows someone who has had an abortion?">Who knows someone who has had an abortion?</a></li><li class="toc-level-3 "><a rel="bookmark nofollow" href="#broad-concern-that-some-states-are-making-it-too-difficult-to-get-an-abortion" title="Broad concern that some states are making it ‘too difficult’ to get an abortion">Broad concern that some states are making it ‘too difficult’ to get an abortion</a></li></ul>					</li>
+									<li><a href="https://www.people-press.org/2019/08/29/methodology-226/">Methodology</a></li>
+							</ul>
+		</div>
+
+	</div>
+
+<div id="related-inject">
+<div class="widget"><h5 class="uppercase-label widget-title">Related</h5><div class="inner with-posts"><a class='post' href='https://www.people-press.org/2015/09/28/majority-says-any-budget-deal-must-include-planned-parenthood-funding/'><div class="meta"><span class="category right-seperator publications label" data-project-slug="publications">Publications</span><span class="date" data-datetime="Sep 28, 2015">Sep 28, 2015</span></div><h2>Majority Says Any Budget Deal Must Include Planned Parenthood Funding</h2></a><a class='post' href='https://www.people-press.org/2013/07/29/widening-regional-divide-over-abortion-laws/'><div class="meta"><span class="category right-seperator publications label" data-project-slug="publications">Publications</span><span class="date" data-datetime="Jul 29, 2013">Jul 29, 2013</span></div><h2>Widening Regional Divide over Abortion Laws</h2></a><a class='post' href='https://www.pewforum.org/2013/01/16/roe-v-wade-at-40/'><div class="meta"><span class="category right-seperator publications label" data-project-slug="publications">Publications</span><span class="date" data-datetime="Jan 16, 2013">Jan 16, 2013</span></div><h2>Roe v. Wade at 40: Most Oppose Overturning Abortion Decision</h2></a><a class='post' href='https://www.people-press.org/2012/08/22/the-complicated-politics-of-abortion/'><div class="meta"><span class="category right-seperator publications label" data-project-slug="publications">Publications</span><span class="date" data-datetime="Aug 22, 2012">Aug 22, 2012</span></div><h2>The Complicated Politics of Abortion</h2></a><a class='post' href='https://www.people-press.org/2012/04/25/more-support-for-gun-rights-gay-marriage-than-in-2008-or-2004/'><div class="meta"><span class="category right-seperator publications label" data-project-slug="publications">Publications</span><span class="date" data-datetime="Apr 25, 2012">Apr 25, 2012</span></div><h2>More Support for Gun Rights, Gay Marriage than in 2008 or 2004</h2></a></div></div></div><!--/.#related-inject-->
+
+
+<div class="widget" id="topics-sidebar"><h5 class="uppercase-label widget-title">Topics</h5><div class="inner filter"><ul><li><a href="https://www.people-press.org/topics/topics_abortion/">Abortion</a></li></ul></div></div><div id="popular-inject"><div class="widget"><h5 class="uppercase-label widget-title">Popular On Pew Research</h5><div class="inner"><a class="post most-popular" href="https://www.pewresearch.org/fact-tank/2019/01/17/where-millennials-end-and-generation-z-begins/"><p class="meta"><span class="project right-seperator fact-tank">Fact Tank</span><span>01/17/2019</span></p><h2>Defining generations: Where Millennials end and Generation Z begins</h2></a><a class="post most-popular" href="https://www.pewresearch.org/fact-tank/2018/09/06/are-you-in-the-american-middle-class/"><p class="meta"><span class="project right-seperator fact-tank">Fact Tank</span><span>09/06/2018</span></p><h2>Are you in the American middle class? Find out with our income calculator</h2></a><a class="post most-popular" href="https://www.pewresearch.org/fact-tank/2018/11/28/5-facts-about-illegal-immigration-in-the-u-s/"><p class="meta"><span class="project right-seperator fact-tank">Fact Tank</span><span>11/28/2018</span></p><h2>5 facts about illegal immigration in the U.S.</h2></a><a class="post most-popular" href="https://www.pewresearch.org/internet/2018/03/01/social-media-use-in-2018/"><p class="meta"><span class="project right-seperator internet-tech">Internet &amp; Tech</span><span>03/01/2018</span></p><h2>Social Media Use in 2018</h2></a><a class="post most-popular" href="https://www.pewsocialtrends.org/2019/01/17/generation-z-looks-a-lot-like-millennials-on-key-social-and-political-issues/"><p class="meta"><span class="project right-seperator social-trends">Social Trends</span><span>01/17/2019</span></p><h2>Generation Z Looks a Lot Like Millennials on Key Social and Political Issues</h2></a></div></div></div><!--/.#popular-inject--></div>
+	<form id="newsletter" action="https://pewresearch.us1.list-manage.com/subscribe/post?u=434f5d1199912232d416897e4&id=3e953b9b70" method="post">
+		<input type="hidden" name="u" value="434f5d1199912232d416897e4">
+		<input type="hidden" name="id" value="3e953b9b70">
+		<input type="hidden" name="group[153][1]" value="1">
+
+		<label class="signup-kicker" for="newsletter-email-address">Get <strong>Pew Research Center</strong> data by email</label>
+		<input type="email" class="text" placeholder="Enter your email address" name="MERGE0" id="newsletter-email-address">
+		<input type="submit" class="submit" value="Signup" name="submit">
+	</form>
+		</div><!--.holder-->	<div id="footer" role="contentinfo">
+		<div class="holder">
+			<div class="contact vcard">
+				<p><img class="fn org organization-name" src="https://www.people-press.org/wp-content/plugins/pew-refactor-shim/assets/img/logos/desktop-footer.svg" onerror="this.src='https://www.people-press.org/wp-content/plugins/pew-refactor-shim/assets/legacylib/img/pew-research-center.png'" alt="Pew Research Center"> <span class="adr"> <span class="street-address">1615 L St. NW, Suite 800</span> <span class="locality">Washington</span>, <span class="region">DC</span> <span class="postal-code">20036</span> <span class="country-name">USA</span></span>
+					<a href="tel:+12024194300" class="tel"> <span class="value">(+1) 202-419-4300</span> | <span class="type">Main</span></a>
+					<a href="tel:+12024194349" class="tel"> <span class="value">(+1) 202-419-4349</span> | <span class="type">Fax</span></a>
+					<a href="tel:+12024194372" class="tel"> <span class="value">(+1) 202-419-4372</span> | <span class="type">Media Inquiries</span></a>
+				</p>
+			</div>
+			<div class="links">
+				<div class="projects">
+					<h2>Research Areas</h2>
+					<ul>
+						<li><a href="https://www.people-press.org/">U.S. Politics &amp; Policy</a></li>
+						<li><a href="https://www.journalism.org/">Journalism &amp; Media</a></li>
+						<li><a href="https://www.pewinternet.org/">Internet &amp; Technology</a></li>
+						<li><a href="https://www.pewresearch.org/science/">Science &amp; Society</a></li>
+						<li><a href="https://www.pewforum.org/">Religion &amp; Public Life</a></li>
+						<li><a href="http://www.pewhispanic.org/">Hispanic Trends</a></li>
+						<li><a href="https://www.pewglobal.org/">Global Attitudes &amp; Trends</a></li>
+						<li><a href="https://www.pewsocialtrends.org/">Social &amp; Demographic Trends</a></li>
+					</ul>
+				</div>
+				<div class="follow-prc">
+					<h2><a href="https://www.pewresearch.org/follow-pew-research-center/">Follow Us</a></h2>
+					<ul>
+						<li><a href="https://www.pewresearch.org/follow-pew-research-center/" class="email"><span>Email Newsletters</span></a></li>
+						<li><a href="https://www.facebook.com/pewresearch" class="facebook"><span>Facebook</span></a></li>
+						<li><a href="https://twitter.com/pewresearch" class="twitter"><span>Twitter</span></a></li>
+						<li><a href="http://pewresearch.tumblr.com/" class="tumblr"><span>Tumblr</span></a></li>
+						<li><a href="http://www.youtube.com/user/PewResearchCenter/featured" class="youtube"><span>YouTube</span></a></li>
+						<li><a href="https://www.pewresearch.org/feed/" class="rss" title="Really Simple Syndication"><span>RSS</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<p class="about"><strong><a href="https://www.pewresearch.org/about/">About Pew Research Center</a></strong> Pew Research Center is a nonpartisan fact tank that informs the public about the issues, attitudes and trends shaping the world. It conducts public opinion polling, demographic research, media content analysis and other empirical social science research. Pew Research Center does not take policy positions. It is a subsidiary of <a href="http://www.pewtrusts.org/">The Pew Charitable Trusts</a>.</p>
+		</div>
+	</div>
+	<div id="fine-print" class="holder">
+		<ul>
+			<li class="first">Copyright 2020 Pew Research Center</li>
+			<li><a href="https://www.pewresearch.org/about/">About</a></li>
+			<li><a href="https://www.pewresearch.org/terms-and-conditions/">Terms &amp; Conditions</a></li>
+			<li><a href="https://www.pewresearch.org/privacy-policy/">Privacy Policy</a></li>
+			<li><a href="https://www.pewresearch.org/contact-form/">Feedback</a></li>
+			<li><a href="https://www.pewresearch.org/about/careers/">Careers</a></li>
+		</ul>
+	</div>
+	<script>var atpLegalModal = "\t<div id=\"js-atp-legal-modal\" class=\"ui modal\">\n\t\t<i class=\"close icon\"><\/i>\n\t\t<div class=\"header\">\n\t\t\tAmerican Trends Panel Dataset\n\t\t<\/div>\n\t\t<div class=\"content\">\n\t\t\t<div id=\"js-atp-legal-form\" class=\"ui form\">\n\t\t\t\t<textarea wrap=\"virtual\" cols=\"65\" rows=\"10\" id=\"Legal\" disabled>Terms and Conditions\n\n\tThis is a legal agreement (this \u201cAgreement\u201d) between you, the end user (\u201cyou\u201d or \u201cUser\u201d), and Pew Research Center (the \u201cCenter\u201d). By downloading the American Trends Panel survey data made available on this web site (\u201cData\u201d) you are agreeing to be bound by the terms and conditions of this Agreement. If you do not agree to be bound by these terms, do not download or use the Data.\n\n\tI.\tLicense.\n\tA.\t The Center hereby grants User a non-exclusive, revocable, limited, non-sublicensable, non-transferable, worldwide, royalty-free license to use the Data solely for (1) research, scholarly or academic purposes, or (2) User\u2019s own personal, non-commercial use. The foregoing license is personal to User, and you may not share (or otherwise permit access to) the Data to any other individual or entity, including those within your business or organization.  Further, you may not reproduce, sell, rent, lease, loan, distribute or sublicense, or otherwise transfer any Data, in whole or in part, to any other party, or use the Data to create any derivative work or product for resale, lease or license. Notwithstanding the foregoing, you may incorporate limited portions of the Data in scholarly, research or academic publications or for the purposes of news reporting provided that you:\n\t1.\t acknowledge the source of the Data with express reference to the Center in accordance with the following citation:\n\n\t\u201cPew Research Center\u2019s American Trends Panel\u201d\n\n\t2.\tdo not use the Data in any manner that implies, suggests, or could otherwise be perceived as attributing a particular policy or lobbying objective or opinion to the Center, and\n\t3.\tinclude the following disclaimer: \u201cThe opinions expressed herein, including any implications for policy, are those of the author and not of Pew Research Center.\u201d\n\tB.\tUser acknowledges that, as between the parties, the Center is the sole and exclusive owner of all right, title and interest in the Data.  Except for the limited license granted herein, this Agreement does not give User any right, title or interest in the Data.\n\n\tII.\tDisclaimers and Limitations of Liability. THE DATA IS PROVIDED \u201cAS IS\u201d WITHOUT ANY WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, ARISING BY LAW OR OTHERWISE, INCLUDING BUT NOT LIMITED TO WARRANTIES OF COMPLETENESS, NON-INFRINGEMENT, ACCURACY, MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. THE CENTER EXPRESSLY DISCLAIMS, AND SHALL HAVE NO LIABILITY FOR, ANY ERRORS, OMISSIONS, INACCURACIES, OR INTERRUPTIONS IN THE DATA.  USER ASSUMES ALL RISK ASSOCIATED WITH USE OF THE DATA AND AGREES THAT IN NO EVENT SHALL THE CENTER OR ITS AFFILIATES BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, PUNITIVE OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR THE INABILITY TO USE EQUIPMENT OR ACCESS DATA, LOSS OF BUSINESS, LOSS OF REVENUE OR PROFITS, BUSINESS INTERRUPTIONS, LOSS OF INFORMATION OR DATA, OR OTHER FINANCIAL LOSS, ARISING OUT OF THE USE OF, OR INABILITY TO USE, THE DATA BASED ON ANY THEORY OF LIABILITY INCLUDING, BUT NOT LIMITED TO, BREACH OF CONTRACT, BREACH OF WARRANTY, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, EVEN IF USER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.\n\n\tIII.\tPrivacy, Confidentiality and Security.\n\tA.\tThe Center respects the privacy of individuals. The Center has taken measures to ensure that the Data is devoid of information that could be used to identify individuals (including, but not limited to, names, telephone numbers and email addresses) who participated in or who were the subject of any research surveys or studies used to collect the Data (\u201cPersonally Identifying Information\u201d). However, in the event that you discover any such Personally Identifying Information in the Data, you shall immediately notify the Center and refrain from using any such Personally Identifying Information. User further agrees not to (and will not allow other to) attempt to ascertain the identity of or derive information about individual survey respondents nor link the individual survey records contained in the Data with other data sets for the purpose of identifying individuals.\n\tB.\tUser shall maintain the Data as confidential, and will not use it, in any way nor disclose it to any third party, except as expressly permitted under this Agreement. User agrees, at its sole expense, to take reasonable precautions to protect the confidentiality of Data, at least as stringent as User takes to protect User\u2019s own confidential information, but in no case less than reasonable care.  The foregoing confidentiality obligations shall not apply to any information which: (a) is known to User prior to receipt from the Center other than as a result of User\u2019s breach of any legal obligation; (b) becomes known (independently of disclosure by the Center) to User directly or indirectly from a source having the legal right to disclose such information; (c) is or becomes publicly known, except through a breach of this Agreement by User; or (d) is required to be disclosed by User to comply with applicable laws or governmental regulations, provided that User gives the Center, to the extent practicable, reasonable prior written notice of such disclosure sufficient to permit the Center to contest such disclosure and User takes reasonable and lawful actions to avoid and\/or minimize the extent of such disclosure.  The parties agree that any breach of the confidentiality obligations of this Agreement by User will result in irreparable damage to the Center for which it will have no adequate remedy at law.  Therefore, it is agreed that the Center shall be entitled to equitable relief, including an injunction enjoining any such breach by any court of competent jurisdiction.  Such injunction shall be without prejudice to any other right or remedy to which the Center may be entitled, including but not limited to any damages resulting from User\u2019s breach of the confidentiality obligations under this Agreement.  Any failure or delay in exercising any right, power or privilege hereunder shall not operate as a waiver thereof, nor shall any single or partial exercise thereof preclude any other or further exercise thereof or the exercise of any right, power or privilege hereunder.\n\tC.\tUser will immediately notify the Center and cooperate with investigations, and provide any information reasonably requested by the Center if User knows of or suspects any breach of security or potential vulnerability of the Data and will promptly remedy such breach.\n\n\tIV.\tIndemnification. User shall indemnify and hold harmless the Center, its affiliates and related organizations, and each of their respective officers, directors, employees, legal representatives, agents, successors and assigns, from and against any damages, liabilities, costs and expenses (including reasonable attorneys\u2019 and professionals\u2019 fees and court costs arising out of any third-party claims based on (a) User\u2019s access or use of the Data; (b) any changes made by User to the Data in accordance with this Agreement; or (c) any breach by User of any of the terms and conditions of this Agreement.\n\n\tV.\tTermination. This license will terminate (1) automatically without notice from the Center if you fail to comply with the provisions of this Agreement or (2) immediately upon written notice (by e-mail or otherwise) from the Center. Upon termination of this Agreement, you agree to destroy all copies of any Data, in whole or in part and in any and all media, in your custody and control.\n\n\tVI.\tGoverning law. This Agreement shall be governed by, construed and interpreted in accordance with the laws of the District of Columbia. You further agree to submit to the jurisdiction and venue of the courts of the District of Columbia for any dispute relating to this Agreement.<\/textarea>\n\n\t\t\t\t<div class=\"required field\" style=\"margin-top: 1em\">\n\t\t\t\t\t<div class=\"ui checkbox\">\n\t\t\t\t\t\t<input type=\"checkbox\" tabindex=\"0\" name=\"acceptance\" data-validate=\"terms\">\n\t\t\t\t\t\t<label>I have read and abide by the conditions in this agreement<\/label>\n\t\t\t\t\t<\/div>\n\t\t\t\t<\/div>\n\n\t\t\t\t<div class=\"ui secondary submit button flat\">Submit<\/div>\n\t\t\t<\/div>\n\t\t<\/div>\n\t<\/div>\n\t\t"</script><script>var siteURL = 'https://www.people-press.org'; var siteID = 4; var siteDomain = 'https://www.pewresearch.org';</script>	        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCHNW3G" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        
+
+<!-- START Parse.ly Include: Standard -->
+	<script data-cfasync="false">
+
+		function uuidProfileCall() {
+			var rootUrl = 'https://api.parsely.com/v2/profile?apikey=pewresearch.org';
+			var uuid = '&uuid=' + PARSELY.config.parsely_site_uuid;
+			var requestUrl = rootUrl + uuid + '&url=' + window.location.href;
+			jQuery.ajax({
+				url: requestUrl,
+				dataType: "jsonp"
+			});
+		}
+
+		if (typeof PARSELY == 'object') {
+			var oldonload = PARSELY.onload;
+			if (typeof PARSELY.onload != 'function') {
+				PARSELY.onload = uuidProfileCall
+			}
+			else {
+				PARSELY.onload = function () {
+					if (oldonload) {
+						oldonload();
+					}
+					uuidProfileCall();
+				};
+			}
+		}
+
+		else {
+			PARSELY = {
+				onload: uuidProfileCall
+			}
+		}
+	</script>
+
+<script data-cfasync="false" id="parsely-cfg" data-parsely-site="pewresearch.org" src="//cdn.parsely.com/keys/pewresearch.org/p.js"></script>
+
+<!-- END Parse.ly Include: Standard -->
+	<script>
+	(function($) {
+	$.fn.changeElementType = function(newType) {
+		this.each(function() {
+			var attrs = {};
+
+			$.each(this.attributes, function(idx, attr) {
+			   attrs[attr.nodeName] = attr.nodeValue;
+			});
+
+			$(this).replaceWith(function() {
+				return $("<" + newType + "/>", attrs).append($(this).contents());
+			});
+	});
+	};
+})(jQuery);
+	jQuery(document).ready(function(){
+		jQuery('.inner.toc ul > div.item').changeElementType('li');
+	});
+	</script>
+		<script type="text/javascript">
+	var addthis_share = addthis_share || {}; addthis_share = {
+		passthrough : {
+			twitter: { title: "U.S. Public Continues to Favor Legal Abortion, Oppose Overturning Roe v. Wade" }
+		}
+	}
+	</script>
+				<div style="display:none">
+	</div>
+<link rel='stylesheet' id='all-css-0' href='https://www.people-press.org/wp-content/plugins/pew-refactor-shim/assets/legacylib/chunks/collapsible-shortcode.css?m=1577770770g' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.people-press.org/_static/??-eJytjksOwjAMBS9EalggVohLsEdtMG2i/LBdIm6PC1SwLtheefQ0D2oxNifBJFDC2LvEULAawktrJZPhwcXnhy25Igxdrkgnm2PJSVMM51Z0u4DcJBTwDP46It2bCRxfILrUeF7Bv22aZCXsbjiJv4wfsFzOZOHtWpRXMUju+4Bz8LcuM4UBQ0GaWh3ifrPd6az1/APedq+Q'></script>
+<script src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=202002'></script>
+<script>
+var interactivesDBConfig = {"apiKey":"AIzaSyCrK2dKMxf9Fmhpym2M4dajfcKyMY4_MBA","databaseURL":"https:\/\/prc-app-prod-interactives.firebaseio.com","projectId":"prc-app-prod"};
+</script>
+<script>
+var config = {"apiKey":"AIzaSyCrK2dKMxf9Fmhpym2M4dajfcKyMY4_MBA","authDomain":"prc-app-prod.firebaseapp.com","databaseURL":"https:\/\/prc-app-prod.firebaseio.com","projectId":"prc-app-prod"};
+</script>
+<script type='text/javascript' src='https://www.people-press.org/_static/??-eJy1UMsKAjEM/CFr9CCexE+RbI2a0pdJ1/19I+uKiKdFS6FJMzPMBIbqfMmNcgMf2R6Xeldjf+asUMXbVAjUC9em0JWB5OBLqiUbVuHEQh0qvQqHtS6DLuDnwkds+ChmqKt4YEML+sY30l8YpHztzRocWdvULBPn/4THvl1mBp80PukvEg1Oi2eMTi9oZFQl4wYFizOOH/8u6Ld87zJCJ9twESNwGplPI2EEnGPpMM6XmQzZrlLJT5192q03Wzsru+EOVf8Rgw=='></script>
+<script src='https://secure.gravatar.com/js/gprofiles.js?ver=2020Janaa'></script>
+<script>
+var WPGroHo = {"my_hash":""};
+</script>
+<script type='text/javascript' src='https://www.people-press.org/wp-content/mu-plugins/jetpack/modules/wpgroho.js?m=1576496145g'></script>
+<script src='https://www.people-press.org/wp-includes/js/dist/vendor/lodash.min.js?ver=4.17.15'></script>
+<script>
+window.lodash = _.noConflict();
+</script>
+<script src='https://www.people-press.org/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=7.4.4'></script>
+<script>
+( 'fetch' in window ) || document.write( '<script src="https://www.people-press.org/wp-includes/js/dist/vendor/wp-polyfill-fetch.min.js?ver=3.0.0"></scr' + 'ipt>' );( document.contains ) || document.write( '<script src="https://www.people-press.org/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min.js?ver=3.26.0-0"></scr' + 'ipt>' );( window.FormData && window.FormData.prototype.keys ) || document.write( '<script src="https://www.people-press.org/wp-includes/js/dist/vendor/wp-polyfill-formdata.min.js?ver=3.0.12"></scr' + 'ipt>' );( Element.prototype.matches && Element.prototype.closest ) || document.write( '<script src="https://www.people-press.org/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min.js?ver=2.0.2"></scr' + 'ipt>' );
+</script>
+<script src='https://www.people-press.org/wp-includes/js/dist/vendor/react.min.js?ver=16.9.0'></script>
+<script src='https://www.people-press.org/wp-includes/js/dist/vendor/react-dom.min.js?ver=16.9.0'></script>
+<script type='text/javascript' src='https://www.people-press.org/_static/??/wp-includes/js/dist/escape-html.min.js,/wp-includes/js/dist/element.min.js?m=1576711022j'></script>
+<script>
+var hereBuildURL = "https:\/\/www.people-press.org\/build\/";
+</script>
+<script src='https://www.people-press.org/./wp-content/plugins/prc-user-accounts/build/static/js/runtime-main.e0f91635.js'></script>
+<script type='text/javascript' src='https://www.people-press.org/_static/??-eJydzd0OgjAMBeAXciuQEOKF8VlGOepwf1m38PoOw4V3JDa9aU/6lbakOIaCUCi5+rRBKGVWVZCVYY41FKG5WreQFFMs0yo0aNNjxjRA86uGt17lQn9J3tigMWFE311PMGwq42G4xKzkZT0ZETQzo+20b9BxaQO7ukD2B22En7H85ufyvhHONpUvwtE5k8TODi2PuXBccIh3f+vHqVXXev0Ar097Jg=='></script>
+    <div data-st-manage-conditionals></div>
+    <span data-st-defaults="articles_only"></span>
+    <div data-st-fix-misspelling="misspelling"></div>
+    <div data-st-simple-routing="routing"></div>
+    <script type='text/javascript' src='https://stats.wp.com/e-202002.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.0',blog:'151703635',post:'20071201',tz:'-5',srv:'www.people-press.org'} ]);
+	_stq.push([ 'clickTrackerInit', '151703635', '20071201' ]);
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"40e18f227a","applicationID":"128711286","transactionName":"bldUMkpRXRVYVhJfXVcddwVMWVwIFkYPWFVVVw==","queueTime":0,"applicationTime":306,"atts":"QhBDRAJLTkobVEQMSURP","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>
