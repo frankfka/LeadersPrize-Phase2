@@ -1,6 +1,7 @@
 from datetime import datetime
 from typing import List
 
+from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
 from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTupleExtractor
 from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, PipelineSentence
@@ -27,6 +28,7 @@ class LeadersPrizePipeline:
                                                  config[LeadersPrizePipeline.CONFIG_API_KEY])
         self.truth_tuple_extractor = TruthTupleExtractor()
         self.query_generator = QueryGenerator()
+        self.article_relevance_scorer = LSADocumentRelevanceAnalyzer()
         self.html_preprocessor = HTMLProcessor()
         self.text_preprocessor = TextPreprocessor()
         w2v_vectorizer = Word2VecVectorizer(path=config[LeadersPrizePipeline.CONFIG_W2V_PATH])
@@ -38,19 +40,22 @@ class LeadersPrizePipeline:
         for claim in raw_claims:
             t = datetime.now()
             # Create pipeline object - this will hold all the annotations of our processing
-            pipeline_object = PipelineClaim(claim)
+            pipeline_object: PipelineClaim = PipelineClaim(claim)
             claim_with_claimant = pipeline_object.original_claim.claimant + " " + pipeline_object.original_claim.claim
             claim_truth_tuples = self.truth_tuple_extractor.extract(claim_with_claimant)
             pipeline_object.claim_truth_tuples = claim_truth_tuples
 
-            nt = datetime.now()
             if self.debug_mode:
+                nt = datetime.now()
                 print(f"Initialized claim in {nt - t}")
-            t = nt
+                print(f"Claim with Claimant: {claim_with_claimant}")
+                print(f"Parsed Truth Tuples: {pipeline_object.claim_truth_tuples}")
+                print("\n")
+                t = nt
 
             # 1. Get query from claim
             search_query = self.query_generator.get_query(pipeline_object.original_claim,
-                                                          truth_tuples=claim_truth_tuples)
+                                                          truth_tuples=[]) # TODO: Not using truth tuples for now
             # 1.1 Preprocess the claim + claimant
             processed_claim = self.text_preprocessor.process(claim_with_claimant)
             if len(processed_claim.bert_sentences) > 0:
@@ -65,22 +70,52 @@ class LeadersPrizePipeline:
                 # Error, the articles will just be empty
                 print(f"Error searching query for claim {pipeline_object.original_claim.id}")
 
-            nt = datetime.now()
             if self.debug_mode:
+                nt = datetime.now()
                 print(f"Retrieved articles for claim in {nt - t}")
-            t = nt
+                print(f"Query: {search_query}")
+                print(f"{len(search_response.results)} Articles retrieved")
+                print("\n")
+                t = nt
 
-            # 3. Process articles
-            pipeline_articles = []
+            # 3. Process articles from raw HTML to parsed text
+            pipeline_articles: List[PipelineArticle] = []
             for raw_article in search_response.results:
                 pipeline_article = PipelineArticle(raw_article)
                 # 3.1 Extract data from HTML
                 html_process_result = self.html_preprocessor.process(pipeline_article.raw_result.content)
                 pipeline_article.html_attributes = html_process_result.html_atts
                 pipeline_article.raw_body_text = html_process_result.text
-                # 3.2 Clean text data
-                text_process_result = self.text_preprocessor.process(html_process_result.text)
-                # 3.3 Get relevances for each sentence
+                pipeline_articles.append(pipeline_article)
+
+            if self.debug_mode:
+                nt = datetime.now()
+                print(f"Analyzed article HTML in {nt - t}")
+                print("== First parsed article ==")
+                print(pipeline_articles[0].raw_body_text)
+                print("\n")
+                t = nt
+
+            # 4. Get Article Relevance
+            pipeline_article_texts: List[str] = [p.raw_body_text for p in pipeline_articles]
+            article_relevances = self.article_relevance_scorer.analyze(pipeline_object.bert_claim,
+                                                                       pipeline_article_texts)
+            for article_relevance, pipeline_article in zip(article_relevances, pipeline_articles):
+                pipeline_article.relevance = article_relevance
+
+            if self.debug_mode:
+                nt = datetime.now()
+                print(f"Analyzed article relevances in {nt - t}")
+                print(f"Maximum article relevance found: {max(map(lambda x: x.relevance, pipeline_articles))}")
+                print("\n")
+                t = nt
+
+            # 5. Preprocess select articles for BERT & annotate with sentence-level relevance
+            # TODO: Need to filter non-relevant articles
+            for pipeline_article in pipeline_articles:
+                # 5.1 Clean text data
+                text_process_result = self.text_preprocessor.process(pipeline_article.raw_body_text)
+                # 5.2 Get relevances for each sentence
                 article_sentences: List[PipelineSentence] = []
                 for bert_sentence in text_process_result.bert_sentences:
                     # Enforce a minimum sentence length
@@ -92,16 +127,19 @@ class LeadersPrizePipeline:
                     pipeline_sentence.relevance = relevance
                     article_sentences.append(pipeline_sentence)
                 pipeline_article.bert_sentences = article_sentences
-                pipeline_articles.append(pipeline_article)
 
+            if self.debug_mode:
+                nt = datetime.now()
+                print(f"Preprocessed article text in {nt - t}")
+                print("Example preprocessed article")
+                print(pipeline_articles[0].bert_sentences)
+                print("\n")
+                t = nt
+
+            # Assign the preprocessed & annotated result to the pipeline object
             pipeline_object.articles = pipeline_articles
 
-            nt = datetime.now()
-            if self.debug_mode:
-                print(f"Preprocessed and analyzed articles in {nt - t}")
-            t = nt
-
-            # 4. Extract Information for BERT - concat all the sentences
+            # 6. Extract Information for BERT - concat all the sentences
             all_article_sentences = []
             for article in pipeline_articles:
                 all_article_sentences += article.bert_sentences
@@ -122,7 +160,7 @@ class LeadersPrizePipeline:
 
             pipeline_objects.append(pipeline_object)
 
-        # 4. Run predictive algorithms on pipeline objects
+        # 7. Run predictive algorithms on pipeline objects
         # TODO
 
         return pipeline_objects
