@@ -33,8 +33,9 @@ class QueryGenerator:
         """
         tokens = text_util.tokenize_by_word(text)
         tokens = text_util.clean_tokenized(tokens, lowercase=True, remove_punctuation=True, remove_stopwords=True)
-        # Remove numbers and short words - numbers match HTML elements
-        tokens_cleaned = [tok for tok in tokens if not tok.isnumeric() and len(tok) > 2]
+        # Remove short words
+        # Note: can consider removing numbers, as they match HTML elements " not tok.isnumeric() and "
+        tokens_cleaned = [tok for tok in tokens if len(tok) > 2]
         if tokens_cleaned:
             return ' '.join(tokens_cleaned)
         return ' '.join(tokens)

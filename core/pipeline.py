@@ -54,8 +54,9 @@ class LeadersPrizePipeline:
                 t = nt
 
             # 1. Get query from claim
+            # - Note: not using truth tuples for now, given that we see no significant difference with them
             search_query = self.query_generator.get_query(pipeline_object.original_claim,
-                                                          truth_tuples=[]) # TODO: Not using truth tuples for now
+                                                          truth_tuples=[])
             # 1.1 Preprocess the claim + claimant
             processed_claim = self.text_preprocessor.process(claim_with_claimant)
             if len(processed_claim.bert_sentences) > 0:
@@ -140,14 +141,18 @@ class LeadersPrizePipeline:
             pipeline_object.articles = pipeline_articles
 
             # 6. Extract Information for BERT - concat all the sentences
-            all_article_sentences = []
-            for article in pipeline_articles:
-                all_article_sentences += article.bert_sentences
-            bert_sentences_by_relevance = self.bert_information_extractor.extract(all_article_sentences, window=1)
+            # Use article relevance to only consider the 5 most relevant articles from the ~30 given
+            pipeline_articles.sort(key=lambda x: x.relevance, reverse=True)
+            bert_articles = pipeline_articles[0:5] if len(pipeline_articles) > 5 else pipeline_articles
+            bert_article_sentences = []
+            for article in bert_articles:
+                bert_article_sentences += article.bert_sentences
+            # Use large window to extract chunks of information around highly relevant sentences
+            bert_sentences_by_relevance = self.bert_information_extractor.extract(bert_article_sentences, window=3)
             bert_preprocessed = ""
             num_words_in_bert_preprocessed = 0
             for bert_sentence in bert_sentences_by_relevance:
-                if num_words_in_bert_preprocessed > 256:
+                if num_words_in_bert_preprocessed > 512:
                     break
                 bert_preprocessed += ' . ' + bert_sentence.sentence
                 num_words_in_bert_preprocessed += len(bert_sentence.sentence.split())

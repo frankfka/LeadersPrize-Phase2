@@ -11,7 +11,7 @@ from experiments.util.train_data_util import train_data_generator
 
 def test_pipeline():
     raw_claims: List[LeadersPrizeClaim] = []
-    process_range = range(40, 60)
+    process_range = range(80, 100)
     for idx, claim in train_data_generator("/Users/frankjia/Desktop/LeadersPrize/train/train.json"):
         if idx < process_range.start:
             continue

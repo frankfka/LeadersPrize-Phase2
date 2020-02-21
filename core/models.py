@@ -54,7 +54,7 @@ class PipelineArticle:
     def __init__(self, raw_result: SearchQueryResult):
         self.raw_result = raw_result  # Raw HTML from client
         self.raw_body_text = None  # Raw body text parsed from raw result
-        self.relevance = None  # Relevance score of the article
+        self.relevance = 0  # Relevance score of the article
         self.html_attributes = None  # Parsed HTML attributes
         self.bert_sentences: List[PipelineSentence] = []  # Sentences preprocessed for BERT
 
