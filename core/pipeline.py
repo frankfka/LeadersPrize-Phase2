@@ -16,6 +16,7 @@ from search_client.client import ArticleSearchClient
 class LeadersPrizePipeline:
     """
     Main pipeline for Leader's Prize
+    - TODO: Deal with cases where we have 0 articles, currently throws exception
     """
     CONFIG_API_KEY = "api_key"
     CONFIG_ENDPOINT = "endpoint"
@@ -112,7 +113,6 @@ class LeadersPrizePipeline:
                 t = nt
 
             # 5. Preprocess select articles for BERT & annotate with sentence-level relevance
-            # TODO: Need to filter non-relevant articles
             for pipeline_article in pipeline_articles:
                 # 5.1 Clean text data
                 text_process_result = self.text_preprocessor.process(pipeline_article.raw_body_text)
