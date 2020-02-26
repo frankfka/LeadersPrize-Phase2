@@ -40,8 +40,8 @@ class PipelineClaim:
     def __init__(self, original_claim: LeadersPrizeClaim):
         # Original claim object
         self.original_claim = original_claim
-        self.bert_claim: str = ""
-        self.bert_preprocessed: str = ""
+        self.preprocessed_claim: str = ""
+        self.bert_preprocessed: str = ""  # TODO: Remove this
         self.claim_truth_tuples: List[TruthTuple] = []
         self.articles: List[PipelineArticle] = []  # Results from search client
 
@@ -56,7 +56,7 @@ class PipelineArticle:
         self.raw_body_text = None  # Raw body text parsed from raw result
         self.relevance = 0  # Relevance score of the article
         self.html_attributes = None  # Parsed HTML attributes
-        self.bert_sentences: List[PipelineSentence] = []  # Sentences preprocessed for BERT
+        self.preprocessed_sentences: List[PipelineSentence] = []  # Sentences preprocessed for BERT
 
 
 class PipelineSentence:

@@ -61,10 +61,10 @@ class LeadersPrizePipeline:
             # 1.1 Preprocess the claim + claimant
             processed_claim = self.text_preprocessor.process(claim_with_claimant)
             if len(processed_claim.bert_sentences) > 0:
-                pipeline_object.bert_claim = processed_claim.bert_sentences[0]
+                pipeline_object.preprocessed_claim = processed_claim.bert_sentences[0]
             else:
                 print("Preprocessed claim is empty - defaulting to original claim")
-                pipeline_object.bert_claim = claim_with_claimant
+                pipeline_object.preprocessed_claim = claim_with_claimant
 
             # 2. Execute search query to get articles
             search_response = self.search_client.search(search_query)
@@ -100,7 +100,7 @@ class LeadersPrizePipeline:
 
             # 4. Get Article Relevance
             pipeline_article_texts: List[str] = [p.raw_body_text for p in pipeline_articles]
-            article_relevances = self.article_relevance_scorer.analyze(pipeline_object.bert_claim,
+            article_relevances = self.article_relevance_scorer.analyze(pipeline_object.preprocessed_claim,
                                                                        pipeline_article_texts)
             for article_relevance, pipeline_article in zip(article_relevances, pipeline_articles):
                 pipeline_article.relevance = article_relevance
@@ -122,18 +122,18 @@ class LeadersPrizePipeline:
                     # Enforce a minimum sentence length
                     if len(bert_sentence.split()) < 5:
                         continue
-                    relevance = self.sentence_relevance_scorer.get_relevance(pipeline_object.bert_claim,
+                    relevance = self.sentence_relevance_scorer.get_relevance(pipeline_object.preprocessed_claim,
                                                                              bert_sentence)
                     pipeline_sentence = PipelineSentence(bert_sentence)
                     pipeline_sentence.relevance = relevance
                     article_sentences.append(pipeline_sentence)
-                pipeline_article.bert_sentences = article_sentences
+                pipeline_article.preprocessed_sentences = article_sentences
 
             if self.debug_mode:
                 nt = datetime.now()
                 print(f"Preprocessed article text in {nt - t}")
                 print("Example preprocessed article")
-                print(pipeline_articles[0].bert_sentences)
+                print(pipeline_articles[0].preprocessed_sentences)
                 print("\n")
                 t = nt
 
@@ -146,7 +146,7 @@ class LeadersPrizePipeline:
             bert_articles = pipeline_articles[0:5] if len(pipeline_articles) > 5 else pipeline_articles
             bert_article_sentences = []
             for article in bert_articles:
-                bert_article_sentences += article.bert_sentences
+                bert_article_sentences += article.preprocessed_sentences
             # Use large window to extract chunks of information around highly relevant sentences
             bert_sentences_by_relevance = self.bert_information_extractor.extract(bert_article_sentences, window=3)
             bert_preprocessed = ""

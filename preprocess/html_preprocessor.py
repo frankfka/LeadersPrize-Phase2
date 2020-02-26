@@ -60,14 +60,15 @@ class HTMLProcessor:
         # Try to use external library to get article text. If that doesn't work, use naive BS4 method
         article_text = self.__get_article_text_newspaper(html)
         if not article_text and soup:
+            print("Defaulting to BS4")
             article_text = self.__get_article_text_bs4(soup)
             if not article_text:
                 print("Neither newspaper nor BS4 could extract article text")
         # Add title & description from html attributes
         if html_atts.description:
-            article_text = f"{html_atts.description} . " + article_text
+            article_text = f"{html_atts.description}. " + article_text
         if html_atts.title:
-            article_text = f"{html_atts.title} . " + article_text
+            article_text = f"{html_atts.title}. " + article_text
         return self.__clean_article_text(article_text)
 
     def __get_article_text_bs4(self, soup: BeautifulSoup) -> str:
@@ -82,8 +83,6 @@ class HTMLProcessor:
             return ""
 
     def __clean_article_text(self, text: str) -> str:
-        # Replace newlines with a separator
-        text = re.sub(r"\n+", ' . ', text)
         # Replace excess whitespaces
         text = re.sub(r"\s\s+", ' ', text)
         return text
