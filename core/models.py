@@ -43,6 +43,7 @@ class PipelineClaim:
         self.preprocessed_claim: str = ""
         self.articles: List[PipelineArticle] = []  # Results from search client
         self.articles_for_reasoner: List[PipelineArticle] = []  # Curated articles for the reasoner
+        self.label: int = 1
 
 
 class PipelineArticle:

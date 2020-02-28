@@ -11,7 +11,7 @@ from experiments.util.train_data_util import train_data_generator
 
 def test_pipeline():
     raw_claims: List[LeadersPrizeClaim] = []
-    process_range = range(500, 520)
+    process_range = range(1020, 1040)
     for idx, claim in train_data_generator("/Users/frankjia/Desktop/LeadersPrize/train/train.json"):
         if idx < process_range.start:
             continue
@@ -45,7 +45,7 @@ def test_pipeline():
         for article in res.articles_for_reasoner:
             reasoner_input += f"=== NEW Article: {article.relevance} ==="
             for sent in article.sentences_for_reasoner:
-                reasoner_input += f"{sent}"
+                reasoner_input += f"|| {sent} ||"
         reasoner_inputs.append(reasoner_input)
     results_df = pd.DataFrame(data={
         "claim": claims,

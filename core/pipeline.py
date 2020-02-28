@@ -3,7 +3,6 @@ from typing import List
 
 from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
-from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTupleExtractor
 from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, PipelineSentence
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
