@@ -30,3 +30,5 @@ class TransformerReasoner:
         transformer_inputs = list(input_items.values())
         predicted_similarities = self.sts_scorer.predict(transformer_inputs)  # 2 class probabilities
         predicted_entailments = self.entailment_scorer.predict(transformer_inputs)  # 3 class probabilities
+
+        # TODO

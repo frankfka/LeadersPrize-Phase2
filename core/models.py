@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from reasoner.models import Entailment, StsSimilarity
+from reasoner.transformers.models import Entailment, StsSimilarity
 from search_client.client import SearchQueryResult
 
 

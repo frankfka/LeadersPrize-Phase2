@@ -23,6 +23,9 @@ class TextPreprocessor:
         for sentence in text_util.tokenize_by_sentence(text):
             # Do cleaning on entire sentence text
             sentence = text_util.expand_contractions(sentence)
+            sentence = text_util.replace_symbols(sentence)
+            sentence = text_util.clean_accent(sentence)
+            sentence = text_util.convert_num_to_words_v2(sentence)
             sentence = sentence.strip()
             if sentence:
                 sentences.append(sentence)
