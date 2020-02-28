@@ -9,7 +9,6 @@ import numpy as np
 from nltk import word_tokenize, sent_tokenize, pos_tag
 from sklearn.metrics.pairwise import cosine_similarity
 
-
 # Get cosine similarity between two vectors
 def cos_sim(u, v):
     cos_similarities = cosine_similarity(u, v)  # n samples x n samples matrix
@@ -83,6 +82,31 @@ def num_2_word(word):
 def convert_nums_to_words(txt):
     tokens = tokenize_by_word(txt)
     return ' '.join([processed for token in tokens for processed in num_2_word(token)])
+
+
+def convert_num_to_words_v2(txt):
+    new_txt = ""  # Create a new string to construct existing
+    prev_end = 0
+    matches = list(re.finditer(r"[+-]?([0-9]*\.)?[0-9]+", txt))
+    matches.sort(key=lambda item: item.start(0))
+    for match in matches:
+        match_start, match_end, match_txt = match.start(0), match.end(0), match.group(0)
+        # Add rest of the text up to this match
+        new_txt += txt[prev_end:match_start]
+        matched_num_txt = txt[match_start:match_end]
+        # Attempt to map a number to text representation
+        try:
+            matched_num_txt = num2words(matched_num_txt)  # ex. forty-two
+            matched_num_txt = keep_alphanumeric(matched_num_txt)  # ex. forty two
+        except Exception:
+            print(f"Error converting {matched_num_txt} to text representation")
+        # Add converted text
+        new_txt += matched_num_txt
+        # Update previous end index
+        prev_end = match_end
+    # Add the rest of the text, up to the last match index
+    new_txt += txt[prev_end:]
+    return new_txt
 
 
 # Expands contractions: ex. We'll -> we will
