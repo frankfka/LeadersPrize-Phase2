@@ -7,17 +7,29 @@ import preprocess.text_util as text_util
 
 class TextPreprocessResult:
 
-    def __init__(self, bert_sentences: List[str]):
-        self.bert_sentences = bert_sentences
+    def __init__(self, sentences: List[str]):
+        self.sentences = sentences
 
 
 class TextPreprocessor:
 
     def process(self, text: str) -> TextPreprocessResult:
-        bert_sentences = self.__get_cleaned_sentences_phase1(text)
-        return TextPreprocessResult(bert_sentences)
+        sentences = self.__get_cleaned_sentences_v2(text)
+        return TextPreprocessResult(sentences)
 
-    def __get_cleaned_sentences(self, text: str) -> List[str]:
+    def __get_cleaned_sentences_v2(self, text: str) -> List[str]:
+        """Feb 28 - simpler cleaning for experimentation"""
+        sentences = []
+        for sentence in text_util.tokenize_by_sentence(text):
+            # Do cleaning on entire sentence text
+            sentence = text_util.expand_contractions(sentence)
+            sentence = sentence.strip()
+            if sentence:
+                sentences.append(sentence)
+        return sentences
+
+    def __get_cleaned_sentences_v1(self, text: str) -> List[str]:
+        """Jan - initial implementation"""
         sentences = []
         for sentence in text_util.tokenize_by_sentence(text):
             # Do cleaning on entire sentence text
@@ -38,6 +50,7 @@ class TextPreprocessor:
         return sentences
 
     def __get_cleaned_sentences_phase1(self, text: str) -> List[str]:
+        """Cleaning used in Phase 1"""
         sentences = []
         for sentence in text_util.tokenize_by_sentence(text):
             # Do cleaning on entire sentence text

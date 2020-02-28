@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTuple
+from reasoner.models import Entailment, StsSimilarity
 from search_client.client import SearchQueryResult
 
 
@@ -41,9 +41,8 @@ class PipelineClaim:
         # Original claim object
         self.original_claim = original_claim
         self.preprocessed_claim: str = ""
-        self.bert_preprocessed: str = ""  # TODO: Remove this
-        self.claim_truth_tuples: List[TruthTuple] = []
         self.articles: List[PipelineArticle] = []  # Results from search client
+        self.articles_for_reasoner: List[PipelineArticle] = []  # Curated articles for the reasoner
 
 
 class PipelineArticle:
@@ -52,11 +51,14 @@ class PipelineArticle:
     """
 
     def __init__(self, raw_result: SearchQueryResult):
+        self.id: str = ""
         self.raw_result = raw_result  # Raw HTML from client
         self.raw_body_text = None  # Raw body text parsed from raw result
         self.relevance = 0  # Relevance score of the article
         self.html_attributes = None  # Parsed HTML attributes
-        self.preprocessed_sentences: List[PipelineSentence] = []  # Sentences preprocessed for BERT
+        self.preprocessed_sentences: List[PipelineSentence] = []  # Preprocessed sentences
+        self.sentences_for_reasoner: List[PipelineSentence] = []  # Sentences extracted for processing by reasoner
+        self.entailment_score: Optional[Entailment] = None  # Entailment as accessed by the reasoner
 
 
 class PipelineSentence:
@@ -65,8 +67,11 @@ class PipelineSentence:
     """
 
     def __init__(self, sentence: str):
+        self.id: str = ""
         self.sentence: str = sentence
         self.relevance: float = 0  # Relevance score of the sentence
+        self.sts_relevance_score: Optional[StsSimilarity] = None
+        self.entailment_score: Optional[Entailment] = None  # Entailment as accessed by the reasoner
 
     def __repr__(self):
-        return self.sentence + f"; Relevance: {self.relevance}"
+        return self.sentence + f"; Relevance: {self.relevance}; Entailment: {self.entailment_score}"
