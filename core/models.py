@@ -18,18 +18,20 @@ class LeadersPrizeClaim:
         """
         Create claim from JSON data in metadata file
         """
-        self.id = data.get("id", "")
-        self.claim = data.get("claim", "")
-        self.claimant = data.get("claimant", "")
-        self.date = data.get("date", "")
+        self.id: str = data.get("id", "")
+        self.claim: str = data.get("claim", "")
+        self.claimant: str = data.get("claimant", "")
+        self.date: str = data.get("date", "")
         # Optional fields
-        self.label = data.get("label", None)
+        self.label: int = data.get("label", None)
         related_articles = []
         data_related_articles = data.get("related_articles", None)
         if data_related_articles:
             for k, v in data_related_articles.items():
                 related_articles.append(LeadersPrizeClaim.LeadersPrizeRelatedArticle(k, v))
-        self.related_articles = related_articles
+        self.related_articles: List[LeadersPrizeClaim.LeadersPrizeRelatedArticle] = related_articles
+        # Optional if we want to run the pipeline without search client
+        self.provided_article_html: List[SearchQueryResult] = []
 
 
 class PipelineClaim:
@@ -41,9 +43,13 @@ class PipelineClaim:
         # Original claim object
         self.original_claim = original_claim
         self.preprocessed_claim: str = ""
+        # Intermediate properties
         self.articles: List[PipelineArticle] = []  # Results from search client
         self.articles_for_reasoner: List[PipelineArticle] = []  # Curated articles for the reasoner
-        self.label: int = 1
+        # Submission properties
+        self.submission_label: int = 1
+        self.submission_explanation: str = ""
+        self.submission_article_urls: List[str] = []
 
 
 class PipelineArticle:
@@ -53,7 +59,7 @@ class PipelineArticle:
 
     def __init__(self, raw_result: SearchQueryResult):
         self.id: str = ""
-        self.raw_result = raw_result  # Raw HTML from client
+        self.url = raw_result.url
         self.raw_body_text = None  # Raw body text parsed from raw result
         self.relevance = 0  # Relevance score of the article
         self.html_attributes = None  # Parsed HTML attributes

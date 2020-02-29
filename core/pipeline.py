@@ -65,12 +65,17 @@ class LeadersPrizePipeline:
                 print("Preprocessed claim is empty - defaulting to original claim")
                 pipeline_object.preprocessed_claim = claim.claim
 
-            # 2. Execute search query to get articles
-            search_response = self.search_client.search(search_query)
-            if search_response.error:
-                # Error, the articles will just be empty
-                print(f"Error searching query for claim {pipeline_object.original_claim.id}")
-                # TODO: predict something and continue, or put on a retry count
+            # 2. Execute search query to get articles if config allows
+            if True:
+                search_response = self.search_client.search(search_query)
+                if search_response.error:
+                    # Error, the articles will just be empty
+                    print(f"Error searching query for claim {pipeline_object.original_claim.id}")
+                    # TODO: predict something and continue, or put on a retry count
+            # 2. OR: if we're loading local articles
+            if False:
+                search_response = claim.related_articles
+                # TODO: need to get actual search resp
 
             if self.debug_mode:
                 nt = datetime.now()
@@ -85,7 +90,7 @@ class LeadersPrizePipeline:
             for raw_article in search_response.results:
                 pipeline_article = PipelineArticle(raw_article)
                 # 3.1 Extract data from HTML
-                html_process_result = self.html_preprocessor.process(pipeline_article.raw_result.content)
+                html_process_result = self.html_preprocessor.process(raw_article.content)
                 pipeline_article.html_attributes = html_process_result.html_atts
                 pipeline_article.raw_body_text = html_process_result.text
                 pipeline_articles.append(pipeline_article)
@@ -161,6 +166,8 @@ class LeadersPrizePipeline:
                 print(pipeline_object.articles_for_reasoner[0].sentences_for_reasoner[0])
                 print("\n")
                 t = nt
+
+            # TODO: Run through reasoner
 
             pipeline_objects.append(pipeline_object)
 

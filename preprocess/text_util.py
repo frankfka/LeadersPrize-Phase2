@@ -87,7 +87,7 @@ def convert_nums_to_words(txt):
 def convert_num_to_words_v2(txt):
     new_txt = ""  # Create a new string to construct existing
     prev_end = 0
-    matches = list(re.finditer(r"[+-]?([0-9]*\.)?[0-9]+", txt))
+    matches = list(re.finditer(r"\.?([+-]?(?=.)(\d{1,3}(,\d{3})*))(\.\d+)?", txt))
     matches.sort(key=lambda item: item.start(0))
     for match in matches:
         match_start, match_end, match_txt = match.start(0), match.end(0), match.group(0)
@@ -96,7 +96,8 @@ def convert_num_to_words_v2(txt):
         matched_num_txt = txt[match_start:match_end]
         # Attempt to map a number to text representation
         try:
-            matched_num_txt = num2words(matched_num_txt)  # ex. forty-two
+            # Parse the number after getting rid of anything that's not a number, period, or dash
+            matched_num_txt = num2words(re.sub(r"[^0-9.\-]+", "", matched_num_txt))  # ex. forty-two
             matched_num_txt = keep_alphanumeric(matched_num_txt)  # ex. forty two
         except Exception:
             print(f"Error converting {matched_num_txt} to text representation")

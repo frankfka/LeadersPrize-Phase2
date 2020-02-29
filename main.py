@@ -1,32 +1,35 @@
-import pandas as pd
-import os
+import json
 import time
+from typing import List
 
+from config import METADATA_FILEPATH, PIPELINE_CONFIG, PREDICTIONS_FILEPATH
 
-# Read the input into pandas dataframes, returns (json_df, articles_df)
-def read_raw_data():
-    def content_from_file(file_path):
-        with open(file_path, 'r') as file:
-            return file.read()
+from core.models import LeadersPrizeClaim, PipelineClaim
+from core.pipeline import LeadersPrizePipeline
 
-    # JSON Data
-    json_df = pd.read_json(METADATA_FILEPATH)
-    # Articles
-    article_filenames = os.listdir(ARTICLES_FILEPATH)
-    article_texts = [content_from_file(os.path.join(ARTICLES_FILEPATH, file_name)) for file_name in article_filenames]
-    article_ids = [os.path.splitext(filename)[0] for filename in article_filenames]
-    articles_df = pd.DataFrame(data={
-        RAW_ARTICLE_ID: article_ids,
-        RAW_ARTICLE_TXT: article_texts
-    })
-    return json_df, articles_df
+# Convert input to claim objects
+def read_raw_data(filepath: str) -> List[LeadersPrizeClaim]:
+    with open(filepath) as json_file:
+        data = json.load(json_file)
+        return [LeadersPrizeClaim(item) for item in data]
 
 
 # Writes result to disk
-def write_result(claim_ids, predictions):
-    with open(PREDICTIONS_FILEPATH, 'w') as file:
-        for claim_id, prediction in zip(claim_ids, predictions):
-            file.write(f"{claim_id},{prediction}\n")
+def write_result(predicted: List[PipelineClaim], filepath: str):
+    # Converts a predicted claim to a dict for json serialization
+    def to_dict(claim: PipelineClaim):
+        return {
+            claim.original_claim.id: {
+                "label": claim.submission_label,
+                "related_articles": claim.submission_article_urls,
+                "explanation": claim.submission_explanation
+            }
+        }
+
+    with open(filepath, 'w') as file:
+        # Map to dictionary objects
+        results = [to_dict(claim) for claim in predicted]
+        json.dump(results, file)
 
 
 def main():
@@ -36,35 +39,24 @@ def main():
     '''
     Read raw input
     '''
-    json_df, articles_df = read_raw_data()
+    input_claims = read_raw_data(METADATA_FILEPATH)
 
     # Checkpoint
-    print(f"Raw data loaded in {time.time() - t}s")
+    print(f"{len(input_claims)} claims loaded in {time.time() - t}s")
     t = time.time()
 
     '''
-    Init vectorizer
+    Create pipeline
     '''
-    v = GensimVectorizer(path=GENSIM_VECTOR_PATH, binary=GENSIM_IS_BINARY)
-
+    pipeline = LeadersPrizePipeline(config=PIPELINE_CONFIG)
     # Checkpoint
-    print(f"Vectorizer loaded in {time.time() - t}s")
+    print(f"Initialized pipeline in {time.time() - t}s")
     t = time.time()
 
     '''
-    Preprocess info
+    Run through pipeline
     '''
-    ids, claims, supporting_info = preprocess(json_df, articles_df, vectorizer=v,
-                                              max_seq_len=MAX_SEQ_LEN, use_ngrams=True)
-
-    # Checkpoint
-    print(f"Preprocessed in {time.time() - t}s")
-    t = time.time()
-
-    '''
-    Predict from model
-    '''
-    predictions = predict(claims, supporting_info)
+    predictions = pipeline.predict(input_claims)
 
     # Checkpoint
     print(f"Predicted in {time.time() - t}s")
@@ -73,7 +65,7 @@ def main():
     '''
     Write results
     '''
-    write_result(ids, predictions)
+    write_result(predictions, PREDICTIONS_FILEPATH)
 
     # Checkpoint
     print(f"Results written in {time.time() - t}s")
