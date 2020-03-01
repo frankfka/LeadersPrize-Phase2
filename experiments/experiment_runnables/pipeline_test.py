@@ -4,7 +4,7 @@ from typing import List
 import pandas as pd
 
 from core.models import LeadersPrizeClaim
-from core.pipeline import LeadersPrizePipeline
+from core.pipeline import LeadersPrizePipeline, PipelineConfigKeys
 from experiments.util.experiment_util import save_results
 from experiments.util.train_data_util import train_data_generator
 
@@ -23,10 +23,10 @@ def test_pipeline():
 
     # Create pipeline
     pipeline = LeadersPrizePipeline({
-        LeadersPrizePipeline.CONFIG_W2V_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/word2vec/GoogleNewsVectors.bin.gz",
-        LeadersPrizePipeline.CONFIG_API_KEY: "ff5fdad7-de1f-4a74-bfac-acd42538131f",
-        LeadersPrizePipeline.CONFIG_ENDPOINT: "http://lpsa.wrw.org",
-        LeadersPrizePipeline.CONFIG_DEBUG: True
+        PipelineConfigKeys.W2V_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/word2vec/GoogleNewsVectors.bin.gz",
+        PipelineConfigKeys.API_KEY: "ff5fdad7-de1f-4a74-bfac-acd42538131f",
+        PipelineConfigKeys.ENDPOINT: "http://lpsa.wrw.org",
+        PipelineConfigKeys.DEBUG_MODE: True
     })
 
     # Run the prediction

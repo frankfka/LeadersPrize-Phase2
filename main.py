@@ -7,6 +7,7 @@ from config import METADATA_FILEPATH, PIPELINE_CONFIG, PREDICTIONS_FILEPATH
 from core.models import LeadersPrizeClaim, PipelineClaim
 from core.pipeline import LeadersPrizePipeline
 
+
 # Convert input to claim objects
 def read_raw_data(filepath: str) -> List[LeadersPrizeClaim]:
     with open(filepath) as json_file:

@@ -12,7 +12,7 @@ COPY requirements.txt .
 RUN pip install --trusted-host pypi.python.org -r requirements.txt --timeout 1000
 
 # Install NLTK requirements
-RUN [ "python3", "-c", "import nltk; nltk.download('popular')" ]
+RUN [ "python3", "-c", "import nltk; nltk.download('punkt'); nltk.download('stopwords');" ]
 
 # Copy all files over
 COPY . .

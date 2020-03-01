@@ -1,4 +1,5 @@
 from datetime import datetime
+from enum import Enum
 from typing import List
 
 from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
@@ -18,35 +19,43 @@ NUM_SENTS_PER_ARTICLE = 5
 EXTRACT_LEFT_WINDOW = 1
 EXTRACT_RIGHT_WINDOW = 2
 
+
+class PipelineConfigKeys(Enum):
+    API_KEY = "api_key"
+    ENDPOINT = "endpoint"
+    # Whether to retrieve articles from search client, set to False to load from given training data
+    RETRIEVE_ARTICLES = "retrieve_articles"
+    W2V_PATH = "w2v_path"
+    DEBUG_MODE = "debug"  # Whether to print debug info
+
+
 class LeadersPrizePipeline:
     """
     Main pipeline for Leader's Prize
     """
-    CONFIG_API_KEY = "api_key"
-    CONFIG_ENDPOINT = "endpoint"
-    CONFIG_W2V_PATH = "w2v_path"
-    CONFIG_DEBUG = "debug"  # Prints debug info
 
     def __init__(self, config):
-        self.debug_mode = config.get(LeadersPrizePipeline.CONFIG_DEBUG, False)
-        self.search_client = ArticleSearchClient(config[LeadersPrizePipeline.CONFIG_ENDPOINT],
-                                                 config[LeadersPrizePipeline.CONFIG_API_KEY])
+        self.config = config
+        # Create inner dependencies
+        self.search_client = ArticleSearchClient(config[PipelineConfigKeys.ENDPOINT],
+                                                 config[PipelineConfigKeys.API_KEY])
         self.query_generator = QueryGenerator()
         self.article_relevance_scorer = LSADocumentRelevanceAnalyzer()
         self.html_preprocessor = HTMLProcessor()
         self.text_preprocessor = TextPreprocessor()
-        w2v_vectorizer = Word2VecVectorizer(path=config[LeadersPrizePipeline.CONFIG_W2V_PATH])
+        w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
         self.information_extractor = RelevantInformationExtractor()
 
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
+        debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
         pipeline_objects: List[PipelineClaim] = []
         for claim in raw_claims:
             t = datetime.now()
             # Create pipeline object - this will hold all the annotations of our processing
             pipeline_object: PipelineClaim = PipelineClaim(claim)
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Initialized claim in {nt - t}")
                 print(f"Claimant: {claim.claimant}, Claim: {claim.claim}")
@@ -66,18 +75,17 @@ class LeadersPrizePipeline:
                 pipeline_object.preprocessed_claim = claim.claim
 
             # 2. Execute search query to get articles if config allows
-            if True:
+            if self.config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True):
                 search_response = self.search_client.search(search_query)
                 if search_response.error:
                     # Error, the articles will just be empty
                     print(f"Error searching query for claim {pipeline_object.original_claim.id}")
                     # TODO: predict something and continue, or put on a retry count
             # 2. OR: if we're loading local articles
-            if False:
-                search_response = claim.related_articles
-                # TODO: need to get actual search resp
+            else:
+                search_response = claim.mock_search_result
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Retrieved articles for claim in {nt - t}")
                 print(f"Query: {search_query}")
@@ -95,7 +103,7 @@ class LeadersPrizePipeline:
                 pipeline_article.raw_body_text = html_process_result.text
                 pipeline_articles.append(pipeline_article)
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Analyzed article HTML in {nt - t}")
                 # print("== First parsed article ==")
@@ -110,7 +118,7 @@ class LeadersPrizePipeline:
             for article_relevance, pipeline_article in zip(article_relevances, pipeline_articles):
                 pipeline_article.relevance = article_relevance
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Analyzed article relevances in {nt - t}")
                 print(f"Maximum article relevance found: {max(map(lambda x: x.relevance, pipeline_articles))}")
@@ -134,7 +142,7 @@ class LeadersPrizePipeline:
                     article_sentences.append(pipeline_sentence)
                 pipeline_article.preprocessed_sentences = article_sentences
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Preprocessed article text in {nt - t}")
                 # print("Example preprocessed article")
@@ -158,7 +166,7 @@ class LeadersPrizePipeline:
                     extracted_sentences = extracted_sentences[0:NUM_SENTS_PER_ARTICLE]
                 article.sentences_for_reasoner = extracted_sentences
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Reasoner preprocessing done in {nt - t}")
                 print("Example sentence for reasoner")
@@ -168,6 +176,13 @@ class LeadersPrizePipeline:
                 t = nt
 
             # TODO: Run through reasoner
+
+            # TEMPORARY, get article urls
+            reasoner_article_urls = [article.url for article in pipeline_object.articles_for_reasoner]
+            if len(reasoner_article_urls) > 2:
+                reasoner_article_urls = reasoner_article_urls[0:2]
+            print(reasoner_article_urls)
+            pipeline_object.submission_article_urls = reasoner_article_urls
 
             pipeline_objects.append(pipeline_object)
 

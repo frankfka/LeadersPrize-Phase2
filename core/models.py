@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 from reasoner.transformers.models import Entailment, StsSimilarity
-from search_client.client import SearchQueryResult
+from search_client.client import SearchQueryResult, SearchQueryResponse
 
 
 class LeadersPrizeClaim:
@@ -31,7 +31,7 @@ class LeadersPrizeClaim:
                 related_articles.append(LeadersPrizeClaim.LeadersPrizeRelatedArticle(k, v))
         self.related_articles: List[LeadersPrizeClaim.LeadersPrizeRelatedArticle] = related_articles
         # Optional if we want to run the pipeline without search client
-        self.provided_article_html: List[SearchQueryResult] = []
+        self.mock_search_result: Optional[SearchQueryResponse] = None
 
 
 class PipelineClaim:
