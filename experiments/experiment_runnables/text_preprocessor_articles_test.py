@@ -11,7 +11,7 @@ def __get_mapping_fn(preprocessor: TextPreprocessor):
         text = str(text)
         if not text:
             return ''
-        sentences = preprocessor.process(text).bert_sentences
+        sentences = preprocessor.process(text).sentences
         return ' | SEP | '.join(sentences)
 
     return process_and_map

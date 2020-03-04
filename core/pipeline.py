@@ -1,100 +1,133 @@
 from datetime import datetime
+from enum import Enum
 from typing import List
 
 from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
-from analyze.truth_tuple_extractor.truth_tuple_extractor import TruthTupleExtractor
 from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, PipelineSentence
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
 from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from analyze.sentence_relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
+from reasoner.transformer_reasoner import TransformerReasoner
+from reasoner.transformers.transformers_sequence_classification import RobertaSequenceClassifier, TransformersConfigKeys
 from search_client.client import ArticleSearchClient
+
+# TODO: These should be part of config
+MIN_SENT_LEN = 5
+NUM_ARTICLES_TO_PROCESS = 5
+NUM_SENTS_PER_ARTICLE = 5
+EXTRACT_LEFT_WINDOW = 0
+EXTRACT_RIGHT_WINDOW = 1
+
+
+class PipelineConfigKeys(Enum):
+    API_KEY = "api_key"
+    ENDPOINT = "endpoint"
+    # Whether to retrieve articles from search client, set to False to load from given training data
+    RETRIEVE_ARTICLES = "retrieve_articles"
+    W2V_PATH = "w2v_path"
+    DEBUG_MODE = "debug"  # Whether to print debug info
 
 
 class LeadersPrizePipeline:
     """
     Main pipeline for Leader's Prize
-    - TODO: Deal with cases where we have 0 articles, currently throws exception
     """
-    CONFIG_API_KEY = "api_key"
-    CONFIG_ENDPOINT = "endpoint"
-    CONFIG_W2V_PATH = "w2v_path"
-    CONFIG_DEBUG = "debug"  # Prints debug info
 
     def __init__(self, config):
-        self.debug_mode = config.get(LeadersPrizePipeline.CONFIG_DEBUG, False)
-        self.search_client = ArticleSearchClient(config[LeadersPrizePipeline.CONFIG_ENDPOINT],
-                                                 config[LeadersPrizePipeline.CONFIG_API_KEY])
-        self.truth_tuple_extractor = TruthTupleExtractor()
+        self.config = config
+        # Create inner dependencies
+        self.search_client = ArticleSearchClient(config[PipelineConfigKeys.ENDPOINT],
+                                                 config[PipelineConfigKeys.API_KEY])
         self.query_generator = QueryGenerator()
         self.article_relevance_scorer = LSADocumentRelevanceAnalyzer()
         self.html_preprocessor = HTMLProcessor()
         self.text_preprocessor = TextPreprocessor()
-        w2v_vectorizer = Word2VecVectorizer(path=config[LeadersPrizePipeline.CONFIG_W2V_PATH])
+        sts_sim_transformer = RobertaSequenceClassifier({
+            TransformersConfigKeys.BATCH_SIZE: 16,
+            TransformersConfigKeys.MAX_SEQ_LEN: 128,
+            TransformersConfigKeys.MODEL_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/sts_distilroberta",
+            TransformersConfigKeys.CONFIG_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/sts_distilroberta",
+            TransformersConfigKeys.TOK_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/sts_distilroberta",
+            TransformersConfigKeys.NUM_LABELS: 1
+        })
+        entailment_transformer = RobertaSequenceClassifier({
+            TransformersConfigKeys.BATCH_SIZE: 16,
+            TransformersConfigKeys.MAX_SEQ_LEN: 128,
+            TransformersConfigKeys.MODEL_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/mnli_distilroberta",
+            TransformersConfigKeys.CONFIG_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/mnli_distilroberta",
+            TransformersConfigKeys.TOK_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/mnli_distilroberta",
+            TransformersConfigKeys.NUM_LABELS: 3
+        })
+        self.reasoner = TransformerReasoner(sts_sim_transformer, entailment_transformer)
+        w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
-        self.bert_information_extractor = RelevantInformationExtractor()
+        self.information_extractor = RelevantInformationExtractor()
 
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
+        debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
         pipeline_objects: List[PipelineClaim] = []
         for claim in raw_claims:
             t = datetime.now()
             # Create pipeline object - this will hold all the annotations of our processing
             pipeline_object: PipelineClaim = PipelineClaim(claim)
-            claim_with_claimant = pipeline_object.original_claim.claimant + " " + pipeline_object.original_claim.claim
-            claim_truth_tuples = self.truth_tuple_extractor.extract(claim_with_claimant)
-            pipeline_object.claim_truth_tuples = claim_truth_tuples
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Initialized claim in {nt - t}")
-                print(f"Claim with Claimant: {claim_with_claimant}")
-                print(f"Parsed Truth Tuples: {pipeline_object.claim_truth_tuples}")
+                print(f"Claimant: {claim.claimant}, Claim: {claim.claim}")
                 print("\n")
                 t = nt
 
             # 1. Get query from claim
             # - Note: not using truth tuples for now, given that we see no significant difference with them
-            search_query = self.query_generator.get_query(pipeline_object.original_claim,
-                                                          truth_tuples=[])
-            # 1.1 Preprocess the claim + claimant
-            processed_claim = self.text_preprocessor.process(claim_with_claimant)
-            if len(processed_claim.bert_sentences) > 0:
-                pipeline_object.preprocessed_claim = processed_claim.bert_sentences[0]
+            search_query = self.query_generator.get_query(pipeline_object.original_claim)
+            # 1.1 Preprocess the claim
+            # - Note: not appending the claimant as that may impact entailment
+            processed_claim = self.text_preprocessor.process(claim.claim)
+            if len(processed_claim.sentences) > 0:
+                pipeline_object.preprocessed_claim = processed_claim.sentences[0]
             else:
                 print("Preprocessed claim is empty - defaulting to original claim")
-                pipeline_object.preprocessed_claim = claim_with_claimant
+                pipeline_object.preprocessed_claim = claim.claim
 
-            # 2. Execute search query to get articles
-            search_response = self.search_client.search(search_query)
-            if search_response.error:
-                # Error, the articles will just be empty
-                print(f"Error searching query for claim {pipeline_object.original_claim.id}")
+            # 2. Execute search query to get articles if config allows
+            if self.config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True):
+                search_response = self.search_client.search(search_query)
+                searched_articles = search_response.results
+                if search_response.error or len(searched_articles) == 0:
+                    # Error, the articles will just be empty
+                    print(f"Error searching query for claim {pipeline_object.original_claim.id}")
+                    # TODO: predict something and continue, or put on a retry count
+            # 2. OR: if we're loading local articles
+            else:
+                searched_articles = claim.mock_search_results
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Retrieved articles for claim in {nt - t}")
                 print(f"Query: {search_query}")
-                print(f"{len(search_response.results)} Articles retrieved")
+                print(f"{len(searched_articles)} Articles retrieved")
                 print("\n")
                 t = nt
 
             # 3. Process articles from raw HTML to parsed text
             pipeline_articles: List[PipelineArticle] = []
-            for raw_article in search_response.results:
+            for raw_article in searched_articles:
                 pipeline_article = PipelineArticle(raw_article)
                 # 3.1 Extract data from HTML
-                html_process_result = self.html_preprocessor.process(pipeline_article.raw_result.content)
+                html_process_result = self.html_preprocessor.process(raw_article.content)
                 pipeline_article.html_attributes = html_process_result.html_atts
                 pipeline_article.raw_body_text = html_process_result.text
                 pipeline_articles.append(pipeline_article)
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Analyzed article HTML in {nt - t}")
-                print("== First parsed article ==")
-                print(pipeline_articles[0].raw_body_text)
+                # print("== First parsed article ==")
+                # print(pipeline_articles[0].raw_body_text)
                 print("\n")
                 t = nt
 
@@ -105,67 +138,78 @@ class LeadersPrizePipeline:
             for article_relevance, pipeline_article in zip(article_relevances, pipeline_articles):
                 pipeline_article.relevance = article_relevance
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Analyzed article relevances in {nt - t}")
                 print(f"Maximum article relevance found: {max(map(lambda x: x.relevance, pipeline_articles))}")
                 print("\n")
                 t = nt
 
-            # 5. Preprocess select articles for BERT & annotate with sentence-level relevance
+            # 5. Preprocess select articles on a sentence-level & annotate with sentence-level relevance
             for pipeline_article in pipeline_articles:
                 # 5.1 Clean text data
                 text_process_result = self.text_preprocessor.process(pipeline_article.raw_body_text)
                 # 5.2 Get relevances for each sentence
                 article_sentences: List[PipelineSentence] = []
-                for bert_sentence in text_process_result.bert_sentences:
+                for preprocessed_sentence in text_process_result.sentences:
                     # Enforce a minimum sentence length
-                    if len(bert_sentence.split()) < 5:
+                    if len(preprocessed_sentence.split()) < MIN_SENT_LEN:
                         continue
                     relevance = self.sentence_relevance_scorer.get_relevance(pipeline_object.preprocessed_claim,
-                                                                             bert_sentence)
-                    pipeline_sentence = PipelineSentence(bert_sentence)
+                                                                             preprocessed_sentence)
+                    pipeline_sentence = PipelineSentence(preprocessed_sentence)
                     pipeline_sentence.relevance = relevance
                     article_sentences.append(pipeline_sentence)
                 pipeline_article.preprocessed_sentences = article_sentences
 
-            if self.debug_mode:
+            if debug_mode:
                 nt = datetime.now()
                 print(f"Preprocessed article text in {nt - t}")
-                print("Example preprocessed article")
-                print(pipeline_articles[0].preprocessed_sentences)
+                # print("Example preprocessed article")
+                # print(pipeline_articles[0].preprocessed_sentences)
                 print("\n")
                 t = nt
 
-            # Assign the preprocessed & annotated result to the pipeline object
             pipeline_object.articles = pipeline_articles
-
-            # 6. Extract Information for BERT - concat all the sentences
-            # Use article relevance to only consider the 5 most relevant articles from the ~30 given
+            # Use article relevance to only consider a subset of the most relevant articles from the ~30 given
             pipeline_articles.sort(key=lambda x: x.relevance, reverse=True)
-            bert_articles = pipeline_articles[0:5] if len(pipeline_articles) > 5 else pipeline_articles
-            bert_article_sentences = []
-            for article in bert_articles:
-                bert_article_sentences += article.preprocessed_sentences
-            # Use large window to extract chunks of information around highly relevant sentences
-            bert_sentences_by_relevance = self.bert_information_extractor.extract(bert_article_sentences, window=3)
-            bert_preprocessed = ""
-            num_words_in_bert_preprocessed = 0
-            for bert_sentence in bert_sentences_by_relevance:
-                if num_words_in_bert_preprocessed > 512:
-                    break
-                bert_preprocessed += ' . ' + bert_sentence.sentence
-                num_words_in_bert_preprocessed += len(bert_sentence.sentence.split())
-            pipeline_object.bert_preprocessed = bert_preprocessed
+            pipeline_object.articles_for_reasoner = pipeline_articles[0:NUM_ARTICLES_TO_PROCESS] if \
+                len(pipeline_articles) > NUM_ARTICLES_TO_PROCESS else pipeline_articles
 
-            nt = datetime.now()
-            if self.debug_mode:
-                print(f"Extracted information for BERT in {nt - t}")
-            t = nt
+            # 6. Minor preprocessing for reasoner
+            for article in pipeline_object.articles_for_reasoner:
+                # 6.1 For each article, get most relevant sentence "blocks" for the reasoner to process
+                extracted_sentences = self.information_extractor.extract(article.preprocessed_sentences,
+                                                                         left_window=EXTRACT_LEFT_WINDOW,
+                                                                         right_window=EXTRACT_RIGHT_WINDOW)
+                if len(extracted_sentences) > NUM_SENTS_PER_ARTICLE:
+                    extracted_sentences = extracted_sentences[0:NUM_SENTS_PER_ARTICLE]
+                article.sentences_for_reasoner = extracted_sentences
+
+            if debug_mode:
+                nt = datetime.now()
+                print(f"Reasoner preprocessing done in {nt - t}")
+                print("Example sentence for reasoner")
+                print(f"Article Relevance: {pipeline_object.articles_for_reasoner[0].relevance}")
+                print(pipeline_object.articles_for_reasoner[0].sentences_for_reasoner[0])
+                print("\n")
+                t = nt
+
+            pipeline_object = self.reasoner.predict(pipeline_object)
+
+            if debug_mode:
+                nt = datetime.now()
+                print(f"Reasoner predicted in {nt - t}")
+                print(f"Prediction: {pipeline_object.submission_label}")
+                print("\n")
+                t = nt
+
+            # TEMPORARY, get article urls
+            reasoner_article_urls = [article.url for article in pipeline_object.articles_for_reasoner]
+            if len(reasoner_article_urls) > 2:
+                reasoner_article_urls = reasoner_article_urls[0:2]
+            pipeline_object.submission_article_urls = reasoner_article_urls
 
             pipeline_objects.append(pipeline_object)
-
-        # 7. Run predictive algorithms on pipeline objects
-        # TODO
 
         return pipeline_objects

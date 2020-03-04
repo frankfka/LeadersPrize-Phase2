@@ -7,8 +7,8 @@ import preprocess.text_util as text_util
 
 class TextPreprocessResult:
 
-    def __init__(self, bert_sentences: List[str]):
-        self.bert_sentences = bert_sentences
+    def __init__(self, sentences: List[str]):
+        self.sentences = sentences
 
 
 class TextPreprocessor:

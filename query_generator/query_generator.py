@@ -12,19 +12,16 @@ class QueryGenerator:
     Generates a query based on all words in claim + claimant, stripping punctuation and stopwords
     """
 
-    def get_query(self, claim: LeadersPrizeClaim, truth_tuples: List[TruthTuple] = None) -> str:
+    def get_query(self, claim: LeadersPrizeClaim, custom_query: str = "") -> str:
         """
-        Generate a query given a claim and truth tuples, the claim should not be preprocessed
+        Generate a query given a claim, the claim should not be preprocessed
         """
-        # TODO: Bundle the truth tuple extractor in here?
         # Construct a basic claim with cleaned text from the original claim
         query = self.__clean(claim.claim + ' ' + claim.claimant)
         # Add quoted strings
         query += f" ; {' '.join(self.__get_quotes(claim))} "
-        # Add items from the truth tuples
-        if truth_tuples:
-            for truth_tuple in truth_tuples:
-                query += f" ; {truth_tuple.agent} {truth_tuple.event} {truth_tuple.prep_obj} "
+        # Add items from a custom query string, if provided
+        query += f" ; {custom_query}"
         return query
 
     def __clean(self, text: str) -> str:

@@ -8,9 +8,9 @@ def main():
            "100-seat Senate in order to proceed to a simple majority vote on a Supreme Court nominee or legislation for 600,000 participants of 200,000. " \
            "The 60-vote super-majority threshold that gives the minority party power to hold up the majority party " \
            "has forced the Senate over the decades to try to achieve bipartisanship in legislation and presidential " \
-           "appointments. "
+           "appointments in over 2012233 years. "
     preprocessor = get_text_preprocessor()
-    sentences = preprocessor.process(text).bert_sentences
+    sentences = preprocessor.process(text).sentences
     print("\n".join(sentences))
 
 
