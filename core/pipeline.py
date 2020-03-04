@@ -10,14 +10,16 @@ from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
 from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from analyze.sentence_relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
+from reasoner.transformer_reasoner import TransformerReasoner
+from reasoner.transformers.transformers_sequence_classification import RobertaSequenceClassifier, TransformersConfigKeys
 from search_client.client import ArticleSearchClient
 
 # TODO: These should be part of config
 MIN_SENT_LEN = 5
 NUM_ARTICLES_TO_PROCESS = 5
 NUM_SENTS_PER_ARTICLE = 5
-EXTRACT_LEFT_WINDOW = 1
-EXTRACT_RIGHT_WINDOW = 2
+EXTRACT_LEFT_WINDOW = 0
+EXTRACT_RIGHT_WINDOW = 1
 
 
 class PipelineConfigKeys(Enum):
@@ -43,6 +45,23 @@ class LeadersPrizePipeline:
         self.article_relevance_scorer = LSADocumentRelevanceAnalyzer()
         self.html_preprocessor = HTMLProcessor()
         self.text_preprocessor = TextPreprocessor()
+        sts_sim_transformer = RobertaSequenceClassifier({
+            TransformersConfigKeys.BATCH_SIZE: 16,
+            TransformersConfigKeys.MAX_SEQ_LEN: 128,
+            TransformersConfigKeys.MODEL_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/sts_distilroberta",
+            TransformersConfigKeys.CONFIG_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/sts_distilroberta",
+            TransformersConfigKeys.TOK_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/sts_distilroberta",
+            TransformersConfigKeys.NUM_LABELS: 1
+        })
+        entailment_transformer = RobertaSequenceClassifier({
+            TransformersConfigKeys.BATCH_SIZE: 16,
+            TransformersConfigKeys.MAX_SEQ_LEN: 128,
+            TransformersConfigKeys.MODEL_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/mnli_distilroberta",
+            TransformersConfigKeys.CONFIG_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/mnli_distilroberta",
+            TransformersConfigKeys.TOK_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/mnli_distilroberta",
+            TransformersConfigKeys.NUM_LABELS: 3
+        })
+        self.reasoner = TransformerReasoner(sts_sim_transformer, entailment_transformer)
         w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
         self.information_extractor = RelevantInformationExtractor()
@@ -77,25 +96,26 @@ class LeadersPrizePipeline:
             # 2. Execute search query to get articles if config allows
             if self.config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True):
                 search_response = self.search_client.search(search_query)
-                if search_response.error:
+                searched_articles = search_response.results
+                if search_response.error or len(searched_articles) == 0:
                     # Error, the articles will just be empty
                     print(f"Error searching query for claim {pipeline_object.original_claim.id}")
                     # TODO: predict something and continue, or put on a retry count
             # 2. OR: if we're loading local articles
             else:
-                search_response = claim.mock_search_result
+                searched_articles = claim.mock_search_results
 
             if debug_mode:
                 nt = datetime.now()
                 print(f"Retrieved articles for claim in {nt - t}")
                 print(f"Query: {search_query}")
-                print(f"{len(search_response.results)} Articles retrieved")
+                print(f"{len(searched_articles)} Articles retrieved")
                 print("\n")
                 t = nt
 
             # 3. Process articles from raw HTML to parsed text
             pipeline_articles: List[PipelineArticle] = []
-            for raw_article in search_response.results:
+            for raw_article in searched_articles:
                 pipeline_article = PipelineArticle(raw_article)
                 # 3.1 Extract data from HTML
                 html_process_result = self.html_preprocessor.process(raw_article.content)
@@ -175,13 +195,19 @@ class LeadersPrizePipeline:
                 print("\n")
                 t = nt
 
-            # TODO: Run through reasoner
+            pipeline_object = self.reasoner.predict(pipeline_object)
+
+            if debug_mode:
+                nt = datetime.now()
+                print(f"Reasoner predicted in {nt - t}")
+                print(f"Prediction: {pipeline_object.submission_label}")
+                print("\n")
+                t = nt
 
             # TEMPORARY, get article urls
             reasoner_article_urls = [article.url for article in pipeline_object.articles_for_reasoner]
             if len(reasoner_article_urls) > 2:
                 reasoner_article_urls = reasoner_article_urls[0:2]
-            print(reasoner_article_urls)
             pipeline_object.submission_article_urls = reasoner_article_urls
 
             pipeline_objects.append(pipeline_object)

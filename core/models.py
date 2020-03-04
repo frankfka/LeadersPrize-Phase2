@@ -1,7 +1,6 @@
 from typing import List, Optional
 
-from reasoner.transformers.models import Entailment, StsSimilarity
-from search_client.client import SearchQueryResult, SearchQueryResponse
+from search_client.client import SearchQueryResult
 
 
 class LeadersPrizeClaim:
@@ -31,7 +30,7 @@ class LeadersPrizeClaim:
                 related_articles.append(LeadersPrizeClaim.LeadersPrizeRelatedArticle(k, v))
         self.related_articles: List[LeadersPrizeClaim.LeadersPrizeRelatedArticle] = related_articles
         # Optional if we want to run the pipeline without search client
-        self.mock_search_result: Optional[SearchQueryResponse] = None
+        self.mock_search_results: List[SearchQueryResult] = []
 
 
 class PipelineClaim:
@@ -65,7 +64,7 @@ class PipelineArticle:
         self.html_attributes = None  # Parsed HTML attributes
         self.preprocessed_sentences: List[PipelineSentence] = []  # Preprocessed sentences
         self.sentences_for_reasoner: List[PipelineSentence] = []  # Sentences extracted for processing by reasoner
-        self.entailment_score: Optional[Entailment] = None  # Entailment as accessed by the reasoner
+        self.entailment_score: Optional[float] = None  # Entailment as accessed by the reasoner
 
 
 class PipelineSentence:
@@ -77,8 +76,9 @@ class PipelineSentence:
         self.id: str = ""
         self.sentence: str = sentence
         self.relevance: float = 0  # Relevance score of the sentence
-        self.sts_relevance_score: Optional[StsSimilarity] = None
-        self.entailment_score: Optional[Entailment] = None  # Entailment as accessed by the reasoner
+        self.sts_relevance_score: Optional[float] = None
+        self.entailment_score: Optional[float] = None  # Entailment as accessed by the reasoner
 
     def __repr__(self):
-        return self.sentence + f"; Relevance: {self.relevance}; Entailment: {self.entailment_score}"
+        return self.sentence + f"; Relevance: {self.relevance}; " \
+               + f"Entailment: {self.entailment_score}; " + f"STS Similarity: {self.sts_relevance_score}"

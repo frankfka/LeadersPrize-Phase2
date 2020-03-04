@@ -7,16 +7,8 @@ from torch.utils.data import TensorDataset, SequentialSampler, DataLoader
 
 from transformers import RobertaTokenizer, RobertaConfig, RobertaForSequenceClassification
 
-from reasoner.transformers.transformers_util import tokenize_for_transformer, logits_to_probabilities
-
-
-class TransformersInputItem:
-
-    def __init__(self, uuid, text_a, text_b, label=None):
-        self.uuid = uuid
-        self.text_a = text_a
-        self.text_b = text_b
-        self.label = label
+from reasoner.transformers.models import TransformersInputItem
+from reasoner.transformers.transformers_util import tokenize_for_transformer
 
 
 class TransformersConfigKeys(Enum):
@@ -33,10 +25,10 @@ class RobertaSequenceClassifier:
     def __init__(self, config: Dict):
         self.config = config
         self.tokenizer = RobertaTokenizer.from_pretrained(config[TransformersConfigKeys.TOK_PATH])
-        config = RobertaConfig.from_pretrained(config[TransformersConfigKeys.CONFIG_PATH],
-                                               num_labels=config[TransformersConfigKeys.NUM_LABELS])
+        model_config = RobertaConfig.from_pretrained(config[TransformersConfigKeys.CONFIG_PATH],
+                                                     num_labels=config[TransformersConfigKeys.NUM_LABELS])
         self.model = RobertaForSequenceClassification.from_pretrained(config[TransformersConfigKeys.MODEL_PATH],
-                                                                      config=config)
+                                                                      config=model_config)
         self.model.eval()
         self.device = "cpu"
         if torch.cuda.is_available():
@@ -73,7 +65,6 @@ class RobertaSequenceClassifier:
 
             logits = logits.detach().cpu()
             for prediction in logits:
-                probabilities = logits_to_probabilities(prediction).numpy()
-                predictions.append(probabilities)
+                predictions.append(prediction.numpy())
 
         return np.array(predictions)

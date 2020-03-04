@@ -8,10 +8,15 @@ class SearchQueryResult:
     Data structure for each article result
     """
 
-    def __init__(self, hit):
-        self.content = hit["content"]
-        self.score = hit["score"]
-        self.url = hit["url"]
+    def __init__(self, hit=None, content: str = "", url: str = ""):
+        # Constructor allows for custom search query results
+        self.content = content
+        self.score = 0
+        self.url = url
+        if hit:
+            self.content = hit["content"]
+            self.score = hit["score"]
+            self.url = hit["url"]
 
 
 def __remove_http__(url) -> str:
@@ -38,7 +43,7 @@ class SearchQueryResponse:
             urls = set()
             results = []
             for hit in r.json()["hits"]["hits"]:
-                result = SearchQueryResult(hit)
+                result = SearchQueryResult(hit=hit)
                 # Remove https/http for deduplication
                 clean_url = __remove_http__(result.url)
                 if clean_url not in urls:

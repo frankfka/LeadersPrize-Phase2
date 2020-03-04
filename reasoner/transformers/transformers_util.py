@@ -1,7 +1,6 @@
 from typing import List
 import torch
-
-from reasoner.transformers.transformers_sequence_classification import TransformersInputItem
+from reasoner.transformers.models import TransformersInputItem
 
 
 # Preprocesses text into inputs expected for the model (token_ids, attention_masks, token_type_ids)
@@ -59,7 +58,3 @@ def tokenize_for_transformer(input_items: List[TransformersInputItem],
     all_token_types = torch.tensor(all_token_types, dtype=torch.long)
 
     return all_token_ids, all_attention_masks, all_token_types
-
-
-def logits_to_probabilities(logits):
-    return torch.nn.functional.softmax(logits, dim=0)
