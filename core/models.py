@@ -46,6 +46,7 @@ class PipelineClaim:
         self.articles: List[PipelineArticle] = []  # Results from search client
         self.articles_for_reasoner: List[PipelineArticle] = []  # Curated articles for the reasoner
         # Submission properties
+        self.submission_id: str = ""
         self.submission_label: int = 1
         self.submission_explanation: str = ""
         self.submission_article_urls: List[str] = []
@@ -59,7 +60,7 @@ class PipelineArticle:
     def __init__(self, raw_result: SearchQueryResult):
         self.id: str = ""
         self.url = raw_result.url
-        self.raw_body_text = None  # Raw body text parsed from raw result
+        self.raw_body_text = ""  # Raw body text parsed from raw result
         self.relevance = 0  # Relevance score of the article
         self.html_attributes = None  # Parsed HTML attributes
         self.preprocessed_sentences: List[PipelineSentence] = []  # Preprocessed sentences

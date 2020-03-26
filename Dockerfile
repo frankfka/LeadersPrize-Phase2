@@ -4,8 +4,8 @@ FROM tensorflow/tensorflow:latest-gpu-py3
 RUN pip install --upgrade pip
 
 # Make the working directory
-RUN mkdir -p /usr/local
-WORKDIR /usr/local
+RUN mkdir -p /src
+WORKDIR /src
 
 # Install dependencies
 COPY requirements.txt .
