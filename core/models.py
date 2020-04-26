@@ -45,6 +45,7 @@ class PipelineClaim:
         # Intermediate properties
         self.articles: List[PipelineArticle] = []  # Results from search client
         self.articles_for_reasoner: List[PipelineArticle] = []  # Curated articles for the reasoner
+        self.preprocessed_text_b_for_reasoner: str = ""  # Preprocessed input for reasoner
         # Submission properties
         self.submission_id: str = ""
         self.submission_label: int = 1

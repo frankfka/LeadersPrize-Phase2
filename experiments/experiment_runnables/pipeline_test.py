@@ -24,14 +24,16 @@ def eval_predictions(y_true, y_pred):
     print(f"F1 Score (Weighted): {f1_score_weighted}")
 
 
+PROJ_ROOT = "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/"
 PIPELINE_CONFIG = {
-    PipelineConfigKeys.W2V_PATH: "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/word2vec/GoogleNewsVectors.bin.gz",
+    PipelineConfigKeys.W2V_PATH: f"{PROJ_ROOT}assets/word2vec/GoogleNewsVectors.bin.gz",
     PipelineConfigKeys.API_KEY: "ff5fdad7-de1f-4a74-bfac-acd42538131f",
     PipelineConfigKeys.ENDPOINT: "http://lpsa.wrw.org",
+    PipelineConfigKeys.TRANSFORMER_PATH: f"{PROJ_ROOT}assets/roberta_reasoner/",
     PipelineConfigKeys.DEBUG_MODE: True,
-    PipelineConfigKeys.RETRIEVE_ARTICLES: False
+    PipelineConfigKeys.RETRIEVE_ARTICLES: True,
 }
-PROCESS_RANGE = range(1500, 1650)
+PROCESS_RANGE = range(100, 130)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"
 
 
@@ -72,14 +74,9 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
     reasoner_inputs = []
     pred_labels = []
     for res in results:
-        claims.append(res.original_claim.claim)
+        claims.append(res.preprocessed_claim)
         labels.append(res.original_claim.label)
-        reasoner_input = ""
-        for article in res.articles_for_reasoner:
-            reasoner_input += f"=== Article: Relevance: {article.relevance}, Entailment: {article.entailment_score} ==="
-            for sent in article.sentences_for_reasoner:
-                reasoner_input += f"|| {sent} ||"
-        reasoner_inputs.append(reasoner_input)
+        reasoner_inputs.append(res.preprocessed_text_b_for_reasoner)
         pred_labels.append(res.submission_label)
     results_df = pd.DataFrame(data={
         "claim": claims,

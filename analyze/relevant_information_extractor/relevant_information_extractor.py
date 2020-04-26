@@ -47,7 +47,7 @@ class RelevantInformationExtractor:
             # Add the extracted block to the return result
             if sentence_strs:
                 # Create a new pipeline sentence, with relevance that is the maximum relevance of its subsentences
-                block_sentence = " ".join(sentence_strs)
+                block_sentence = " | ".join(sentence_strs)
                 block_pipeline_sentence = PipelineSentence(block_sentence)
                 block_pipeline_sentence.relevance = max_relevance
                 extracted.append(block_pipeline_sentence)
