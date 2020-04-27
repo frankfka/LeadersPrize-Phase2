@@ -13,7 +13,7 @@ def test_document_relevance_scorer():
     Determines, if there is shared articles between what is retrieved and what is given as related_articles,
     the ranking of the related article
     """
-    num_examples = 100  # Limit # of examples so this runs faster
+    num_examples = 1000  # Limit # of examples so this runs faster
     bqg = get_query_generator()
     client = get_search_client()
     html_preprocessor = get_html_preprocessor()

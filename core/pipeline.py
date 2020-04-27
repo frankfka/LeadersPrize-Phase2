@@ -16,13 +16,8 @@ from reasoner.preprocess import get_text_b_for_reasoner
 from reasoner.transformer_reasoner import TransformerReasoner
 from search_client.client import ArticleSearchClient
 
-# TODO: These should be part of config
-MIN_SENT_LEN = 5
-NUM_ARTICLES_TO_PROCESS = 3
-NUM_SENTS_PER_ARTICLE = 5
-EXTRACT_LEFT_WINDOW = 1
-EXTRACT_RIGHT_WINDOW = 1
-
+# TODO: Increase # articles to process
+# TODO: Get stuff for reasoner by blending articles, getting highest relevance?
 
 class PipelineConfigKeys(Enum):
     API_KEY = "api_key"
@@ -33,6 +28,12 @@ class PipelineConfigKeys(Enum):
     # For the transformer model
     TRANSFORMER_PATH = "transformer_path"
     DEBUG_MODE = "debug"  # Whether to print debug info
+
+    MIN_SENT_LEN = "min_sent_len"  # Minimum length of sentence (in words) to consider
+    NUM_ARTICLES_TO_PROCESS = "num_relevant_articles"  # Number of articles (with top relevance) to process
+    NUM_SENTS_PER_ARTICLE = "num_sentences_per_article"  # Number of sentences per article to process
+    EXTRACT_LEFT_WINDOW = "info_left_window"  # Information extraction - left window
+    EXTRACT_RIGHT_WINDOW = "info_right_window"  # Information extraction - right wondpw
 
 
 class LeadersPrizePipeline:
@@ -56,7 +57,15 @@ class LeadersPrizePipeline:
                                                         debug=config[PipelineConfigKeys.DEBUG_MODE])
 
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
+
+        # Get some stuff from the config
         debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
+        min_sentence_length = self.config.get(PipelineConfigKeys.MIN_SENT_LEN, 5)
+        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 10)
+        num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 5)
+        info_extraction_left_window = self.config.get(PipelineConfigKeys.EXTRACT_LEFT_WINDOW, 1)
+        info_extraction_right_window = self.config.get(PipelineConfigKeys.EXTRACT_RIGHT_WINDOW, 1)
+
         pipeline_objects: List[PipelineClaim] = []
         for claim in raw_claims:
             t = datetime.now()
@@ -138,8 +147,8 @@ class LeadersPrizePipeline:
 
             # 4.5 Based on article relevance, only consider the top relevances
             pipeline_articles.sort(key=lambda article: article.relevance, reverse=True)
-            if len(pipeline_articles) > NUM_ARTICLES_TO_PROCESS:
-                pipeline_articles = pipeline_articles[:NUM_ARTICLES_TO_PROCESS - 1]
+            if len(pipeline_articles) > num_relevant_articles_to_process:
+                pipeline_articles = pipeline_articles[:num_relevant_articles_to_process - 1]
 
             # 5. Preprocess select articles on a sentence-level & annotate with sentence-level relevance
             for pipeline_article in pipeline_articles:
@@ -149,7 +158,7 @@ class LeadersPrizePipeline:
                 article_sentences: List[PipelineSentence] = []
                 for preprocessed_sentence in text_process_result.sentences:
                     # Enforce a minimum sentence length
-                    if len(preprocessed_sentence.split()) < MIN_SENT_LEN:
+                    if len(preprocessed_sentence.split()) < min_sentence_length:
                         continue
                     relevance = self.sentence_relevance_scorer.get_relevance(pipeline_object.preprocessed_claim,
                                                                              preprocessed_sentence)
@@ -159,11 +168,11 @@ class LeadersPrizePipeline:
                 pipeline_article.preprocessed_sentences = article_sentences
                 # 5.3 Get select sentences for reasoner, then cut to the most relevant sentences
                 sentences_for_reasoner = self.information_extractor.extract(article_sentences,
-                                                                            left_window=EXTRACT_LEFT_WINDOW,
-                                                                            right_window=EXTRACT_RIGHT_WINDOW)
+                                                                            left_window=info_extraction_left_window,
+                                                                            right_window=info_extraction_right_window)
                 sentences_for_reasoner.sort(key=lambda sentence: sentence.relevance, reverse=True)
-                if len(sentences_for_reasoner) > NUM_SENTS_PER_ARTICLE:
-                    sentences_for_reasoner = sentences_for_reasoner[0:NUM_SENTS_PER_ARTICLE-1]
+                if len(sentences_for_reasoner) > num_sentences_per_article_to_process:
+                    sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process-1]
                 pipeline_article.sentences_for_reasoner = sentences_for_reasoner
             pipeline_object.articles_for_reasoner = pipeline_articles
 
