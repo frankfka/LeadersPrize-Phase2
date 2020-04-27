@@ -1,5 +1,4 @@
-from experiments.util.experiment_util import get_query_generator, get_search_client, \
-    get_truth_tuple_extractor
+from experiments.util.experiment_util import get_query_generator, get_search_client
 from experiments.util.train_data_util import train_data_generator
 
 
@@ -7,9 +6,8 @@ def compare_query_results_with_train_data():
     """
     Compare the resulting URL's from searched articles with the ground truth articles given in training data
     """
-    num_examples = 30  # Limit # of examples so this runs faster
+    num_examples = 1000  # Limit # of examples so this runs faster
     bqg = get_query_generator()
-    truth_tup_extractor = get_truth_tuple_extractor()
     client = get_search_client()
 
     ids = []
@@ -20,13 +18,12 @@ def compare_query_results_with_train_data():
     shared_urls_for_claim = []
 
     # TODO: Finish this off
-    for idx, claim in enumerate(train_data_generator()):
+    for idx, claim in train_data_generator("/Users/frankjia/Desktop/LeadersPrize/train/train.json"):
         if idx == num_examples:
             break
-
+        print(idx)
         # Execute query
-        claim_truth_tuples = truth_tup_extractor.extract(claim.claimant + " " + claim.claim)
-        q = bqg.get_query(claim, truth_tuples=claim_truth_tuples)
+        q = bqg.get_query(claim)
         res = client.search(q)
         searched_urls = []
         # Get URLs from the result
@@ -56,6 +53,7 @@ def compare_query_results_with_train_data():
     print(f"{num_shared_articles} shared articles found in {total_train_articles} total: {float(num_shared_articles) / total_train_articles}")
 
     # TODO: Export dataframe
+
 
 def main():
     compare_query_results_with_train_data()
