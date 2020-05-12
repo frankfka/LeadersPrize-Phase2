@@ -24,6 +24,7 @@ class TransformerReasoner:
         for claim in claims:
             if not claim.preprocessed_text_b_for_reasoner:
                 print("Warning: No preprocessed text_b for reasoner")
+                claim.preprocessed_text_b_for_reasoner = "No supporting info provided"  # Transformers errors out with empty input
             # Get tokenized
             input_item = TransformersInputItem(claim.original_claim.id,
                                                claim.preprocessed_claim,

@@ -72,4 +72,5 @@ def main():
     print(f"Results written in {time.time() - t}s")
 
 
-main()
+if __name__ == '__main__':
+    main()

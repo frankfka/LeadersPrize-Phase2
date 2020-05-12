@@ -16,6 +16,7 @@ from reasoner.preprocess import get_text_b_for_reasoner
 from reasoner.transformer_reasoner import TransformerReasoner
 from search_client.client import ArticleSearchClient
 
+
 # TODO: Increase # articles to process
 # TODO: Get stuff for reasoner by blending articles, getting highest relevance?
 
@@ -61,7 +62,7 @@ class LeadersPrizePipeline:
         # Get some stuff from the config
         debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
         min_sentence_length = self.config.get(PipelineConfigKeys.MIN_SENT_LEN, 5)
-        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 10)
+        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 5)
         num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 5)
         info_extraction_left_window = self.config.get(PipelineConfigKeys.EXTRACT_LEFT_WINDOW, 1)
         info_extraction_right_window = self.config.get(PipelineConfigKeys.EXTRACT_RIGHT_WINDOW, 1)
@@ -172,7 +173,7 @@ class LeadersPrizePipeline:
                                                                             right_window=info_extraction_right_window)
                 sentences_for_reasoner.sort(key=lambda sentence: sentence.relevance, reverse=True)
                 if len(sentences_for_reasoner) > num_sentences_per_article_to_process:
-                    sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process-1]
+                    sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process - 1]
                 pipeline_article.sentences_for_reasoner = sentences_for_reasoner
             pipeline_object.articles_for_reasoner = pipeline_articles
 
@@ -187,21 +188,6 @@ class LeadersPrizePipeline:
                 print("\n")
                 t = nt
 
-            pipeline_objects.append(pipeline_object)
-
-        # 6. Batch predictions from transformers
-        predictions = self.transformer_reasoner.predict(pipeline_objects)
-        for (pipeline_object, prediction) in zip(pipeline_objects, predictions):
-
-            pipeline_object.submission_label = prediction.value
-
-            if debug_mode:
-                nt = datetime.now()
-                print(f"Reasoner predicted in {nt - t}")
-                print(f"Prediction: {pipeline_object.submission_label}")
-                print("\n")
-                t = nt
-
             # TEMPORARY, get article urls
             reasoner_article_urls = [article.url for article in pipeline_object.articles_for_reasoner]
             if len(reasoner_article_urls) > 2:
@@ -210,7 +196,24 @@ class LeadersPrizePipeline:
             # TEMPORARY: Test submission
             pipeline_object.submission_id = pipeline_object.original_claim.id
             pipeline_object.submission_article_urls = reasoner_article_urls
-            # pipeline_object.submission_label = randint(0,2)
             pipeline_object.submission_explanation = "Some explanation"
+
+            # Delete unneeded stuff to save memory
+            del pipeline_object.articles
+            del pipeline_object.articles_for_reasoner
+
+            pipeline_objects.append(pipeline_object)
+
+        # 6. Batch predictions from transformers
+        predictions = self.transformer_reasoner.predict(pipeline_objects)
+        for (pipeline_object, prediction) in zip(pipeline_objects, predictions):
+            pipeline_object.submission_label = prediction.value
+
+            if debug_mode:
+                nt = datetime.now()
+                print(f"Reasoner predicted in {nt - t}")
+                print(f"Prediction: {pipeline_object.submission_label}")
+                print("\n")
+                t = nt
 
         return pipeline_objects
