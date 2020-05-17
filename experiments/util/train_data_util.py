@@ -1,6 +1,6 @@
 import json
 import os
-from typing import List
+from typing import List, Optional
 
 import pandas as pd
 
@@ -11,7 +11,7 @@ def get_preprocessed_train_data(path: str) -> pd.DataFrame:
     return pd.read_pickle(path)
 
 
-def get_train_claims_df(root_path: str) -> pd.DataFrame:
+def get_train_claims_df(root_path: str, start: int, stop: Optional[int]) -> pd.DataFrame:
     """
     Get Pandas dataframe of training data, "relevant_articles" is a column with list values, each item
     is the raw HTML text given in the article txt file
@@ -24,7 +24,11 @@ def get_train_claims_df(root_path: str) -> pd.DataFrame:
     related_articles = []
     with open(os.path.join(root_path, "train.json")) as json_file:
         data = json.load(json_file)
-        for item in data:
+        for idx, item in enumerate(data):
+            if idx < start:
+                continue
+            if stop and idx > stop:
+                break
             parsed_claim = LeadersPrizeClaim(item)
             articles = []
             for related_article in parsed_claim.related_articles:

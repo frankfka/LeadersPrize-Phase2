@@ -70,7 +70,7 @@ class ArticleSearchClient:
         self.endpoint = host + '/claimserver/api/v1.0/evidence'
         self.headers = {'X-Api-Key': api_key}
 
-    def search(self, query: str, num_results=10) -> ClientSearchResult:
+    def search(self, query: str, num_results=20) -> ClientSearchResult:
         """
         Searches the given endpoint with the query
         - num_results is the initial # of results that we ask for, the final number might be lower if there are dupes

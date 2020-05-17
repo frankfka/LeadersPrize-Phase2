@@ -12,7 +12,7 @@ def export_train_data_pickle(root_path, save_path):
     Saves a dataframe with all the training data (articles in raw HTML) to save_path
     This will create a ~10gb file!
     """
-    get_train_claims_df(root_path).to_pickle(save_path)
+    get_train_claims_df(root_path, start=16000, stop=None).to_pickle(save_path)
 
 
 def preprocess_articles_from_data_pkl(pkl_path, save_path):
@@ -22,7 +22,7 @@ def preprocess_articles_from_data_pkl(pkl_path, save_path):
     html_preprocessor = get_html_preprocessor()
     text_preprocessor = get_text_preprocessor()
 
-    df = pd.read_pickle(pkl_path).iloc[10000:]
+    df = pd.read_pickle(pkl_path)
     processed_articles_col = []
     for idx, row in df.iterrows():
         print_ex = idx % 100 == 0
@@ -37,13 +37,13 @@ def preprocess_articles_from_data_pkl(pkl_path, save_path):
                 row_id = row["id"]
                 print(f"No text found in one article for claim ID {row_id}")
             text_preprocessed = text_preprocessor.process(html_processed.text)
-            processed_articles.append(' . '.join(text_preprocessed.bert_sentences))
+            processed_articles.append(' . '.join(text_preprocessed.sentences))
 
             if print_ex and idx == 0:
                 print("== HTML Preprocessed ==")
                 print(html_processed.text)
                 print("== Text Preprocessed ==")
-                print(' . '.join(text_preprocessed.bert_sentences))
+                print(' . '.join(text_preprocessed.sentences))
                 print("\n")
 
         processed_articles_col.append(processed_articles)
@@ -57,6 +57,8 @@ def preprocess_articles_from_data_pkl(pkl_path, save_path):
 
 if __name__ == '__main__':
     preprocess_articles_from_data_pkl(
-        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/train_data_with_articles.pkl",
-        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/train_data_with_phase1_preprocessed_articles_10000-END.pkl"
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/train_data_df_16000_END.pkl",
+        "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/train_data_preprocessed_16000_END.pkl"
     )
+    # export_train_data_pickle("/Users/frankjia/Desktop/LeadersPrize/train/",
+    #                          "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/experiments/output/train_data_df_16000_END.pkl")

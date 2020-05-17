@@ -58,18 +58,18 @@ class LeadersPrizePipeline:
                                                         debug=config[PipelineConfigKeys.DEBUG_MODE])
 
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
+        t = datetime.now()
 
         # Get some stuff from the config
         debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
         min_sentence_length = self.config.get(PipelineConfigKeys.MIN_SENT_LEN, 5)
-        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 5)
+        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 10)
         num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 5)
         info_extraction_left_window = self.config.get(PipelineConfigKeys.EXTRACT_LEFT_WINDOW, 1)
         info_extraction_right_window = self.config.get(PipelineConfigKeys.EXTRACT_RIGHT_WINDOW, 1)
 
         pipeline_objects: List[PipelineClaim] = []
         for claim in raw_claims:
-            t = datetime.now()
             # Create pipeline object - this will hold all the annotations of our processing
             pipeline_object: PipelineClaim = PipelineClaim(claim)
 
