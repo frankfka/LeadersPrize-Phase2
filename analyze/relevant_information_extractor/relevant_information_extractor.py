@@ -1,4 +1,4 @@
-from typing import List, Set
+from typing import List, Set, Optional
 
 from core.models import PipelineSentence
 
@@ -14,8 +14,13 @@ class RelevantInformationExtractor:
           sentences around a relevant sentence to be bundled together.
         - Each bundle will have max size left_window + right_window + 1
         """
+        article_url: Optional[str] = None
         relevances_and_indices = []  # Relevance and index tuples
         for idx, sentence in enumerate(sentences):
+            if not article_url:
+                # Populate parent article URL
+                # IMPORTANT: This assumes that we call `extract` once per article
+                article_url = sentence.parent_article_url
             relevances_and_indices.append((sentence.relevance, idx))
         relevances_and_indices.sort(key=lambda x: x[0], reverse=True)
 
@@ -49,6 +54,7 @@ class RelevantInformationExtractor:
                 # Create a new pipeline sentence, with relevance that is the maximum relevance of its subsentences
                 block_sentence = " | ".join(sentence_strs)
                 block_pipeline_sentence = PipelineSentence(block_sentence)
+                block_pipeline_sentence.parent_article_url = article_url
                 block_pipeline_sentence.relevance = max_relevance
                 extracted.append(block_pipeline_sentence)
 

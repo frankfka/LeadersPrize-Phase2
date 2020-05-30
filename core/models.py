@@ -78,6 +78,7 @@ class PipelineSentence:
         self.id: str = ""
         self.sentence: str = sentence
         self.relevance: float = 0  # Relevance score of the sentence
+        self.parent_article_url: Optional[str] = None
         self.sts_relevance_score: Optional[float] = None
         self.entailment_score: Optional[float] = None  # Entailment as accessed by the reasoner
 

@@ -84,13 +84,13 @@ class LeadersPrizePipeline:
             # - Note: not using truth tuples for now, given that we see no significant difference with them
             search_query = self.query_generator.get_query(pipeline_object.original_claim)
             # 1.1 Preprocess the claim
-            # - Note: not appending the claimant as that may impact entailment TODO: can probably remove this now
-            processed_claim = self.text_preprocessor.process(claim.claim)
+            claim_with_claimant = claim.claimant + " " + claim.claim
+            processed_claim = self.text_preprocessor.process(claim_with_claimant)
             if len(processed_claim.sentences) > 0:
                 pipeline_object.preprocessed_claim = processed_claim.sentences[0]
             else:
                 print("Preprocessed claim is empty - defaulting to original claim")
-                pipeline_object.preprocessed_claim = claim.claim
+                pipeline_object.preprocessed_claim = claim_with_claimant
 
             # 2. Execute search query to get articles if config allows
             if self.config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True):
@@ -165,6 +165,8 @@ class LeadersPrizePipeline:
                                                                              preprocessed_sentence)
                     pipeline_sentence = PipelineSentence(preprocessed_sentence)
                     pipeline_sentence.relevance = relevance
+                    # Attach the parent URL to the sentence so we can trace it back
+                    pipeline_sentence.parent_article_url = pipeline_article.url
                     article_sentences.append(pipeline_sentence)
                 pipeline_article.preprocessed_sentences = article_sentences
                 # 5.3 Get select sentences for reasoner, then cut to the most relevant sentences
@@ -178,7 +180,8 @@ class LeadersPrizePipeline:
             pipeline_object.articles_for_reasoner = pipeline_articles
 
             # 5.4 Get cumulative text_b for reasoner
-            pipeline_object.preprocessed_text_b_for_reasoner = get_text_b_for_reasoner(pipeline_object)
+            text_b, reasoner_article_urls = get_text_b_for_reasoner(pipeline_object)
+            pipeline_object.preprocessed_text_b_for_reasoner = text_b
 
             if debug_mode:
                 nt = datetime.now()
@@ -188,15 +191,12 @@ class LeadersPrizePipeline:
                 print("\n")
                 t = nt
 
-            # TEMPORARY, get article urls
-            reasoner_article_urls = [article.url for article in pipeline_object.articles_for_reasoner]
+            # Populate submission values
+            pipeline_object.submission_id = pipeline_object.original_claim.id
+            pipeline_object.submission_explanation = "Some explanation"
             if len(reasoner_article_urls) > 2:
                 reasoner_article_urls = reasoner_article_urls[0:2]
-
-            # TEMPORARY: Test submission
-            pipeline_object.submission_id = pipeline_object.original_claim.id
             pipeline_object.submission_article_urls = reasoner_article_urls
-            pipeline_object.submission_explanation = "Some explanation"
 
             # Delete unneeded stuff to save memory
             del pipeline_object.articles
@@ -207,6 +207,7 @@ class LeadersPrizePipeline:
         # 6. Batch predictions from transformers
         predictions = self.transformer_reasoner.predict(pipeline_objects)
         for (pipeline_object, prediction) in zip(pipeline_objects, predictions):
+            # Populate label
             pipeline_object.submission_label = prediction.value
 
             if debug_mode:
