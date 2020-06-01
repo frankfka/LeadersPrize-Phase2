@@ -7,7 +7,7 @@ from torch.utils.data import TensorDataset, SequentialSampler, DataLoader
 
 from transformers import RobertaTokenizer, RobertaConfig, RobertaForSequenceClassification
 
-from reasoner.transformers.models import TransformersInputItem
+from reasoner.models import TransformersInputItem
 from reasoner.transformers.transformers_util import tokenize_for_transformer
 
 

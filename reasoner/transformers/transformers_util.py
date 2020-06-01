@@ -1,6 +1,6 @@
 from typing import List
 import torch
-from reasoner.transformers.models import TransformersInputItem
+from reasoner.models import TransformersInputItem
 
 
 # Preprocesses text into inputs expected for the model (token_ids, attention_masks, token_type_ids)
@@ -34,8 +34,9 @@ def tokenize_for_transformer(input_items: List[TransformersInputItem],
             return_special_tokens_mask=False,
             return_offsets_mapping=False
         )
-        input_ids, type_ids, masks = tokenized_input["input_ids"], tokenized_input["token_type_ids"], tokenized_input[
-            "attention_mask"]
+        input_ids, type_ids, masks = tokenized_input["input_ids"], \
+                                     tokenized_input["token_type_ids"], \
+                                     tokenized_input["attention_mask"]
 
         assert len(input_ids) == max_seq_len
         assert len(type_ids) == max_seq_len

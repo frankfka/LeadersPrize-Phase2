@@ -6,12 +6,12 @@ import re
 class HTMLProcessResult:
     class HTMLAttributes:
 
-        def __init__(self, title, description):
+        def __init__(self, title="", description=""):
             # Future - put in things like links, # of scripts, etc.
             self.title = title
             self.description = description
 
-    def __init__(self, text: str, html_atts: HTMLAttributes):
+    def __init__(self, text: str = "", html_atts: HTMLAttributes = HTMLAttributes()):
         self.text = text  # NLP-friendly article text, extracted from the body
         self.html_atts = html_atts
 
@@ -19,13 +19,19 @@ class HTMLProcessResult:
 class HTMLProcessor:
 
     def process(self, html) -> HTMLProcessResult:
-        soup = BeautifulSoup(html, "html.parser")
-        html_atts = self.__get_html_attributes(soup)
-        article_text = self.__get_clean_article_text(html, soup=soup, html_atts=html_atts)
-        return HTMLProcessResult(
-            text=article_text,
-            html_atts=html_atts
-        )
+        # Parsing can fail. In this case, default to an empty result
+        result = HTMLProcessResult()
+        try:
+            soup = BeautifulSoup(html, "lxml")
+            html_atts = self.__get_html_attributes(soup)
+            article_text = self.__get_clean_article_text(html, soup=soup, html_atts=html_atts)
+            result = HTMLProcessResult(
+                text=article_text,
+                html_atts=html_atts
+            )
+        except:
+            print("Error processing HTML, returning empty result")
+        return result
 
     def __get_html_attributes(self, soup: BeautifulSoup) -> HTMLProcessResult.HTMLAttributes:
         title = self.__get_html_title(soup)
@@ -65,10 +71,11 @@ class HTMLProcessor:
             if not article_text:
                 print("Neither newspaper nor BS4 could extract article text")
         # Add title & description from html attributes
-        if html_atts.description:
-            article_text = f"{html_atts.description}. " + article_text
-        if html_atts.title:
-            article_text = f"{html_atts.title}. " + article_text
+        if html_atts:
+            if html_atts.description:
+                article_text = f"{html_atts.description}. " + article_text
+            if html_atts.title:
+                article_text = f"{html_atts.title}. " + article_text
         return self.__clean_article_text(article_text)
 
     def __get_article_text_bs4(self, soup: BeautifulSoup) -> str:
@@ -79,7 +86,7 @@ class HTMLProcessor:
     def __get_article_text_newspaper(self, html: str) -> str:
         try:
             return fulltext(html)
-        except Exception:
+        except:
             return ""
 
     def __clean_article_text(self, text: str) -> str:

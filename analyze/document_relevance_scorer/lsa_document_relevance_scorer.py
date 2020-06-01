@@ -47,6 +47,8 @@ class LSADocumentRelevanceAnalyzer:
     def analyze(self, claim: str, articles: typing.List[str], decomposition_k=20) -> typing.List[float]:
         """Determine the relevance of the claim to each article, and return those relevances in order."""
         # k>20 ensures better semantic computation of local and global sem.spaces
+        if not articles:
+            return []
 
         if len(articles) < decomposition_k:
             decomposition_k = min(decomposition_k, len(articles) - 1)

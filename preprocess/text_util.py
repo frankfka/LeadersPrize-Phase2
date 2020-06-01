@@ -100,7 +100,9 @@ def convert_num_to_words_v2(txt):
             matched_num_txt = num2words(re.sub(r"[^0-9.\-]+", "", matched_num_txt))  # ex. forty-two
             matched_num_txt = keep_alphanumeric(matched_num_txt)  # ex. forty two
         except Exception:
-            print(f"Error converting {matched_num_txt} to text representation")
+            # Not printing anything to keep console clean
+            # print(f"Error converting {matched_num_txt} to text representation")
+            pass
         # Add converted text
         new_txt += matched_num_txt
         # Update previous end index

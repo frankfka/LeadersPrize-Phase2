@@ -12,6 +12,17 @@ class TransformersInputItem:
         self.label = label
 
 
+class TruthRating(IntEnum):
+    TRUE = 2
+    NEUTRAL = 1
+    FALSE = 0
+
+    @classmethod
+    def from_probabilities(cls, probs):
+        max_idx = np.argmax(probs)
+        return TruthRating(max_idx)
+
+
 class Entailment(IntEnum):
     ENTAILMENT = 2
     NEUTRAL = 1

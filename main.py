@@ -20,16 +20,16 @@ def write_result(predicted: List[PipelineClaim], filepath: str):
     # Converts a predicted claim to a dict for json serialization
     def to_dict(claim: PipelineClaim):
         return {
-            claim.original_claim.id: {
-                "label": claim.submission_label,
-                "related_articles": claim.submission_article_urls,
-                "explanation": claim.submission_explanation
-            }
+            "label": claim.submission_label,
+            "related_articles": claim.submission_article_urls,
+            "explanation": claim.submission_explanation
         }
 
     with open(filepath, 'w') as file:
         # Map to dictionary objects
-        results = [to_dict(claim) for claim in predicted]
+        results = {}
+        for item in predicted:
+            results[item.submission_id] = to_dict(item)
         json.dump(results, file)
 
 
@@ -72,4 +72,5 @@ def main():
     print(f"Results written in {time.time() - t}s")
 
 
-main()
+if __name__ == '__main__':
+    main()

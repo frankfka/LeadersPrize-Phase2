@@ -45,7 +45,9 @@ class PipelineClaim:
         # Intermediate properties
         self.articles: List[PipelineArticle] = []  # Results from search client
         self.articles_for_reasoner: List[PipelineArticle] = []  # Curated articles for the reasoner
+        self.preprocessed_text_b_for_reasoner: str = ""  # Preprocessed input for reasoner
         # Submission properties
+        self.submission_id: str = ""
         self.submission_label: int = 1
         self.submission_explanation: str = ""
         self.submission_article_urls: List[str] = []
@@ -59,7 +61,7 @@ class PipelineArticle:
     def __init__(self, raw_result: SearchQueryResult):
         self.id: str = ""
         self.url = raw_result.url
-        self.raw_body_text = None  # Raw body text parsed from raw result
+        self.raw_body_text = ""  # Raw body text parsed from raw result
         self.relevance = 0  # Relevance score of the article
         self.html_attributes = None  # Parsed HTML attributes
         self.preprocessed_sentences: List[PipelineSentence] = []  # Preprocessed sentences
@@ -76,6 +78,7 @@ class PipelineSentence:
         self.id: str = ""
         self.sentence: str = sentence
         self.relevance: float = 0  # Relevance score of the sentence
+        self.parent_article_url: Optional[str] = None
         self.sts_relevance_score: Optional[float] = None
         self.entailment_score: Optional[float] = None  # Entailment as accessed by the reasoner
 
