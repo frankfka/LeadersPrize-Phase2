@@ -9,7 +9,7 @@ def get_text_b_for_reasoner(claim: PipelineClaim) -> (str, List[str]):
     - Consider creating articles_for_reasoner and sentences_for_reasoner in here
     - Consider having a relevance cutoff
 
-    :returns (text_b, article_urls) where article_urls is a deduped set of article_urls in order of relevance
+    :returns (text_b, article_urls, relevant_sents) where article_urls is a deduped set of article_urls in order of relevance
     """
     text_b = ""
     article_urls = []
@@ -21,7 +21,7 @@ def get_text_b_for_reasoner(claim: PipelineClaim) -> (str, List[str]):
         # text_b += " %$$% "
     all_sents.sort(key=lambda j: j.relevance, reverse=True)
     for s in all_sents:
-        text_b += f" ${s.relevance}$ " + s.sentence + " $.$ "
+        text_b += s.sentence + " $.$ "
         if s.parent_article_url and s.parent_article_url not in article_urls:
             article_urls.append(s.parent_article_url)
     return text_b, article_urls

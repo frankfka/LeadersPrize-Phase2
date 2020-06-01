@@ -193,10 +193,22 @@ class LeadersPrizePipeline:
 
             # Populate submission values
             pipeline_object.submission_id = pipeline_object.original_claim.id
-            pipeline_object.submission_explanation = "Some explanation"
             if len(reasoner_article_urls) > 2:
                 reasoner_article_urls = reasoner_article_urls[0:2]
             pipeline_object.submission_article_urls = reasoner_article_urls
+
+            # Construct the explanation
+            def get_explanation(source_str: str) -> str:
+                source_sents = source_str.split("$.$")
+                explanation = "The articles state that: "
+                for sent in source_sents:
+                    if len(explanation) > 1000:
+                        break
+                    explanation += f" {sent} . "
+                if len(explanation) >= 1000:
+                    explanation = explanation[0:999]
+                return explanation
+            pipeline_object.submission_explanation = get_explanation(text_b)
 
             # Delete unneeded stuff to save memory
             del pipeline_object.articles
