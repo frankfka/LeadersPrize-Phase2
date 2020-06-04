@@ -7,8 +7,8 @@ from torch.utils.data import TensorDataset, SequentialSampler, DataLoader
 
 from transformers import RobertaTokenizer, RobertaConfig, RobertaForSequenceClassification
 
-from reasoner.models import TransformersInputItem
-from reasoner.transformers.transformers_util import tokenize_for_transformer
+from transformer_reasoner.models import TransformersInputItem
+from transformer_reasoner.transformers_util import tokenize_for_transformer
 
 
 class TransformersConfigKeys(Enum):

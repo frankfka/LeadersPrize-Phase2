@@ -1,6 +1,6 @@
 from typing import List
 import torch
-from reasoner.models import TransformersInputItem
+from transformer_reasoner.models import TransformersInputItem
 
 
 # Preprocesses text into inputs expected for the model (token_ids, attention_masks, token_type_ids)

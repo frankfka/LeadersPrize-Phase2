@@ -1,8 +1,8 @@
 from typing import List, Dict
 
 from core.models import PipelineClaim
-from reasoner.models import TruthRating, TransformersInputItem
-from reasoner.transformers.transformers_sequence_classification import RobertaSequenceClassifier, TransformersConfigKeys
+from transformer_reasoner.models import TruthRating, TransformersInputItem
+from transformer_reasoner.transformers_sequence_classification import RobertaSequenceClassifier, TransformersConfigKeys
 
 
 class TransformerReasoner:

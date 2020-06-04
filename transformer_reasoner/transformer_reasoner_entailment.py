@@ -1,8 +1,8 @@
 from typing import List, Dict
 
 from core.models import PipelineClaim
-from reasoner.transformers.models import StsSimilarity, Entailment, TransformersInputItem
-from reasoner.transformers.transformers_sequence_classification import RobertaSequenceClassifier
+from transformer_reasoner.models import StsSimilarity, Entailment, TransformersInputItem
+from transformer_reasoner.transformers_sequence_classification import RobertaSequenceClassifier
 
 # TODO: Extract as config
 STS_LIMIT = StsSimilarity.NOT_EQUIV_SHARE_DETAIL

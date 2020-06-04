@@ -12,8 +12,8 @@ from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, Pipel
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
-from reasoner.preprocess import get_text_b_for_reasoner
-from reasoner.transformer_reasoner import TransformerReasoner
+from transformer_reasoner.preprocess import get_text_b_for_reasoner
+from transformer_reasoner.transformer_reasoner import TransformerReasoner
 from search_client.client import ArticleSearchClient
 
 
