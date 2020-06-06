@@ -1,3 +1,4 @@
+import os
 import pickle
 import re
 
@@ -9,70 +10,82 @@ import scipy
 import scipy.spatial
 from nltk.corpus import stopwords
 
-from reasoners.paraphrase.paraphrase_classifier import ParaphraseClassifier
-from reasoners.rumoreval.rumoreval_classifier import RumorEvalClassifier
+from reasoners.paraphrase.paraphrase_classifier import ParaphraseClassifier, ParaphraseResult
+from reasoners.rumoreval.rumoreval_classifier import RumorEvalClassifier, RumorResult
 from reasoners.common import data_processing, logger_mod
-from reasoners.snli.snli_classifier import SnliClassifier
-
-PARAMS = {
-    'model_type': 'esim',
-    'learning_rate': 0.001,
-    'keep_rate': 0.5,
-    'seq_length': 50,
-    'batch_size': 32,
-    'word_embedding_dim': 50,
-    'hidden_embedding_dim': 50,
-    'vocab_path': "/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/reasoner/ensemble_vocab.p",
-    'embedding_data_path': '/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/reasoner/glove.6B.50d.txt',
-    'log_path': '/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/reasoner',
-    'ckpt_path': '/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/reasoner'
-}
+from reasoners.snli.snli_classifier import SnliClassifier, SnliResult
 
 
+class EnsembleClassifierResult:
+    """
+    Output of the Ensemble Classifier
+    """
+
+    def __init__(self, sent_idx: int, snli: SnliResult, paraphrase: ParaphraseResult, rumor: RumorResult):
+        self.sent_idx = sent_idx
+        self.snli = snli
+        self.paraphrase = paraphrase
+        self.rumor = rumor  # Will be none for now
+
+
+# TODO: Can use this to strip out NEUTRAL predictions
 class EnsembleClassifier:
-    def __init__(self):
-        self.params = PARAMS
-        self.data_root_path = '/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/reasoner'
-        self.word_indices = self.load_vocab(self.params["vocab_path"])
-        self.loaded_embeddings = data_processing.loadEmbedding_rand(PARAMS["embedding_data_path"], self.params, self.word_indices)
-        self.snli_classifier = self.init_snli()
-        self.paraphrase_classifier = self.init_paraphrase()
-        self.rumor_classifier = self.init_rumor()
+    def __init__(self, root_model_path: str):
+        # TODO: Extract config keys
+        self.params = {
+            'model_type': 'esim',
+            'learning_rate': 0.001,
+            'keep_rate': 0.5,
+            'seq_length': 50,
+            'batch_size': 32,
+            'word_embedding_dim': 50,
+            'hidden_embedding_dim': 50,
+            'vocab_path': os.path.join(root_model_path, "ensemble_vocab.p"),
+            'embedding_data_path': os.path.join(root_model_path, "glove.6B.50d.txt"),  # TODO: W2V?
+            'log_path': root_model_path,
+            'ckpt_path': root_model_path
+        }
+        self.word_indices = self.__load_vocab(self.params["vocab_path"])
+        self.loaded_embeddings = data_processing.loadEmbedding_rand(self.params["embedding_data_path"], self.params,
+                                                                    self.word_indices)
+        self.snli_classifier = self.__init_snli()
+        self.paraphrase_classifier = self.__init_paraphrase()
+        # self.rumor_classifier = self.__init_rumor()
 
     def predict_statement_in_contexts(self, statement: str, contexts: typing.List[str]):
         lines = []
         predictions = []
         for i, context in enumerate(contexts):
-            is_relevant = self.is_relevant(statement, context)
+            is_relevant = self.__is_relevant(statement, context)
             if is_relevant:
-                prediction = self.predict_statement_in_context(statement, context)
+                prediction = self.__predict_statement_in_context(statement, context)
                 lines.append(i)
                 predictions.append(prediction)
         return lines, predictions
 
-    def is_relevant(self, statement, context):
-        distance = self.cosine_distance(statement,
-                                        context,
-                                        embeddings=self.loaded_embeddings,
-                                        word_indices=self.word_indices)
+    def __is_relevant(self, statement, context):
+        distance = self.__cosine_distance(statement,
+                                          context,
+                                          embeddings=self.loaded_embeddings,
+                                          word_indices=self.word_indices)
         similarity = 1 - distance
-        is_relevant = similarity >= 0.7
-        return is_relevant
+        __is_relevant = similarity >= 0.7  # TODO: Extract as config
+        return __is_relevant
 
-    def predict_statement_in_context(self, statement: str, context: str):
-        data = self.build_statement_context_df(statement, context)
-        snli_row = self.predict_snli(data)
-        paraphrase_row = self.predict_paraphrase(data)
-        rumor_row = self.predict_rumor(data)
-        return {'entailment': snli_row, 'paraphrase': paraphrase_row, 'rumor': rumor_row}
+    def __predict_statement_in_context(self, statement: str, context: str):
+        data = self.__build_statement_context_df(statement, context)
+        snli_row = self.__predict_snli(data)
+        paraphrase_row = self.__predict_paraphrase(data)
+        # rumor_row = self.__predict_rumor(data)
+        return {'entailment': snli_row, 'paraphrase': paraphrase_row}
 
-    def build_statement_context_df(self, statement: str, context: str) -> pd.DataFrame:
+    def __build_statement_context_df(self, statement: str, context: str) -> pd.DataFrame:
         data = {'sentence0': context, 'sentence1': statement}
         data_processing.sentences_to_padded_index_sequences(self.word_indices, self.params, [[data]])
         data = pd.DataFrame([data])
         return data
 
-    def init_snli(self):
+    def __init_snli(self):
         snli_classifier = SnliClassifier(
             loaded_embeddings=self.loaded_embeddings,
             params=self.params,
@@ -83,7 +96,7 @@ class EnsembleClassifier:
         snli_classifier.restore()
         return snli_classifier
 
-    def init_paraphrase(self):
+    def __init_paraphrase(self):
         paraphrase_classifier = ParaphraseClassifier(
             loaded_embeddings=self.loaded_embeddings,
             params=self.params,
@@ -94,7 +107,7 @@ class EnsembleClassifier:
         paraphrase_classifier.restore()
         return paraphrase_classifier
 
-    def init_rumor(self):
+    def __init_rumor(self):
         rumor_classifier = RumorEvalClassifier(
             loaded_embeddings=self.loaded_embeddings,
             params=self.params,
@@ -103,38 +116,47 @@ class EnsembleClassifier:
         rumor_classifier.restore()
         return rumor_classifier
 
-    def predict_snli(self, data: pd.DataFrame):  # hypothesis: str, premise: str):
+    def __predict_snli(self, data: pd.DataFrame) -> SnliResult:  # hypothesis: str, premise: str):
         try:
-            result = self.snli_classifier.continue_classify(data)[0]
-            label = SnliClassifier.INVERSE_MAP[result]
-            return label
-        except IndexError:
-            return None
+            return self.snli_classifier.continue_classify(data)[0]
+        except Exception as e:
+            print("Error predicting snli")
+            print(e)
+            return SnliResult.NEUTRAL
 
-    def predict_paraphrase(self, data: pd.DataFrame):  # hypothesis: str, premise: str):
-        result = self.paraphrase_classifier.continue_classify(data)[0]
-        label = ParaphraseClassifier.INVERSE_MAP[result]
-        return label
+    def __predict_paraphrase(self, data: pd.DataFrame) -> ParaphraseResult:  # hypothesis: str, premise: str):
+        try:
+            return self.paraphrase_classifier.continue_classify(data)[0]
+        except Exception as e:
+            print("Error predicting paraphrase")
+            print(e)
+            return ParaphraseResult.NEUTRAL
 
-    def predict_rumor(self, data: pd.DataFrame):  # hypothesis: str, premise: str):
-        result = self.paraphrase_classifier.continue_classify(data)[0]
-        label = RumorEvalClassifier.INVERSE_MAP[result]
-        return label
+    # TODO: Fix this
+    def __predict_rumor(self, data: pd.DataFrame) -> RumorResult:  # hypothesis: str, premise: str):
+        try:
+            return self.rumor_classifier.continue_classify(data)[0]
+        except Exception as e:
+            print("Error predicting rumor")
+            print(e)
+            return RumorResult.COMMENT
 
-    def load_vocab(self, vocab_path):
+    def __load_vocab(self, vocab_path):
         with open(vocab_path, 'rb') as f:
             dictionary = pickle.load(f)
             return dictionary
 
-    def cosine_distance(self, s1, s2, embeddings, word_indices):
-        vector_1 = np.mean([embeddings[word_indices[word]] for word in self.preprocess(s1, word_indices=word_indices)],
-                           axis=0)
-        vector_2 = np.mean([embeddings[word_indices[word]] for word in self.preprocess(s2, word_indices=word_indices)],
-                           axis=0)
+    def __cosine_distance(self, s1, s2, embeddings, word_indices):
+        vector_1 = np.mean(
+            [embeddings[word_indices[word]] for word in self.__preprocess(s1, word_indices=word_indices)],
+            axis=0)
+        vector_2 = np.mean(
+            [embeddings[word_indices[word]] for word in self.__preprocess(s2, word_indices=word_indices)],
+            axis=0)
         cosine = scipy.spatial.distance.cosine(vector_1, vector_2)
         return cosine
 
-    def preprocess(self, raw_text, word_indices):
+    def __preprocess(self, raw_text, word_indices):
         # keep only words
         letters_only_text = re.sub("[^a-zA-Z]", " ", raw_text)
 
