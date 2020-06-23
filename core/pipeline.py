@@ -94,9 +94,8 @@ class LeadersPrizePipeline:
 
             # 2. Execute search query to get articles if config allows
             if self.config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True):
-                search_response = self.search_client.search(search_query)
-                searched_articles = search_response.results
-                if search_response.error or len(searched_articles) == 0:
+                searched_articles = self.search_client.search(search_query)
+                if len(searched_articles) == 0:
                     # Error, the articles will just be empty
                     print(f"Error searching query for claim {pipeline_object.original_claim.id}")
                     # TODO: make sure we still predict something

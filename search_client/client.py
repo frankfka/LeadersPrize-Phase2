@@ -1,6 +1,7 @@
+import asyncio
 from typing import List
 
-import requests
+import aiohttp
 
 
 class SearchQueryResult:
@@ -19,6 +20,21 @@ class SearchQueryResult:
             self.url = hit["url"]
 
 
+def __deduplicate_results__(results: List[SearchQueryResult]) -> List[SearchQueryResult]:
+    """
+    Elasticsearch gives duplicates, so we dedup the URL's
+    """
+    urls = set()
+    deduplicated_results: List[SearchQueryResult] = []
+    for result in results:
+        # Remove https/http for deduplication
+        clean_url = __remove_http__(result.url)
+        if clean_url not in urls:
+            deduplicated_results.append(result)
+            urls.add(clean_url)
+    return deduplicated_results
+
+
 def __remove_http__(url) -> str:
     if url.startswith("https://"):
         return url[8:]
@@ -27,70 +43,38 @@ def __remove_http__(url) -> str:
     return url
 
 
-class SearchQueryResponse:
-    """
-    Data structure for each individual query
-    """
-
-    def __init__(self, r):
-        self.error: str = ""
-        self.results: List[SearchQueryResult] = []
-        if not r:
-            # Client somehow failed
-            return
-        if r.status_code == 200:
-            # Elasticsearch sometimes gives duplicate results
-            urls = set()
-            results = []
-            for hit in r.json()["hits"]["hits"]:
-                result = SearchQueryResult(hit=hit)
-                # Remove https/http for deduplication
-                clean_url = __remove_http__(result.url)
-                if clean_url not in urls:
-                    results.append(result)
-                    urls.add(clean_url)
-            self.results = results
-        else:
-            self.error = r.text
-
-
-class ClientSearchResult:
-    """
-    Data structure for the article client result
-    """
-
-    def __init__(self, results: List[SearchQueryResult], error: str):
-        self.error = error
-        self.results = results
-
-
 class ArticleSearchClient:
 
     def __init__(self, host: str, api_key: str):
         self.endpoint = host + '/claimserver/api/v1.0/evidence'
         self.headers = {'X-Api-Key': api_key}
 
-    def search(self, query: str, num_results=10) -> ClientSearchResult:
-        """
-        Searches the given endpoint with the query
-        - num_results is the initial # of results that we ask for, the final number might be lower if there are dupes
-        """
-        client_response = ClientSearchResult([], "")
-        initial_from = 0  # An index for Elasticsearch to begin its query
-        while initial_from < num_results:
-            # TODO: Parallelize this if needed: https://aiohttp.readthedocs.io/en/stable/client_quickstart.html
-            params = {'query': query, 'from': initial_from}
-            resp = SearchQueryResponse(None)  # Default empty response in case search fails
-            try:
-                req_resp = requests.get(self.endpoint, params=params, headers=self.headers)
-                resp = SearchQueryResponse(req_resp)
-            except Exception:
-                print("Exception calling search client")
-            initial_from += 10
-            if resp.error:
-                print(f"Error querying {query}: {resp.error}")
-                client_response.error = resp.error  # Take the last error
-                continue
-            client_response.results += resp.results
-        return client_response
+    def search(self, query: str, num_results=90) -> List[SearchQueryResult]:
+        # Get search params
+        search_params = []
+        for from_index in range(0, num_results, 30):
+            search_params.append({"query": query, "from": from_index})
+        # Fetch
+        return asyncio.run(self.search_in_async_session(search_params))
 
+    async def search_in_async_session(self, search_params):
+        results = []
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=60)) as session:
+            nested_results = await asyncio.gather(*[self.search_one_async(session, params) for params in search_params],
+                                                  return_exceptions=True)
+            for nested_result_list in nested_results:
+                results.extend(nested_result_list)
+        return __deduplicate_results__(results)
+
+    async def search_one_async(self, session, params):
+        results = []
+        try:
+            async with session.get(self.endpoint, params=params, headers=self.headers) as resp:
+                resp_json = await resp.json()
+                hits = resp_json["hits"]["hits"]
+                for hit in hits:
+                    results.append(SearchQueryResult(hit=hit))
+        except Exception as e:
+            print("Exception calling search client")
+            print(e)
+        return results
