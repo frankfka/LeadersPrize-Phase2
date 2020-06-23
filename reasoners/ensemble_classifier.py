@@ -52,16 +52,8 @@ class EnsembleClassifier:
         self.paraphrase_classifier = self.__init_paraphrase()
         # self.rumor_classifier = self.__init_rumor()
 
-    def predict_statement_in_contexts(self, statement: str, contexts: typing.List[str]):
-        lines = []
-        predictions = []
-        for i, context in enumerate(contexts):
-            is_relevant = self.__is_relevant(statement, context)
-            if is_relevant:
-                prediction = self.__predict_statement_in_context(statement, context)
-                lines.append(i)
-                predictions.append(prediction)
-        return lines, predictions
+    def predict_statement_in_contexts(self, statement: str, contexts: typing.List[str]) -> typing.List[typing.Dict]:
+        return [self.__predict_statement_in_context(statement, context) for context in contexts]
 
     def __is_relevant(self, statement, context):
         distance = self.__cosine_distance(statement,
@@ -72,7 +64,7 @@ class EnsembleClassifier:
         __is_relevant = similarity >= 0.7  # TODO: Extract as config
         return __is_relevant
 
-    def __predict_statement_in_context(self, statement: str, context: str):
+    def __predict_statement_in_context(self, statement: str, context: str) -> typing.Dict:
         data = self.__build_statement_context_df(statement, context)
         snli_row = self.__predict_snli(data)
         paraphrase_row = self.__predict_paraphrase(data)

@@ -30,8 +30,9 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.API_KEY: "ff5fdad7-de1f-4a74-bfac-acd42538131f",
     PipelineConfigKeys.ENDPOINT: "http://lpsa.wrw.org",
     PipelineConfigKeys.TRANSFORMER_PATH: f"{PROJ_ROOT}assets/roberta_reasoner/",
+    PipelineConfigKeys.REASONER_PATH: f"{PROJ_ROOT}assets/reasoner/",
     PipelineConfigKeys.DEBUG_MODE: True,
-    PipelineConfigKeys.RETRIEVE_ARTICLES: True,
+    PipelineConfigKeys.RETRIEVE_ARTICLES: False,
 }
 PROCESS_RANGE = range(100, 110)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"

@@ -12,6 +12,9 @@ from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, Pipel
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
+from reasoners.ensemble_classifier import EnsembleClassifier
+from reasoners.paraphrase.paraphrase_classifier import ParaphraseResult
+from reasoners.snli.snli_classifier import SnliResult
 from transformer_reasoner.preprocess import get_text_b_for_reasoner
 from transformer_reasoner.transformer_reasoner import TransformerReasoner
 from search_client.client import ArticleSearchClient
@@ -28,6 +31,8 @@ class PipelineConfigKeys(Enum):
     W2V_PATH = "w2v_path"
     # For the transformer model
     TRANSFORMER_PATH = "transformer_path"
+    # For the reasoner model
+    REASONER_PATH = "reasoner_path"
     DEBUG_MODE = "debug"  # Whether to print debug info
 
     MIN_SENT_LEN = "min_sent_len"  # Minimum length of sentence (in words) to consider
@@ -54,6 +59,7 @@ class LeadersPrizePipeline:
         w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
         self.information_extractor = RelevantInformationExtractor()
+        self.ne_reasoner = EnsembleClassifier(root_model_path=config[PipelineConfigKeys.REASONER_PATH])
         self.transformer_reasoner = TransformerReasoner(model_path=config[PipelineConfigKeys.TRANSFORMER_PATH],
                                                         debug=config[PipelineConfigKeys.DEBUG_MODE])
 
@@ -174,6 +180,21 @@ class LeadersPrizePipeline:
                                                                             left_window=info_extraction_left_window,
                                                                             right_window=info_extraction_right_window)
                 sentences_for_reasoner.sort(key=lambda sentence: sentence.relevance, reverse=True)
+
+                preds = self.ne_reasoner.predict_statement_in_contexts(
+                    statement=pipeline_object.preprocessed_claim,
+                    contexts=[s.sentence for s in sentences_for_reasoner]
+                )
+                reasoner_cleaned_sents: List[PipelineSentence] = []
+                for pred, sent in zip(preds, sentences_for_reasoner):
+                    entailment = pred.get("entailment", None)
+                    paraphrase = pred.get("paraphrase", None)
+                    if (entailment and entailment == SnliResult.NEUTRAL) or (paraphrase and paraphrase == ParaphraseResult.NEUTRAL):
+                        print(f"Skipping {sent.sentence}")
+                        continue
+                    reasoner_cleaned_sents.append(sent)
+                sentences_for_reasoner = reasoner_cleaned_sents
+
                 if len(sentences_for_reasoner) > num_sentences_per_article_to_process:
                     sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process - 1]
                 pipeline_article.sentences_for_reasoner = sentences_for_reasoner

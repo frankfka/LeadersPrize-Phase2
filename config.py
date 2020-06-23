@@ -11,6 +11,7 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.API_KEY: "ff5fdad7-de1f-4a74-bfac-acd42538131f",
     PipelineConfigKeys.ENDPOINT: "http://lpsa.wrw.org",
     PipelineConfigKeys.TRANSFORMER_PATH: "assets/roberta_reasoner/",
+    PipelineConfigKeys.REASONER_PATH: "assets/reasoner/",
     PipelineConfigKeys.DEBUG_MODE: False,
     PipelineConfigKeys.RETRIEVE_ARTICLES: True,
 }
