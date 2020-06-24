@@ -1,6 +1,5 @@
 from datetime import datetime
 from enum import Enum
-from random import randint
 from typing import List
 import math
 
@@ -82,9 +81,11 @@ class LeadersPrizePipeline:
 
             # 1. Get query from claim
             # - Note: not using truth tuples for now, given that we see no significant difference with them
+            # TODO: Should preprocess claim first?
             search_query = self.query_generator.get_query(pipeline_object.original_claim)
             # 1.1 Preprocess the claim
             claim_with_claimant = claim.claimant + " " + claim.claim
+            # TODO: additional function to process 1 sentence
             processed_claim = self.text_preprocessor.process(claim_with_claimant)
             if len(processed_claim.sentences) > 0:
                 pipeline_object.preprocessed_claim = processed_claim.sentences[0]
@@ -113,13 +114,11 @@ class LeadersPrizePipeline:
 
             # 3. Process articles from raw HTML to parsed text
             pipeline_articles: List[PipelineArticle] = []
-            for raw_article in searched_articles:
-                if raw_article and raw_article.content:
-                    pipeline_article = PipelineArticle(raw_article)
+            for searched_article in searched_articles:
+                if searched_article and searched_article.content:
+                    pipeline_article = PipelineArticle(searched_article.url)
                     # 3.1 Extract data from HTML
-                    html_process_result = self.html_preprocessor.process(raw_article.content)
-                    pipeline_article.html_attributes = html_process_result.html_atts
-                    pipeline_article.raw_body_text = html_process_result.text
+                    pipeline_article.raw_body_text = self.html_preprocessor.process(searched_article.content).text
                     pipeline_articles.append(pipeline_article)
 
             if debug_mode:
@@ -162,13 +161,16 @@ class LeadersPrizePipeline:
                         continue
                     relevance = self.sentence_relevance_scorer.get_relevance(pipeline_object.preprocessed_claim,
                                                                              preprocessed_sentence)
+                    # TODO: Also populate the original sentence
                     pipeline_sentence = PipelineSentence(preprocessed_sentence)
                     pipeline_sentence.relevance = relevance
                     # Attach the parent URL to the sentence so we can trace it back
                     pipeline_sentence.parent_article_url = pipeline_article.url
                     article_sentences.append(pipeline_sentence)
+                # TODO: Rename this property
                 pipeline_article.preprocessed_sentences = article_sentences
                 # 5.3 Get select sentences for reasoner, then cut to the most relevant sentences
+                # TODO: Just consider removing this
                 sentences_for_reasoner = self.information_extractor.extract(article_sentences,
                                                                             left_window=info_extraction_left_window,
                                                                             right_window=info_extraction_right_window)
@@ -176,6 +178,7 @@ class LeadersPrizePipeline:
                 if len(sentences_for_reasoner) > num_sentences_per_article_to_process:
                     sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process - 1]
                 pipeline_article.sentences_for_reasoner = sentences_for_reasoner
+            # TODO: just remove this property?
             pipeline_object.articles_for_reasoner = pipeline_articles
 
             # 5.4 Get cumulative text_b for reasoner

@@ -29,8 +29,9 @@ class HTMLProcessor:
                 text=article_text,
                 html_atts=html_atts
             )
-        except:
+        except Exception as e:
             print("Error processing HTML, returning empty result")
+            print(e)
         return result
 
     def __get_html_attributes(self, soup: BeautifulSoup) -> HTMLProcessResult.HTMLAttributes:
