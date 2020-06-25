@@ -21,7 +21,7 @@ def get_text_b_for_reasoner(claim: PipelineClaim) -> (str, List[str]):
         # text_b += " %$$% "
     all_sents.sort(key=lambda j: j.relevance, reverse=True)
     for s in all_sents:
-        text_b += s.sentence + " $.$ "
+        text_b += s.preprocessed_text + " $.$ "
         if s.parent_article_url and s.parent_article_url not in article_urls:
             article_urls.append(s.parent_article_url)
     return text_b, article_urls

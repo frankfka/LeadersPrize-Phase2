@@ -8,6 +8,7 @@ from analyze.relevant_information_extractor.relevant_information_extractor impor
 from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from analyze.sentence_relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
 from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, PipelineSentence
+from preprocess import text_util
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
@@ -29,6 +30,7 @@ class PipelineConfigKeys(Enum):
     TRANSFORMER_PATH = "transformer_path"
     DEBUG_MODE = "debug"  # Whether to print debug info
 
+    NUM_SEARCH_ARTICLES = "num_search_articles"  # Number of articles to retrieve from search API
     MIN_SENT_LEN = "min_sent_len"  # Minimum length of sentence (in words) to consider
     NUM_ARTICLES_TO_PROCESS = "num_relevant_articles"  # Number of articles (with top relevance) to process
     NUM_SENTS_PER_ARTICLE = "num_sentences_per_article"  # Number of sentences per article to process
@@ -61,8 +63,9 @@ class LeadersPrizePipeline:
 
         # Get some stuff from the config
         debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
+        num_articles_to_search = self.config.get(PipelineConfigKeys.NUM_SEARCH_ARTICLES, 60)
         min_sentence_length = self.config.get(PipelineConfigKeys.MIN_SENT_LEN, 5)
-        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 10)
+        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 15)  # 23 min for 30 articles to process for 50 claims
         num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 5)
         info_extraction_left_window = self.config.get(PipelineConfigKeys.EXTRACT_LEFT_WINDOW, 1)
         info_extraction_right_window = self.config.get(PipelineConfigKeys.EXTRACT_RIGHT_WINDOW, 1)
@@ -79,23 +82,17 @@ class LeadersPrizePipeline:
                 print("\n")
                 t = nt
 
-            # 1. Get query from claim
-            # - Note: not using truth tuples for now, given that we see no significant difference with them
-            # TODO: Should preprocess claim first?
-            search_query = self.query_generator.get_query(pipeline_object.original_claim)
-            # 1.1 Preprocess the claim
+            # 1. Preprocess the claim
             claim_with_claimant = claim.claimant + " " + claim.claim
-            # TODO: additional function to process 1 sentence
-            processed_claim = self.text_preprocessor.process(claim_with_claimant)
-            if len(processed_claim.sentences) > 0:
-                pipeline_object.preprocessed_claim = processed_claim.sentences[0]
-            else:
-                print("Preprocessed claim is empty - defaulting to original claim")
-                pipeline_object.preprocessed_claim = claim_with_claimant
+            pipeline_object.preprocessed_claim = self.text_preprocessor.process_one_sentence(claim_with_claimant)
+
+            # 1.1 Get query from claim
+            # - Note: not using truth tuples for now, given that we see no significant difference with them
+            search_query = self.query_generator.get_query(pipeline_object.original_claim, custom_query=pipeline_object.preprocessed_claim)
 
             # 2. Execute search query to get articles if config allows
             if self.config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True):
-                searched_articles = self.search_client.search(search_query)
+                searched_articles = self.search_client.search(search_query, num_results=num_articles_to_search)
                 if len(searched_articles) == 0:
                     # Error, the articles will just be empty
                     print(f"Error searching query for claim {pipeline_object.original_claim.id}")
@@ -116,7 +113,8 @@ class LeadersPrizePipeline:
             pipeline_articles: List[PipelineArticle] = []
             for searched_article in searched_articles:
                 if searched_article and searched_article.content:
-                    pipeline_article = PipelineArticle(searched_article.url)
+                    pipeline_article = PipelineArticle()
+                    pipeline_article.url = searched_article.url
                     # 3.1 Extract data from HTML
                     pipeline_article.raw_body_text = self.html_preprocessor.process(searched_article.content).text
                     pipeline_articles.append(pipeline_article)
@@ -140,7 +138,8 @@ class LeadersPrizePipeline:
             if debug_mode:
                 nt = datetime.now()
                 print(f"Analyzed article relevances in {nt - t}")
-                print(f"Maximum article relevance found: {max(map(lambda x: x.relevance, pipeline_articles))}")
+                if pipeline_articles:
+                    print(f"Maximum article relevance found: {max(map(lambda x: x.relevance, pipeline_articles))}")
                 print("\n")
                 t = nt
 
@@ -152,29 +151,30 @@ class LeadersPrizePipeline:
             # 5. Preprocess select articles on a sentence-level & annotate with sentence-level relevance
             for pipeline_article in pipeline_articles:
                 # 5.1 Clean text data
-                text_process_result = self.text_preprocessor.process(pipeline_article.raw_body_text)
+                original_sentences = text_util.tokenize_by_sentence(pipeline_article.raw_body_text)
+                preprocessed_sentences = self.text_preprocessor.process_sentences(original_sentences)
                 # 5.2 Get relevances for each sentence
                 article_sentences: List[PipelineSentence] = []
-                for preprocessed_sentence in text_process_result.sentences:
+                for (original_sentence, preprocessed_sentence) in zip(original_sentences, preprocessed_sentences):
                     # Enforce a minimum sentence length
                     if len(preprocessed_sentence.split()) < min_sentence_length:
                         continue
                     relevance = self.sentence_relevance_scorer.get_relevance(pipeline_object.preprocessed_claim,
                                                                              preprocessed_sentence)
-                    # TODO: Also populate the original sentence
-                    pipeline_sentence = PipelineSentence(preprocessed_sentence)
+                    pipeline_sentence = PipelineSentence()
+                    pipeline_sentence.text = original_sentence
+                    pipeline_sentence.preprocessed_text = preprocessed_sentence
                     pipeline_sentence.relevance = relevance
                     # Attach the parent URL to the sentence so we can trace it back
                     pipeline_sentence.parent_article_url = pipeline_article.url
                     article_sentences.append(pipeline_sentence)
-                # TODO: Rename this property
-                pipeline_article.preprocessed_sentences = article_sentences
+                pipeline_article.sentences = article_sentences
                 # 5.3 Get select sentences for reasoner, then cut to the most relevant sentences
                 # TODO: Just consider removing this
-                sentences_for_reasoner = self.information_extractor.extract(article_sentences,
-                                                                            left_window=info_extraction_left_window,
-                                                                            right_window=info_extraction_right_window)
-                sentences_for_reasoner.sort(key=lambda sentence: sentence.relevance, reverse=True)
+                # sentences_for_reasoner = self.information_extractor.extract(article_sentences,
+                #                                                             left_window=info_extraction_left_window,
+                #                                                             right_window=info_extraction_right_window)
+                sentences_for_reasoner = sorted(pipeline_article.sentences, key=lambda sentence: sentence.relevance, reverse=True)
                 if len(sentences_for_reasoner) > num_sentences_per_article_to_process:
                     sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process - 1]
                 pipeline_article.sentences_for_reasoner = sentences_for_reasoner

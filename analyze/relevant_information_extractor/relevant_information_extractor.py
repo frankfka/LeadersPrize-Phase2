@@ -38,22 +38,31 @@ class RelevantInformationExtractor:
             min_idx = max(0, sent_index - left_window)
             max_idx = min(len(sentences), sent_index + right_window + 1)
             # Contains extracted sentences for this block, should have max length left_window + right_window + 1
-            sentence_strs: List[str] = []
+            sentence_strs: List[(str, str)] = []  # Tuples of (original, preprocessed)
             max_relevance: float = 0
             for idx in range(min_idx, max_idx):
                 if idx in added_indices:
                     # Sentence added already, skip
                     continue
                 sentence = sentences[idx]
-                sentence_strs.append(sentence.sentence)
+                sentence_strs.append((sentence.text, sentence.preprocessed_text))
                 if sentence.relevance > max_relevance:
                     max_relevance = sentence.relevance
                 added_indices.add(idx)
             # Add the extracted block to the return result
             if sentence_strs:
                 # Create a new pipeline sentence, with relevance that is the maximum relevance of its subsentences
-                block_sentence = " | ".join(sentence_strs)
-                block_pipeline_sentence = PipelineSentence(block_sentence)
+                original_sentence_strs = []
+                preprocessed_sentence_strs = []
+                for (original, preprocessed) in sentence_strs:
+                    original_sentence_strs.append(original)
+                    preprocessed_sentence_strs.append(preprocessed)
+                block_sentence_original = " | ".join(original_sentence_strs)
+                block_sentence_preprocessed = " | ".join(preprocessed_sentence_strs)
+                # Create a pipeline sentence for the block
+                block_pipeline_sentence = PipelineSentence()
+                block_pipeline_sentence.text = block_sentence_original
+                block_pipeline_sentence.preprocessed_text = block_sentence_preprocessed
                 block_pipeline_sentence.parent_article_url = article_url
                 block_pipeline_sentence.relevance = max_relevance
                 extracted.append(block_pipeline_sentence)

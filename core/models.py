@@ -58,12 +58,12 @@ class PipelineArticle:
     An article for a given claim - includes all the preprocessed annotations
     """
 
-    def __init__(self, url: str):
+    def __init__(self):
         self.id: str = ""
-        self.url = url
+        self.url = ""
         self.raw_body_text = ""  # Raw body text parsed from search result
         self.relevance = 0  # Relevance score of the article
-        self.preprocessed_sentences: List[PipelineSentence] = []  # Preprocessed sentences
+        self.sentences: List[PipelineSentence] = []  # All sentences
         self.sentences_for_reasoner: List[PipelineSentence] = []  # Sentences extracted for processing by reasoner
 
 
@@ -72,9 +72,10 @@ class PipelineSentence:
     A sentence object, with annotations
     """
 
-    def __init__(self, sentence: str):
+    def __init__(self):
         self.id: str = ""
-        self.sentence: str = sentence
+        self.text: str = ""
+        self.preprocessed_text: str = ""
         self.relevance: float = 0  # Relevance score of the sentence
         self.parent_article_url: Optional[str] = None
 
