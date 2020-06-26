@@ -145,7 +145,6 @@ summary_header = (['claim', 'premise',
 
 
 def save_combined_summary(classifications, save_path):
-    import pandas_profiling
     csv_path = f'../../{save_path}.csv'
     with open(csv_path, 'w+', encoding='utf-8', errors='ignore', newline='') as f:
         writer = csv.writer(f)
@@ -155,7 +154,7 @@ def save_combined_summary(classifications, save_path):
             writer.writerow(row)
 
     df = pd.read_csv(csv_path)
-    profile = pandas_profiling.ProfileReport(df)
+    profile = ProfileReport(df)
     profile.to_file(f'../../{save_path}.html')
 
 

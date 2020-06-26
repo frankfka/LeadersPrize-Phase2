@@ -6,8 +6,8 @@ import sklearn.metrics
 import textacy
 import textacy.utils
 
-from propositions.rules import RULES
-from propositions.text_analysis import spacy_tokens, print_matches, regex_np, regex_vp
+from analyze.ne_reasoner.propositions.rules import RULES
+from analyze.ne_reasoner.propositions.text_analysis import spacy_tokens, print_matches, regex_np, regex_vp
 
 
 def disable_textacy_depreciated_notifications():
@@ -46,7 +46,7 @@ def analyze_sentence(sentence):
     print(f'Has Time, Space, or PP: {rules[2]}')
     print(f'Has VP: {rules[3]}')
     print(f'Has propositional structure: {rules[4]}')
-    print(f'Is not a question: {rules[5]}')
+    # print(f'Is not a question: {rules[5]}')
     print(f'Score = {sum(rules)}/{len(rules)}')
     print()
 
@@ -112,7 +112,7 @@ def init_weights(examples=None, counter_examples=None):
         rule.recall = recall
 
 
-def combined_classify(doc):
+def is_proposition(doc):
     proposition_score = 0
 
     for rule in RULES:
@@ -130,7 +130,7 @@ def combined_score(examples, counter_examples):
     counter_examples = [textacy.make_spacy_doc(example, lang='en_core_web_sm') for example in counter_examples]
     y_pred = []
     for doc in itertools.chain(examples, counter_examples):
-        y_pred.append(combined_classify(doc))
+        y_pred.append(is_proposition(doc))
     y_true = get_y_true(examples, counter_examples)
     precision, recall, f1 = get_precision_recall_f1(y_pred, y_true)
     print(f'Combined Score \t{precision_recall_f1_string(precision, recall, f1)}')

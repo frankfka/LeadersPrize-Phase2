@@ -1,5 +1,5 @@
-from propositions.text_analysis import has_a_regex_match, get_propositional_structures, get_np1, has_pos, is_complex, \
-    regex_vp
+from analyze.ne_reasoner.propositions.text_analysis import get_propositional_structures, has_pos, get_np1, \
+    has_a_regex_match, is_complex, regex_vp
 
 
 def rule_1(doc):

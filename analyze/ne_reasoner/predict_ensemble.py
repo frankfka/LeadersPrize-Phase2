@@ -98,7 +98,7 @@ class EnsembleClassifier:
 
     def predict_snli(self, data: pd.DataFrame):
         unlabeled = self.snli_classifier.continue_classify(data)
-        return self.get_confidences(unlabeled, snli_util.evaluate.INVERSE_MAP)
+        return self.get_confidences(unlabeled, snli_util.data_processing.SNLI_INVERSE_MAP)
 
     def predict_terms(self, data: pd.DataFrame, terms: t.List[str]):
         density = term_scoring.get_term_density_in_text(data['sentence0'][0], terms)
@@ -110,7 +110,7 @@ def is_proposition(context):
     """Gets if the given sentence is a proposition, and as such witha premise space tp calculate."""
     doc = textacy.make_spacy_doc(context, lang='en_core_web_sm')
     try:
-        return propositions.main.combined_classify(doc)
+        return propositions.main.is_proposition(doc)
     except AttributeError:
         propositions.main.init_weights()
-        return propositions.main.combined_classify(doc)
+        return propositions.main.is_proposition(doc)

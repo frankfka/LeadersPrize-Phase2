@@ -53,6 +53,7 @@ def unskew_term_predictions(column_name, prediction):
     median, iqr = terms_medians_iqrs[column_name]
     return _unskew_predictions(prediction, median, iqr)
 
+
 def _unskew_predictions(prediction, current_median, current_interquartile_range):
     # draft
     desired_median = 0.5

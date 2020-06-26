@@ -1,14 +1,12 @@
 import csv
 import pandas as pd
-import nltk as nltk
 import numpy as np
 import random
 import collections
 
 import typing
 
-import data_processing
-import parameters
+from analyze.ne_reasoner import parameters, data_processing
 
 FIXED_PARAMETERS = parameters.parameters
 
@@ -17,6 +15,11 @@ LABEL_MAP = {
     "neutral": 1,
     "contradiction": 2,
     "hidden": 0
+}
+
+PARAPHRASE_INVERSE_MAP = {
+    0: "not_paraphrase",
+    1: "paraphrase",
 }
 
 
