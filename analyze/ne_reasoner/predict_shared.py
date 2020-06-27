@@ -66,27 +66,27 @@ def load_articles(path='datainput'):
 
 
 class ModelClassifier:
-    def __init__(self, loaded_embeddings, processing, logger, modname,
+    def __init__(self, loaded_embeddings, parameters, logger, modname, ckpt_path, vocab,
                  num_labels=3, emb_train=False):
         tf.reset_default_graph()
-        self.processing = processing
+        self.ckpt_path = ckpt_path
         self.logger = logger
         self.num_labels = num_labels
-        self.vocab = vocab.load_dictionary()
+        self.vocab = vocab
 
         self.modname = modname
         self.loaded_embeddings = loaded_embeddings
 
         ## Define hyperparameters
-        self.learning_rate = self.processing.FIXED_PARAMETERS["learning_rate"]
+        self.learning_rate = parameters["learning_rate"]
         self.display_epoch_freq = 1
         self.display_step_freq = 50
         self.emb_train = emb_train
-        self.embedding_dim = self.processing.FIXED_PARAMETERS["word_embedding_dim"]
-        self.dim = self.processing.FIXED_PARAMETERS["hidden_embedding_dim"]
-        self.batch_size = self.processing.FIXED_PARAMETERS["batch_size"]
-        self.keep_rate = self.processing.FIXED_PARAMETERS["keep_rate"]
-        self.sequence_length = self.processing.FIXED_PARAMETERS["seq_length"]
+        self.embedding_dim = parameters["word_embedding_dim"]
+        self.dim = parameters["hidden_embedding_dim"]
+        self.batch_size = parameters["batch_size"]
+        self.keep_rate = parameters["keep_rate"]
+        self.sequence_length = parameters["seq_length"]
 
         self.model = EsimModel(seq_length=self.sequence_length,
                                emb_dim=self.embedding_dim,
@@ -113,7 +113,7 @@ class ModelClassifier:
         return premise_vectors, hypothesis_vectors
 
     def restore(self):
-        best_path = os.path.join(self.processing.FIXED_PARAMETERS["ckpt_path"], self.modname) + ".ckpt_best"
+        best_path = os.path.join(self.ckpt_path, self.modname) + ".ckpt_best"
         self.sess = tf.Session()
         self.sess.run(self.init)
         self.saver.restore(self.sess, best_path)

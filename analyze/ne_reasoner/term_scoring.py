@@ -4,15 +4,13 @@ import csv
 terms_cache = {}
 
 
-def get_terms(column_string, cvm_path=None):
+def get_terms(column_string, cvm_path):
     if column_string in terms_cache.keys():
         return terms_cache[column_string]
     else:
-        if cvm_path is None:
-            cvm_path = r'../data/cvms/bows_premise_space_cvm.csv'
-
         terms = []
         with open(cvm_path, 'r') as cvm:
+            # TODO: Stop reopening! - this just inits terms
             csv_reader = csv.reader(cvm)
             header = next(csv_reader)
             column_index = header.index(column_string)

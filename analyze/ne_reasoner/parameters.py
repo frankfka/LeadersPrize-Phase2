@@ -10,7 +10,4 @@ parameters = {
     'batch_size': 32,
     'word_embedding_dim': 50,
     'hidden_embedding_dim': 50,
-    'embedding_data_path': f'{data_path}/glove.6B.50d.txt',
-    'log_path': '../logs',
-    'ckpt_path': '../logs'
 }

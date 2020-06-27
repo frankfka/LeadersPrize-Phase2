@@ -7,7 +7,30 @@ import textacy
 
 from analyze.ne_reasoner import vocab, data_processing, term_scoring, similarity_mod, predict_snli, snli_util, \
     logger_mod, propositions
+from analyze.ne_reasoner.propositions.main import init_weights, is_proposition
 
+SNLI_LABEL_MAP = {
+    "entailment": 0,
+    "neutral": 1,
+    "contradiction": 2,
+    "hidden": 0
+}
+
+SNLI_INVERSE_MAP = {
+    0: "entailment",
+    1: "neutral",
+    2: "contradiction"
+}
+SNLI_PARAMS = {
+    'model_type': 'esim',
+    # 'learning_rate': 0.0004,
+    'learning_rate': 0.001,
+    'keep_rate': 0.5,
+    'seq_length': 50,
+    'batch_size': 32,
+    'word_embedding_dim': 50,
+    'hidden_embedding_dim': 50,
+}
 
 class EnsembleClassifier:
     term_column_names = [
@@ -20,13 +43,24 @@ class EnsembleClassifier:
         'negative',
         'fakeness', ]
 
-    def __init__(self):
-        self.data_root_path = '../data'
-        self.word_indices = vocab.load_dictionary()
-        self.embedding_path = f'{self.data_root_path}/glove.6B.50d.txt'
-        self.loaded_embeddings = data_processing.loadEmbedding_rand(self.embedding_path, self.word_indices)
-
-        self.snli_classifier = self.init_snli()
+    def __init__(self, vocab_path: str, glove_emb_path: str, cvm_path: str, ckpt_path: str):
+        self.cvm_path = cvm_path
+        self.word_indices = vocab.load_dictionary(vocab_path)
+        self.loaded_embeddings = data_processing.loadEmbedding_rand(
+            glove_emb_path,
+            self.word_indices
+        )
+        snli_classifier = predict_snli.SnliClassifier(
+            loaded_embeddings=self.loaded_embeddings,
+            parameters=SNLI_PARAMS,
+            logger=logger_mod.Logger(),
+            modname='ensemble_snli',
+            ckpt_path=ckpt_path,
+            vocab=self.word_indices,
+            emb_train=True
+        )
+        snli_classifier.restore()
+        self.snli_classifier = snli_classifier
 
         # todo move to separate classes
 
@@ -34,7 +68,7 @@ class EnsembleClassifier:
         lines = []
         predictions = []
         for i, context in enumerate(contexts):
-            if self.is_relevant(statement, context) and is_proposition(context):
+            if self.is_relevant(statement, context) and ensemble_is_proposition(context):
                 prediction = self.predict_statement_in_context(statement, context)
                 lines.append(i)
                 predictions.append(prediction)
@@ -48,7 +82,7 @@ class EnsembleClassifier:
 
         predictions['paraphrase'] = float(self.is_paraphrase(statement, context))
 
-        terms = {column_name: term_scoring.get_terms(column_name)
+        terms = {column_name: term_scoring.get_terms(column_name, cvm_path=self.cvm_path)
                  for column_name in self.term_column_names}
         term_predictions = {column_name: self.predict_terms(data, terms[column_name])
                             for column_name in self.term_column_names}
@@ -79,16 +113,6 @@ class EnsembleClassifier:
         data = pd.DataFrame([data])
         return data
 
-    def init_snli(self):
-        snli_classifier = predict_snli.SnliClassifier(
-            loaded_embeddings=self.loaded_embeddings,
-            processing=snli_util.data_processing,
-            logger=logger_mod.Logger(),
-            modname='ensemble_snli',
-            emb_train=True)
-        snli_classifier.restore()
-        return snli_classifier
-
     def get_confidences(self, unlabeled_confidences, labels: t.Dict) -> t.Dict:
         confidences = {
             labels[index]: unlabeled_confidences[index]
@@ -98,7 +122,7 @@ class EnsembleClassifier:
 
     def predict_snli(self, data: pd.DataFrame):
         unlabeled = self.snli_classifier.continue_classify(data)
-        return self.get_confidences(unlabeled, snli_util.data_processing.SNLI_INVERSE_MAP)
+        return self.get_confidences(unlabeled, SNLI_INVERSE_MAP)
 
     def predict_terms(self, data: pd.DataFrame, terms: t.List[str]):
         density = term_scoring.get_term_density_in_text(data['sentence0'][0], terms)
@@ -106,11 +130,11 @@ class EnsembleClassifier:
 
 
 @functools.lru_cache(maxsize=128*16)
-def is_proposition(context):
+def ensemble_is_proposition(context):
     """Gets if the given sentence is a proposition, and as such witha premise space tp calculate."""
     doc = textacy.make_spacy_doc(context, lang='en_core_web_sm')
     try:
-        return propositions.main.is_proposition(doc)
+        return is_proposition(doc)
     except AttributeError:
-        propositions.main.init_weights()
-        return propositions.main.is_proposition(doc)
+        init_weights()
+        return is_proposition(doc)

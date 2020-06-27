@@ -6,19 +6,6 @@ from analyze.ne_reasoner import parameters, data_processing
 
 FIXED_PARAMETERS = parameters.parameters
 
-LABEL_MAP = {
-    "entailment": 0,
-    "neutral": 1,
-    "contradiction": 2,
-    "hidden": 0
-}
-
-
-SNLI_INVERSE_MAP = {
-    0: "entailment",
-    1: "neutral",
-    2: "contradiction"
-}
 
 def load_nli_data(path, snli=False):
     """
