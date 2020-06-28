@@ -1,4 +1,5 @@
 import functools
+import numpy as np
 
 import pandas as pd
 import typing
@@ -6,7 +7,7 @@ import typing as t
 import textacy
 
 from analyze.ne_reasoner import vocab, data_processing, term_scoring, similarity_mod, predict_snli, snli_util, \
-    logger_mod, propositions
+    logger_mod, reasoner_models
 from analyze.ne_reasoner.propositions.main import init_weights, is_proposition
 
 SNLI_LABEL_MAP = {
@@ -64,6 +65,28 @@ class EnsembleClassifier:
 
         # todo move to separate classes
 
+    def predict_for_claim(self, statement: str, contexts: typing.List[str]) -> (reasoner_models.Prediction, typing.List[int], typing.List[dict]):
+        relevant_sent_idxs, predicted_attributes = self.predict_statement_in_contexts(statement, contexts)
+        false_magnitudes = []
+        neutral_magnitudes = []
+        true_magnitudes = []
+        for pred, sent_idx in zip(predicted_attributes, relevant_sent_idxs):
+            sent = contexts[sent_idx]
+            analysis_class = reasoner_models.BeliefAnalysis.from_dict(pred)
+            false_magnitudes.append(analysis_class.false_magnitude)
+            neutral_magnitudes.append(analysis_class.neutral_magnitude)
+            true_magnitudes.append(analysis_class.true_magnitude)
+
+        # TODO: if empty
+        false_pred_mean = np.mean(false_magnitudes)
+        neutral_pred_mean = np.mean(neutral_magnitudes)
+        true_pred_mean = np.mean(true_magnitudes)
+        max_idx = np.argmax([false_pred_mean, neutral_pred_mean, true_pred_mean])
+
+        # TODO: Proper return
+        return [false_pred_mean, neutral_pred_mean, true_pred_mean], relevant_sent_idxs, predicted_attributes
+
+
     def predict_statement_in_contexts(self, statement: str, contexts: typing.List[str]):
         lines = []
         predictions = []
@@ -90,6 +113,8 @@ class EnsembleClassifier:
                     for column_name in self.term_column_names}
         predictions.update(unskewed)
 
+        # TODO: Figure out similarity
+        predictions['relevance'] = float(self.__get_similarity(statement, context))
         return predictions
 
     def is_relevant(self, statement, context) -> bool:
@@ -99,13 +124,16 @@ class EnsembleClassifier:
         return self._check_similarity(statement, context, 0.80)
 
     def _check_similarity(self, statement, context, similarity_threshold) -> bool:
+        return self.__get_similarity(statement, context) >= similarity_threshold
+
+    def __get_similarity(self, statement, context) -> float:
+        # TODO: Optimize
         distance = similarity_mod.cosine_distance(statement,
                                                   context,
                                                   embeddings=self.loaded_embeddings,
                                                   word_indices=self.word_indices)
         similarity = 1 - distance
-        is_similar = similarity >= similarity_threshold
-        return is_similar
+        return similarity
 
     def build_statement_context_df(self, statement: str, context: str) -> pd.DataFrame:
         data = {'sentence0': context, 'sentence1': statement}

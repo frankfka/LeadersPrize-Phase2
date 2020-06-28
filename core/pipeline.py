@@ -4,6 +4,7 @@ from typing import List
 import math
 
 from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
+from analyze.ne_reasoner.predict_ensemble import EnsembleClassifier
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
 from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from analyze.sentence_relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
@@ -29,6 +30,8 @@ class PipelineConfigKeys(Enum):
     # For the transformer model
     TRANSFORMER_PATH = "transformer_path"
     DEBUG_MODE = "debug"  # Whether to print debug info
+    # For NE's reasoner
+    NE_REASONER_PATH = "reasoner_path"
 
     NUM_SEARCH_ARTICLES = "num_search_articles"  # Number of articles to retrieve from search API
     MIN_SENT_LEN = "min_sent_len"  # Minimum length of sentence (in words) to consider
@@ -54,9 +57,13 @@ class LeadersPrizePipeline:
         self.text_preprocessor = TextPreprocessor()
         w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
-        self.information_extractor = RelevantInformationExtractor()
-        self.transformer_reasoner = TransformerReasoner(model_path=config[PipelineConfigKeys.TRANSFORMER_PATH],
-                                                        debug=config[PipelineConfigKeys.DEBUG_MODE])
+        ne_reasoner_root_path = config[PipelineConfigKeys.NE_REASONER_PATH]
+        self.ne_reasoner = EnsembleClassifier(
+        ckpt_path="/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/ne-reasoner/ckpt",
+        cvm_path="/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/ne-reasoner/bows_premise_space_cvm_utf8.csv",
+        vocab_path="/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/ne-reasoner/ensemble_vocab.p",
+        glove_emb_path="/Users/frankjia/Desktop/LeadersPrize/LeadersPrize-Phase2/assets/ne-reasoner/glove.6B.50d.txt",
+    )
 
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
         t = datetime.now()
@@ -146,7 +153,11 @@ class LeadersPrizePipeline:
             # 4.5 Based on article relevance, only consider the top relevances
             pipeline_articles.sort(key=lambda article: article.relevance, reverse=True)
             if len(pipeline_articles) > num_relevant_articles_to_process:
-                pipeline_articles = pipeline_articles[:num_relevant_articles_to_process - 1]
+                pipeline_articles = pipeline_articles[:num_relevant_articles_to_process]
+
+            article_preds_false = []
+            article_preds_neu = []
+            article_preds_true = []
 
             # 5. Preprocess select articles on a sentence-level & annotate with sentence-level relevance
             for pipeline_article in pipeline_articles:
@@ -169,21 +180,13 @@ class LeadersPrizePipeline:
                     pipeline_sentence.parent_article_url = pipeline_article.url
                     article_sentences.append(pipeline_sentence)
                 pipeline_article.sentences = article_sentences
-                # 5.3 Get select sentences for reasoner, then cut to the most relevant sentences
-                # TODO: Just consider removing this
-                # sentences_for_reasoner = self.information_extractor.extract(article_sentences,
-                #                                                             left_window=info_extraction_left_window,
-                #                                                             right_window=info_extraction_right_window)
-                sentences_for_reasoner = sorted(pipeline_article.sentences, key=lambda sentence: sentence.relevance, reverse=True)
-                if len(sentences_for_reasoner) > num_sentences_per_article_to_process:
-                    sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process - 1]
-                pipeline_article.sentences_for_reasoner = sentences_for_reasoner
-            # TODO: just remove this property?
-            pipeline_object.articles_for_reasoner = pipeline_articles
 
-            # 5.4 Get cumulative text_b for reasoner
-            text_b, reasoner_article_urls = get_text_b_for_reasoner(pipeline_object)
-            pipeline_object.preprocessed_text_b_for_reasoner = text_b
+                # Predict using reasoner
+                article_str_sents = list(map(lambda x: x.text, article_sentences))
+                pred_magnitudes, _, _ = self.ne_reasoner.predict_for_claim(pipeline_object.preprocessed_claim, article_str_sents)
+                article_preds_false.append(pred_magnitudes[0])
+                article_preds_neu.append(pred_magnitudes[1])
+                article_preds_true.append(pred_magnitudes[2])
 
             if debug_mode:
                 nt = datetime.now()
@@ -195,40 +198,16 @@ class LeadersPrizePipeline:
 
             # Populate submission values
             pipeline_object.submission_id = pipeline_object.original_claim.id
-            if len(reasoner_article_urls) > 2:
-                reasoner_article_urls = reasoner_article_urls[0:2]
-            pipeline_object.submission_article_urls = reasoner_article_urls
+            pipeline_object.submission_article_urls = []
 
-            # Construct the explanation
-            def get_explanation(source_str: str) -> str:
-                source_sents = source_str.split("$.$")
-                explanation = "The articles state that: "
-                for sent in source_sents:
-                    if len(explanation) > 1000:
-                        break
-                    explanation += f" {sent} . "
-                if len(explanation) >= 1000:
-                    explanation = explanation[0:999]
-                return explanation
-            pipeline_object.submission_explanation = get_explanation(text_b)
+            # Get the final prediction
+            max_false = max(article_preds_false)
+            max_neu = max(article_preds_neu)
+            max_true = max(article_preds_true)
 
-            # Delete unneeded stuff to save memory
-            del pipeline_object.articles
-            del pipeline_object.articles_for_reasoner
+            import numpy as np
+            pipeline_object.submission_label = np.argmax([max_false, max_neu, max_true])
 
             pipeline_objects.append(pipeline_object)
-
-        # 6. Batch predictions from transformers
-        predictions = self.transformer_reasoner.predict(pipeline_objects)
-        for (pipeline_object, prediction) in zip(pipeline_objects, predictions):
-            # Populate label
-            pipeline_object.submission_label = prediction.value
-
-            if debug_mode:
-                nt = datetime.now()
-                print(f"Reasoner predicted in {nt - t}")
-                print(f"Prediction: {pipeline_object.submission_label}")
-                print("\n")
-                t = nt
 
         return pipeline_objects

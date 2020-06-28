@@ -13,4 +13,6 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.TRANSFORMER_PATH: "assets/roberta_reasoner/",
     PipelineConfigKeys.DEBUG_MODE: False,
     PipelineConfigKeys.RETRIEVE_ARTICLES: True,
+
+    PipelineConfigKeys.NE_REASONER_PATH: "assets/ne-reasoner/"
 }
