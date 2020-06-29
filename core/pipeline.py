@@ -2,6 +2,7 @@ from datetime import datetime
 from enum import Enum
 from typing import List
 import math
+import numpy as np
 
 from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
 from analyze.ne_reasoner.predict_ensemble import EnsembleClassifier
@@ -72,7 +73,7 @@ class LeadersPrizePipeline:
         debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
         num_articles_to_search = self.config.get(PipelineConfigKeys.NUM_SEARCH_ARTICLES, 60)
         min_sentence_length = self.config.get(PipelineConfigKeys.MIN_SENT_LEN, 5)
-        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 15)  # 23 min for 30 articles to process for 50 claims
+        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 15)
         num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 5)
         info_extraction_left_window = self.config.get(PipelineConfigKeys.EXTRACT_LEFT_WINDOW, 1)
         info_extraction_right_window = self.config.get(PipelineConfigKeys.EXTRACT_RIGHT_WINDOW, 1)
@@ -182,7 +183,7 @@ class LeadersPrizePipeline:
                 pipeline_article.sentences = article_sentences
 
                 # Predict using reasoner
-                article_str_sents = list(map(lambda x: x.text, article_sentences))
+                article_str_sents = list(map(lambda x: x.preprocessed_text, article_sentences))
                 pred_magnitudes, _, _ = self.ne_reasoner.predict_for_claim(pipeline_object.preprocessed_claim, article_str_sents)
                 article_preds_false.append(pred_magnitudes[0])
                 article_preds_neu.append(pred_magnitudes[1])
@@ -201,12 +202,13 @@ class LeadersPrizePipeline:
             pipeline_object.submission_article_urls = []
 
             # Get the final prediction
-            max_false = max(article_preds_false)
-            max_neu = max(article_preds_neu)
-            max_true = max(article_preds_true)
-
-            import numpy as np
-            pipeline_object.submission_label = np.argmax([max_false, max_neu, max_true])
+            if len(article_preds_false) == 0:
+                pipeline_object.submission_label = 1
+            else:
+                max_false = max(article_preds_false)
+                max_neu = max(article_preds_neu)
+                max_true = max(article_preds_true)
+                pipeline_object.submission_label = np.argmax([max_false, max_neu, max_true])
 
             pipeline_objects.append(pipeline_object)
 
