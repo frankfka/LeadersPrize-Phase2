@@ -22,6 +22,8 @@ class TransformersConfigKeys(Enum):
 class RobertaSequenceClassifier:
 
     def __init__(self, config: Dict):
+        import os
+        os.environ["TOKENIZERS_PARALLELISM"] = "false"
         self.config = config
         self.tokenizer = RobertaTokenizer.from_pretrained(config[TransformersConfigKeys.TOK_PATH])
         model_config = RobertaConfig.from_pretrained(config[TransformersConfigKeys.CONFIG_PATH],
@@ -39,9 +41,7 @@ class RobertaSequenceClassifier:
         Get predictions for the inputs. Each prediction is a numpy array of the probabilities of each class
         """
         # Get tokenized inputs
-        token_ids, masks, token_type_ids = tokenize_for_transformer(input_items,
-                                                                    self.tokenizer,
-                                                                    self.config[TransformersConfigKeys.MAX_SEQ_LEN])
+        token_ids, masks, token_type_ids = tokenize_for_transformer(input_items, self.tokenizer)
         # Get PyTorch data loader
         dataset = TensorDataset(token_ids, masks, token_type_ids)
         sampler = SequentialSampler(dataset)

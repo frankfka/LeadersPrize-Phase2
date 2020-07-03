@@ -9,8 +9,8 @@ class TransformerReasoner:
 
     def __init__(self, model_path: str, debug=False):
         config = {
-            TransformersConfigKeys.BATCH_SIZE: 16,
-            TransformersConfigKeys.MAX_SEQ_LEN: 256,
+            TransformersConfigKeys.BATCH_SIZE: 2,
+            TransformersConfigKeys.MAX_SEQ_LEN: 256,  # This is unused
             TransformersConfigKeys.NUM_LABELS: 3,
             TransformersConfigKeys.CONFIG_PATH: model_path,
             TransformersConfigKeys.MODEL_PATH: model_path,

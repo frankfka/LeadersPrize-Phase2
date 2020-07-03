@@ -30,7 +30,7 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.ENDPOINT: "http://lpsa.wrw.org",
     PipelineConfigKeys.TRANSFORMER_PATH: f"{PROJ_ROOT}assets/roberta_reasoner/",
     PipelineConfigKeys.DEBUG_MODE: True,
-    PipelineConfigKeys.RETRIEVE_ARTICLES: True,
+    PipelineConfigKeys.RETRIEVE_ARTICLES: False,
 }
 PROCESS_RANGE = range(2500, 2610)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"

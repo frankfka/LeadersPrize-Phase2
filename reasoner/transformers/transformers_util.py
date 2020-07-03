@@ -4,9 +4,7 @@ from reasoner.models import TransformersInputItem
 
 
 # Preprocesses text into inputs expected for the model (token_ids, attention_masks, token_type_ids)
-def tokenize_for_transformer(input_items: List[TransformersInputItem],
-                             tokenizer,
-                             max_seq_len: int):
+def tokenize_for_transformer(input_items: List[TransformersInputItem], tokenizer):
     text_a_arr = []
     text_b_arr = []
     for item in input_items:
@@ -19,7 +17,6 @@ def tokenize_for_transformer(input_items: List[TransformersInputItem],
         padding='max_length',
         truncation='only_second',
         return_tensors="pt",
-        max_seq_len=max_seq_len,
         return_token_type_ids=True
     )
 
