@@ -3,7 +3,6 @@ import time
 from typing import List
 
 from config import METADATA_FILEPATH, PIPELINE_CONFIG, PREDICTIONS_FILEPATH
-
 from core.models import LeadersPrizeClaim, PipelineClaim
 from core.pipeline import LeadersPrizePipeline
 

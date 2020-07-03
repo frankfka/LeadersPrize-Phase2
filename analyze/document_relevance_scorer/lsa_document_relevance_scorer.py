@@ -1,16 +1,17 @@
+import concurrent.futures
+import math
 import re
 import sys
-import math
-import concurrent.futures
 import typing
 from typing import List
+
 import numpy as np
-from scipy import spatial
-from scipy.sparse import dok_matrix
-from scipy.sparse import dok
 import scipy.sparse.linalg as ssl
-from tqdm import tqdm
 from numba import jit
+from scipy import spatial
+from scipy.sparse import dok
+from scipy.sparse import dok_matrix
+from tqdm import tqdm
 
 
 # TODO: Put these as part of preprocessing pipeline

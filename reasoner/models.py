@@ -1,6 +1,6 @@
 from enum import IntEnum
+
 import numpy as np
-import math
 
 
 class TransformersInputItem:

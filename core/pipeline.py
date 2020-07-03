@@ -1,7 +1,7 @@
+import math
 from datetime import datetime
 from enum import Enum
 from typing import List
-import math
 
 from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSADocumentRelevanceAnalyzer
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
@@ -12,7 +12,6 @@ from preprocess import text_util
 from preprocess.html_preprocessor import HTMLProcessor
 from preprocess.text_preprocessor import TextPreprocessor
 from query_generator.query_generator import QueryGenerator
-from reasoner.preprocess import get_text_b_for_reasoner
 from reasoner.transformer_reasoner import TransformerReasoner
 from search_client.client import ArticleSearchClient
 
@@ -32,10 +31,11 @@ class PipelineConfigKeys(Enum):
 
     NUM_SEARCH_ARTICLES = "num_search_articles"  # Number of articles to retrieve from search API
     MIN_SENT_LEN = "min_sent_len"  # Minimum length of sentence (in words) to consider
+    SENT_RELEVANCE_CUTOFF = "sent_relevance_cutoff"  # Minimum w2v relevance
     NUM_ARTICLES_TO_PROCESS = "num_relevant_articles"  # Number of articles (with top relevance) to process
     NUM_SENTS_PER_ARTICLE = "num_sentences_per_article"  # Number of sentences per article to process
     EXTRACT_LEFT_WINDOW = "info_left_window"  # Information extraction - left window
-    EXTRACT_RIGHT_WINDOW = "info_right_window"  # Information extraction - right wondpw
+    EXTRACT_RIGHT_WINDOW = "info_right_window"  # Information extraction - right window
 
 
 class LeadersPrizePipeline:
@@ -63,17 +63,20 @@ class LeadersPrizePipeline:
 
         # Get some stuff from the config
         debug_mode = self.config.get(PipelineConfigKeys.DEBUG_MODE, False)
-        num_articles_to_search = self.config.get(PipelineConfigKeys.NUM_SEARCH_ARTICLES, 60)
+        num_articles_to_search = self.config.get(PipelineConfigKeys.NUM_SEARCH_ARTICLES, 30)
         min_sentence_length = self.config.get(PipelineConfigKeys.MIN_SENT_LEN, 5)
-        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 15)  # 23 min for 30 articles to process for 50 claims
+        num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 10)
         num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 5)
+        min_sent_relevance = self.config.get(PipelineConfigKeys.SENT_RELEVANCE_CUTOFF, 0.5)
         info_extraction_left_window = self.config.get(PipelineConfigKeys.EXTRACT_LEFT_WINDOW, 1)
         info_extraction_right_window = self.config.get(PipelineConfigKeys.EXTRACT_RIGHT_WINDOW, 1)
 
-        pipeline_objects: List[PipelineClaim] = []
+        pipeline_objects_with_err: List[PipelineClaim] = []
+        pipeline_objects_for_prediction: List[PipelineClaim] = []
         for claim in raw_claims:
             # Create pipeline object - this will hold all the annotations of our processing
             pipeline_object: PipelineClaim = PipelineClaim(claim)
+            pipeline_object.submission_id = pipeline_object.original_claim.id
 
             if debug_mode:
                 nt = datetime.now()
@@ -87,16 +90,17 @@ class LeadersPrizePipeline:
             pipeline_object.preprocessed_claim = self.text_preprocessor.process_one_sentence(claim_with_claimant)
 
             # 1.1 Get query from claim
-            # - Note: not using truth tuples for now, given that we see no significant difference with them
-            search_query = self.query_generator.get_query(pipeline_object.original_claim, custom_query=pipeline_object.preprocessed_claim)
+            search_query = self.query_generator.get_query(pipeline_object)
 
             # 2. Execute search query to get articles if config allows
             if self.config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True):
                 searched_articles = self.search_client.search(search_query, num_results=num_articles_to_search)
                 if len(searched_articles) == 0:
-                    # Error, the articles will just be empty
+                    # Error, predict defaults and move on
                     print(f"Error searching query for claim {pipeline_object.original_claim.id}")
-                    # TODO: make sure we still predict something
+                    pipeline_object.submission_explanation = "Error calling search API. No articles were retrieved."
+                    pipeline_objects_with_err.append(pipeline_object)
+                    continue
             # 2. OR: if we're loading local articles
             else:
                 searched_articles = claim.mock_search_results
@@ -128,11 +132,10 @@ class LeadersPrizePipeline:
                 t = nt
 
             # 4. Get Article Relevance
-            pipeline_article_texts: List[str] = [p.raw_body_text for p in pipeline_articles]
-            article_relevances = self.article_relevance_scorer.analyze(pipeline_object.preprocessed_claim,
-                                                                       pipeline_article_texts)
+            article_relevances = self.article_relevance_scorer.analyze(claim=pipeline_object.preprocessed_claim,
+                                                                       articles=[p.raw_body_text for p in pipeline_articles])
             for article_relevance, pipeline_article in zip(article_relevances, pipeline_articles):
-                # Sometimes we get nan from numpy operations
+                # Sometimes we get nan from numpy operations - default to 0 (irrelevant)
                 pipeline_article.relevance = article_relevance if math.isfinite(article_relevance) else 0
 
             if debug_mode:
@@ -146,9 +149,10 @@ class LeadersPrizePipeline:
             # 4.5 Based on article relevance, only consider the top relevances
             pipeline_articles.sort(key=lambda article: article.relevance, reverse=True)
             if len(pipeline_articles) > num_relevant_articles_to_process:
-                pipeline_articles = pipeline_articles[:num_relevant_articles_to_process - 1]
+                pipeline_articles = pipeline_articles[:num_relevant_articles_to_process]
 
             # 5. Preprocess select articles on a sentence-level & annotate with sentence-level relevance
+            all_sentences: List[PipelineSentence] = []
             for pipeline_article in pipeline_articles:
                 # 5.1 Clean text data
                 original_sentences = text_util.tokenize_by_sentence(pipeline_article.raw_body_text)
@@ -174,16 +178,23 @@ class LeadersPrizePipeline:
                 # sentences_for_reasoner = self.information_extractor.extract(article_sentences,
                 #                                                             left_window=info_extraction_left_window,
                 #                                                             right_window=info_extraction_right_window)
-                sentences_for_reasoner = sorted(pipeline_article.sentences, key=lambda sentence: sentence.relevance, reverse=True)
-                if len(sentences_for_reasoner) > num_sentences_per_article_to_process:
-                    sentences_for_reasoner = sentences_for_reasoner[0:num_sentences_per_article_to_process - 1]
-                pipeline_article.sentences_for_reasoner = sentences_for_reasoner
-            # TODO: just remove this property?
-            pipeline_object.articles_for_reasoner = pipeline_articles
+                article_sentences.sort(key=lambda sentence: sentence.relevance, reverse=True)
+                # Only consider top n sentences per article
+                if len(article_sentences) > num_sentences_per_article_to_process:
+                    article_sentences = article_sentences[0:num_sentences_per_article_to_process]
+                all_sentences += article_sentences
 
-            # 5.4 Get cumulative text_b for reasoner
-            text_b, reasoner_article_urls = get_text_b_for_reasoner(pipeline_object)
-            pipeline_object.preprocessed_text_b_for_reasoner = text_b
+            # Enforce a minimum relevance and sort by decreasing relevance
+            all_sentences = [sent for sent in all_sentences if sent.relevance > min_sent_relevance]
+            all_sentences = sorted(all_sentences, key=lambda sentence: sentence.relevance, reverse=True)
+            # Sentences sorted by relevance is sent to transformer
+            pipeline_object.sentences_for_transformer = all_sentences
+
+            # If no relevant information was extracted - write explanation and continue
+            if len(all_sentences) == 0:
+                pipeline_object.submission_explanation = "No relevant information was found."
+                pipeline_objects_with_err.append(pipeline_object)
+                continue
 
             if debug_mode:
                 nt = datetime.now()
@@ -193,35 +204,14 @@ class LeadersPrizePipeline:
                 print("\n")
                 t = nt
 
-            # Populate submission values
-            pipeline_object.submission_id = pipeline_object.original_claim.id
-            if len(reasoner_article_urls) > 2:
-                reasoner_article_urls = reasoner_article_urls[0:2]
-            pipeline_object.submission_article_urls = reasoner_article_urls
-
-            # Construct the explanation
-            def get_explanation(source_str: str) -> str:
-                source_sents = source_str.split("$.$")
-                explanation = "The articles state that: "
-                for sent in source_sents:
-                    if len(explanation) > 1000:
-                        break
-                    explanation += f" {sent} . "
-                if len(explanation) >= 1000:
-                    explanation = explanation[0:999]
-                return explanation
-            pipeline_object.submission_explanation = get_explanation(text_b)
-
-            # Delete unneeded stuff to save memory
-            del pipeline_object.articles
-            del pipeline_object.articles_for_reasoner
-
-            pipeline_objects.append(pipeline_object)
+            # Append for batch predictions
+            pipeline_objects_for_prediction.append(pipeline_object)
 
         # 6. Batch predictions from transformers
-        predictions = self.transformer_reasoner.predict(pipeline_objects)
-        for (pipeline_object, prediction) in zip(pipeline_objects, predictions):
-            # Populate label
+        predictions = self.transformer_reasoner.predict(pipeline_objects_for_prediction)
+        for (pipeline_object, prediction) in zip(pipeline_objects_for_prediction, predictions):
+            # Populate submission values
+            # TODO: Submission article urls, explanations
             pipeline_object.submission_label = prediction.value
 
             if debug_mode:
@@ -231,4 +221,4 @@ class LeadersPrizePipeline:
                 print("\n")
                 t = nt
 
-        return pipeline_objects
+        return pipeline_objects_for_prediction + pipeline_objects_with_err

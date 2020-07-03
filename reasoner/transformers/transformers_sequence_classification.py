@@ -4,7 +4,6 @@ from typing import Dict, List
 import numpy as np
 import torch
 from torch.utils.data import TensorDataset, SequentialSampler, DataLoader
-
 from transformers import RobertaTokenizer, RobertaConfig, RobertaForSequenceClassification
 
 from reasoner.models import TransformersInputItem
@@ -42,8 +41,7 @@ class RobertaSequenceClassifier:
         # Get tokenized inputs
         token_ids, masks, token_type_ids = tokenize_for_transformer(input_items,
                                                                     self.tokenizer,
-                                                                    self.config[TransformersConfigKeys.MAX_SEQ_LEN],
-                                                                    debug=debug)
+                                                                    self.config[TransformersConfigKeys.MAX_SEQ_LEN])
         # Get PyTorch data loader
         dataset = TensorDataset(token_ids, masks, token_type_ids)
         sampler = SequentialSampler(dataset)

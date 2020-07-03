@@ -1,10 +1,10 @@
 """
 Scrap file for processing training data
 """
+import pandas as pd
+
 from experiments.util.experiment_util import get_html_preprocessor, get_text_preprocessor
 from experiments.util.train_data_util import get_train_claims_df
-
-import pandas as pd
 
 
 def export_train_data_pickle(root_path, save_path):

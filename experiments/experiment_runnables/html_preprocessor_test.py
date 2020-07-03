@@ -1,7 +1,9 @@
 import os
+
 import pandas as pd
 
 from experiments.util.experiment_util import save_results, get_html_preprocessor
+
 
 def process_all_html_files():
     """

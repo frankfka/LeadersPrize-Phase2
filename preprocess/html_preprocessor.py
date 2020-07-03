@@ -1,6 +1,7 @@
-from newspaper import fulltext
-from bs4 import BeautifulSoup
 import re
+
+from bs4 import BeautifulSoup
+from newspaper import fulltext
 
 
 class HTMLProcessResult:

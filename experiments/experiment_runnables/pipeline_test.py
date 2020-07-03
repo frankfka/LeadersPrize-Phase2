@@ -2,14 +2,13 @@ from datetime import datetime
 from typing import List, Dict
 
 import pandas as pd
+from sklearn.metrics import accuracy_score, f1_score
 
 from core.models import LeadersPrizeClaim
 from core.pipeline import LeadersPrizePipeline, PipelineConfigKeys
 from experiments.util.experiment_util import save_results
 from experiments.util.train_data_util import train_data_generator, get_train_article
 from search_client.client import SearchQueryResult
-
-from sklearn.metrics import accuracy_score, f1_score
 
 
 def eval_predictions(y_true, y_pred):
@@ -33,7 +32,7 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.DEBUG_MODE: True,
     PipelineConfigKeys.RETRIEVE_ARTICLES: True,
 }
-PROCESS_RANGE = range(2400, 2450)
+PROCESS_RANGE = range(2500, 2610)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"
 
 
@@ -76,7 +75,12 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
     for res in results:
         claims.append(res.preprocessed_claim)
         labels.append(res.original_claim.label)
-        reasoner_inputs.append(res.preprocessed_text_b_for_reasoner)
+        reasoner_input = ""
+        for idx, sent in enumerate(res.sentences_for_transformer):
+            if idx == 10:
+                break
+            reasoner_input += " . " + sent.preprocessed_text
+        reasoner_inputs.append(reasoner_input)
         pred_labels.append(res.submission_label)
     results_df = pd.DataFrame(data={
         "claim": claims,

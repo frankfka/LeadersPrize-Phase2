@@ -1,4 +1,4 @@
-from typing import List, Dict
+from typing import List
 
 from core.models import PipelineClaim
 from reasoner.models import TruthRating, TransformersInputItem
@@ -22,15 +22,18 @@ class TransformerReasoner:
     def predict(self, claims: List[PipelineClaim]) -> List[TruthRating]:
         input_items: List[TransformersInputItem] = []
         for claim in claims:
-            if not claim.preprocessed_text_b_for_reasoner:
+            # TODO: Optimize
+            sents_for_transformer: List[str] = list(map(lambda pipeline_sent: pipeline_sent.preprocessed_text, claim.sentences_for_transformer))
+            text_b_for_transformer = " . ".join(sents_for_transformer)
+            if not text_b_for_transformer:
                 print("Warning: No preprocessed text_b for reasoner")
                 # Transformers errors out with empty input - this occurs when we err when searching a query
-                # In this case, give some dummy text, but TODO: figure this out
-                claim.preprocessed_text_b_for_reasoner = "No supporting info provided"
+                # In this case, give some dummy text, but this should never happen
+                text_b_for_transformer = "No supporting information provided"
             # Get tokenized
             input_item = TransformersInputItem(claim.original_claim.id,
                                                claim.preprocessed_claim,
-                                               claim.preprocessed_text_b_for_reasoner)
+                                               text_b_for_transformer)
             input_items.append(input_item)
 
         pred_probabilities = self.transformer.predict(input_items=input_items, debug=self.debug)

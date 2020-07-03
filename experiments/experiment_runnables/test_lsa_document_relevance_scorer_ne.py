@@ -1,5 +1,6 @@
 import csv
 import os
+
 import bs4
 
 from analyze.document_relevance_scorer import lsa_document_relevance_scorer

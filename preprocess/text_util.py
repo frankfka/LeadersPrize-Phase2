@@ -3,10 +3,10 @@ import string
 import unicodedata
 
 import contractions
-from nltk.corpus import stopwords
-from num2words import num2words
 import numpy as np
 from nltk import word_tokenize, sent_tokenize, pos_tag
+from nltk.corpus import stopwords
+from num2words import num2words
 from sklearn.metrics.pairwise import cosine_similarity
 
 # Get cosine similarity between two vectors
