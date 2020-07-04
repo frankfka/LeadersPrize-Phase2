@@ -2,7 +2,7 @@
 from core.pipeline import PipelineConfigKeys
 
 ROOT = '/usr/local/'
-# ROOT = '/Users/frankjia/Desktop/LeadersPrize/submission_test/'
+ROOT = '/Users/frankjia/Desktop/LeadersPrize/submission_test/'
 METADATA_FILEPATH = ROOT + 'dataset/metadata.json'
 PREDICTIONS_FILEPATH = ROOT + 'predictions.json'
 

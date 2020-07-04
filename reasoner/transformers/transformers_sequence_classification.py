@@ -4,7 +4,7 @@ from typing import Dict, List
 import numpy as np
 import torch
 from torch.utils.data import TensorDataset, SequentialSampler, DataLoader
-from transformers import RobertaTokenizer, RobertaConfig, RobertaForSequenceClassification
+from transformers import RobertaConfig, RobertaForSequenceClassification, RobertaTokenizerFast
 
 from reasoner.models import TransformersInputItem
 from reasoner.transformers.transformers_util import tokenize_for_transformer
@@ -25,7 +25,8 @@ class RobertaSequenceClassifier:
         import os
         os.environ["TOKENIZERS_PARALLELISM"] = "false"
         self.config = config
-        self.tokenizer = RobertaTokenizer.from_pretrained(config[TransformersConfigKeys.TOK_PATH])
+        self.tokenizer = RobertaTokenizerFast.from_pretrained(config[TransformersConfigKeys.TOK_PATH],
+                                                              add_prefix_space=True)
         model_config = RobertaConfig.from_pretrained(config[TransformersConfigKeys.CONFIG_PATH],
                                                      num_labels=config[TransformersConfigKeys.NUM_LABELS])
         self.model = RobertaForSequenceClassification.from_pretrained(config[TransformersConfigKeys.MODEL_PATH],
