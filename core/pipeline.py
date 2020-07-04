@@ -7,6 +7,7 @@ from analyze.document_relevance_scorer.lsa_document_relevance_scorer import LSAD
 from analyze.relevant_information_extractor.relevant_information_extractor import RelevantInformationExtractor
 from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from analyze.sentence_relevance_scorer.word2vec_vectorizer import Word2VecVectorizer
+from analyze.supporting_evidence_generator.supporting_evidence_generator import SupportingEvidenceGenerator
 from core.models import LeadersPrizeClaim, PipelineClaim, PipelineArticle, PipelineSentence
 from preprocess import text_util
 from preprocess.html_preprocessor import HTMLProcessor
@@ -57,6 +58,7 @@ class LeadersPrizePipeline:
         self.information_extractor = RelevantInformationExtractor()
         self.transformer_reasoner = TransformerReasoner(model_path=config[PipelineConfigKeys.TRANSFORMER_PATH],
                                                         debug=config[PipelineConfigKeys.DEBUG_MODE])
+        self.support_generator = SupportingEvidenceGenerator()
 
     def predict(self, raw_claims: List[LeadersPrizeClaim]) -> List[PipelineClaim]:
         t = datetime.now()
@@ -192,7 +194,7 @@ class LeadersPrizePipeline:
 
             # If no relevant information was extracted - write explanation and continue
             if len(all_sentences) == 0:
-                pipeline_object.submission_explanation = "No relevant information was found."
+                pipeline_object.submission_explanation = "No relevant information was found to support the claim."
                 pipeline_objects_with_err.append(pipeline_object)
                 continue
 
@@ -211,8 +213,10 @@ class LeadersPrizePipeline:
         predictions = self.transformer_reasoner.predict(pipeline_objects_for_prediction)
         for (pipeline_object, prediction) in zip(pipeline_objects_for_prediction, predictions):
             # Populate submission values
-            # TODO: Submission article urls, explanations
+            explanation, supporting_urls = self.support_generator.get_evidence(pipeline_object)
             pipeline_object.submission_label = prediction.value
+            pipeline_object.submission_article_urls = supporting_urls
+            pipeline_object.submission_explanation = explanation
 
             if debug_mode:
                 nt = datetime.now()

@@ -1,4 +1,5 @@
 FROM tensorflow/tensorflow:latest-gpu-py3
+# TODO: https://hub.docker.com/r/pytorch/pytorch/tags
 
 # Basic setup
 RUN pip install --upgrade pip

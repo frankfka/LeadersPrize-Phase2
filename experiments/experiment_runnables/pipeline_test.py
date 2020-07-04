@@ -30,9 +30,9 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.ENDPOINT: "http://lpsa.wrw.org",
     PipelineConfigKeys.TRANSFORMER_PATH: f"{PROJ_ROOT}assets/roberta_reasoner/",
     PipelineConfigKeys.DEBUG_MODE: True,
-    PipelineConfigKeys.RETRIEVE_ARTICLES: False,
+    PipelineConfigKeys.RETRIEVE_ARTICLES: True,
 }
-PROCESS_RANGE = range(2500, 2610)
+PROCESS_RANGE = range(0, 100)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"
 
 
@@ -41,7 +41,7 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
     init_articles = not config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True)
     if init_articles:
         print("Reading articles from training data. Will not call search client")
-    for idx, claim in train_data_generator(train_data_path + "train.json"):
+    for idx, claim in train_data_generator(train_data_path + "trial_combined_data.json"):
         if idx < process_range.start:
             continue
         elif idx >= process_range.stop:

@@ -73,8 +73,12 @@ class ArticleSearchClient:
                 resp_json = await resp.json()
                 hits = resp_json["hits"]["hits"]
                 for hit in hits:
-                    results.append(SearchQueryResult(hit=hit))
-        except Exception as e:
+                    try:
+                        results.append(SearchQueryResult(hit=hit))
+                    except Exception as parse_exception:
+                        print("Error decoding result")
+                        print(parse_exception)
+        except Exception as search_exception:
             print("Exception calling search client")
-            print(e)
+            print(search_exception)
         return results
