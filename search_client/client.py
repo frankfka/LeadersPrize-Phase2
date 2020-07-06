@@ -55,7 +55,8 @@ class ArticleSearchClient:
         for from_index in range(0, num_results, 30):
             search_params.append({"query": query, "from": from_index})
         # Fetch
-        return asyncio.run(self.search_in_async_session(search_params))
+        loop = asyncio.get_event_loop()
+        return loop.run_until_complete(self.search_in_async_session(search_params))
 
     async def search_in_async_session(self, search_params):
         results = []
