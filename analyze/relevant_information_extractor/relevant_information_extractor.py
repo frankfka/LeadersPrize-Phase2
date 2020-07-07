@@ -1,11 +1,51 @@
 from typing import List, Set, Optional
 
+from analyze.sentence_relevance_scorer.word2vec_relevance_scorer import Word2VecRelevanceScorer
 from core.models import PipelineSentence
 
 
 class RelevantInformationExtractor:
 
-    def extract(self, sentences: List[PipelineSentence], left_window=0, right_window=0) -> List[PipelineSentence]:
+    def __init__(self, sentence_relevance_scorer: Word2VecRelevanceScorer):
+        self.sentence_relevance_scorer = sentence_relevance_scorer
+
+    def extract_for_transformer(
+            self, claim_str: str, supporting_sentences: List[PipelineSentence],
+            min_sent_relevance: float, deduplication_relevance_cutoff: float, max_num_words: float
+    ) -> List[PipelineSentence]:
+        """
+        Extract a set of sentences to be used by the transformer
+        """
+        # Enforce a minimum relevance and sort by decreasing relevance
+        sents_for_extraction = [sent for sent in supporting_sentences if sent.relevance > min_sent_relevance]
+        sents_for_extraction = sorted(sents_for_extraction, key=lambda sentence: sentence.relevance, reverse=True)
+        # Now we need to deduplicate to remove sentences that are highly similar
+        extracted_sents: List[PipelineSentence] = []
+        rough_num_words = 0
+        for sent in sents_for_extraction:
+            if rough_num_words > max_num_words:
+                break
+            # Ignore those very similar with claim
+            if self.sentence_relevance_scorer.get_relevance(claim_str, sent.preprocessed_text) > \
+                    deduplication_relevance_cutoff:
+                continue
+            # Ignore those with high similarity with a sentence already extracted
+            skip_this_sent = False
+            for extracted_sent in extracted_sents:
+                if self.sentence_relevance_scorer.get_relevance(
+                    sent.preprocessed_text,
+                    extracted_sent.preprocessed_text
+                ) > deduplication_relevance_cutoff:
+                    skip_this_sent = True
+                    break
+            if skip_this_sent:
+                continue
+            # We should extract this, passed all checks
+            extracted_sents.append(sent)
+            rough_num_words += len(sent.preprocessed_text.split())
+        return extracted_sents
+
+    def extract_with_window(self, sentences: List[PipelineSentence], left_window=0, right_window=0) -> List[PipelineSentence]:
         """
         Extract the most relevant sentences given annotated sentences with relevance.
         The sentences should not be reordered previously.
