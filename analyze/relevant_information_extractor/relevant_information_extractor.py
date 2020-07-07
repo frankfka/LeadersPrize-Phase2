@@ -30,15 +30,12 @@ class RelevantInformationExtractor:
                     deduplication_relevance_cutoff:
                 continue
             # Ignore those with high similarity with a sentence already extracted
-            skip_this_sent = False
-            for extracted_sent in extracted_sents:
-                if self.sentence_relevance_scorer.get_relevance(
-                    sent.preprocessed_text,
-                    extracted_sent.preprocessed_text
-                ) > deduplication_relevance_cutoff:
-                    skip_this_sent = True
-                    break
-            if skip_this_sent:
+            # Note: we only need to check the last one because these sentences are ordered by relevance
+            if len(extracted_sents) > 0 and \
+                    self.sentence_relevance_scorer.get_relevance(
+                        sent.preprocessed_text,
+                        extracted_sents[-1].preprocessed_text
+                    ) > deduplication_relevance_cutoff:
                 continue
             # We should extract this, passed all checks
             extracted_sents.append(sent)
