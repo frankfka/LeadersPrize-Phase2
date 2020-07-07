@@ -32,7 +32,7 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.DEBUG_MODE: True,
     PipelineConfigKeys.RETRIEVE_ARTICLES: True,
 }
-PROCESS_RANGE = range(0, 100)
+PROCESS_RANGE = range(50, 70)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"
 
 
@@ -72,6 +72,8 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
     labels = []
     reasoner_inputs = []
     pred_labels = []
+    supporting_article_urls = []
+    explanations = []
     for res in results:
         claims.append(res.preprocessed_claim)
         labels.append(res.original_claim.label)
@@ -82,16 +84,20 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
             reasoner_input += " . " + sent.preprocessed_text
         reasoner_inputs.append(reasoner_input)
         pred_labels.append(res.submission_label)
+        supporting_article_urls.append(", ".join(res.submission_article_urls.values()))
+        explanations.append(res.submission_explanation)
     results_df = pd.DataFrame(data={
         "claim": claims,
         "label": labels,
-        "predicted": pred_labels,
         "reasoner_input": reasoner_inputs,
+        "predicted": pred_labels,
+        "article_urls": supporting_article_urls,
+        "explanation": explanations
     })
 
     eval_predictions(labels, pred_labels)
 
-    save_results(results_df, "pipeline_test", "claim_to_preprocessed_train_articles")
+    save_results(results_df, "pipeline_test", "full_pipeline")
 
 
 if __name__ == '__main__':
