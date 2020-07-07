@@ -55,7 +55,7 @@ class LeadersPrizePipeline:
         self.text_preprocessor = TextPreprocessor()
         w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
-        self.information_extractor = RelevantInformationExtractor()
+        self.information_extractor = RelevantInformationExtractor(self.sentence_relevance_scorer)
         self.transformer_reasoner = TransformerReasoner(model_path=config[PipelineConfigKeys.TRANSFORMER_PATH],
                                                         debug=config[PipelineConfigKeys.DEBUG_MODE])
         self.support_generator = SupportingEvidenceGenerator()
@@ -186,14 +186,14 @@ class LeadersPrizePipeline:
                     article_sentences = article_sentences[0:num_sentences_per_article_to_process]
                 all_sentences += article_sentences
 
-            # Enforce a minimum relevance and sort by decreasing relevance
-            all_sentences = [sent for sent in all_sentences if sent.relevance > min_sent_relevance]
-            all_sentences = sorted(all_sentences, key=lambda sentence: sentence.relevance, reverse=True)
-            # Sentences sorted by relevance is sent to transformer
-            pipeline_object.sentences_for_transformer = all_sentences
+            # Extract sentences for transformer
+            pipeline_object.sentences_for_transformer = self.information_extractor.extract_for_transformer(
+                claim_str=pipeline_object.preprocessed_claim, supporting_sentences=all_sentences,
+                min_sent_relevance=min_sent_relevance, deduplication_relevance_cutoff=0.97, max_num_words=500
+            )
 
             # If no relevant information was extracted - write explanation and continue
-            if len(all_sentences) == 0:
+            if len(pipeline_object.sentences_for_transformer) == 0:
                 pipeline_object.submission_explanation = "No relevant information was found to support the claim."
                 pipeline_objects_with_err.append(pipeline_object)
                 continue
