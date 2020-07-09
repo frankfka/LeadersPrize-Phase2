@@ -4,7 +4,10 @@ from core.models import PipelineClaim
 class SupportingEvidenceGenerator:
 
     def __init__(self):
-        pass
+        self.max_sent_chars = 400
+        self.ideal_min_sent_chars = 200
+        self.url_key = "url"
+        self.evidence_key = "evidence"
 
     def get_evidence(self, predicted_pipeline_claim: PipelineClaim) -> (str, dict):
         """
@@ -16,33 +19,50 @@ class SupportingEvidenceGenerator:
         prediction = predicted_pipeline_claim.submission_label  # TODO: Use the prediction somehow
         used_sentences = predicted_pipeline_claim.sentences_for_transformer
 
-        supporting_info = {}
-        used_urls = set()
-        # Construct supporting information from the sentences used for the transformer
+        # Ideal - high sentence length
+        ideal_supporting_info = []
+        ideal_used_urls = set()
+        # Backup - no limit on sentence length
+        backup_supporting_info = []
+        backup_used_urls = set()
         for sent in used_sentences:
-            if len(supporting_info) == 2:
+            # Done - no need to keep looping
+            if len(ideal_supporting_info) == 2:
                 break
-            if sent.parent_article_url not in used_urls:
-                # Enforce max character count per sentence
-                evidence = sent.text  # Use the original text
-                if len(evidence) > 400:
-                    evidence = f"{evidence[:400]}..."
-                new_evidence = {
-                    "url": sent.parent_article_url,
-                    "evidence": evidence
-                }
-                support_key = str(len(supporting_info) + 1)
+            sent_text = sent.text  # Use original text
+            sent_text_chars = len(sent_text)
+            # Truncate to max length
+            if sent_text_chars > self.max_sent_chars:
+                sent_text = f"{sent_text[:self.max_sent_chars]}..."
+            sent_info_dict = {
+                self.url_key: sent.parent_article_url,
+                self.evidence_key: sent_text
+            }
+            # Ideal case
+            if sent_text_chars > self.ideal_min_sent_chars:
+                ideal_supporting_info.append(sent_info_dict)
+                ideal_used_urls.add(sent.parent_article_url)
+            # Backup case
+            elif len(backup_supporting_info) < 2:
+                backup_supporting_info.append(sent_info_dict)
+                backup_used_urls.add(sent.parent_article_url)
 
-                supporting_info[support_key] = new_evidence
-                used_urls.add(sent.parent_article_url)
+        # Construct the actual evidence array
+        if len(ideal_supporting_info) == 2:
+            final_evidence_arr = ideal_supporting_info
+        else:
+            final_evidence_arr = backup_supporting_info
+        # Hard limit on length
+        if len(final_evidence_arr) > 2:
+            final_evidence_arr = final_evidence_arr[:2]
 
+        # Construct the final evidence for submission
         final_explanation = ""
         supporting_urls = {}
-
-        for support_key, evidence in supporting_info.items():
-            evidence_text = evidence["evidence"]
-            final_explanation += f"Article {support_key} states that: {evidence_text}. "
-            supporting_urls[support_key] = evidence["url"]
+        for (idx, evidence_obj) in enumerate(final_evidence_arr):
+            evidence_key = str(idx + 1)
+            final_explanation += f"Article {evidence_key} states that: {evidence_obj[self.evidence_key]}. "
+            supporting_urls[evidence_key] = evidence_obj[self.url_key]
 
         # Hard limit on character count:
         if len(final_explanation) > 1000:

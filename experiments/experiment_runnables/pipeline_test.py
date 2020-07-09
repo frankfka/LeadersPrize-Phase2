@@ -81,7 +81,7 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
         for idx, sent in enumerate(res.sentences_for_transformer):
             if idx == 10:
                 break
-            reasoner_input += " . " + sent.preprocessed_text
+            reasoner_input += " " + sent.preprocessed_text
         reasoner_inputs.append(reasoner_input)
         pred_labels.append(res.submission_label)
         supporting_article_urls.append(", ".join(res.submission_article_urls.values()))

@@ -61,7 +61,7 @@ def export_bert_train_data(preprocessed_pickle_path: str, sentence_extraction_wi
         for sent in pipeline_sentences:
             if num_words > 1000:
                 break
-            extracted_txt += sent.text + " . "
+            extracted_txt += sent.text + " "
             num_words += len(sent.text.split())
         extracted_info.append(extracted_txt)
 
