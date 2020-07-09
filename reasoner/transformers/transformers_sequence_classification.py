@@ -37,12 +37,12 @@ class RobertaSequenceClassifier:
             self.model.cuda()
             self.device = "cuda"
 
-    def predict(self, input_items: List[TransformersInputItem], debug=False):
+    def predict(self, text_a_arr: List[str], text_b_arr: List[str]):
         """
         Get predictions for the inputs. Each prediction is a numpy array of the probabilities of each class
         """
         # Get tokenized inputs
-        token_ids, masks, token_type_ids = tokenize_for_transformer(input_items, self.tokenizer)
+        token_ids, masks, token_type_ids = tokenize_for_transformer(text_a_arr, text_b_arr, self.tokenizer)
         # Get PyTorch data loader
         dataset = TensorDataset(token_ids, masks, token_type_ids)
         sampler = SequentialSampler(dataset)

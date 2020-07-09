@@ -20,23 +20,27 @@ class TransformerReasoner:
         self.transformer = RobertaSequenceClassifier(config=config)
 
     def predict(self, claims: List[PipelineClaim]) -> List[TruthRating]:
-        input_items: List[TransformersInputItem] = []
+        text_a_arr: List[str] = []
+        text_b_arr: List[str] = []
         for claim in claims:
-            # TODO: Optimize
-            sents_for_transformer: List[str] = list(map(lambda pipeline_sent: pipeline_sent.preprocessed_text, claim.sentences_for_transformer))
-            text_b_for_transformer = " . ".join(sents_for_transformer)
+            text_b_for_transformer = ""
+            for sentence in claim.sentences_for_transformer:
+                text_b_for_transformer += sentence.preprocessed_text + " . "
             if not text_b_for_transformer:
                 print("Warning: No preprocessed text_b for reasoner")
                 # Transformers errors out with empty input - this occurs when we err when searching a query
                 # In this case, give some dummy text, but this should never happen
                 text_b_for_transformer = "No supporting information provided"
             # Get tokenized
-            input_item = TransformersInputItem(claim.original_claim.id,
-                                               claim.preprocessed_claim,
-                                               text_b_for_transformer)
-            input_items.append(input_item)
+            text_a_arr.append(claim.preprocessed_claim)
+            text_b_arr.append(text_b_for_transformer)
 
-        pred_probabilities = self.transformer.predict(input_items=input_items, debug=self.debug)
+        if self.debug:
+            print("Predicting using Transformer")
+            print(f"Example Text A: {text_a_arr[0]}")
+            print(f"Example Text B: {text_b_arr[0]}")
+
+        pred_probabilities = self.transformer.predict(text_a_arr, text_b_arr)
         predictions: List[TruthRating] = []
         for probs in pred_probabilities:
             predictions.append(TruthRating.from_probabilities(probs=probs))

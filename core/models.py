@@ -46,7 +46,7 @@ class PipelineClaim:
         self.sentences_for_transformer: List[PipelineSentence] = []  # Curated sentences for the transformer
         # Submission properties
         self.submission_id: str = ""
-        self.submission_label: int = 1  # TODO: Shall we default to 0?
+        self.submission_label: int = 1
         self.submission_explanation: str = ""
         self.submission_article_urls: Dict[str, str] = {}
 

@@ -2,17 +2,9 @@ from typing import List
 
 from transformers import RobertaTokenizerFast
 
-from reasoner.models import TransformersInputItem
-
 
 # Preprocesses text into inputs expected for the model (token_ids, attention_masks, token_type_ids)
-def tokenize_for_transformer(input_items: List[TransformersInputItem], tokenizer: RobertaTokenizerFast):
-    text_a_arr = []
-    text_b_arr = []
-    for item in input_items:
-        text_a_arr.append(item.text_a)
-        text_b_arr.append(item.text_b)
-
+def tokenize_for_transformer(text_a_arr: List[str], text_b_arr: List[str], tokenizer: RobertaTokenizerFast):
     tokenized_result = tokenizer(
         text_a_arr,
         text_b_arr,

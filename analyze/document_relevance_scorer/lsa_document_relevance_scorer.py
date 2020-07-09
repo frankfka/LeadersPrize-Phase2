@@ -14,7 +14,6 @@ from scipy.sparse import dok_matrix
 from tqdm import tqdm
 
 
-# TODO: Put these as part of preprocessing pipeline
 def __clean_line__(line: str) -> str:
     """
     This module is responsible for converting a document into a cleaned version using nltk

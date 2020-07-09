@@ -73,8 +73,6 @@ def export_bert_train_data(preprocessed_pickle_path: str, sentence_extraction_wi
             print("\n")
 
     # Export results
-
-    # TODO: Force label to be int
     export_df = pd.DataFrame(data={"text_1": claims, "text_2": extracted_info, "label": labels})
     export_df.to_pickle(output_path)
 

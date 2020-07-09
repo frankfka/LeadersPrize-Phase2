@@ -17,9 +17,6 @@ from reasoner.transformer_reasoner import TransformerReasoner
 from search_client.client import ArticleSearchClient
 
 
-# TODO: Increase # articles to process
-# TODO: Get stuff for reasoner by blending articles, getting highest relevance?
-
 class PipelineConfigKeys(Enum):
     API_KEY = "api_key"
     ENDPOINT = "endpoint"
@@ -175,11 +172,6 @@ class LeadersPrizePipeline:
                     pipeline_sentence.parent_article_url = pipeline_article.url
                     article_sentences.append(pipeline_sentence)
                 pipeline_article.sentences = article_sentences
-                # 5.3 Get select sentences for reasoner, then cut to the most relevant sentences
-                # TODO: Just consider removing this
-                # sentences_for_reasoner = self.information_extractor.extract(article_sentences,
-                #                                                             left_window=info_extraction_left_window,
-                #                                                             right_window=info_extraction_right_window)
                 article_sentences.sort(key=lambda sentence: sentence.relevance, reverse=True)
                 # Only consider top n sentences per article
                 if len(article_sentences) > num_sentences_per_article_to_process:

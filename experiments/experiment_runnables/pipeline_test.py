@@ -32,7 +32,7 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.DEBUG_MODE: True,
     PipelineConfigKeys.RETRIEVE_ARTICLES: True,
 }
-PROCESS_RANGE = range(50, 70)
+PROCESS_RANGE = range(0, 100)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"
 
 

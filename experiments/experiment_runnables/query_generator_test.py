@@ -27,7 +27,6 @@ def execute_queries_export_urls():
 
         ids.append(claim.id)
         original_claims.append(claim.claim)
-        # TODO: No truth tuples here
         q = bqg.get_query(claim)
         res = client.search(q)
         export_str = ""

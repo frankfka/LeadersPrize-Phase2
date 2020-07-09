@@ -54,7 +54,6 @@ def main():
             article_texts.append(html_processed_text)
 
         # Both claim and article_texts are unpreprocessed - LSA class currently does the preprocessing
-        # TODO: Add in claimant as well?
         relevances = relevance_scorer.analyze(claim.claim, article_texts)
         print(relevances)
         articles_with_relevances = list(zip(article_urls, relevances))
