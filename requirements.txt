@@ -52,10 +52,10 @@ textsearch==0.0.17
 threadpoolctl==2.1.0
 tinysegmenter==0.3
 tldextract==2.2.2
-tokenizers==0.8.0rc4
+tokenizers==0.8.1rc1
 torch==1.5.1
 tqdm==4.47.0
-transformers==3.0.0
+transformers==3.0.2
 Unidecode==1.1.1
 urllib3==1.25.9
 yarl==1.4.2
