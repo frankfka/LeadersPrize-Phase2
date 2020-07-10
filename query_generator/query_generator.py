@@ -14,15 +14,11 @@ class QueryGenerator:
         """
         Generate a query given a claim, the claim should not be preprocessed
         """
-        # Construct a basic claim with cleaned text from the original claim
-        query = self.__clean(claim.original_claim.claim + ' ' + claim.original_claim.claimant)
-        # Add quoted strings
-        query += f" {' '.join(self.__get_quoted_strs(claim.original_claim.claim))} "
-        # Add preprocessed claim
-        query += f" {claim.preprocessed_claim} "
-        # Add items from a custom query string, if provided
-        query += f" {custom_query}"
-        return query
+        # Query is made of 3 components - quoted strings, the original claim + claimant, and the preprocessed claim
+        query = claim.original_claim.claim + ' ' + claim.original_claim.claimant
+        query += ' ' + ' '.join(self.__get_quoted_strs(claim.original_claim.claim))
+        query += ' ' + claim.preprocessed_claim
+        return self.__clean(query)
 
     def __clean(self, text: str) -> str:
         """
