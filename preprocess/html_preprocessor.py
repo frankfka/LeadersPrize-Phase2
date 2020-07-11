@@ -19,6 +19,9 @@ class HTMLProcessResult:
 
 class HTMLProcessor:
 
+    def __init__(self, debug=False):
+        self.debug = debug
+
     def process(self, html) -> HTMLProcessResult:
         # Parsing can fail. In this case, default to an empty result
         result = HTMLProcessResult()
@@ -88,7 +91,10 @@ class HTMLProcessor:
     def __get_article_text_newspaper(self, html: str) -> str:
         try:
             return fulltext(html)
-        except:
+        except Exception as e:
+            if self.debug:
+                print("Error parsing HTML using Newspaper")
+                print(e)
             return ""
 
     def __clean_article_text(self, text: str) -> str:

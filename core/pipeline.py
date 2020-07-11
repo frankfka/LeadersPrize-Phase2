@@ -48,7 +48,7 @@ class LeadersPrizePipeline:
                                                  config[PipelineConfigKeys.API_KEY])
         self.query_generator = QueryGenerator()
         self.article_relevance_scorer = LSADocumentRelevanceAnalyzer()
-        self.html_preprocessor = HTMLProcessor()
+        self.html_preprocessor = HTMLProcessor(debug=config[PipelineConfigKeys.DEBUG_MODE])
         self.text_preprocessor = TextPreprocessor()
         w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
@@ -72,7 +72,11 @@ class LeadersPrizePipeline:
 
         pipeline_objects_with_err: List[PipelineClaim] = []
         pipeline_objects_for_prediction: List[PipelineClaim] = []
-        for claim in raw_claims:
+        for (claim_idx, claim) in enumerate(raw_claims):
+
+            if debug_mode:
+                print(f"Processing claim {claim_idx}")
+
             # Create pipeline object - this will hold all the annotations of our processing
             pipeline_object: PipelineClaim = PipelineClaim(claim)
             pipeline_object.submission_id = pipeline_object.original_claim.id
