@@ -5,7 +5,7 @@ class SupportingEvidenceGenerator:
 
     def __init__(self):
         self.max_sent_chars = 400
-        self.ideal_min_sent_chars = 200
+        self.ideal_min_sent_chars = 100
         self.url_key = "url"
         self.evidence_key = "evidence"
 

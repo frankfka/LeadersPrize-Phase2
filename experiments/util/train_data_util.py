@@ -61,4 +61,4 @@ def train_data_generator(json_path: str):
     with open(json_path) as json_file:
         data = json.load(json_file)
         for idx, item in enumerate(data):
-            yield idx, LeadersPrizeClaim(item)
+            yield idx, item, LeadersPrizeClaim(item)

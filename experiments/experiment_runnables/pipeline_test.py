@@ -4,11 +4,28 @@ from typing import List, Dict
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score
 
-from core.models import LeadersPrizeClaim
+from core.models import LeadersPrizeClaim, PipelineClaim
 from core.pipeline import LeadersPrizePipeline, PipelineConfigKeys
+from experiments.util.datacup_scoring import compute_score_phase2
 from experiments.util.experiment_util import save_results
 from experiments.util.train_data_util import train_data_generator, get_train_article
 from search_client.client import SearchQueryResult
+
+
+def eval_datacup(true_arr: List[dict], predicted_arr: List[PipelineClaim]):
+    pred_dict = {}
+    for pred in predicted_arr:
+        pred_dict[pred.submission_id] = {
+            "label": pred.submission_label,
+            "related_articles": pred.submission_article_urls,
+            "explanation": pred.submission_explanation
+        }
+    true_dict = {}
+    for true_item in true_arr:
+        true_dict[true_item["id"]] = true_item
+    score_result = compute_score_phase2(pred_dict, true_dict)
+    score = score_result["score"]
+    print(f"Datacup Score: {score}")
 
 
 def eval_predictions(y_true, y_pred):
@@ -32,16 +49,17 @@ PIPELINE_CONFIG = {
     PipelineConfigKeys.DEBUG_MODE: True,
     PipelineConfigKeys.RETRIEVE_ARTICLES: True,
 }
-PROCESS_RANGE = range(0, 100)
+PROCESS_RANGE = range(0, 600)
 TRAIN_DATA_PATH = "/Users/frankjia/Desktop/LeadersPrize/train/"
 
 
 def test_pipeline(process_range: range, config: Dict, train_data_path: str):
     raw_claims: List[LeadersPrizeClaim] = []
+    raw_claim_dicts: List[dict] = []
     init_articles = not config.get(PipelineConfigKeys.RETRIEVE_ARTICLES, True)
     if init_articles:
         print("Reading articles from training data. Will not call search client")
-    for idx, claim in train_data_generator(train_data_path + "trial_combined_data.json"):
+    for idx, claim_dict, claim in train_data_generator(train_data_path + "trial_combined_data_long.json"):
         if idx < process_range.start:
             continue
         elif idx >= process_range.stop:
@@ -56,6 +74,7 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
                 )
             claim.mock_search_results = articles
         raw_claims.append(claim)
+        raw_claim_dicts.append(claim_dict)
 
     start_time = datetime.now()
 
@@ -95,7 +114,10 @@ def test_pipeline(process_range: range, config: Dict, train_data_path: str):
         "explanation": explanations
     })
 
+    # Get accuracies
     eval_predictions(labels, pred_labels)
+    # Get datacup score
+    eval_datacup(raw_claim_dicts, results)
 
     save_results(results_df, "pipeline_test", "full_pipeline")
 
