@@ -26,7 +26,7 @@ class TransformerReasoner:
             text_b_for_transformer = ""
             for sentence in claim.sentences_for_transformer:
                 # Sentences from NLTK preserve the period, so no need to inject punctuation
-                text_b_for_transformer += sentence.preprocessed_text + " "
+                text_b_for_transformer += sentence.preprocessed_text + " . "
             if not text_b_for_transformer:
                 print("Warning: No preprocessed text_b for reasoner")
                 # Transformers errors out with empty input - this occurs when we err when searching a query

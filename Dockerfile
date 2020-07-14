@@ -13,6 +13,7 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt --timeout 100
 
 # Install NLTK requirements
 RUN [ "python3", "-c", "import nltk; nltk.download('punkt'); nltk.download('stopwords');" ]
+# TODO: Install spacy requirements
 
 # Copy all files over
 COPY . .

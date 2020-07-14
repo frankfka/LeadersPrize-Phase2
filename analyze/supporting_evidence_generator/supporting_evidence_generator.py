@@ -14,7 +14,6 @@ class SupportingEvidenceGenerator:
         Constructs supporting evidence:
         - First item in returned tuple is the explanation
         - Second item is a dict of supporting article URL's: { '1': 'some_url', '2': 'some_url' }
-        # TODO: should have min sentence length
         """
         prediction = predicted_pipeline_claim.submission_label  # TODO: Use the prediction somehow
         used_sentences = predicted_pipeline_claim.sentences_for_transformer

@@ -46,12 +46,16 @@ class LeadersPrizePipeline:
         # Create inner dependencies
         self.search_client = ArticleSearchClient(config[PipelineConfigKeys.ENDPOINT],
                                                  config[PipelineConfigKeys.API_KEY])
-        self.query_generator = QueryGenerator()
+        import spacy
+        spacy_model = spacy.load("en_core_web_lg")
+        self.query_generator = QueryGenerator(spacy_model)
         self.article_relevance_scorer = LSADocumentRelevanceAnalyzer()
         self.html_preprocessor = HTMLProcessor(debug=config[PipelineConfigKeys.DEBUG_MODE])
         self.text_preprocessor = TextPreprocessor()
         w2v_vectorizer = Word2VecVectorizer(path=config[PipelineConfigKeys.W2V_PATH])
         self.sentence_relevance_scorer = Word2VecRelevanceScorer(vectorizer=w2v_vectorizer)
+        # from analyze.sentence_relevance_scorer.spacy_relevance_scorer import SpacyRelevanceScorer
+        # self.sentence_relevance_scorer = SpacyRelevanceScorer(spacy_model)
         self.information_extractor = RelevantInformationExtractor(self.sentence_relevance_scorer)
         self.transformer_reasoner = TransformerReasoner(model_path=config[PipelineConfigKeys.TRANSFORMER_PATH],
                                                         debug=config[PipelineConfigKeys.DEBUG_MODE])
@@ -65,7 +69,7 @@ class LeadersPrizePipeline:
         num_articles_to_search = self.config.get(PipelineConfigKeys.NUM_SEARCH_ARTICLES, 30)
         min_sentence_length = self.config.get(PipelineConfigKeys.MIN_SENT_LEN, 5)
         num_relevant_articles_to_process = self.config.get(PipelineConfigKeys.NUM_ARTICLES_TO_PROCESS, 10)
-        num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 5)
+        num_sentences_per_article_to_process = self.config.get(PipelineConfigKeys.NUM_SENTS_PER_ARTICLE, 10)
         min_sent_relevance = self.config.get(PipelineConfigKeys.SENT_RELEVANCE_CUTOFF, 0.5)
         info_extraction_left_window = self.config.get(PipelineConfigKeys.EXTRACT_LEFT_WINDOW, 1)
         info_extraction_right_window = self.config.get(PipelineConfigKeys.EXTRACT_RIGHT_WINDOW, 1)
