@@ -1,7 +1,7 @@
 from typing import List
 
 from core.models import PipelineClaim
-from reasoner.models import TruthRating, TransformersInputItem
+from reasoner.models import TruthRating
 from reasoner.transformers.transformers_sequence_classification import RobertaSequenceClassifier, TransformersConfigKeys
 
 
@@ -25,7 +25,6 @@ class TransformerReasoner:
         for claim in claims:
             text_b_for_transformer = ""
             for sentence in claim.sentences_for_transformer:
-                # Sentences from NLTK preserve the period, so no need to inject punctuation
                 text_b_for_transformer += sentence.preprocessed_text + " "
             if not text_b_for_transformer:
                 print("Warning: No preprocessed text_b for reasoner")
